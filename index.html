@@ -1337,4 +1337,22 @@
   </script>
 
 </body>
-</html>
+  <script>
+  async function loadNews() {
+    const { data, error } = await supabaseClient
+      .from('news')
+      .select('title, excerpt, created_at')
+      .eq('published', true)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Supabase news error:', error);
+      return;
+    }
+
+    console.log('ARTIK NEWS:', data);
+  }
+
+  loadNews();
+  </script>
+
