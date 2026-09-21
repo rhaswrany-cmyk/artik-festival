@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ARTIK | جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران</title>
+
+  <meta name="description"
+        content="وب‌سایت رسمی جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران | ARTIK">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+    :root {
+      --green: #08785f;
+      --dark-green: #043d32;
+      --deep: #031f1a;
+      --gold: #d6ad54;
+      --light: #f5f7f3;
+      --white: #ffffff;
+      --text: #17231f;
+      --muted: #68756f;
+      --border: rgba(4,61,50,.12);
+      --shadow: 0 18px 50px rgba(3,31,26,.10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1000;
+      background: rgba(3,31,26,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nav {
+      max-width: 1250px;
+      margin: auto;
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: white;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border: 2px solid var(--gold);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: 900;
+      transform: rotate(-4deg);
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 19px;
+      letter-spacing: 1px;
+    }
+
+    .brand-text span {
+      font-size: 10px;
+      font-weight: 400;
+      opacity: .7;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav a {
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-button {
+      background: var(--gold);
+      color: #172018;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+    }
+
+    .menu-btn {
+      display: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 760px;
+      padding: 150px 25px 90px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(214,173,84,.13), transparent 28%),
+        radial-gradient(circle at 90% 80%, rgba(8,120,95,.30), transparent 30%),
+        linear-gradient(135deg, #021b17, #064d40 55%, #052b24);
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border: 1px solid rgba(214,173,84,.14);
+      border-radius: 50%;
+      top: -280px;
+      left: -180px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 50%;
+      bottom: -250px;
+      right: -150px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1250px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 1.08;
+      font-weight: 900;
+      margin-bottom: 25px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: rgba(255,255,255,.72);
+      font-size: 17px;
+      line-height: 2.1;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 25px;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: .25s;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #182018;
+      box-shadow: 0 10px 30px rgba(214,173,84,.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,.22);
+      color: white;
+      background: rgba(255,255,255,.04);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.1);
+    }
+
+    .hero-card {
+      min-height: 420px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 35px;
+      background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.025));
+      backdrop-filter: blur(15px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(0,0,0,.2);
+    }
+
+    .hero-logo {
+      width: 230px;
+      height: 230px;
+      border: 2px solid var(--gold);
+      border-radius: 55px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      box-shadow:
+        0 0 0 18px rgba(214,173,84,.04),
+        0 0 0 36px rgba(214,173,84,.025);
+      transform: rotate(-4deg);
+    }
+
+    .hero-logo strong {
+      font-size: 65px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero-logo span {
+      font-size: 12px;
+      margin-top: 14px;
+      opacity: .75;
+      letter-spacing: 2px;
+    }
+
+    .floating {
+      position: absolute;
+      background: white;
+      color: var(--deep);
+      padding: 11px 15px;
+      border-radius: 13px;
+      box-shadow: var(--shadow);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .floating.one {
+      top: 45px;
+      right: -20px;
+    }
+
+    .floating.two {
+      bottom: 45px;
+      left: -20px;
+    }
+
+    /* ================= STATS ================= */
+
+    .stats {
+      max-width: 1150px;
+      margin: -55px auto 0;
+      position: relative;
+      z-index: 10;
+      padding: 0 20px;
+    }
+
+    .stats-box {
+      background: white;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+    }
+
+    .stat {
+      padding: 28px 20px;
+      text-align: center;
+      border-left: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-left: 0;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--green);
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 100px 25px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-heading {
+      margin-bottom: 45px;
+    }
+
+    .section-heading small {
+      color: var(--green);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .section-heading h2 {
+      margin-top: 8px;
+      font-size: clamp(30px, 4vw, 45px);
+      line-height: 1.3;
+      color: var(--deep);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 680px;
+      margin-top: 12px;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 2.2;
+    }
+
+    .quote {
+      border-right: 4px solid var(--gold);
+      padding: 15px 20px;
+      background: #fafbf8;
+      border-radius: 0 14px 14px 0;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .feature {
+      background: var(--light);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 20px;
+      transition: .25s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(8,120,95,.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .feature p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ================= PROGRAM ================= */
+
+    .program {
+      background: #f0f4ef;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .program-card {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      transition: .25s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .program-number {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .program-card h3 {
+      margin: 10px 0 8px;
+      font-size: 19px;
+      color: var(--deep);
+    }
+
+    .program-card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ================= CONTENT ================= */
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .content-card {
+      background: white;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: .25s;
+    }
+
+    .content-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .content-image {
+      height: 180px;
+      background:
+        linear-gradient(135deg, rgba(4,61,50,.9), rgba(8,120,95,.55)),
+        radial-gradient(circle at 70% 20%, rgba(214,173,84,.35), transparent 30%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.9);
+      font-size: 38px;
+    }
+
+    .content-body {
+      padding: 22px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--green);
+      background: rgba(8,120,95,.08);
+      border-radius: 8px;
+      padding: 4px 9px;
+      font-size: 10px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .content-body h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .content-body p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      background: var(--deep);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border: 1px solid rgba(214,173,84,.12);
+      border-radius: 50%;
+      left: -280px;
+      top: -250px;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .cta h2 {
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.35;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,.65);
+      margin-bottom: 30px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #021611;
+      color: white;
+      padding: 65px 25px 25px;
+    }
+
+    .footer-grid {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,.5);
+      font-size: 12px;
+      max-width: 330px;
+      margin-top: 15px;
+      line-height: 2;
+    }
+
+    footer h4 {
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    footer a {
+      display: block;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      margin-bottom: 9px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      max-width: 1150px;
+      margin: 50px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      text-align: center;
+      color: rgba(255,255,255,.35);
+      font-size: 10px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 82px;
+        right: 20px;
+        left: 20px;
+        background: #03251f;
+        padding: 20px;
+        border-radius: 18px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-content,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: 320px;
+      }
+
+      .program-grid,
+      .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .nav {
+        min-height: 72px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 125px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .stats-box {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .program-grid,
+      .content-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .hero-card {
+        min-height: 280px;
+      }
+
+      .hero-logo {
+        width: 180px;
+        height: 180px;
+      }
+
+      .hero-logo strong {
+        font-size: 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+    <div class="nav">
+
+      <a href="#home" class="brand">
+        <div class="brand-mark">A</div>
+
+        <div class="brand-text">
+          <strong>ARTIK</strong>
+          <span>جشنواره ملی نوجوانان ایران</span>
+        </div>
+      </a>
+
+      <nav id="navigation">
+        <a href="#home">خانه</a>
+        <a href="#about">درباره آرتیک</a>
+        <a href="#program">جشنواره</a>
+        <a href="#news">اخبار و محتوا</a>
+        <a href="#rules">شیوه‌نامه</a>
+        <a href="#contact">ارتباط با ما</a>
+
+        <a href="#register" class="nav-button">
+          ثبت پروژه
+        </a>
+      </nav>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <div>
+
+          <div class="eyebrow">
+            نخستین دوره جشنواره آرتیک ـ سال ۱۴۰۵
+          </div>
+
+          <h1>
+            جایی که
+            <br>
+            <span>آینده</span>
+            از یک استعداد آغاز می‌شود.
+          </h1>
+
+          <p>
+            جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران؛
+            بستری برای کشف استعدادها، نمایش ایده‌ها،
+            تجربه‌آموزی و ساختن مسیرهای تازه برای نسل آینده.
+          </p>
+
+          <div class="hero-actions">
+
+            <a href="#register" class="btn btn-primary">
+              ثبت پروژه
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+              آشنایی با آرتیک
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="hero-logo">
+            <strong>ARTIK</strong>
+            <span>IRAN YOUTH FESTIVAL</span>
+          </div>
+
+          <div class="floating one">
+            علمی · مهارتی · نوآوری
+          </div>
+
+          <div class="floating two">
+            ویژه نوجوانان ۱۲ تا ۱۹ سال
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <div class="stats">
+
+      <div class="stats-box">
+
+        <div class="stat">
+          <strong>۱۲–۱۹</strong>
+          <span>گروه سنی</span>
+        </div>
+
+        <div class="stat">
+          <strong>۲۰</strong>
+          <span>حوزه فعالیت</span>
+        </div>
+
+        <div class="stat">
+          <strong>۳</strong>
+          <span>سطح جشنواره</span>
+        </div>
+
+        <div class="stat">
+          <strong>۱۴۰۵</strong>
+          <span>نخستین دوره</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <div class="section-heading">
+              <small>ARTIK چیست؟</small>
+
+              <h2>
+                یک جشنواره؛
+                <br>
+                فراتر از یک مسابقه
+              </h2>
+            </div>
+
+            <p>
+              آرتیک یک جشنواره ملی علمی، مهارتی و نوآوری برای نوجوانان
+              ایران است که تلاش می‌کند استعدادها را از مرحله‌ی
+              «ایده» به مرحله‌ی «تجربه، ارائه و ارتباط» برساند.
+            </p>
+
+            <p>
+              در آرتیک، نوجوان فقط برای دریافت یک جایزه وارد جشنواره
+              نمی‌شود؛ بلکه فرصتی پیدا می‌کند تا توانایی خود را نشان دهد،
+              با نوجوانان دیگر ارتباط بگیرد، تجربه کسب کند و مسیر
+              آینده‌ی خود را بهتر بشناسد.
+            </p>
+
+            <div class="quote">
+              «آرتیک یعنی فرصتی برای اینکه یک استعداد، دیده شود
+              و بتواند مسیر آینده‌اش را بسازد.»
+            </div>
+
+          </div>
+
+
+          <div class="feature-grid">
+
+            <div class="feature">
+              <div class="feature-icon">✦</div>
+              <h3>کشف استعداد</h3>
+              <p>
+                شناسایی و معرفی توانایی‌های متفاوت نوجوانان.
+              </p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">⌁</div>
+              <h3>نوآوری</h3>
+              <p>
+                ایجاد فرصت برای ارائه ایده‌ها و پروژه‌های نو.
+              </p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">◎</div>
+              <h3>شبکه‌سازی</h3>
+              <p>
+                ارتباط میان نوجوانان، متخصصان و مجموعه‌های مختلف.
+              </p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">↗</div>
+              <h3>مسیر آینده</h3>
+              <p>
+                کمک به ساختن تجربه و مسیر حرفه‌ای نوجوانان.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PROGRAM ================= -->
+
+    <section class="program" id="program">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <small>ساختار جشنواره</small>
+
+          <h2>
+            مسیر آرتیک
+          </h2>
+
+          <p>
+            یک مسیر مرحله‌به‌مرحله برای ثبت، ارائه، داوری و دیده‌شدن
+            پروژه‌های نوجوانان.
+          </p>
+        </div>
+
+
+        <div class="program-grid">
+
+          <div class="program-card">
+            <span class="program-number">01</span>
+            <h3>ثبت‌نام و ارسال پروژه</h3>
+            <p>
+              نوجوانان پروژه یا توانایی خود را در سامانه جشنواره ثبت
+              و اطلاعات مورد نیاز را تکمیل می‌کنند.
+            </p>
+          </div>
+
+          <div class="program-card">
+            <span class="program-number">02</span>
+            <h3>ارزیابی و داوری</h3>
+            <p>
+              پروژه‌ها در مراحل مختلف بررسی شده و به مرحله بعد راه پیدا
+              می‌کنند.
+            </p>
+          </div>
+
+          <div class="program-card">
+            <span class="program-number">03</span>
+            <h3>ارائه و دفاع</h3>
+            <p>
+              شرکت‌کنندگان فرصت دارند ایده و دستاورد خود را ارائه کنند.
+            </p>
+          </div>
+
+          <div class="program-card">
+            <span class="program-number">04</span>
+            <h3>نمایشگاه و ارائه عمومی</h3>
+            <p>
+              برگزیده‌ها در فضای نمایشگاهی و رسانه‌ای معرفی می‌شوند.
+            </p>
+          </div>
+
+          <div class="program-card">
+            <span class="program-number">05</span>
+            <h3>شبکه آرتیک</h3>
+            <p>
+              برگزیده‌ها و اعضا وارد شبکه نوجوانان آرتیک می‌شوند.
+            </p>
+          </div>
+
+          <div class="program-card">
+            <span class="program-number">06</span>
+            <h3>مسیر کارآفرینی</h3>
+            <p>
+              زمینه برای یادگیری، تجربه و آشنایی با مسیرهای
+              کارآفرینی نوجوانان فراهم می‌شود.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= NEWS ================= -->
+
+    <section id="news">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <small>رسانه آرتیک</small>
+
+          <h2>
+            آخرین محتوا
+          </h2>
+
+          <p>
+            اخبار، مقالات، ویدئوها و مطالب آموزشی آرتیک.
+          </p>
+        </div>
+
+
+        <div class="content-grid">
+
+          <article class="content-card">
+
+            <div class="content-image">
+              ▶
+            </div>
+
+            <div class="content-body">
+              <span class="tag">ویدئو</span>
+
+              <h3>
+                آرتیک چیست؟
+              </h3>
+
+              <p>
+                آشنایی با جشنواره و مسیر فعالیت نوجوانان در آرتیک.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="content-card">
+
+            <div class="content-image">
+              ✦
+            </div>
+
+            <div class="content-body">
+              <span class="tag">خبر</span>
+
+              <h3>
+                آغاز فعالیت نخستین دوره آرتیک
+              </h3>
+
+              <p>
+                اطلاعات و اخبار رسمی مربوط به نخستین دوره جشنواره.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="content-card">
+
+            <div class="content-image">
+              ≋
+            </div>
+
+            <div class="content-body">
+              <span class="tag">مقاله</span>
+
+              <h3>
+                چرا شبکه‌سازی نوجوانان مهم است؟
+              </h3>
+
+              <p>
+                نگاهی به اهمیت تجربه، ارتباط و یادگیری در دوران نوجوانی.
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= RULES ================= -->
+
+    <section class="about" id="rules">
+
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div>
+
+            <div class="section-heading">
+
+              <small>اسناد جشنواره</small>
+
+              <h2>
+                شیوه‌نامه و قوانین
+              </h2>
+
+            </div>
+
+            <p style="color:#68756f; line-height:2;">
+              شیوه‌نامه رسمی جشنواره، شرایط شرکت، حوزه‌های فعالیت،
+              مراحل ثبت پروژه، قوانین داوری و اطلاعات مربوط به
+              دوره‌های منطقه‌ای، استانی و کشوری در این بخش منتشر خواهد شد.
+            </p>
+
+            <br>
+
+            <a href="#" class="btn btn-primary">
+              مشاهده شیوه‌نامه
+            </a>
+
+          </div>
+
+
+          <div class="feature-grid">
+
+            <div class="feature">
+              <div class="feature-icon">01</div>
+              <h3>مرحله منطقه‌ای</h3>
+              <p>آغاز مسیر جشنواره در سطح مناطق.</p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">02</div>
+              <h3>مرحله استانی</h3>
+              <p>راه‌یابی برگزیده‌ها به سطح استان.</p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">03</div>
+              <h3>مرحله کشوری</h3>
+              <p>رقابت و ارائه در سطح ملی.</p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">∞</div>
+              <h3>شبکه آرتیک</h3>
+              <p>ادامه مسیر پس از پایان جشنواره.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= REGISTER ================= -->
+
+    <section class="cta" id="register">
+
+      <div class="cta-inner">
+
+        <div class="eyebrow">
+          فرصت خودت را بساز
+        </div>
+
+        <h2>
+          آماده‌ای استعدادت را
+          <span style="color:#d6ad54;">نشان بدهی؟</span>
+        </h2>
+
+        <p>
+          پروژه، ایده یا مهارت خودت را برای حضور در آرتیک آماده کن.
+        </p>
+
+        <a href="#" class="btn btn-primary">
+          ثبت پروژه
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer id="contact">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <div class="brand">
+          <div class="brand-mark">A</div>
+
+          <div class="brand-text">
+            <strong>ARTIK</strong>
+            <span>جشنواره ملی نوجوانان ایران</span>
+          </div>
+        </div>
+
+        <p>
+          جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران؛
+          جایی که آینده، از یک استعداد آغاز می‌شود.
+        </p>
+
+      </div>
+
+
+      <div>
+        <h4>آرتیک</h4>
+        <a href="#about">درباره آرتیک</a>
+        <a href="#program">ساختار جشنواره</a>
+        <a href="#rules">شیوه‌نامه</a>
+      </div>
+
+
+      <div>
+        <h4>رسانه</h4>
+        <a href="#news">اخبار</a>
+        <a href="#news">مقالات</a>
+        <a href="#news">ویدئوها</a>
+      </div>
+
+
+      <div>
+        <h4>ارتباط</h4>
+        <a href="#contact">تماس با دبیرخانه</a>
+        <a href="#contact">همکاری</a>
+        <a href="#contact">پشتیبانی</a>
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © ۱۴۰۵ ARTIK — تمامی حقوق این وب‌سایت محفوظ است.
+    </div>
+
+  </footer>
+
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navigation").classList.toggle("active");
+    }
+
+    document.querySelectorAll("nav a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        document.getElementById("navigation").classList.remove("active");
+      });
+    });
+  </script>
+
+</body>
+              </html>
