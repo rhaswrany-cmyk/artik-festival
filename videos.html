@@ -2,580 +2,1288 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="ویدیوهای جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران | ARTIK"
-    >
-
-    <title>ویدیوها | ARTIK</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background:
-                radial-gradient(
-                    circle at top right,
-                    rgba(35, 111, 76, 0.18),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #06100c,
-                    #0b1712 45%,
-                    #050907
-                );
-            color: #f5f7f5;
-            min-height: 100vh;
-            line-height: 1.9;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: min(1150px, 92%);
-            margin: auto;
-        }
-
-        /* HEADER */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(18px);
-            background: rgba(4, 12, 8, 0.88);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.18);
-        }
-
-        .nav {
-            min-height: 78px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 22px;
-            font-weight: bold;
-            color: #d8b84c;
-        }
-
-        .brand-icon {
-            width: 43px;
-            height: 43px;
-            border-radius: 13px;
-            display: grid;
-            place-items: center;
-            background: linear-gradient(
-                135deg,
-                #176b4c,
-                #0d3929
-            );
-            border: 1px solid rgba(216, 184, 76, 0.4);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        nav a {
-            padding: 9px 13px;
-            border-radius: 10px;
-            color: #d8dfda;
-            font-size: 14px;
-            transition: 0.25s;
-        }
-
-        nav a:hover,
-        nav a.active {
-            background: rgba(31, 110, 78, 0.22);
-            color: #e0bf50;
-        }
-
-        .login-btn {
-            border: 1px solid rgba(216, 184, 76, 0.4);
-            color: #e0bf50 !important;
-        }
-
-        .menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        /* HERO */
-
-        .hero {
-            padding: 95px 0 65px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 430px;
-            height: 430px;
-            background: rgba(30, 122, 83, 0.13);
-            filter: blur(100px);
-            border-radius: 50%;
-            top: -180px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 7px 17px;
-            border: 1px solid rgba(216, 184, 76, 0.3);
-            border-radius: 30px;
-            color: #d8b84c;
-            background: rgba(216, 184, 76, 0.06);
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(36px, 6vw, 68px);
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #d8b84c
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: auto;
-            color: #b7c1bb;
-            font-size: 17px;
-        }
-
-        /* FEATURED VIDEO */
-
-        .featured {
-            margin-bottom: 70px;
-        }
-
-        .featured-box {
-            position: relative;
-            min-height: 390px;
-            border-radius: 28px;
-            overflow: hidden;
-            border: 1px solid rgba(216, 184, 76, 0.18);
-            background:
-                radial-gradient(
-                    circle at 75% 25%,
-                    rgba(31, 110, 78, 0.35),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #0d3829,
-                    #07110c
-                );
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .featured-content {
-            text-align: center;
-            padding: 50px;
-            max-width: 750px;
-        }
-
-        .play-large {
-            width: 88px;
-            height: 88px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            margin: 0 auto 25px;
-            font-size: 32px;
-            padding-right: 4px;
-            background: linear-gradient(
-                135deg,
-                #d8b84c,
-                #f0d879
-            );
-            color: #07100b;
-            box-shadow:
-                0 0 0 10px rgba(216, 184, 76, 0.08),
-                0 15px 45px rgba(0,0,0,0.35);
-        }
-
-        .featured-content h2 {
-            font-size: 30px;
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
-
-        .featured-content p {
-            color: #b4c0b8;
-            font-size: 14px;
-            margin-bottom: 22px;
-        }
-
-        .coming {
-            display: inline-block;
-            padding: 8px 18px;
-            border-radius: 30px;
-            background: rgba(216,184,76,0.09);
-            border: 1px solid rgba(216,184,76,0.2);
-            color: #d8b84c;
-            font-size: 13px;
-        }
-
-        /* SECTION */
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .section-title h2 {
-            font-size: 30px;
-            color: #e3c45b;
-            margin-bottom: 8px;
-        }
-
-        .section-title p {
-            color: #aeb9b2;
-            font-size: 14px;
-        }
-
-        /* FILTER */
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-
-        .filter-btn {
-            border: 1px solid rgba(216,184,76,0.18);
-            background: rgba(10,23,16,0.75);
-            color: #aeb9b2;
-            padding: 9px 17px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: inherit;
-            transition: 0.25s;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: rgba(31,110,78,0.3);
-            color: #e1bf51;
-            border-color: rgba(216,184,76,0.4);
-        }
-
-        /* VIDEOS */
-
-        .videos {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin-bottom: 80px;
-        }
-
-        .video-card {
-            overflow: hidden;
-            background: rgba(10,23,16,0.78);
-            border: 1px solid rgba(216,184,76,0.13);
-            border-radius: 20px;
-            transition: 0.3s;
-        }
-
-        .video-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(216,184,76,0.38);
-            box-shadow: 0 18px 45px rgba(0,0,0,0.25);
-        }
-
-        .thumbnail {
-            height: 205px;
-            position: relative;
-            display: grid;
-            place-items: center;
-            background:
-                radial-gradient(
-                    circle at 70% 30%,
-                    rgba(216,184,76,0.17),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    135deg,
-                    #123e2d,
-                    #07100b
-                );
-        }
-
-        .thumbnail::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(
-                    135deg,
-                    transparent,
-                    rgba(0,0,0,0.28)
-                );
-        }
-
-        .play {
-            position: relative;
-            z-index: 2;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            padding-right: 3px;
-            background: rgba(216,184,76,0.95);
-            color: #07100b;
-            font-size: 22px;
-        }
-
-        .video-label {
-            position: absolute;
-            z-index: 3;
-            top: 13px;
-            right: 13px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            background: rgba(4,12,8,0.8);
-            color: #d8b84c;
-            font-size: 11px;
-            border: 1px solid rgba(216,184,76,0.2);
-        }
-
-        .video-info {
-            padding: 20px;
-        }
-
-        .video-info h3 {
-            color: #e9eeeb;
-            font-size: 17px;
-            margin-bottom: 8px;
-        }
-
-        .video-info p {
-            color: #929e97;
-            font-size: 13px;
-            margin-bottom: 12px;
-        }
-
-        .meta {
-            display: flex;
-            justify-content: space-between;
-            color: #69766e;
-            font-size: 11px;
-        }
-
-        /* EMPTY */
-
-        .empty {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 55px 20px;
-            border: 1px dashed rgba(216,184,76,0.2);
-            border-radius: 20px;
-            color: #8d9992;
-        }
-
-        .empty-icon {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        /* CTA */
-
-        .cta {
-            margin-bottom: 80px;
-            padding: 45px 30px;
-            text-align: center;
-            border-radius: 25px;
-            border: 1px solid rgba(216,184,76,0.16);
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(22,83,58,0.5),
-                    rgba(8,18,13,0.8)
-                );
-        }
-
-        .cta h2 {
-            color: #e2c35a;
-            margin-bottom: 10px;
-        }
-
-        .cta p {
-            color: #aeb9b2;
-            margin-bottom: 22px;
-            font-size: 14px;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: 12px;
-            background: linear-gradient(
-                135deg,
-                #d8b84c,
-                #f0d879
-            );
-            color: #07100b;
-            font-weight: bold;
-            transition: 0.25s;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* FOOTER */
-
-        footer {
-            border-top: 1px solid rgba(216,184,76,0.12);
-            padding: 40px 0 25px;
-            background: rgba(2,7,5,0.7);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 35px;
-            margin-bottom: 30px;
-        }
-
-        .footer-brand {
-            color: #d8b84c;
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            color: #89958e;
-            font-size: 13px;
-            max-width: 420px;
-        }
-
-        footer h4 {
-            color: #dfe7e2;
-            margin-bottom: 12px;
-        }
-
-        footer a {
-            display: block;
-            color: #89958e;
-            font-size: 13px;
-            margin-bottom: 7px;
-            transition: 0.2s;
-        }
-
-        footer a:hover {
-            color: #d8b84c;
-        }
-
-        .copyright {
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 20px;
-            text-align: center;
-            color: #657069;
-            font-size: 12px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 850px) {
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 78px;
-                right: 4%;
-                left: 4%;
-                flex-direction: column;
-                align-items: stretch;
-                padding: 12px;
-                background: rgba(5,15,10,0.98);
-                border: 1px solid rgba(216,184,76,0.15);
-                border-radius: 16px;
-            }
-
-            nav.show {
-                display: flex;
-            }
-
-            nav a {
-                text-align: center;
-                padding: 12px;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .videos {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding-top: 70px;
-            }
-
-        }
-
-        @media (min-width: 851px) and (max-width: 1050px) {
-
-            .videos {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-        }
-
-    </style>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="ARTIK | ویدیوهای جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران"
+  >
+
+  <title>ویدیوها | ARTIK</title>
+
+  <!-- فونت اصلی ARTIK -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    :root {
+      --bg: #020705;
+      --bg2: #04120d;
+      --panel: #071912;
+      --panel2: #0a2118;
+
+      --green: #063d2a;
+      --green-light: #08704d;
+      --emerald: #0ca46f;
+
+      --gold: #d7ad45;
+      --gold-light: #f4d47c;
+      --gold-dark: #927021;
+
+      --white: #ffffff;
+      --muted: #aebdb5;
+      --muted2: #72847b;
+
+      --border: rgba(215, 173, 69, .28);
+      --border-green: rgba(12, 164, 111, .34);
+
+      --shadow: 0 25px 70px rgba(0,0,0,.45);
+
+      --radius: 20px;
+    }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(12,164,111,.10),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(215,173,69,.07),
+          transparent 28%
+        ),
+        var(--bg);
+
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.045) 1px,
+          transparent 1px
+        );
+
+      background-size: 28px 28px;
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+
+      height: 78px;
+
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(2,7,5,.97),
+          rgba(2,7,5,.90)
+        );
+
+      border-bottom: 1px solid var(--border);
+
+      backdrop-filter: blur(18px);
+
+      z-index: 1000;
+    }
+
+
+    .nav-container {
+      width: min(1200px, calc(100% - 40px));
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      flex-shrink: 0;
+    }
+
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid var(--gold);
+
+      border-radius: 14px;
+
+      color: var(--gold-light);
+
+      font-size: 23px;
+      font-weight: 900;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--green),
+          #020b07
+        );
+
+      box-shadow:
+        0 0 25px rgba(12,164,111,.12);
+    }
+
+
+    .brand-text strong {
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: 19px;
+      font-weight: 900;
+
+      letter-spacing: 1px;
+    }
+
+
+    .brand-text span {
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      margin-top: 1px;
+    }
+
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+
+    nav a {
+      position: relative;
+
+      color: var(--muted);
+
+      font-size: 13px;
+      font-weight: 500;
+
+      transition: .25s ease;
+    }
+
+
+    nav a:hover,
+    nav a.active {
+      color: var(--gold-light);
+    }
+
+
+    nav a.active::after {
+      content: "";
+
+      position: absolute;
+
+      right: 0;
+      left: 0;
+      bottom: -10px;
+
+      height: 2px;
+
+      background: var(--gold);
+
+      border-radius: 10px;
+    }
+
+
+    .login {
+      padding: 10px 16px;
+
+      border: 1px solid var(--gold);
+
+      border-radius: 12px;
+
+      color: var(--gold-light) !important;
+
+      font-size: 12px !important;
+      font-weight: 700 !important;
+
+      transition: .25s ease;
+    }
+
+
+    .login:hover {
+      background: rgba(215,173,69,.10);
+      transform: translateY(-2px);
+    }
+
+
+    .menu-btn {
+      display: none;
+
+      width: 43px;
+      height: 43px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      background: var(--panel);
+
+      color: var(--gold-light);
+
+      font-size: 18px;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 470px;
+
+      margin-top: 78px;
+
+      display: flex;
+      align-items: center;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(2,7,5,.97),
+          rgba(2,7,5,.72),
+          rgba(2,7,5,.88)
+        ),
+        url("https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=2000&q=85")
+        center/cover;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 18px;
+
+      border: 1px solid rgba(215,173,69,.14);
+
+      border-radius: 24px;
+
+      pointer-events: none;
+    }
+
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      right: -150px;
+      top: -180px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(12,164,111,.16),
+          transparent 70%
+        );
+
+      pointer-events: none;
+    }
+
+
+    .hero-content {
+      width: min(1200px, calc(100% - 40px));
+      margin: auto;
+
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 8px 13px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 999px;
+
+      color: var(--gold-light);
+
+      background: rgba(7,25,18,.75);
+
+      font-size: 12px;
+      font-weight: 600;
+
+      margin-bottom: 20px;
+    }
+
+
+    .eyebrow i {
+      color: var(--emerald);
+    }
+
+
+    .hero h1 {
+      max-width: 750px;
+
+      font-size: clamp(40px, 6vw, 70px);
+
+      line-height: 1.1;
+
+      font-weight: 900;
+
+      margin-bottom: 20px;
+    }
+
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+
+    .hero p {
+      max-width: 690px;
+
+      color: var(--muted);
+
+      font-size: 16px;
+
+      line-height: 2;
+
+      font-weight: 400;
+    }
+
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    .section {
+      padding: 85px 0;
+    }
+
+
+    .container {
+      width: min(1200px, calc(100% - 40px));
+      margin: auto;
+    }
+
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+
+      gap: 25px;
+
+      margin-bottom: 32px;
+    }
+
+
+    .section-heading h2 {
+      font-size: 30px;
+      font-weight: 900;
+
+      color: var(--white);
+    }
+
+
+    .section-heading h2 span {
+      color: var(--gold-light);
+    }
+
+
+    .section-heading p {
+      color: var(--muted2);
+
+      font-size: 13px;
+
+      max-width: 520px;
+
+      line-height: 1.9;
+    }
+
+
+    /* =========================
+       FEATURED VIDEO
+    ========================= */
+
+    .featured {
+      display: grid;
+
+      grid-template-columns: 1.25fr .75fr;
+
+      gap: 22px;
+
+      margin-bottom: 55px;
+    }
+
+
+    .featured-video {
+      position: relative;
+
+      min-height: 410px;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      background: var(--panel);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .featured-video::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent 30%,
+          rgba(0,0,0,.85)
+        );
+
+      z-index: 1;
+    }
+
+
+    .featured-video-image {
+      width: 100%;
+      height: 100%;
+
+      min-height: 410px;
+
+      object-fit: cover;
+
+      display: block;
+
+      opacity: .72;
+
+      transition: .4s ease;
+    }
+
+
+    .featured-video:hover .featured-video-image {
+      transform: scale(1.04);
+      opacity: .82;
+    }
+
+
+    .play-button {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      width: 76px;
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: rgba(215,173,69,.94);
+
+      color: #08110c;
+
+      font-size: 25px;
+
+      box-shadow:
+        0 0 0 10px rgba(215,173,69,.10),
+        0 15px 35px rgba(0,0,0,.45);
+
+      z-index: 3;
+    }
+
+
+    .featured-info {
+      position: absolute;
+
+      right: 30px;
+      left: 30px;
+      bottom: 27px;
+
+      z-index: 2;
+    }
+
+
+    .tag {
+      display: inline-block;
+
+      padding: 6px 10px;
+
+      border-radius: 8px;
+
+      background: rgba(12,164,111,.18);
+
+      border: 1px solid var(--border-green);
+
+      color: #69ddb3;
+
+      font-size: 11px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .featured-info h3 {
+      font-size: 24px;
+      font-weight: 800;
+
+      margin-bottom: 7px;
+    }
+
+
+    .featured-info p {
+      color: #b9c6c0;
+
+      font-size: 12px;
+
+      line-height: 1.9;
+    }
+
+
+    .featured-side {
+      padding: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--panel2),
+          var(--panel)
+        );
+
+      border: 1px solid var(--border-green);
+
+      border-radius: var(--radius);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .featured-side .icon {
+      width: 58px;
+      height: 58px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 16px;
+
+      background: rgba(215,173,69,.08);
+
+      border: 1px solid var(--border);
+
+      color: var(--gold-light);
+
+      font-size: 23px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .featured-side h3 {
+      font-size: 24px;
+      font-weight: 800;
+
+      margin-bottom: 13px;
+    }
+
+
+    .featured-side p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 2;
+
+      margin-bottom: 22px;
+    }
+
+
+    .gold-line {
+      width: 70px;
+      height: 2px;
+
+      background: var(--gold);
+
+      border-radius: 10px;
+    }
+
+
+    /* =========================
+       VIDEO GRID
+    ========================= */
+
+    .video-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+
+    .video-card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(10,33,24,.95),
+          rgba(7,25,18,.95)
+        );
+
+      border: 1px solid var(--border-green);
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      transition: .3s ease;
+    }
+
+
+    .video-card:hover {
+      transform: translateY(-6px);
+
+      border-color: var(--border);
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,.35);
+    }
+
+
+    .video-thumb {
+      height: 205px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background: #06120d;
+    }
+
+
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      opacity: .75;
+
+      transition: .4s ease;
+    }
+
+
+    .video-card:hover .video-thumb img {
+      transform: scale(1.06);
+      opacity: .88;
+    }
+
+
+    .thumb-overlay {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        rgba(2,7,5,.28);
+    }
+
+
+    .small-play {
+      width: 53px;
+      height: 53px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: rgba(215,173,69,.92);
+
+      color: #07100b;
+
+      font-size: 17px;
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.35);
+    }
+
+
+    .video-duration {
+      position: absolute;
+
+      left: 12px;
+      bottom: 12px;
+
+      padding: 4px 8px;
+
+      background: rgba(0,0,0,.75);
+
+      border-radius: 6px;
+
+      color: white;
+
+      font-size: 10px;
+    }
+
+
+    .video-content {
+      padding: 19px;
+    }
+
+
+    .video-content h3 {
+      font-size: 16px;
+      font-weight: 800;
+
+      line-height: 1.7;
+
+      margin-bottom: 8px;
+    }
+
+
+    .video-content p {
+      color: var(--muted2);
+
+      font-size: 11px;
+
+      line-height: 1.8;
+
+      margin-bottom: 13px;
+    }
+
+
+    .video-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+    }
+
+
+    .video-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+
+    .video-meta i {
+      color: var(--gold);
+    }
+
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 35px;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      background:
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(12,164,111,.13),
+          transparent 35%
+        ),
+        linear-gradient(
+          145deg,
+          #0a2118,
+          #05110c
+        );
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+
+    .cta h3 {
+      font-size: 23px;
+      font-weight: 900;
+
+      margin-bottom: 8px;
+    }
+
+
+    .cta p {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.9;
+    }
+
+
+    .cta-btn {
+      flex-shrink: 0;
+
+      padding: 13px 22px;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+
+      color: #07100b;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      transition: .25s ease;
+    }
+
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 12px 30px rgba(215,173,69,.18);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 60px 0 25px;
+
+      border-top: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          180deg,
+          #030a07,
+          #010403
+        );
+    }
+
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+      gap: 35px;
+
+      padding-bottom: 45px;
+    }
+
+
+    .footer-brand p {
+      max-width: 350px;
+
+      color: var(--muted2);
+
+      font-size: 12px;
+
+      line-height: 2;
+
+      margin-top: 15px;
+    }
+
+
+    .footer-title {
+      color: var(--gold-light);
+
+      font-size: 13px;
+      font-weight: 800;
+
+      margin-bottom: 18px;
+    }
+
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+
+      gap: 10px;
+    }
+
+
+    .footer-links a {
+      color: var(--muted2);
+
+      font-size: 11px;
+
+      transition: .2s ease;
+    }
+
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+
+      transform: translateX(-3px);
+    }
+
+
+    .socials {
+      display: flex;
+      gap: 9px;
+
+      margin-top: 18px;
+    }
+
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid var(--border);
+
+      border-radius: 11px;
+
+      color: var(--muted);
+
+      transition: .25s ease;
+    }
+
+
+    .socials a:hover {
+      color: var(--gold-light);
+
+      border-color: var(--gold);
+
+      transform: translateY(-3px);
+    }
+
+
+    .copyright {
+      padding-top: 22px;
+
+      border-top: 1px solid rgba(255,255,255,.06);
+
+      text-align: center;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      nav {
+        gap: 14px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .featured {
+        grid-template-columns: 1fr;
+      }
+
+      .video-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+
+    @media (max-width: 760px) {
+
+      header {
+        height: 68px;
+      }
+
+      .nav-container {
+        width: min(100% - 28px, 1200px);
+      }
+
+      nav {
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+        right: 14px;
+        left: 14px;
+
+        padding: 18px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        background:
+          rgba(4,18,13,.98);
+
+        border: 1px solid var(--border);
+
+        border-radius: 16px;
+
+        box-shadow: var(--shadow);
+      }
+
+
+      nav.show {
+        display: flex;
+      }
+
+
+      nav a {
+        padding: 10px 4px;
+      }
+
+
+      nav a.active::after {
+        display: none;
+      }
+
+
+      .login {
+        text-align: center;
+      }
+
+
+      .menu-btn {
+        display: block;
+      }
+
+
+      .hero {
+        margin-top: 68px;
+
+        min-height: 430px;
+      }
+
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+
+      .section {
+        padding: 65px 0;
+      }
+
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+    }
+
+
+    @media (max-width: 430px) {
+
+      .container,
+      .hero-content {
+        width: calc(100% - 28px);
+      }
+
+
+      .brand-text span {
+        display: none;
+      }
+
+
+      .brand-logo {
+        width: 43px;
+        height: 43px;
+      }
+
+
+      .hero {
+        min-height: 390px;
+      }
+
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+
+      .hero p {
+        font-size: 13px;
+      }
+
+
+      .featured-video,
+      .featured-video-image {
+        min-height: 330px;
+      }
+
+
+      .featured-info {
+        right: 20px;
+        left: 20px;
+        bottom: 20px;
+      }
+
+
+      .featured-info h3 {
+        font-size: 19px;
+      }
+
+
+      .featured-side {
+        padding: 23px;
+      }
+
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
 
 </head>
 
@@ -583,637 +1291,809 @@
 <body>
 
 
-<header>
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-    <div class="container nav">
+  <header>
 
-        <a href="index.html" class="brand">
+    <div class="nav-container">
 
-            <div class="brand-icon">
-                ✦
-            </div>
+      <a href="index.html" class="brand">
 
-            ARTIK
+        <div class="brand-logo">
+          A
+        </div>
 
+        <div class="brand-text">
+          <strong>ARTIK</strong>
+          <span>جشنواره ملی نوجوانان ایران</span>
+        </div>
+
+      </a>
+
+
+      <nav id="mainNav">
+
+        <a href="index.html">
+          صفحه اصلی
         </a>
 
+        <a href="about.html">
+          درباره آرتیک
+        </a>
 
-        <button
-            class="menu-btn"
-            onclick="toggleMenu()"
-        >
-            ☰
-        </button>
+        <a href="events.html">
+          جشنواره
+        </a>
+
+        <a href="news.html">
+          اخبار
+        </a>
+
+        <a href="articles.html">
+          منابع
+        </a>
+
+        <a href="gallery.html">
+          گالری
+        </a>
+
+        <a href="videos.html" class="active">
+          ویدیوها
+        </a>
+
+        <a href="contact.html">
+          تماس با ما
+        </a>
+
+        <a href="login.html" class="login">
+          <i class="fa-regular fa-user"></i>
+          ورود / ثبت‌نام
+        </a>
+
+      </nav>
 
 
-        <nav id="mainNav">
-
-            <a href="index.html">
-                صفحه اصلی
-            </a>
-
-            <a href="about.html">
-                درباره آرتیک
-            </a>
-
-            <a href="events.html">
-                جشنواره
-            </a>
-
-            <a href="news.html">
-                اخبار
-            </a>
-
-            <a href="articles.html">
-                منابع
-            </a>
-
-            <a href="gallery.html">
-                گالری
-            </a>
-
-            <a href="contact.html">
-                تماس با ما
-            </a>
-
-            <a
-                href="login.html"
-                class="login-btn"
-            >
-                ورود
-            </a>
-
-        </nav>
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="باز کردن منو"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
     </div>
 
-</header>
+  </header>
 
 
-<main>
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        <i class="fa-solid fa-play"></i>
+        رسانه رسمی آرتیک
+      </div>
 
 
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div class="container">
-
-            <span class="hero-badge">
-                رسانه آرتیک
-            </span>
-
-            <h1>
-                ویدیوهای آرتیک
-            </h1>
-
-            <p>
-                از رویدادها، آموزش‌ها، تجربه نوجوانان،
-                معرفی پروژه‌ها و لحظه‌های مهم جشنواره ببینید.
-            </p>
-
-        </div>
-
-    </section>
+      <h1>
+        ویدیوهای
+        <span>ARTIK</span>
+      </h1>
 
 
-    <!-- FEATURED -->
+      <p>
+        از لحظه‌های جشنواره و معرفی استعدادهای نوجوانان
+        تا آموزش‌ها، رویدادها و روایت‌های آرتیک؛
+        اینجا تصویر آینده را ببین.
+      </p>
 
-    <section class="container featured">
+    </div>
 
-        <div class="featured-box">
-
-            <div class="featured-content">
-
-                <div class="play-large">
-                    ▶
-                </div>
-
-                <h2>
-                    نخستین دوره جشنواره آرتیک
-                </h2>
-
-                <p>
-                    ویدیوهای رسمی جشنواره، گزارش رویدادها،
-                    معرفی استعدادهای نوجوان و محتوای آموزشی
-                    در این بخش منتشر خواهند شد.
-                </p>
-
-                <span class="coming">
-                    ویدیوهای رسمی به‌زودی منتشر می‌شوند
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
+  </section>
 
 
-    <!-- VIDEO LIST -->
+  <!-- =========================
+       MAIN
+  ========================= -->
 
-    <section class="container">
+  <main>
 
-        <div class="section-title">
+
+    <section class="section">
+
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <div>
 
             <h2>
-                مجموعه ویدیوها
+              ویدیوی <span>ویژه</span>
             </h2>
 
+          </div>
+
+          <p>
+            بخشی از محتوای ویدیویی آرتیک برای آشنایی بیشتر
+            با جشنواره، نوجوانان و مسیرهای نوآوری.
+          </p>
+
+        </div>
+
+
+        <!-- Featured -->
+
+        <div class="featured">
+
+
+          <div class="featured-video">
+
+            <img
+              class="featured-video-image"
+              src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1400&q=85"
+              alt="رویداد و جشنواره"
+            >
+
+
+            <div class="play-button">
+              <i class="fa-solid fa-play"></i>
+            </div>
+
+
+            <div class="featured-info">
+
+              <span class="tag">
+                ویدیوی ویژه
+              </span>
+
+              <h3>
+                آشنایی با جشنواره آرتیک
+              </h3>
+
+              <p>
+                آرتیک؛ جایی که آینده، از یک استعداد آغاز می‌شود.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="featured-side">
+
+            <div class="icon">
+              <i class="fa-solid fa-video"></i>
+            </div>
+
+
+            <h3>
+              روایت آینده
+            </h3>
+
+
             <p>
-                ویدیوهای آرتیک را بر اساس موضوع دنبال کنید.
+              در ویدیوهای آرتیک، پروژه‌ها، ایده‌ها،
+              مهارت‌ها و تجربه‌های نوجوانان را دنبال کن.
+              این بخش به‌مرور با محتوای جدید جشنواره تکمیل می‌شود.
             </p>
 
-        </div>
 
+            <div class="gold-line"></div>
 
-        <div class="controls">
+          </div>
 
-            <button
-                class="filter-btn active"
-                onclick="filterVideos('all', this)"
-            >
-                همه
-            </button>
-
-            <button
-                class="filter-btn"
-                onclick="filterVideos('festival', this)"
-            >
-                جشنواره
-            </button>
-
-            <button
-                class="filter-btn"
-                onclick="filterVideos('education', this)"
-            >
-                آموزشی
-            </button>
-
-            <button
-                class="filter-btn"
-                onclick="filterVideos('projects', this)"
-            >
-                پروژه‌ها
-            </button>
-
-            <button
-                class="filter-btn"
-                onclick="filterVideos('events', this)"
-            >
-                رویدادها
-            </button>
 
         </div>
 
 
-        <div
-            class="videos"
-            id="videoGrid"
-        >
+        <!-- Video heading -->
 
-            <div
-                class="video-card"
-                data-category="festival"
-            >
+        <div class="section-heading">
 
-                <div class="thumbnail">
+          <div>
 
-                    <span class="video-label">
-                        جشنواره
-                    </span>
+            <h2>
+              آخرین <span>ویدیوها</span>
+            </h2>
 
-                    <div class="play">
-                        ▶
-                    </div>
+          </div>
 
-                </div>
-
-                <div class="video-info">
-
-                    <h3>
-                        آشنایی با جشنواره آرتیک
-                    </h3>
-
-                    <p>
-                        آرتیک چیست و چه هدفی دارد؟
-                    </p>
-
-                    <div class="meta">
-
-                        <span>
-                            🎬 معرفی
-                        </span>
-
-                        <span>
-                            به‌زودی
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="video-card"
-                data-category="education"
-            >
-
-                <div class="thumbnail">
-
-                    <span class="video-label">
-                        آموزشی
-                    </span>
-
-                    <div class="play">
-                        ▶
-                    </div>
-
-                </div>
-
-                <div class="video-info">
-
-                    <h3>
-                        چگونه یک ایده را به پروژه تبدیل کنیم؟
-                    </h3>
-
-                    <p>
-                        مسیر تبدیل یک ایده اولیه به یک پروژه قابل ارائه.
-                    </p>
-
-                    <div class="meta">
-
-                        <span>
-                            🎓 آموزش
-                        </span>
-
-                        <span>
-                            به‌زودی
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="video-card"
-                data-category="projects"
-            >
-
-                <div class="thumbnail">
-
-                    <span class="video-label">
-                        پروژه‌ها
-                    </span>
-
-                    <div class="play">
-                        ▶
-                    </div>
-
-                </div>
-
-                <div class="video-info">
-
-                    <h3>
-                        معرفی پروژه‌های نوجوانان
-                    </h3>
-
-                    <p>
-                        آشنایی با ایده‌ها و پروژه‌های خلاقانه نوجوانان.
-                    </p>
-
-                    <div class="meta">
-
-                        <span>
-                            💡 پروژه
-                        </span>
-
-                        <span>
-                            به‌زودی
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="video-card"
-                data-category="events"
-            >
-
-                <div class="thumbnail">
-
-                    <span class="video-label">
-                        رویداد
-                    </span>
-
-                    <div class="play">
-                        ▶
-                    </div>
-
-                </div>
-
-                <div class="video-info">
-
-                    <h3>
-                        گزارش رویدادهای آرتیک
-                    </h3>
-
-                    <p>
-                        گزارش تصویری از برنامه‌ها و رویدادهای جشنواره.
-                    </p>
-
-                    <div class="meta">
-
-                        <span>
-                            📍 رویداد
-                        </span>
-
-                        <span>
-                            به‌زودی
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="video-card"
-                data-category="education"
-            >
-
-                <div class="thumbnail">
-
-                    <span class="video-label">
-                        آموزشی
-                    </span>
-
-                    <div class="play">
-                        ▶
-                    </div>
-
-                </div>
-
-                <div class="video-info">
-
-                    <h3>
-                        مهارت‌هایی برای آینده
-                    </h3>
-
-                    <p>
-                        محتوای کوتاه آموزشی و مهارتی برای نوجوانان.
-                    </p>
-
-                    <div class="meta">
-
-                        <span>
-                            🚀 مهارت
-                        </span>
-
-                        <span>
-                            به‌زودی
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="video-card"
-                data-category="festival"
-            >
-
-                <div class="thumbnail">
-
-                    <span class="video-label">
-                        جشنواره
-                    </span>
-
-                    <div class="play">
-                        ▶
-                    </div>
-
-                </div>
-
-                <div class="video-info">
-
-                    <h3>
-                        پشت صحنه آرتیک
-                    </h3>
-
-                    <p>
-                        نگاهی به مسیر شکل‌گیری و اجرای جشنواره.
-                    </p>
-
-                    <div class="meta">
-
-                        <span>
-                            🎥 پشت صحنه
-                        </span>
-
-                        <span>
-                            به‌زودی
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
+          <p>
+            محتوای ویدیویی آرتیک در حوزه علم، مهارت،
+            نوآوری، کارآفرینی و رویدادهای جشنواره.
+          </p>
 
         </div>
+
+
+        <!-- Video Cards -->
+
+        <div class="video-grid">
+
+
+          <!-- Card 1 -->
+
+          <article class="video-card">
+
+            <div class="video-thumb">
+
+              <img
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=85"
+                alt="کارگاه نوجوانان"
+              >
+
+              <div class="thumb-overlay">
+
+                <div class="small-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+
+              </div>
+
+              <span class="video-duration">
+                03:00
+              </span>
+
+            </div>
+
+
+            <div class="video-content">
+
+              <h3>
+                معرفی جشنواره ملی آرتیک
+              </h3>
+
+              <p>
+                آشنایی با هدف، مسیر و بخش‌های مختلف جشنواره.
+              </p>
+
+              <div class="video-meta">
+
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  آرتیک
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-play"></i>
+                  ویدیو
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Card 2 -->
+
+          <article class="video-card">
+
+            <div class="video-thumb">
+
+              <img
+                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=85"
+                alt="آزمایش علمی"
+              >
+
+              <div class="thumb-overlay">
+
+                <div class="small-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+
+              </div>
+
+              <span class="video-duration">
+                04:20
+              </span>
+
+            </div>
+
+
+            <div class="video-content">
+
+              <h3>
+                علم و نوآوری از نگاه نوجوانان
+              </h3>
+
+              <p>
+                ایده‌هایی که می‌توانند آغاز یک مسیر تازه باشند.
+              </p>
+
+              <div class="video-meta">
+
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  آرتیک
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-play"></i>
+                  ویدیو
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Card 3 -->
+
+          <article class="video-card">
+
+            <div class="video-thumb">
+
+              <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85"
+                alt="تیم نوجوانان"
+              >
+
+              <div class="thumb-overlay">
+
+                <div class="small-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+
+              </div>
+
+              <span class="video-duration">
+                05:10
+              </span>
+
+            </div>
+
+
+            <div class="video-content">
+
+              <h3>
+                نوجوانان؛ سازندگان آینده
+              </h3>
+
+              <p>
+                داستان استعدادها، مهارت‌ها و تجربه‌های نوجوانان.
+              </p>
+
+              <div class="video-meta">
+
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  آرتیک
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-play"></i>
+                  ویدیو
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Card 4 -->
+
+          <article class="video-card">
+
+            <div class="video-thumb">
+
+              <img
+                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=85"
+                alt="کارگاه آموزشی"
+              >
+
+              <div class="thumb-overlay">
+
+                <div class="small-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+
+              </div>
+
+              <span class="video-duration">
+                06:15
+              </span>
+
+            </div>
+
+
+            <div class="video-content">
+
+              <h3>
+                کارگاه‌های مهارتی آرتیک
+              </h3>
+
+              <p>
+                یادگیری مهارت‌های کاربردی برای ساختن آینده.
+              </p>
+
+              <div class="video-meta">
+
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  آرتیک
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-play"></i>
+                  ویدیو
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Card 5 -->
+
+          <article class="video-card">
+
+            <div class="video-thumb">
+
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85"
+                alt="تیم و همکاری"
+              >
+
+              <div class="thumb-overlay">
+
+                <div class="small-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+
+              </div>
+
+              <span class="video-duration">
+                03:45
+              </span>
+
+            </div>
+
+
+            <div class="video-content">
+
+              <h3>
+                کار تیمی و ایده‌پردازی
+              </h3>
+
+              <p>
+                وقتی چند استعداد کنار هم قرار می‌گیرند.
+              </p>
+
+              <div class="video-meta">
+
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  آرتیک
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-play"></i>
+                  ویدیو
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Card 6 -->
+
+          <article class="video-card">
+
+            <div class="video-thumb">
+
+              <img
+                src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1000&q=85"
+                alt="نوجوانان و یادگیری"
+              >
+
+              <div class="thumb-overlay">
+
+                <div class="small-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+
+              </div>
+
+              <span class="video-duration">
+                04:50
+              </span>
+
+            </div>
+
+
+            <div class="video-content">
+
+              <h3>
+                مسیر یک ایده تا اجرا
+              </h3>
+
+              <p>
+                از یک فکر ساده تا ساختن و ارائه یک پروژه.
+              </p>
+
+              <div class="video-meta">
+
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  آرتیک
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-play"></i>
+                  ویدیو
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
 
     </section>
 
 
     <!-- CTA -->
 
-    <section class="container">
+    <section class="section" style="padding-top: 0;">
+
+      <div class="container">
 
         <div class="cta">
 
-            <h2>
-                تو هم می‌توانی بخشی از آرتیک باشی
-            </h2>
+          <div>
+
+            <h3>
+              یک ایده برای آینده داری؟
+            </h3>
 
             <p>
-                ایده‌ات را آماده کن و برای حضور در جشنواره
-                مسیرت را شروع کن.
+              پروژه‌ات را برای حضور در مسیر جشنواره آرتیک آماده کن.
             </p>
 
-            <a
-                href="register.html"
-                class="cta-btn"
-            >
-                شروع ثبت‌نام
-            </a>
+          </div>
+
+
+          <a href="submit.html" class="cta-btn">
+            ارسال پروژه
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
 
         </div>
+
+      </div>
 
     </section>
 
 
-</main>
+  </main>
 
 
-<!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
-<footer>
+  <footer>
 
     <div class="container">
 
-        <div class="footer-grid">
+      <div class="footer-grid">
 
-            <div>
 
-                <div class="footer-brand">
-                    ARTIK
-                </div>
+        <div class="footer-brand">
 
-                <p>
-                    جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران؛
-                    جایی که آینده، از یک استعداد آغاز می‌شود.
-                </p>
+          <a href="index.html" class="brand">
 
+            <div class="brand-logo">
+              A
             </div>
 
-
-            <div>
-
-                <h4>
-                    دسترسی سریع
-                </h4>
-
-                <a href="about.html">
-                    درباره آرتیک
-                </a>
-
-                <a href="events.html">
-                    جشنواره
-                </a>
-
-                <a href="register.html">
-                    ثبت پروژه
-                </a>
-
-                <a href="news.html">
-                    اخبار
-                </a>
-
-                <a href="articles.html">
-                    منابع
-                </a>
-
+            <div class="brand-text">
+              <strong>ARTIK</strong>
+              <span>جشنواره ملی نوجوانان ایران</span>
             </div>
 
+          </a>
 
-            <div>
 
-                <h4>
-                    آرتیک
-                </h4>
+          <p>
+            جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران؛
+            جایی که آینده، از یک استعداد آغاز می‌شود.
+          </p>
 
-                <a href="videos.html">
-                    ویدیوها
-                </a>
 
-                <a href="rules.html">
-                    شیوه‌نامه
-                </a>
+          <div class="socials">
 
-                <a href="gallery.html">
-                    گالری
-                </a>
+            <a href="#" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
 
-                <a href="contact.html">
-                    تماس با ما
-                </a>
+            <a href="#" aria-label="Telegram">
+              <i class="fa-brands fa-telegram"></i>
+            </a>
 
-                <a href="login.html">
-                    ورود
-                </a>
+            <a href="#" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
 
-            </div>
+          </div>
 
         </div>
 
 
-        <div class="copyright">
+        <div>
 
-            © ۱۴۰۵ ARTIK — تمامی حقوق برای دبیرخانه جشنواره محفوظ است.
+          <div class="footer-title">
+            جشنواره
+          </div>
+
+          <div class="footer-links">
+
+            <a href="about.html">
+              درباره آرتیک
+            </a>
+
+            <a href="events.html">
+              جشنواره
+            </a>
+
+            <a href="submit.html">
+              ارسال پروژه
+            </a>
+
+            <a href="rules.html">
+              شیوه‌نامه
+            </a>
+
+          </div>
 
         </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            رسانه
+          </div>
+
+          <div class="footer-links">
+
+            <a href="news.html">
+              اخبار
+            </a>
+
+            <a href="articles.html">
+              منابع
+            </a>
+
+            <a href="videos.html">
+              ویدیوها
+            </a>
+
+            <a href="gallery.html">
+              گالری
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            ارتباط
+          </div>
+
+          <div class="footer-links">
+
+            <a href="contact.html">
+              تماس با ما
+            </a>
+
+            <a href="login.html">
+              ورود
+            </a>
+
+            <a href="register.html">
+              ثبت‌نام
+            </a>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="copyright">
+        © ۱۴۰۵ ARTIK — تمامی حقوق برای جشنواره آرتیک محفوظ است.
+      </div>
 
     </div>
 
-</footer>
+  </footer>
 
 
-<script>
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
-    function toggleMenu() {
+  <script>
 
-        document
-            .getElementById("mainNav")
-            .classList
-            .toggle("show");
-
-    }
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
 
 
-    function filterVideos(category, button) {
+    menuBtn.addEventListener("click", () => {
 
-        const cards =
-            document.querySelectorAll(".video-card");
+      mainNav.classList.toggle("show");
 
-        const buttons =
-            document.querySelectorAll(".filter-btn");
+      const icon = menuBtn.querySelector("i");
+
+      if (mainNav.classList.contains("show")) {
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+      } else {
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      }
+
+    });
 
 
-        buttons.forEach(function(btn) {
+    document.querySelectorAll("#mainNav a").forEach(link => {
 
-            btn.classList.remove("active");
+      link.addEventListener("click", () => {
 
-        });
+        mainNav.classList.remove("show");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      });
+
+    });
 
 
-        button.classList.add("active");
+    /*
+      فعلاً دکمه‌های پخش برای طراحی رابط هستند.
+      وقتی فایل‌های واقعی ویدیو را اضافه کنیم،
+      می‌توانیم همین کارت‌ها را به Supabase Storage
+      یا پلیر اختصاصی آرتیک متصل کنیم.
+    */
 
-
-        cards.forEach(function(card) {
-
-            if (
-                category === "all" ||
-                card.dataset.category === category
-            ) {
-
-                card.style.display = "";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-    }
-
-</script>
+  </script>
 
 
 </body>
