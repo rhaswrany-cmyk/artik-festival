@@ -3,1241 +3,1575 @@
 
 <head>
 
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="ارتباط با دبیرخانه جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران | ARTIK"
-    >
-
-    <title>ارتباط با آرتیک | ARTIK</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg: #050b08;
-            --bg2: #09140f;
-            --card: rgba(13, 29, 21, .72);
-            --green: #15966a;
-            --green2: #0d6046;
-            --gold: #d9b84c;
-            --gold2: #f2da7b;
-            --white: #f4f7f5;
-            --muted: #91a099;
-            --line: rgba(217, 184, 76, .14);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                Tahoma,
-                "Segoe UI",
-                Arial,
-                sans-serif;
-
-            background:
-                radial-gradient(
-                    circle at 15% 10%,
-                    rgba(20, 145, 99, .14),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 85% 30%,
-                    rgba(217, 184, 76, .07),
-                    transparent 25%
-                ),
-                linear-gradient(
-                    135deg,
-                    #030806,
-                    #07120d 45%,
-                    #030705
-                );
-
-            color: var(--white);
-            min-height: 100vh;
-            line-height: 1.9;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            opacity: .025;
-
-            background-image:
-                radial-gradient(
-                    rgba(255,255,255,.7) 1px,
-                    transparent 1px
-                );
-
-            background-size: 4px 4px;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1180px, 92%);
-            margin: auto;
-        }
-
-
-        /* ================= HEADER ================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 999;
+  <meta charset="UTF-8">
 
-            background:
-                rgba(3, 9, 6, .78);
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-            backdrop-filter: blur(22px);
+  <meta
+    name="description"
+    content="تماس با آرتیک | جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران"
+  >
 
-            border-bottom:
-                1px solid rgba(255,255,255,.055);
-        }
+  <title>
+    تماس با ما | ARTIK
+  </title>
 
-        .nav {
-            height: 78px;
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
 
-            gap: 30px;
-        }
+  <style>
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+    :root {
 
-            font-size: 22px;
-            font-weight: 900;
+      --bg: #020705;
+      --bg2: #04120d;
+      --panel: #071912;
+      --panel2: #0a2118;
 
-            letter-spacing: 1px;
+      --green: #063d2a;
+      --green-light: #08704d;
+      --emerald: #0ca46f;
 
-            color: var(--gold);
-        }
+      --gold: #d7ad45;
+      --gold-light: #f4d47c;
+      --gold-dark: #927021;
 
-        .brand-mark {
-            width: 43px;
-            height: 43px;
+      --white: #ffffff;
+      --muted: #aebdb5;
+      --muted2: #72847b;
 
-            display: grid;
-            place-items: center;
+      --border: rgba(215,173,69,.28);
+      --border-green: rgba(12,164,111,.34);
 
-            border-radius: 14px;
+      --shadow:
+        0 25px 70px rgba(0,0,0,.45);
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #176f50,
-                    #08291d
-                );
+      --radius: 20px;
 
-            border:
-                1px solid rgba(217,184,76,.35);
+    }
 
-            box-shadow:
-                0 0 35px rgba(21,150,106,.15);
-        }
 
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        nav a {
-            padding: 9px 12px;
 
-            color: #bdc8c2;
+    html {
+      scroll-behavior: smooth;
+    }
 
-            border-radius: 10px;
 
-            font-size: 13px;
+    body {
 
-            transition: .25s;
-        }
+      font-family: "Vazirmatn", sans-serif;
 
-        nav a:hover,
-        nav a.active {
-            color: var(--gold2);
+      background:
 
-            background:
-                rgba(21,150,106,.13);
-        }
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(12,164,111,.10),
+          transparent 35%
+        ),
 
-        .login {
-            border:
-                1px solid rgba(217,184,76,.35);
+        var(--bg);
 
-            color: var(--gold2) !important;
-        }
+      color: var(--white);
 
-        .menu {
-            display: none;
+      line-height: 1.8;
 
-            border: none;
-            background: transparent;
+      overflow-x: hidden;
 
-            color: white;
+    }
 
-            font-size: 27px;
-        }
 
+    body::before {
 
-        /* ================= HERO ================= */
+      content: "";
 
-        .hero {
-            position: relative;
+      position: fixed;
 
-            padding:
-                115px 0
-                80px;
+      inset: 0;
 
-            overflow: hidden;
-        }
+      pointer-events: none;
 
-        .hero::before {
-            content: "";
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.035) 1px,
+          transparent 1px
+        );
 
-            position: absolute;
+      background-size: 45px 45px;
 
-            width: 520px;
-            height: 520px;
+      opacity: .22;
 
-            right: -170px;
-            top: -200px;
+      z-index: -1;
 
-            border-radius: 50%;
+    }
 
-            background:
-                rgba(21,150,106,.12);
 
-            filter: blur(100px);
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .hero::after {
-            content: "";
 
-            position: absolute;
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
 
-            width: 350px;
-            height: 350px;
 
-            left: -150px;
-            bottom: -180px;
+    .container {
 
-            border-radius: 50%;
+      width: min(
+        1180px,
+        calc(100% - 40px)
+      );
 
-            background:
-                rgba(217,184,76,.06);
+      margin: auto;
 
-            filter: blur(90px);
-        }
+    }
 
-        .hero-inner {
-            position: relative;
-            z-index: 2;
 
-            display: grid;
+    /* =====================================================
+       HEADER
+    ===================================================== */
 
-            grid-template-columns:
-                1.05fr
-                .95fr;
+    header {
 
-            gap: 70px;
+      position: fixed;
 
-            align-items: center;
-        }
+      top: 0;
+      right: 0;
+      left: 0;
 
-        .eyebrow {
-            display: inline-flex;
+      z-index: 1000;
 
-            align-items: center;
-            gap: 9px;
+      height: 78px;
 
-            padding: 7px 13px;
+      background:
 
-            border:
-                1px solid rgba(217,184,76,.2);
+        linear-gradient(
+          90deg,
+          rgba(1,7,5,.96),
+          rgba(3,16,11,.93),
+          rgba(1,7,5,.96)
+        );
 
-            border-radius: 30px;
+      border-bottom:
+        1px solid rgba(215,173,69,.18);
 
-            color: var(--gold2);
+      backdrop-filter: blur(20px);
 
-            background:
-                rgba(217,184,76,.055);
+    }
 
-            font-size: 12px;
 
-            margin-bottom: 22px;
-        }
+    .nav {
 
-        .eyebrow span {
-            width: 7px;
-            height: 7px;
+      height: 78px;
 
-            border-radius: 50%;
+      display: flex;
 
-            background: var(--green);
-            box-shadow: 0 0 12px var(--green);
-        }
+      align-items: center;
 
-        .hero h1 {
-            font-size:
-                clamp(40px, 6vw, 72px);
+      justify-content: space-between;
 
-            line-height: 1.12;
+      gap: 25px;
 
-            margin-bottom: 23px;
+    }
 
-            letter-spacing: -2px;
 
-            background:
-                linear-gradient(
-                    110deg,
-                    #ffffff 20%,
-                    #d9b84c 85%
-                );
+    .brand {
 
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+      display: flex;
 
-        .hero h1 em {
-            font-style: normal;
-            color: var(--gold);
-        }
+      align-items: center;
 
-        .hero-description {
-            max-width: 610px;
+      gap: 12px;
 
-            color: #9ba9a2;
+      min-width: 180px;
 
-            font-size: 16px;
+    }
 
-            line-height: 2.1;
 
-            margin-bottom: 30px;
-        }
+    .brand-logo {
 
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+      width: 48px;
+      height: 48px;
 
-        .primary-btn,
-        .secondary-btn {
-            padding: 12px 21px;
+      border: 1px solid var(--gold);
 
-            border-radius: 13px;
+      border-radius: 14px;
 
-            font-size: 13px;
+      display: grid;
 
-            transition: .25s;
-        }
+      place-items: center;
 
-        .primary-btn {
-            color: #07100b;
+      color: var(--gold-light);
 
-            font-weight: 800;
+      font-size: 23px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--gold),
-                    var(--gold2)
-                );
+      font-weight: 900;
 
-            box-shadow:
-                0 12px 35px rgba(217,184,76,.12);
-        }
+      background:
 
-        .secondary-btn {
-            color: #d4ddd8;
+        radial-gradient(
+          circle,
+          rgba(215,173,69,.15),
+          transparent 70%
+        );
 
-            border:
-                1px solid rgba(255,255,255,.1);
+      box-shadow:
+        inset 0 0 20px rgba(215,173,69,.06),
+        0 0 20px rgba(215,173,69,.04);
 
-            background:
-                rgba(255,255,255,.035);
-        }
+    }
 
-        .primary-btn:hover,
-        .secondary-btn:hover {
-            transform: translateY(-3px);
-        }
 
+    .brand-text strong {
 
-        /* HERO VISUAL */
+      display: block;
 
-        .hero-visual {
-            position: relative;
+      font-size: 18px;
 
-            min-height: 390px;
+      letter-spacing: 3px;
 
-            display: grid;
-            place-items: center;
-        }
+      color: var(--gold-light);
 
-        .orb {
-            width: 285px;
-            height: 285px;
+    }
 
-            border-radius: 50%;
 
-            display: grid;
-            place-items: center;
+    .brand-text span {
 
-            background:
-                radial-gradient(
-                    circle at 35% 30%,
-                    rgba(255,255,255,.13),
-                    transparent 17%
-                ),
-                radial-gradient(
-                    circle,
-                    #145b42,
-                    #07150e 68%
-                );
+      display: block;
 
-            border:
-                1px solid rgba(217,184,76,.24);
+      color: var(--muted2);
 
-            box-shadow:
-                0 0 100px rgba(21,150,106,.13),
-                inset 0 0 60px rgba(217,184,76,.05);
+      font-size: 9px;
 
-            animation: float 5s ease-in-out infinite;
-        }
+      margin-top: -4px;
 
-        .orb-inner {
-            width: 205px;
-            height: 205px;
+    }
 
-            border-radius: 50%;
 
-            display: grid;
-            place-items: center;
+    .nav-links {
 
-            border:
-                1px solid rgba(217,184,76,.16);
+      display: flex;
 
-            background:
-                rgba(4,13,9,.48);
+      align-items: center;
 
-            backdrop-filter: blur(8px);
-        }
+      gap: 25px;
 
-        .orb-symbol {
-            font-size: 72px;
+      font-size: 12px;
 
-            color: var(--gold);
+      color: #c9d2cd;
 
-            filter:
-                drop-shadow(
-                    0 0 25px
-                    rgba(217,184,76,.22)
-                );
-        }
+    }
 
-        .floating-card {
-            position: absolute;
 
-            padding: 13px 17px;
+    .nav-links a {
 
-            border:
-                1px solid rgba(255,255,255,.08);
+      position: relative;
 
-            border-radius: 15px;
+      padding: 27px 0;
 
-            background:
-                rgba(7,19,13,.82);
+      transition: .25s;
 
-            backdrop-filter: blur(15px);
+    }
 
-            box-shadow:
-                0 20px 50px rgba(0,0,0,.28);
 
-            font-size: 12px;
-        }
+    .nav-links a::after {
 
-        .floating-card strong {
-            display: block;
+      content: "";
 
-            color: var(--gold2);
+      position: absolute;
 
-            margin-bottom: 2px;
-        }
+      bottom: 15px;
 
-        .floating-card span {
-            color: #82918a;
-        }
+      right: 0;
 
-        .card-one {
-            top: 38px;
-            right: 20px;
-        }
+      width: 0;
 
-        .card-two {
-            bottom: 45px;
-            left: 0;
-        }
+      height: 2px;
 
-        .card-three {
-            top: 145px;
-            left: -5px;
-        }
+      background: var(--gold);
 
-        @keyframes float {
+      transition: .25s;
 
-            0%,100% {
-                transform: translateY(0);
-            }
+    }
 
-            50% {
-                transform: translateY(-10px);
-            }
 
-        }
+    .nav-links a:hover,
+    .nav-links a.active {
 
+      color: var(--gold-light);
 
-        /* ================= SECTION ================= */
+    }
 
-        .section {
-            padding: 45px 0 95px;
-        }
 
-        .section-heading {
-            text-align: center;
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
 
-            max-width: 650px;
+      width: 100%;
 
-            margin:
-                0 auto
-                38px;
-        }
+    }
 
-        .section-heading small {
-            color: var(--gold);
 
-            font-size: 12px;
+    .nav-actions {
 
-            letter-spacing: 1px;
-        }
+      display: flex;
 
-        .section-heading h2 {
-            font-size: 31px;
+      align-items: center;
 
-            margin:
-                7px 0
-                10px;
-        }
+      gap: 10px;
 
-        .section-heading p {
-            color: #87958e;
+    }
 
-            font-size: 14px;
-        }
 
+    .login {
 
-        /* ================= CONTACT OPTIONS ================= */
+      height: 38px;
 
-        .contact-options {
-            display: grid;
+      padding: 0 17px;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+      border: 1px solid var(--gold);
 
-            gap: 18px;
-        }
+      border-radius: 25px;
 
-        .option {
-            position: relative;
+      display: flex;
 
-            padding: 28px;
+      align-items: center;
 
-            min-height: 190px;
+      gap: 8px;
 
-            overflow: hidden;
+      color: var(--gold-light);
 
-            border:
-                1px solid rgba(255,255,255,.07);
+      font-size: 11px;
 
-            border-radius: 23px;
+      transition: .3s;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(17,44,31,.65),
-                    rgba(7,16,11,.8)
-                );
+    }
 
-            transition: .3s;
-        }
 
-        .option::before {
-            content: "";
+    .login:hover {
 
-            position: absolute;
+      background: rgba(215,173,69,.08);
 
-            width: 120px;
-            height: 120px;
+      transform: translateY(-2px);
 
-            top: -60px;
-            left: -50px;
+    }
 
-            border-radius: 50%;
 
-            background:
-                rgba(21,150,106,.1);
+    .mobile-menu {
 
-            filter: blur(25px);
-        }
+      display: none;
 
-        .option:hover {
-            transform: translateY(-7px);
+      border: 1px solid var(--border);
 
-            border-color:
-                rgba(217,184,76,.3);
+      background: transparent;
 
-            box-shadow:
-                0 25px 60px rgba(0,0,0,.22);
-        }
+      color: var(--gold-light);
 
-        .option-icon {
-            width: 52px;
-            height: 52px;
+      width: 42px;
+      height: 42px;
 
-            display: grid;
-            place-items: center;
+      border-radius: 12px;
 
-            border-radius: 16px;
+      cursor: pointer;
 
-            background:
-                rgba(217,184,76,.07);
+    }
 
-            border:
-                1px solid rgba(217,184,76,.16);
 
-            font-size: 24px;
+    /* =====================================================
+       HERO
+    ===================================================== */
 
-            margin-bottom: 19px;
-        }
+    .page-hero {
 
-        .option h3 {
-            color: #edf2ef;
+      min-height: 500px;
 
-            font-size: 17px;
+      margin-top: 78px;
 
-            margin-bottom: 7px;
-        }
+      position: relative;
 
-        .option p {
-            color: #84938b;
+      overflow: hidden;
 
-            font-size: 12px;
+      display: flex;
 
-            line-height: 1.9;
-        }
+      align-items: center;
 
-        .option-arrow {
-            position: absolute;
+      border-bottom:
+        1px solid rgba(215,173,69,.20);
 
-            left: 24px;
-            bottom: 22px;
+      background:
 
-            color: var(--gold);
+        linear-gradient(
+          90deg,
+          rgba(2,7,5,.98) 0%,
+          rgba(2,7,5,.83) 40%,
+          rgba(2,7,5,.42) 75%,
+          rgba(2,7,5,.82) 100%
+        ),
 
-            font-size: 17px;
-        }
+        url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85");
 
+      background-size: cover;
 
-        /* ================= MAIN CONTACT ================= */
+      background-position: center;
 
-        .contact-area {
-            display: grid;
+    }
 
-            grid-template-columns:
-                .9fr
-                1.1fr;
 
-            gap: 22px;
+    .page-hero::before {
 
-            align-items: stretch;
-        }
+      content: "";
 
-        .contact-info,
-        .form-box {
+      position: absolute;
 
-            border:
-                1px solid rgba(255,255,255,.07);
+      inset: 0;
 
-            border-radius: 25px;
+      background:
 
-            background:
-                rgba(8,20,14,.74);
+        radial-gradient(
+          circle at 70% 45%,
+          rgba(215,173,69,.17),
+          transparent 27%
+        ),
 
-            backdrop-filter: blur(15px);
-        }
+        linear-gradient(
+          180deg,
+          transparent 45%,
+          rgba(2,7,5,.96)
+        );
 
+    }
 
-        /* INFO */
 
-        .contact-info {
-            padding: 35px;
-        }
+    .page-hero::after {
 
-        .contact-info h2 {
-            font-size: 26px;
+      content: "";
 
-            margin-bottom: 9px;
-        }
+      position: absolute;
 
-        .contact-info > p {
-            color: #84928b;
+      inset: 18px;
 
-            font-size: 13px;
+      border:
+        1px solid rgba(215,173,69,.15);
 
-            margin-bottom: 27px;
-        }
+      border-radius: 25px;
 
-        .info-row {
-            display: flex;
+      pointer-events: none;
 
-            gap: 14px;
+    }
 
-            padding: 17px 0;
 
-            border-bottom:
-                1px solid rgba(255,255,255,.055);
-        }
+    .hero-content {
 
-        .info-row:last-child {
-            border-bottom: none;
-        }
+      position: relative;
 
-        .info-icon {
-            width: 45px;
-            height: 45px;
+      z-index: 2;
 
-            min-width: 45px;
+      max-width: 800px;
 
-            display: grid;
-            place-items: center;
+      padding: 80px 0;
 
-            border-radius: 13px;
+    }
 
-            background:
-                rgba(21,150,106,.11);
 
-            border:
-                1px solid rgba(21,150,106,.18);
+    .eyebrow {
 
-            font-size: 19px;
-        }
+      display: inline-flex;
 
-        .info-row strong {
-            display: block;
+      align-items: center;
 
-            color: #dce4df;
+      gap: 9px;
 
-            font-size: 13px;
+      color: var(--gold-light);
 
-            margin-bottom: 3px;
-        }
+      font-size: 13px;
 
-        .info-row span {
-            color: #7f8e86;
+      margin-bottom: 20px;
 
-            font-size: 11px;
-        }
+    }
 
 
-        /* FORM */
+    .eyebrow::before {
 
-        .form-box {
-            padding: 35px;
-        }
+      content: "";
 
-        .form-top {
-            display: flex;
+      width: 35px;
 
-            align-items: center;
-            justify-content: space-between;
+      height: 1px;
 
-            margin-bottom: 25px;
-        }
+      background: var(--gold);
 
-        .form-top h2 {
-            font-size: 26px;
-        }
+    }
 
-        .secure {
-            padding: 5px 10px;
 
-            border-radius: 20px;
+    .hero-content h1 {
 
-            color: #72c89f;
+      font-size: clamp(
+        45px,
+        7vw,
+        78px
+      );
 
-            background:
-                rgba(21,150,106,.08);
+      line-height: 1;
 
-            border:
-                1px solid rgba(21,150,106,.15);
+      font-weight: 900;
 
-            font-size: 10px;
-        }
+      color: var(--gold-light);
 
-        .form-grid {
-            display: grid;
+      margin-bottom: 18px;
 
-            grid-template-columns:
-                1fr
-                1fr;
+      letter-spacing: -3px;
 
-            gap: 0 15px;
-        }
+      text-shadow:
+        0 0 35px rgba(215,173,69,.14);
 
-        .field {
-            margin-bottom: 17px;
-        }
+    }
 
-        .field.full {
-            grid-column: 1 / -1;
-        }
 
-        label {
-            display: block;
+    .hero-content h1 span {
 
-            color: #cbd5cf;
+      color: white;
 
-            font-size: 12px;
+      font-weight: 400;
 
-            margin-bottom: 7px;
-        }
+      font-size: .52em;
 
-        input,
-        select,
-        textarea {
+      letter-spacing: 3px;
 
-            width: 100%;
+    }
 
-            border:
-                1px solid rgba(255,255,255,.08);
 
-            border-radius: 13px;
+    .hero-content h2 {
 
-            padding:
-                13px
-                14px;
+      font-size: clamp(
+        18px,
+        2.5vw,
+        27px
+      );
 
-            outline: none;
+      margin-bottom: 13px;
 
-            color: #edf2ef;
+    }
 
-            background:
-                rgba(2,9,6,.72);
 
-            font-family: inherit;
+    .hero-content p {
 
-            font-size: 12px;
+      max-width: 690px;
 
-            transition: .25s;
-        }
+      color: #c3cec8;
 
-        input::placeholder,
-        textarea::placeholder {
-            color: #56645d;
-        }
+      font-size: 14px;
 
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color:
-                rgba(217,184,76,.42);
+      line-height: 2.2;
 
-            box-shadow:
-                0 0 0 3px
-                rgba(217,184,76,.045);
-        }
+    }
 
-        select option {
-            background: #09140f;
-        }
 
-        textarea {
-            min-height: 135px;
+    /* =====================================================
+       MAIN
+    ===================================================== */
 
-            resize: vertical;
-        }
+    main {
+      position: relative;
+    }
 
-        .send-btn {
-            width: 100%;
 
-            padding: 14px;
+    .section {
+      padding: 75px 0;
+    }
 
-            border: none;
 
-            border-radius: 13px;
+    .section-heading {
+      margin-bottom: 30px;
+    }
 
-            cursor: pointer;
 
-            font-family: inherit;
+    .section-heading small {
+      color: var(--gold);
+      font-size: 10px;
+    }
 
-            font-size: 13px;
 
-            font-weight: 800;
+    .section-heading h2 {
+      font-size: 30px;
+      margin-top: 3px;
+    }
 
-            color: #07100b;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--gold),
-                    var(--gold2)
-                );
+    .section-heading p {
+      color: var(--muted2);
+      font-size: 11px;
+      max-width: 650px;
+      margin-top: 7px;
+    }
 
-            transition: .25s;
-        }
 
-        .send-btn:hover {
-            transform: translateY(-2px);
+    /* =====================================================
+       CONTACT GRID
+    ===================================================== */
 
-            box-shadow:
-                0 15px 35px
-                rgba(217,184,76,.13);
-        }
+    .contact-grid {
 
+      display: grid;
 
-        /* ================= FAQ ================= */
+      grid-template-columns:
+        .85fr 1.15fr;
 
-        .faq-grid {
-            display: grid;
+      gap: 18px;
 
-            grid-template-columns:
-                1fr
-                1fr;
+    }
 
-            gap: 13px;
-        }
 
-        details {
-            padding: 18px 20px;
+    .panel {
 
-            border:
-                1px solid rgba(255,255,255,.065);
+      background:
 
-            border-radius: 16px;
+        linear-gradient(
+          145deg,
+          rgba(7,29,20,.96),
+          rgba(2,12,8,.96)
+        );
 
-            background:
-                rgba(8,20,14,.65);
+      border:
+        1px solid var(--border-green);
 
-            transition: .25s;
-        }
+      border-radius: 20px;
 
-        details[open] {
-            border-color:
-                rgba(217,184,76,.22);
-        }
+      overflow: hidden;
 
-        summary {
-            cursor: pointer;
+      box-shadow:
+        0 15px 40px rgba(0,0,0,.20);
 
-            color: #dfe7e2;
+    }
 
-            font-size: 13px;
 
-            font-weight: 700;
-        }
+    /* =====================================================
+       CONTACT INFO
+    ===================================================== */
 
-        details p {
-            color: #7f8e86;
+    .contact-info {
 
-            font-size: 12px;
+      padding: 35px;
 
-            margin-top: 11px;
+    }
 
-            line-height: 2;
-        }
 
+    .contact-info h3 {
 
-        /* ================= CTA ================= */
+      color: var(--gold-light);
 
-        .cta {
-            position: relative;
+      font-size: 23px;
 
-            overflow: hidden;
+      margin-bottom: 12px;
 
-            padding: 55px 30px;
+    }
 
-            text-align: center;
 
-            border-radius: 28px;
+    .contact-info > p {
 
-            border:
-                1px solid rgba(217,184,76,.16);
+      color: #bcc9c2;
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(21,150,106,.18),
-                    transparent 58%
-                ),
-                linear-gradient(
-                    135deg,
-                    #0d3425,
-                    #06100b
-                );
+      font-size: 11px;
 
-            margin-bottom: 85px;
-        }
+      line-height: 2.25;
 
-        .cta h2 {
-            font-size: 30px;
+      margin-bottom: 28px;
 
-            margin-bottom: 10px;
-        }
+    }
 
-        .cta p {
-            color: #8e9b94;
 
-            font-size: 13px;
+    .contact-item {
 
-            margin-bottom: 23px;
-        }
+      display: flex;
 
+      align-items: flex-start;
 
-        /* ================= FOOTER ================= */
+      gap: 14px;
 
-        footer {
-            border-top:
-                1px solid rgba(255,255,255,.055);
+      padding: 16px 0;
 
-            padding:
-                45px 0
-                25px;
+      border-bottom:
+        1px solid rgba(255,255,255,.055);
 
-            background:
-                rgba(2,7,5,.8);
-        }
+    }
 
-        .footer-grid {
-            display: grid;
 
-            grid-template-columns:
-                2fr
-                1fr
-                1fr;
+    .contact-item:last-child {
+      border-bottom: none;
+    }
 
-            gap: 40px;
 
-            margin-bottom: 35px;
-        }
+    .contact-icon {
 
-        .footer-brand {
-            color: var(--gold);
+      width: 45px;
+      height: 45px;
 
-            font-size: 23px;
+      flex-shrink: 0;
 
-            font-weight: 900;
+      display: grid;
 
-            margin-bottom: 8px;
-        }
+      place-items: center;
 
-        footer p,
-        footer a {
-            color: #718078;
+      border:
+        1px solid var(--border);
 
-            font-size: 12px;
-        }
+      border-radius: 13px;
 
-        footer p {
-            max-width: 410px;
-        }
+      color: var(--gold-light);
 
-        footer h4 {
-            color: #dbe3de;
+      background:
+        rgba(215,173,69,.035);
 
-            font-size: 13px;
+    }
 
-            margin-bottom: 13px;
-        }
 
-        footer a {
-            display: block;
+    .contact-item strong {
 
-            margin-bottom: 7px;
+      display: block;
 
-            transition: .2s;
-        }
+      font-size: 12px;
 
-        footer a:hover {
-            color: var(--gold);
-        }
+      margin-bottom: 3px;
 
-        .copyright {
-            padding-top: 20px;
+    }
 
-            border-top:
-                1px solid rgba(255,255,255,.045);
 
-            text-align: center;
+    .contact-item span {
 
-            color: #4e5b54;
+      display: block;
 
-            font-size: 10px;
-        }
+      color: var(--muted2);
 
+      font-size: 10px;
 
-        /* ================= MOBILE ================= */
+      line-height: 1.9;
 
-        @media (max-width: 850px) {
+    }
 
-            .nav {
-                height: 70px;
-            }
 
-            nav {
-                display: none;
+    /* =====================================================
+       FORM
+    ===================================================== */
 
-                position: absolute;
+    .contact-form {
 
-                top: 70px;
+      padding: 35px;
 
-                right: 4%;
-                left: 4%;
+    }
 
-                padding: 10px;
 
-                flex-direction: column;
+    .contact-form h3 {
 
-                background:
-                    rgba(4,13,9,.98);
+      color: var(--gold-light);
 
-                border:
-                    1px solid rgba(217,184,76,.12);
+      font-size: 23px;
 
-                border-radius: 17px;
-            }
+      margin-bottom: 7px;
 
-            nav.show {
-                display: flex;
-            }
+    }
 
-            nav a {
-                width: 100%;
 
-                text-align: center;
+    .contact-form > p {
 
-                padding: 11px;
-            }
+      color: var(--muted2);
 
-            .menu {
-                display: block;
-            }
+      font-size: 10px;
 
-            .hero {
-                padding: 75px 0 45px;
-            }
+      margin-bottom: 25px;
 
-            .hero-inner {
-                grid-template-columns: 1fr;
+    }
 
-                gap: 25px;
 
-                text-align: center;
-            }
+    .form-grid {
 
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
+      display: grid;
 
-            .hero-buttons {
-                justify-content: center;
-            }
+      grid-template-columns:
+        1fr 1fr;
 
-            .hero-visual {
-                min-height: 300px;
-            }
+      gap: 15px;
 
-            .orb {
-                width: 230px;
-                height: 230px;
-            }
+    }
 
-            .orb-inner {
-                width: 165px;
-                height: 165px;
-            }
 
-            .orb-symbol {
-                font-size: 55px;
-            }
+    .form-group {
 
-            .card-one {
-                right: 5px;
-            }
+      display: flex;
 
-            .card-two {
-                left: 5px;
-            }
+      flex-direction: column;
 
-            .card-three {
-                left: 0;
-                top: 105px;
-            }
+      gap: 7px;
 
-            .contact-options {
-                grid-template-columns: 1fr;
-            }
+    }
 
-            .contact-area {
-                grid-template-columns: 1fr;
-            }
 
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
 
-            .field.full {
-                grid-column: auto;
-            }
 
-            .faq-grid {
-                grid-template-columns: 1fr;
-            }
+    .form-group label {
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
+      color: #cbd5d0;
 
-        }
+      font-size: 10px;
 
-    </style>
+      font-weight: 600;
+
+    }
+
+
+    .form-group input,
+    .form-group textarea {
+
+      width: 100%;
+
+      border:
+        1px solid rgba(12,164,111,.28);
+
+      border-radius: 12px;
+
+      outline: none;
+
+      background:
+        rgba(1,12,8,.78);
+
+      color: white;
+
+      padding: 12px 14px;
+
+      font-size: 11px;
+
+      transition: .25s;
+
+    }
+
+
+    .form-group input {
+
+      height: 46px;
+
+    }
+
+
+    .form-group textarea {
+
+      min-height: 145px;
+
+      resize: vertical;
+
+      line-height: 2;
+
+    }
+
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+
+      color: #56675f;
+
+    }
+
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+
+      border-color: var(--gold);
+
+      box-shadow:
+        0 0 0 3px rgba(215,173,69,.06);
+
+    }
+
+
+    .submit-btn {
+
+      margin-top: 18px;
+
+      min-height: 46px;
+
+      padding: 0 25px;
+
+      border: none;
+
+      border-radius: 13px;
+
+      cursor: pointer;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 9px;
+
+      color: #171006;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          #f4d47c,
+          #c89e36
+        );
+
+      box-shadow:
+        0 8px 25px rgba(215,173,69,.16);
+
+      transition: .3s;
+
+    }
+
+
+    .submit-btn:hover {
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 15px 35px rgba(215,173,69,.24);
+
+    }
+
+
+    .form-message {
+
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 12px 15px;
+
+      border-radius: 12px;
+
+      border:
+        1px solid rgba(12,164,111,.3);
+
+      background:
+        rgba(12,164,111,.06);
+
+      color: #9ee3c6;
+
+      font-size: 10px;
+
+    }
+
+
+    /* =====================================================
+       FAQ / QUICK CONTACT
+    ===================================================== */
+
+    .cards {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+
+    }
+
+
+    .card {
+
+      padding: 28px;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(7,29,20,.88),
+          rgba(2,12,8,.95)
+        );
+
+      border:
+        1px solid var(--border-green);
+
+      border-radius: 17px;
+
+      transition: .3s;
+
+    }
+
+
+    .card:hover {
+
+      transform: translateY(-6px);
+
+      border-color: var(--gold);
+
+      box-shadow:
+        0 18px 35px rgba(0,0,0,.30);
+
+    }
+
+
+    .card-icon {
+
+      width: 50px;
+      height: 50px;
+
+      display: grid;
+
+      place-items: center;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 14px;
+
+      color: var(--gold-light);
+
+      font-size: 20px;
+
+      margin-bottom: 18px;
+
+      background:
+        rgba(215,173,69,.035);
+
+    }
+
+
+    .card h3 {
+
+      font-size: 15px;
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .card p {
+
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      line-height: 2;
+
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .cta {
+
+      margin-top: 20px;
+
+      min-height: 240px;
+
+      padding: 40px;
+
+      border-radius: 24px;
+
+      border:
+        1px solid var(--border);
+
+      position: relative;
+
+      overflow: hidden;
+
+      display: flex;
+
+      align-items: center;
+
+      background:
+
+        radial-gradient(
+          circle at 75% 50%,
+          rgba(215,173,69,.13),
+          transparent 30%
+        ),
+
+        linear-gradient(
+          135deg,
+          #061b12,
+          #020806
+        );
+
+    }
+
+
+    .cta::before {
+
+      content: "ARTIK";
+
+      position: absolute;
+
+      left: -20px;
+
+      bottom: -80px;
+
+      font-size: 180px;
+
+      font-weight: 900;
+
+      color: rgba(215,173,69,.025);
+
+      pointer-events: none;
+
+    }
+
+
+    .cta-content {
+
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 700px;
+
+    }
+
+
+    .cta h2 {
+
+      font-size: 30px;
+
+      color: var(--gold-light);
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .cta p {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .btn {
+
+      min-height: 45px;
+
+      padding: 0 22px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 9px;
+
+      border-radius: 13px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      transition: .3s;
+
+    }
+
+
+    .btn-gold {
+
+      color: #171006;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          #f4d47c,
+          #c89e36
+        );
+
+      box-shadow:
+        0 8px 25px rgba(215,173,69,.16);
+
+    }
+
+
+    .btn-gold:hover {
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 15px 35px rgba(215,173,69,.24);
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+
+      margin-top: 75px;
+
+      border-top:
+        1px solid rgba(215,173,69,.18);
+
+      background:
+
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(12,164,111,.1),
+          transparent 30%
+        ),
+
+        #010604;
+
+      padding: 40px 0 25px;
+
+    }
+
+
+    .footer-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.3fr 1fr 1fr 1fr;
+
+      gap: 35px;
+
+      padding-bottom: 30px;
+
+    }
+
+
+    .footer-brand strong {
+
+      color: var(--gold-light);
+
+      font-size: 27px;
+
+      letter-spacing: 5px;
+
+    }
+
+
+    .footer-brand p {
+
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      max-width: 300px;
+
+      margin-top: 7px;
+
+    }
+
+
+    .footer-column h4 {
+
+      color: white;
+
+      font-size: 12px;
+
+      margin-bottom: 13px;
+
+    }
+
+
+    .footer-column a {
+
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      margin: 7px 0;
+
+      transition: .2s;
+
+    }
+
+
+    .footer-column a:hover {
+
+      color: var(--gold-light);
+
+    }
+
+
+    .footer-bottom {
+
+      padding-top: 20px;
+
+      border-top:
+        1px solid rgba(255,255,255,.06);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      color: var(--muted2);
+
+      font-size: 9px;
+
+    }
+
+
+    .socials {
+
+      display: flex;
+
+      gap: 8px;
+
+    }
+
+
+    .socials a {
+
+      width: 29px;
+      height: 29px;
+
+      border:
+        1px solid rgba(215,173,69,.22);
+
+      border-radius: 50%;
+
+      display: grid;
+
+      place-items: center;
+
+      color: var(--muted2);
+
+    }
+
+
+    .socials a:hover {
+
+      color: var(--gold-light);
+
+      border-color: var(--gold);
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media(max-width: 900px) {
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media(max-width: 760px) {
+
+      header,
+      .nav {
+        height: 68px;
+      }
+
+
+      .nav-links {
+
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+
+        right: 15px;
+        left: 15px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 12px;
+
+        border-radius: 16px;
+
+        background: #06140e;
+
+        border:
+          1px solid var(--border);
+
+        box-shadow: var(--shadow);
+
+      }
+
+
+      .nav-links.open {
+        display: flex;
+      }
+
+
+      .nav-links a {
+        padding: 11px;
+      }
+
+
+      .nav-links a::after {
+        display: none;
+      }
+
+
+      .mobile-menu {
+
+        display: grid;
+
+        place-items: center;
+
+      }
+
+
+      .login {
+        display: none;
+      }
+
+
+      .brand {
+        min-width: auto;
+      }
+
+
+      .page-hero {
+
+        margin-top: 68px;
+
+        min-height: 550px;
+
+      }
+
+
+      .hero-content {
+        padding: 60px 0;
+      }
+
+
+      .hero-content h1 {
+        font-size: 58px;
+      }
+
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+
+      .footer-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+
+      .footer-bottom {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+      }
+
+    }
+
+
+    @media(max-width: 430px) {
+
+      .container {
+
+        width:
+          min(
+            100% - 24px,
+            1180px
+          );
+
+      }
+
+
+      .page-hero {
+        min-height: 590px;
+      }
+
+
+      .hero-content h1 {
+        font-size: 50px;
+      }
+
+
+      .hero-content h1 span {
+
+        display: block;
+
+        margin-top: 8px;
+
+        font-size: 28px;
+
+      }
+
+
+      .contact-info,
+      .contact-form {
+        padding: 25px;
+      }
+
+
+      .cta {
+        padding: 28px;
+      }
+
+
+      .cta h2 {
+        font-size: 24px;
+      }
+
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
 
 </head>
 
@@ -1245,851 +1579,744 @@
 <body>
 
 
-<!-- ================= HEADER ================= -->
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
 
-<header>
+  <header>
 
     <div class="container nav">
 
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <div class="brand-logo">
+          A
+        </div>
+
+        <div class="brand-text">
+
+          <strong>ARTIK</strong>
+
+          <span>
+            جشنواره ملی نوجوانان ایران
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <nav
+        class="nav-links"
+        id="navLinks"
+      >
+
+        <a href="index.html">
+          صفحه اصلی
+        </a>
+
+        <a href="about.html">
+          درباره آرتیک
+        </a>
+
+        <a href="events.html">
+          جشنواره
+        </a>
+
+        <a href="news.html">
+          اخبار
+        </a>
+
+        <a href="articles.html">
+          منابع
+        </a>
+
+        <a href="gallery.html">
+          گالری
+        </a>
+
         <a
-            href="index.html"
-            class="brand"
+          href="contact.html"
+          class="active"
+        >
+          تماس با ما
+        </a>
+
+      </nav>
+
+
+      <div class="nav-actions">
+
+        <a
+          href="login.html"
+          class="login"
         >
 
-            <div class="brand-mark">
-                ✦
-            </div>
+          <i class="fa-regular fa-user"></i>
 
-            ARTIK
+          ورود / ثبت‌نام
 
         </a>
 
 
         <button
-            class="menu"
-            onclick="toggleMenu()"
+          class="mobile-menu"
+          onclick="toggleMenu()"
+          aria-label="باز کردن منو"
         >
-            ☰
+
+          <i class="fa-solid fa-bars"></i>
+
         </button>
 
-
-        <nav id="mainNav">
-
-            <a href="index.html">
-                صفحه اصلی
-            </a>
-
-            <a href="about.html">
-                درباره آرتیک
-            </a>
-
-            <a href="events.html">
-                جشنواره
-            </a>
-
-            <a href="news.html">
-                اخبار
-            </a>
-
-            <a href="articles.html">
-                منابع
-            </a>
-
-            <a href="gallery.html">
-                گالری
-            </a>
-
-            <a
-                href="contact.html"
-                class="active"
-            >
-                تماس
-            </a>
-
-            <a
-                href="login.html"
-                class="login"
-            >
-                ورود
-            </a>
-
-        </nav>
+      </div>
 
     </div>
 
-</header>
+  </header>
 
 
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
 
-<main>
+  <section class="page-hero">
 
+    <div class="container hero-content">
 
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-    <div class="container hero-inner">
-
-
-        <div>
-
-            <div class="eyebrow">
-                <span></span>
-                دبیرخانه جشنواره آرتیک
-            </div>
+      <div class="eyebrow">
+        دبیرخانه آرتیک
+      </div>
 
 
-            <h1>
-                همیشه یک راه برای
-                <em>ارتباط</em>
-                وجود دارد.
-            </h1>
+      <h1>
+        تماس
+        <span>| CONTACT</span>
+      </h1>
 
 
-            <p class="hero-description">
-
-                پرسشی درباره جشنواره دارید؟
-                ایده‌ای برای همکاری؟
-                یا می‌خواهید درباره مسیر ثبت پروژه بیشتر بدانید؟
-
-                تیم آرتیک آماده شنیدن شماست.
-
-            </p>
+      <h2>
+        با آرتیک در ارتباط باش.
+      </h2>
 
 
-            <div class="hero-buttons">
-
-                <a
-                    href="#message"
-                    class="primary-btn"
-                >
-                    ارسال پیام
-                </a>
-
-                <a
-                    href="#faq"
-                    class="secondary-btn"
-                >
-                    پرسش‌های متداول
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="hero-visual">
-
-
-            <div class="orb">
-
-                <div class="orb-inner">
-
-                    <div class="orb-symbol">
-                        ✦
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="floating-card card-one">
-
-                <strong>
-                    پاسخ‌گویی
-                </strong>
-
-                <span>
-                    ارتباط با دبیرخانه
-                </span>
-
-            </div>
-
-
-            <div class="floating-card card-two">
-
-                <strong>
-                    همکاری
-                </strong>
-
-                <span>
-                    ایده‌ها و پیشنهادها
-                </span>
-
-            </div>
-
-
-            <div class="floating-card card-three">
-
-                <strong>
-                    ARTIK
-                </strong>
-
-                <span>
-                    Youth Innovation
-                </span>
-
-            </div>
-
-
-        </div>
-
+      <p>
+        اگر درباره جشنواره، ثبت پروژه، شیوه‌نامه،
+        همکاری، رسانه یا هر بخش دیگری از آرتیک
+        پرسشی داری، می‌توانی از طریق راه‌های ارتباطی
+        زیر با دبیرخانه در ارتباط باشی.
+      </p>
 
     </div>
 
-</section>
+  </section>
 
 
+  <main>
 
-<!-- ================= OPTIONS ================= -->
 
-<section class="section">
+    <!-- =====================================================
+         CONTACT
+    ===================================================== -->
 
-    <div class="container">
+    <section class="section">
 
+      <div class="container">
 
         <div class="section-heading">
 
-            <small>
-                HOW CAN WE HELP?
-            </small>
+          <small>
+            ارتباط با دبیرخانه
+          </small>
 
-            <h2>
-                برای چه چیزی می‌خواهی با ما در ارتباط باشی؟
-            </h2>
+          <h2>
+            چطور با آرتیک در ارتباط باشیم؟
+          </h2>
 
-            <p>
-                موضوعت را انتخاب کن تا سریع‌تر به مسیر درست برسی.
-            </p>
-
-        </div>
-
-
-
-        <div class="contact-options">
-
-
-            <a
-                href="#message"
-                class="option"
-            >
-
-                <div class="option-icon">
-                    ❓
-                </div>
-
-                <h3>
-                    پرسش درباره جشنواره
-                </h3>
-
-                <p>
-                    قوانین، مراحل، رشته‌ها، زمان‌بندی
-                    و هر چیزی که درباره آرتیک می‌خواهی بدانی.
-                </p>
-
-                <div class="option-arrow">
-                    ←
-                </div>
-
-            </a>
-
-
-
-            <a
-                href="#message"
-                class="option"
-            >
-
-                <div class="option-icon">
-                    🤝
-                </div>
-
-                <h3>
-                    همکاری و حمایت
-                </h3>
-
-                <p>
-                    برای همکاری آموزشی، رسانه‌ای،
-                    اجرایی یا حمایت از برنامه‌های آرتیک.
-                </p>
-
-                <div class="option-arrow">
-                    ←
-                </div>
-
-            </a>
-
-
-
-            <a
-                href="#message"
-                class="option"
-            >
-
-                <div class="option-icon">
-                    💡
-                </div>
-
-                <h3>
-                    پیشنهاد و ایده
-                </h3>
-
-                <p>
-                    اگر ایده‌ای برای بهتر شدن جشنواره
-                    یا تجربه نوجوانان داری، با ما در میان بگذار.
-                </p>
-
-                <div class="option-arrow">
-                    ←
-                </div>
-
-            </a>
-
+          <p>
+            پیام خودت را برای ما ارسال کن؛
+            مسیر ارتباطی مناسب را انتخاب کن.
+          </p>
 
         </div>
 
-    </div>
 
-</section>
-
+        <div class="contact-grid">
 
 
-<!-- ================= CONTACT AREA ================= -->
+          <!-- CONTACT INFO -->
 
-<section
-    class="section"
-    id="message"
->
+          <div class="panel contact-info">
 
-    <div class="container contact-area">
-
-
-        <!-- INFO -->
-
-        <div class="contact-info">
-
-            <h2>
-                راه‌های ارتباطی
-            </h2>
+            <h3>
+              دبیرخانه آرتیک
+            </h3>
 
             <p>
-                اطلاعات رسمی دبیرخانه آرتیک در این بخش قرار می‌گیرد.
+              برای پرسش‌های مربوط به جشنواره،
+              ثبت پروژه، همکاری، رسانه و اطلاعات
+              اجرایی می‌توانی با دبیرخانه در ارتباط باشی.
             </p>
 
 
+            <div class="contact-item">
 
-            <div class="info-row">
+              <div class="contact-icon">
 
-                <div class="info-icon">
-                    🏛️
-                </div>
+                <i class="fa-solid fa-envelope"></i>
 
-                <div>
+              </div>
 
-                    <strong>
-                        دبیرخانه آرتیک
-                    </strong>
+              <div>
 
-                    <span>
-                        جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران
-                    </span>
+                <strong>
+                  ایمیل
+                </strong>
 
-                </div>
-
-            </div>
-
-
-
-            <div class="info-row">
-
-                <div class="info-icon">
-                    📧
-                </div>
-
-                <div>
-
-                    <strong>
-                        ایمیل رسمی
-                    </strong>
-
-                    <span>
-                        ایمیل رسمی دبیرخانه پس از نهایی شدن درج می‌شود.
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="info-row">
-
-                <div class="info-icon">
-                    📱
-                </div>
-
-                <div>
-
-                    <strong>
-                        شبکه‌های اجتماعی
-                    </strong>
-
-                    <span>
-                        لینک صفحات رسمی آرتیک در این قسمت قرار می‌گیرد.
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="info-row">
-
-                <div class="info-icon">
-                    📍
-                </div>
-
-                <div>
-
-                    <strong>
-                        محل دبیرخانه
-                    </strong>
-
-                    <span>
-                        اطلاعات محل فعالیت دبیرخانه پس از نهایی شدن اعلام می‌شود.
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="info-row">
-
-                <div class="info-icon">
-                    ⏱️
-                </div>
-
-                <div>
-
-                    <strong>
-                        زمان پاسخ‌گویی
-                    </strong>
-
-                    <span>
-                        پیام‌ها پس از بررسی توسط دبیرخانه پاسخ داده می‌شوند.
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- FORM -->
-
-        <div class="form-box">
-
-            <div class="form-top">
-
-                <h2>
-                    پیام خود را بفرست
-                </h2>
-
-                <span class="secure">
-                    ✦ ارتباط مستقیم
+                <span>
+                  آدرس ایمیل رسمی دبیرخانه
+                  به‌زودی اعلام می‌شود.
                 </span>
 
+              </div>
+
             </div>
+
+
+            <div class="contact-item">
+
+              <div class="contact-icon">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+              </div>
+
+              <div>
+
+                <strong>
+                  دبیرخانه
+                </strong>
+
+                <span>
+                  ایران · تهران
+                  <br>
+                  اطلاعات دقیق محل دبیرخانه
+                  متعاقباً اعلام خواهد شد.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <div class="contact-icon">
+
+                <i class="fa-solid fa-clock"></i>
+
+              </div>
+
+              <div>
+
+                <strong>
+                  زمان پاسخ‌گویی
+                </strong>
+
+                <span>
+                  در روزهای کاری،
+                  پیام‌ها در اولین فرصت بررسی می‌شوند.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <div class="contact-icon">
+
+                <i class="fa-solid fa-comments"></i>
+
+              </div>
+
+              <div>
+
+                <strong>
+                  موضوعات قابل پیگیری
+                </strong>
+
+                <span>
+                  جشنواره · ثبت پروژه · همکاری · رسانه
+                  · شیوه‌نامه · پیشنهاد و انتقاد
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FORM -->
+
+          <div class="panel contact-form">
+
+            <h3>
+              پیام خود را ارسال کن
+            </h3>
+
+            <p>
+              فرم زیر را تکمیل کن تا پیام تو برای
+              دبیرخانه آماده شود.
+            </p>
 
 
             <form id="contactForm">
 
 
-                <div class="form-grid">
+              <div class="form-grid">
 
 
-                    <div class="field">
+                <div class="form-group">
 
-                        <label for="name">
-                            نام و نام خانوادگی
-                        </label>
+                  <label for="name">
+                    نام و نام خانوادگی
+                  </label>
 
-                        <input
-                            id="name"
-                            type="text"
-                            placeholder="نام شما"
-                            required
-                        >
-
-                    </div>
-
-
-
-                    <div class="field">
-
-                        <label for="email">
-                            ایمیل
-                        </label>
-
-                        <input
-                            id="email"
-                            type="email"
-                            placeholder="example@email.com"
-                            required
-                        >
-
-                    </div>
-
-
-
-                    <div class="field full">
-
-                        <label for="subject">
-                            موضوع پیام
-                        </label>
-
-                        <select
-                            id="subject"
-                            required
-                        >
-
-                            <option value="">
-                                موضوع را انتخاب کنید
-                            </option>
-
-                            <option>
-                                پرسش درباره جشنواره
-                            </option>
-
-                            <option>
-                                ثبت‌نام و ارسال پروژه
-                            </option>
-
-                            <option>
-                                همکاری
-                            </option>
-
-                            <option>
-                                حمایت از جشنواره
-                            </option>
-
-                            <option>
-                                پیشنهاد و ایده
-                            </option>
-
-                            <option>
-                                سایر
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-
-                    <div class="field full">
-
-                        <label for="messageText">
-                            پیام شما
-                        </label>
-
-                        <textarea
-                            id="messageText"
-                            placeholder="پیامتان را اینجا بنویسید..."
-                            required
-                        ></textarea>
-
-                    </div>
-
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="نام خود را وارد کنید"
+                    required
+                  >
 
                 </div>
 
 
-                <button
-                    class="send-btn"
-                    type="submit"
-                >
-                    ارسال پیام به دبیرخانه ←
-                </button>
+                <div class="form-group">
+
+                  <label for="email">
+                    ایمیل
+                  </label>
+
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@email.com"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                  <label for="subject">
+                    موضوع پیام
+                  </label>
+
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="موضوع پیام را بنویسید"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                  <label for="message">
+                    متن پیام
+                  </label>
+
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="پیام خود را اینجا بنویسید..."
+                    required
+                  ></textarea>
+
+                </div>
+
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="submit-btn"
+              >
+
+                ارسال پیام
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+              </button>
+
+
+              <div
+                class="form-message"
+                id="formMessage"
+              >
+                پیام شما آماده ارسال است.
+                سیستم ارتباط مستقیم دبیرخانه
+                به‌زودی فعال خواهد شد.
+              </div>
 
 
             </form>
 
+          </div>
+
+
         </div>
 
+      </div>
 
-    </div>
-
-</section>
-
+    </section>
 
 
-<!-- ================= FAQ ================= -->
+    <!-- =====================================================
+         QUICK CARDS
+    ===================================================== -->
 
-<section
-    class="section"
-    id="faq"
->
+    <section class="section">
 
-    <div class="container">
-
+      <div class="container">
 
         <div class="section-heading">
 
-            <small>
-                FAQ
-            </small>
+          <small>
+            راهنمای سریع
+          </small>
+
+          <h2>
+            دنبال چه چیزی هستی؟
+          </h2>
+
+          <p>
+            برای دسترسی سریع‌تر، بخش موردنظر خودت
+            را انتخاب کن.
+          </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+          <a
+            href="rules.html"
+            class="card"
+          >
+
+            <div class="card-icon">
+
+              <i class="fa-solid fa-file-lines"></i>
+
+            </div>
+
+            <h3>
+              شیوه‌نامه جشنواره
+            </h3>
+
+            <p>
+              قوانین، مراحل شرکت، شرایط ارسال پروژه
+              و اطلاعات اجرایی جشنواره را مشاهده کن.
+            </p>
+
+          </a>
+
+
+          <a
+            href="submit.html"
+            class="card"
+          >
+
+            <div class="card-icon">
+
+              <i class="fa-solid fa-upload"></i>
+
+            </div>
+
+            <h3>
+              ثبت پروژه
+            </h3>
+
+            <p>
+              اگر پروژه یا ایده‌ای داری،
+              مسیر ثبت و ارسال آن را شروع کن.
+            </p>
+
+          </a>
+
+
+          <a
+            href="news.html"
+            class="card"
+          >
+
+            <div class="card-icon">
+
+              <i class="fa-solid fa-newspaper"></i>
+
+            </div>
+
+            <h3>
+              اخبار آرتیک
+            </h3>
+
+            <p>
+              اطلاعیه‌ها، اخبار و تازه‌ترین
+              اتفاقات جشنواره را دنبال کن.
+            </p>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ===================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="cta">
+
+          <div class="cta-content">
 
             <h2>
-                شاید جواب سؤالت اینجا باشد
+              آماده‌ای وارد آرتیک شوی؟
             </h2>
 
             <p>
-                پاسخ چند پرسش پرتکرار درباره ارتباط با آرتیک
+              ایده، پروژه یا مهارتت را آماده کن
+              و مسیر خودت را در جشنواره آغاز کن.
             </p>
 
-        </div>
 
+            <a
+              href="register.html"
+              class="btn btn-gold"
+            >
 
+              شروع ثبت‌نام
 
-        <div class="faq-grid">
+              <i class="fa-solid fa-arrow-left"></i>
 
+            </a>
 
-            <details>
-
-                <summary>
-                    چطور درباره ثبت پروژه سؤال بپرسم؟
-                </summary>
-
-                <p>
-                    در فرم تماس، موضوع «ثبت‌نام و ارسال پروژه»
-                    را انتخاب کن و سؤال یا مشکل خودت را بنویس.
-                </p>
-
-            </details>
-
-
-
-            <details>
-
-                <summary>
-                    آیا می‌توانم برای همکاری با آرتیک درخواست بدهم؟
-                </summary>
-
-                <p>
-                    بله. موضوع «همکاری» را انتخاب کن و
-                    زمینه همکاری پیشنهادی خودت را توضیح بده.
-                </p>
-
-            </details>
-
-
-
-            <details>
-
-                <summary>
-                    آیا امکان پیشنهاد ایده برای جشنواره وجود دارد؟
-                </summary>
-
-                <p>
-                    بله. ایده‌های مرتبط با برنامه‌ها،
-                    آموزش‌ها و تجربه شرکت‌کنندگان قابل ارسال هستند.
-                </p>
-
-            </details>
-
-
-
-            <details>
-
-                <summary>
-                    اگر هنگام ثبت‌نام به مشکل خوردم چه کنم؟
-                </summary>
-
-                <p>
-                    موضوع «ثبت‌نام و ارسال پروژه» را انتخاب کن
-                    و مشکل را با جزئیات توضیح بده تا بررسی شود.
-                </p>
-
-            </details>
-
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
-
-
-
-<!-- ================= CTA ================= -->
-
-<section class="container">
-
-    <div class="cta">
-
-        <h2>
-            یک ایده می‌تواند شروع یک مسیر باشد.
-        </h2>
-
-        <p>
-            اگر آماده‌ای، پروژه‌ات را برای آرتیک آماده کن.
-        </p>
-
-        <a
-            href="register.html"
-            class="primary-btn"
-        >
-            شروع ثبت‌نام
-        </a>
-
-    </div>
-
-</section>
+    </section>
 
 
-</main>
+  </main>
 
 
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
 
-<!-- ================= FOOTER ================= -->
-
-<footer>
+  <footer>
 
     <div class="container">
 
 
-        <div class="footer-grid">
+      <div class="footer-grid">
 
 
-            <div>
+        <div class="footer-brand">
 
-                <div class="footer-brand">
-                    ARTIK
-                </div>
+          <strong>
+            ARTIK
+          </strong>
 
-                <p>
-                    جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران؛
-                    جایی که آینده، از یک استعداد آغاز می‌شود.
-                </p>
+          <p>
+            جشنواره ملی علمی، مهارتی و نوآوری
+            نوجوانان ایران
+          </p>
 
-            </div>
-
-
-
-            <div>
-
-                <h4>
-                    دسترسی سریع
-                </h4>
-
-                <a href="about.html">
-                    درباره آرتیک
-                </a>
-
-                <a href="events.html">
-                    جشنواره
-                </a>
-
-                <a href="register.html">
-                    ثبت پروژه
-                </a>
-
-                <a href="news.html">
-                    اخبار
-                </a>
-
-                <a href="articles.html">
-                    منابع
-                </a>
-
-            </div>
-
-
-
-            <div>
-
-                <h4>
-                    آرتیک
-                </h4>
-
-                <a href="videos.html">
-                    ویدیوها
-                </a>
-
-                <a href="rules.html">
-                    شیوه‌نامه
-                </a>
-
-                <a href="gallery.html">
-                    گالری
-                </a>
-
-                <a href="contact.html">
-                    تماس با ما
-                </a>
-
-                <a href="login.html">
-                    ورود
-                </a>
-
-            </div>
-
+          <p>
+            جایی که آینده، از یک استعداد آغاز می‌شود.
+          </p>
 
         </div>
 
 
+        <div class="footer-column">
 
-        <div class="copyright">
+          <h4>
+            جشنواره
+          </h4>
 
-            © ۱۴۰۵ ARTIK — تمامی حقوق برای دبیرخانه جشنواره محفوظ است.
+          <a href="about.html">
+            درباره آرتیک
+          </a>
+
+          <a href="events.html">
+            ساختار جشنواره
+          </a>
+
+          <a href="submit.html">
+            ثبت پروژه
+          </a>
 
         </div>
 
+
+        <div class="footer-column">
+
+          <h4>
+            رسانه
+          </h4>
+
+          <a href="news.html">
+            اخبار
+          </a>
+
+          <a href="articles.html">
+            مقالات
+          </a>
+
+          <a href="gallery.html">
+            گالری
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>
+            ارتباط
+          </h4>
+
+          <a href="contact.html">
+            تماس با ما
+          </a>
+
+          <a href="login.html">
+            ورود
+          </a>
+
+          <a href="register.html">
+            ثبت‌نام
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <div>
+          © ۱۴۰۵ · تمامی حقوق برای آرتیک محفوظ است.
+        </div>
+
+
+        <div class="socials">
+
+          <a href="#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="#">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+
+          <a href="#">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+
+          <a href="#">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
 
-</footer>
+  </footer>
 
 
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
 
-<script>
+  <script>
 
     function toggleMenu() {
 
-        document
-            .getElementById("mainNav")
-            .classList
-            .toggle("show");
+      const nav =
+        document.getElementById("navLinks");
+
+      nav.classList.toggle("open");
 
     }
 
 
     document
-        .getElementById("contactForm")
-        .addEventListener(
-            "submit",
-            function(event) {
+      .querySelectorAll("#navLinks a")
+      .forEach(function(link) {
 
-                event.preventDefault();
+        link.addEventListener(
+          "click",
+          function() {
 
-                alert(
-                    "پیام شما ثبت شد. اتصال فرم به سیستم دبیرخانه در مرحله بعد فعال می‌شود."
-                );
+            document
+              .getElementById("navLinks")
+              .classList.remove("open");
 
-                this.reset();
-
-            }
+          }
         );
 
-</script>
+      });
+
+
+    document
+      .getElementById("contactForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const message =
+          document.getElementById("formMessage");
+
+        message.style.display = "block";
+
+        this.reset();
+
+      });
+
+  </script>
 
 
 </body>
