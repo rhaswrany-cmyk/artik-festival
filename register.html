@@ -1,1 +1,1661 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="ثبت‌نام در جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران | ARTIK"
+  >
+
+  <title>ثبت‌نام | ARTIK</title>
+
+  <!-- Vazirmatn -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --bg: #020705;
+      --bg2: #04120d;
+      --panel: #071912;
+      --panel2: #0a2118;
+
+      --green: #063d2a;
+      --green-light: #08704d;
+      --emerald: #0ca46f;
+
+      --gold: #d7ad45;
+      --gold-light: #f4d47c;
+      --gold-dark: #927021;
+
+      --white: #ffffff;
+      --muted: #aebdb5;
+      --muted2: #72847b;
+
+      --border: rgba(215, 173, 69, .28);
+      --border-green: rgba(12, 164, 111, .34);
+
+      --shadow: 0 25px 70px rgba(0,0,0,.45);
+
+      --radius: 20px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(12,164,111,.14),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(215,173,69,.10),
+          transparent 25%
+        ),
+        linear-gradient(
+          135deg,
+          var(--bg),
+          var(--bg2)
+        );
+
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 28px 28px;
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+
+      height: 78px;
+
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(2,7,5,.96),
+          rgba(2,7,5,.88)
+        );
+
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid var(--border);
+
+      z-index: 1000;
+    }
+
+
+    .header-inner {
+      width: min(1200px, calc(100% - 40px));
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      flex-shrink: 0;
+    }
+
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--green),
+          #02150e
+        );
+
+      color: var(--gold-light);
+
+      font-size: 22px;
+      font-weight: 900;
+
+      box-shadow:
+        0 0 25px rgba(215,173,69,.12);
+    }
+
+
+    .brand-text strong {
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: 19px;
+      font-weight: 900;
+
+      letter-spacing: 1px;
+    }
+
+
+    .brand-text span {
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+      margin-top: 1px;
+    }
+
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+
+    nav a {
+      position: relative;
+
+      color: var(--muted);
+
+      font-size: 13px;
+      font-weight: 500;
+
+      transition: .25s;
+    }
+
+
+    nav a:hover {
+      color: var(--gold-light);
+    }
+
+
+    nav a.active {
+      color: var(--gold-light);
+    }
+
+
+    nav a.active::after {
+      content: "";
+
+      position: absolute;
+
+      right: 0;
+      left: 0;
+      bottom: -10px;
+
+      height: 2px;
+
+      background: var(--gold);
+
+      border-radius: 20px;
+    }
+
+
+    .login-nav {
+      padding: 9px 15px;
+
+      border: 1px solid var(--gold);
+
+      border-radius: 10px;
+
+      color: var(--gold-light) !important;
+
+      transition: .25s;
+    }
+
+
+    .login-nav:hover {
+      background: rgba(215,173,69,.1);
+    }
+
+
+    .menu-btn {
+      display: none;
+
+      border: 1px solid var(--border);
+
+      background: var(--panel);
+
+      color: var(--gold-light);
+
+      width: 42px;
+      height: 42px;
+
+      border-radius: 12px;
+
+      font-size: 20px;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      min-height: 100vh;
+
+      padding:
+        135px
+        20px
+        80px;
+    }
+
+
+    .register-wrapper {
+      width: min(1050px, 100%);
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(7,25,18,.97),
+          rgba(4,18,13,.97)
+        );
+
+      border: 1px solid var(--border);
+
+      border-radius: 28px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    /* =========================
+       LEFT
+    ========================= */
+
+    .register-intro {
+      position: relative;
+
+      padding: 55px 42px;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(12,164,111,.18),
+          transparent 35%
+        ),
+        linear-gradient(
+          145deg,
+          #071d14,
+          #03100b
+        );
+
+      border-left: 1px solid var(--border);
+    }
+
+
+    .intro-logo {
+      width: 74px;
+      height: 74px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 22px;
+
+      border: 1px solid var(--gold);
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--green),
+          #02150e
+        );
+
+      color: var(--gold-light);
+
+      font-size: 31px;
+      font-weight: 900;
+
+      margin-bottom: 28px;
+
+      box-shadow:
+        0 0 40px rgba(215,173,69,.10);
+    }
+
+
+    .register-intro h1 {
+      font-size: 34px;
+      line-height: 1.35;
+
+      margin-bottom: 14px;
+    }
+
+
+    .register-intro h1 span {
+      color: var(--gold-light);
+    }
+
+
+    .intro-description {
+      color: var(--muted);
+
+      line-height: 2;
+
+      font-size: 14px;
+
+      margin-bottom: 35px;
+    }
+
+
+    .benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+
+      gap: 12px;
+    }
+
+
+    .benefit-icon {
+      width: 34px;
+      height: 34px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+
+      background: rgba(12,164,111,.12);
+
+      border: 1px solid var(--border-green);
+
+      color: var(--emerald);
+
+      font-size: 15px;
+    }
+
+
+    .benefit strong {
+      display: block;
+
+      color: var(--white);
+
+      font-size: 13px;
+
+      margin-bottom: 3px;
+    }
+
+
+    .benefit span {
+      color: var(--muted2);
+
+      font-size: 11px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .register-form-area {
+      padding: 50px 45px;
+
+      background:
+        rgba(2,7,5,.25);
+    }
+
+
+    .form-heading {
+      margin-bottom: 30px;
+    }
+
+
+    .form-heading h2 {
+      font-size: 25px;
+
+      margin-bottom: 8px;
+    }
+
+
+    .form-heading p {
+      color: var(--muted2);
+
+      font-size: 12px;
+    }
+
+
+    .form-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 18px;
+    }
+
+
+    .field {
+      display: flex;
+      flex-direction: column;
+
+      gap: 8px;
+    }
+
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+
+    .field label {
+      color: #d8e2dd;
+
+      font-size: 12px;
+
+      font-weight: 600;
+    }
+
+
+    .field label span {
+      color: var(--gold);
+    }
+
+
+    .input-wrap {
+      position: relative;
+    }
+
+
+    .field input {
+      width: 100%;
+
+      height: 50px;
+
+      padding:
+        0 15px;
+
+      background:
+        rgba(255,255,255,.025);
+
+      border: 1px solid rgba(174,189,181,.16);
+
+      border-radius: 12px;
+
+      color: var(--white);
+
+      outline: none;
+
+      font-size: 13px;
+
+      transition: .25s;
+    }
+
+
+    .field input::placeholder {
+      color: #596a62;
+    }
+
+
+    .field input:focus {
+      border-color: var(--gold);
+
+      background:
+        rgba(215,173,69,.035);
+
+      box-shadow:
+        0 0 0 3px rgba(215,173,69,.07);
+    }
+
+
+    .password-input {
+      padding-left: 48px !important;
+    }
+
+
+    .toggle-password {
+      position: absolute;
+
+      left: 12px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      border: 0;
+
+      background: transparent;
+
+      color: var(--muted2);
+
+      cursor: pointer;
+
+      font-size: 16px;
+    }
+
+
+    .toggle-password:hover {
+      color: var(--gold-light);
+    }
+
+
+    .terms {
+      display: flex;
+      align-items: flex-start;
+
+      gap: 10px;
+
+      margin-top: 20px;
+    }
+
+
+    .terms input {
+      margin-top: 4px;
+
+      accent-color: var(--gold);
+
+      width: 15px;
+      height: 15px;
+    }
+
+
+    .terms label {
+      color: var(--muted);
+
+      font-size: 11px;
+
+      line-height: 1.8;
+    }
+
+
+    .terms a {
+      color: var(--gold-light);
+    }
+
+
+    .register-button {
+      width: 100%;
+
+      height: 52px;
+
+      margin-top: 24px;
+
+      border: 0;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          var(--gold-light)
+        );
+
+      color: #07120d;
+
+      font-family: inherit;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .25s;
+
+      box-shadow:
+        0 12px 30px rgba(215,173,69,.14);
+    }
+
+
+    .register-button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 16px 35px rgba(215,173,69,.20);
+    }
+
+
+    .register-button:active {
+      transform: translateY(0);
+    }
+
+
+    .status {
+      display: none;
+
+      margin-top: 16px;
+
+      padding: 12px 15px;
+
+      border-radius: 11px;
+
+      background: rgba(12,164,111,.08);
+
+      border: 1px solid var(--border-green);
+
+      color: #9be4c7;
+
+      font-size: 11px;
+
+      line-height: 1.8;
+    }
+
+
+    .status.show {
+      display: block;
+    }
+
+
+    .login-text {
+      text-align: center;
+
+      color: var(--muted2);
+
+      font-size: 12px;
+
+      margin-top: 24px;
+    }
+
+
+    .login-text a {
+      color: var(--gold-light);
+
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+
+      background:
+        rgba(2,7,5,.72);
+
+      padding: 25px 20px;
+    }
+
+
+    .footer-inner {
+      width: min(1200px, 100%);
+
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    .footer-brand {
+      color: var(--muted2);
+
+      font-size: 11px;
+    }
+
+
+    .footer-brand strong {
+      color: var(--gold-light);
+    }
+
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+
+      color: var(--muted2);
+
+      font-size: 11px;
+    }
+
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      nav {
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .register-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .register-intro {
+        border-left: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+    }
+
+
+    @media (max-width: 760px) {
+
+      header {
+        height: 68px;
+      }
+
+
+      .header-inner {
+        width: calc(100% - 28px);
+      }
+
+
+      .brand-text span {
+        display: none;
+      }
+
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+      }
+
+
+      nav {
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+
+        right: 14px;
+        left: 14px;
+
+        padding: 18px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 4px;
+
+        background:
+          rgba(4,18,13,.98);
+
+        border:
+          1px solid var(--border);
+
+        border-radius: 18px;
+
+        box-shadow: var(--shadow);
+      }
+
+
+      nav.open {
+        display: flex;
+      }
+
+
+      nav a {
+        padding: 12px;
+
+        border-radius: 9px;
+      }
+
+
+      nav a:hover {
+        background: rgba(255,255,255,.035);
+      }
+
+
+      nav a.active::after {
+        display: none;
+      }
+
+
+      .login-nav {
+        text-align: center;
+
+        margin-top: 5px;
+      }
+
+
+      .menu-btn {
+        display: block;
+      }
+
+
+      main {
+        padding-top: 105px;
+      }
+
+
+      .register-intro,
+      .register-form-area {
+        padding: 38px 25px;
+      }
+
+
+      .register-intro h1 {
+        font-size: 29px;
+      }
+
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .field.full {
+        grid-column: auto;
+      }
+
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+    }
+
+
+    @media (max-width: 430px) {
+
+      .register-intro,
+      .register-form-area {
+        padding: 32px 18px;
+      }
+
+
+      .register-wrapper {
+        border-radius: 20px;
+      }
+
+
+      .register-intro h1 {
+        font-size: 25px;
+      }
+
+
+      .form-heading h2 {
+        font-size: 22px;
+      }
+
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+
+        <div class="brand-logo">
+          A
+        </div>
+
+        <div class="brand-text">
+
+          <strong>ARTIK</strong>
+
+          <span>
+            جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <nav id="mainNav">
+
+        <a href="index.html">
+          صفحه اصلی
+        </a>
+
+        <a href="about.html">
+          درباره آرتیک
+        </a>
+
+        <a href="events.html">
+          جشنواره
+        </a>
+
+        <a href="news.html">
+          اخبار
+        </a>
+
+        <a href="articles.html">
+          منابع
+        </a>
+
+        <a href="gallery.html">
+          گالری
+        </a>
+
+        <a href="videos.html">
+          ویدیوها
+        </a>
+
+        <a href="contact.html">
+          تماس با ما
+        </a>
+
+        <a
+          href="login.html"
+          class="login-nav"
+        >
+          ورود
+        </a>
+
+      </nav>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="باز کردن منو"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main>
+
+    <section class="register-wrapper">
+
+
+      <!-- LEFT -->
+
+      <div class="register-intro">
+
+        <div class="intro-logo">
+          A
+        </div>
+
+
+        <h1>
+          به خانواده
+          <span>ARTIK</span>
+          بپیوندید
+        </h1>
+
+
+        <p class="intro-description">
+          یک حساب کاربری بسازید و وارد فضای رسمی
+          جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران شوید.
+        </p>
+
+
+        <div class="benefits">
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              ✓
+            </div>
+
+            <div>
+
+              <strong>
+                پروفایل اختصاصی
+              </strong>
+
+              <span>
+                اطلاعات و فعالیت‌های خود را در حساب شخصی مدیریت کنید.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              ✦
+            </div>
+
+            <div>
+
+              <strong>
+                ثبت و مدیریت پروژه
+              </strong>
+
+              <span>
+                پروژه‌ها و دستاوردهای خود را برای جشنواره ثبت کنید.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              ◈
+            </div>
+
+            <div>
+
+              <strong>
+                حضور در جامعه ARTIK
+              </strong>
+
+              <span>
+                اخبار، رویدادها و فرصت‌های مربوط به جشنواره را دنبال کنید.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              ★
+            </div>
+
+            <div>
+
+              <strong>
+                مسیر رشد و استعداد
+              </strong>
+
+              <span>
+                فعالیت‌های علمی و مهارتی خود را در یک مسیر منظم دنبال کنید.
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- RIGHT -->
+
+      <div class="register-form-area">
+
+
+        <div class="form-heading">
+
+          <h2>
+            ساخت حساب کاربری
+          </h2>
+
+          <p>
+            اطلاعات خود را وارد کنید تا حساب ARTIK شما ایجاد شود.
+          </p>
+
+        </div>
+
+
+        <form id="registerForm">
+
+
+          <div class="form-grid">
+
+
+            <!-- NAME -->
+
+            <div class="field">
+
+              <label>
+                نام و نام خانوادگی
+                <span>*</span>
+              </label>
+
+              <input
+                type="text"
+                id="fullName"
+                placeholder="مثلاً رها سورانی"
+                autocomplete="name"
+                required
+              >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="field">
+
+              <label>
+                ایمیل
+                <span>*</span>
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                placeholder="example@email.com"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="field">
+
+              <label>
+                شماره موبایل
+              </label>
+
+              <input
+                type="tel"
+                id="phone"
+                placeholder="09xxxxxxxxx"
+                autocomplete="tel"
+              >
+
+            </div>
+
+
+            <!-- GRADE -->
+
+            <div class="field">
+
+              <label>
+                پایه تحصیلی
+              </label>
+
+              <input
+                type="text"
+                id="grade"
+                placeholder="مثلاً نهم"
+              >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="field">
+
+              <label>
+                رمز عبور
+                <span>*</span>
+              </label>
+
+              <div class="input-wrap">
+
+                <input
+                  type="password"
+                  id="password"
+                  class="password-input"
+                  placeholder="حداقل ۶ کاراکتر"
+                  autocomplete="new-password"
+                  minlength="6"
+                  required
+                >
+
+                <button
+                  type="button"
+                  class="toggle-password"
+                  data-target="password"
+                >
+                  ◉
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- CONFIRM -->
+
+            <div class="field">
+
+              <label>
+                تکرار رمز عبور
+                <span>*</span>
+              </label>
+
+              <div class="input-wrap">
+
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  class="password-input"
+                  placeholder="رمز عبور را دوباره وارد کنید"
+                  autocomplete="new-password"
+                  minlength="6"
+                  required
+                >
+
+                <button
+                  type="button"
+                  class="toggle-password"
+                  data-target="confirmPassword"
+                >
+                  ◉
+                </button>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <!-- TERMS -->
+
+          <div class="terms">
+
+            <input
+              type="checkbox"
+              id="terms"
+              required
+            >
+
+            <label for="terms">
+
+              با ایجاد حساب کاربری، با
+              <a href="rules.html">
+                قوانین و مقررات ARTIK
+              </a>
+              موافقم.
+
+            </label>
+
+          </div>
+
+
+          <!-- BUTTON -->
+
+          <button
+            type="submit"
+            class="register-button"
+          >
+            ایجاد حساب کاربری
+          </button>
+
+
+          <!-- STATUS -->
+
+          <div
+            class="status"
+            id="status"
+          ></div>
+
+
+        </form>
+
+
+        <div class="login-text">
+
+          قبلاً حساب ساخته‌اید؟
+
+          <a href="login.html">
+            وارد شوید
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <strong>ARTIK</strong>
+        ·
+        جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="about.html">
+          درباره آرتیک
+        </a>
+
+        <a href="events.html">
+          جشنواره
+        </a>
+
+        <a href="rules.html">
+          قوانین
+        </a>
+
+        <a href="contact.html">
+          تماس
+        </a>
+
+        <a href="login.html">
+          ورود
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+
+    /* Mobile Menu */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const mainNav =
+      document.getElementById("mainNav");
+
+
+    menuBtn.addEventListener("click", () => {
+
+      mainNav.classList.toggle("open");
+
+    });
+
+
+
+    /* Close menu after clicking */
+
+    document
+      .querySelectorAll("#mainNav a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          mainNav.classList.remove("open");
+
+        });
+
+      });
+
+
+
+    /* Password visibility */
+
+    document
+      .querySelectorAll(".toggle-password")
+      .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          const targetId =
+            button.getAttribute("data-target");
+
+          const input =
+            document.getElementById(targetId);
+
+
+          if (input.type === "password") {
+
+            input.type = "text";
+
+            button.textContent = "◉";
+
+          } else {
+
+            input.type = "password";
+
+            button.textContent = "◉";
+
+          }
+
+        });
+
+      });
+
+
+
+    /* Register form */
+
+    const registerForm =
+      document.getElementById("registerForm");
+
+    const status =
+      document.getElementById("status");
+
+
+    registerForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+
+        const fullName =
+          document
+            .getElementById("fullName")
+            .value
+            .trim();
+
+
+        const email =
+          document
+            .getElementById("email")
+            .value
+            .trim();
+
+
+        const password =
+          document
+            .getElementById("password")
+            .value;
+
+
+        const confirmPassword =
+          document
+            .getElementById("confirmPassword")
+            .value;
+
+
+        const terms =
+          document
+            .getElementById("terms")
+            .checked;
+
+
+        status.classList.add("show");
+
+
+        if (
+          !fullName ||
+          !email ||
+          !password ||
+          !confirmPassword
+        ) {
+
+          status.textContent =
+            "لطفاً همه فیلدهای الزامی را کامل کنید.";
+
+          return;
+
+        }
+
+
+        if (password.length < 6) {
+
+          status.textContent =
+            "رمز عبور باید حداقل ۶ کاراکتر داشته باشد.";
+
+          return;
+
+        }
+
+
+        if (password !== confirmPassword) {
+
+          status.textContent =
+            "رمز عبور و تکرار آن یکسان نیستند.";
+
+          return;
+
+        }
+
+
+        if (!terms) {
+
+          status.textContent =
+            "برای ادامه باید قوانین و مقررات ARTIK را بپذیرید.";
+
+          return;
+
+        }
+
+
+        status.textContent =
+          "فرم شما آماده است. اتصال ثبت‌نام به حساب کاربری ARTIK در مرحله اتصال Supabase فعال می‌شود.";
+
+      }
+    );
+
+
+  </script>
+
+
+</body>
+
+  </html>
