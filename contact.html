@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -11,10 +12,10 @@
 
     <meta
         name="description"
-        content="تماس با دبیرخانه جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران | ARTIK"
+        content="ارتباط با دبیرخانه جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران | ARTIK"
     >
 
-    <title>تماس با ما | ARTIK</title>
+    <title>ارتباط با آرتیک | ARTIK</title>
 
     <style>
 
@@ -24,442 +25,1122 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #050b08;
+            --bg2: #09140f;
+            --card: rgba(13, 29, 21, .72);
+            --green: #15966a;
+            --green2: #0d6046;
+            --gold: #d9b84c;
+            --gold2: #f2da7b;
+            --white: #f4f7f5;
+            --muted: #91a099;
+            --line: rgba(217, 184, 76, .14);
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: Tahoma, Arial, sans-serif;
+            font-family:
+                Tahoma,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
             background:
-                radial-gradient(circle at top right, rgba(35, 111, 76, 0.18), transparent 35%),
-                linear-gradient(135deg, #06100c, #0b1712 45%, #050907);
-            color: #f5f7f5;
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(20, 145, 99, .14),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(217, 184, 76, .07),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #030806,
+                    #07120d 45%,
+                    #030705
+                );
+
+            color: var(--white);
             min-height: 100vh;
             line-height: 1.9;
         }
 
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .025;
+
+            background-image:
+                radial-gradient(
+                    rgba(255,255,255,.7) 1px,
+                    transparent 1px
+                );
+
+            background-size: 4px 4px;
+        }
+
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
         .container {
-            width: min(1150px, 92%);
+            width: min(1180px, 92%);
             margin: auto;
         }
 
-        /* HEADER */
+
+        /* ================= HEADER ================= */
 
         header {
             position: sticky;
             top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(18px);
-            background: rgba(4, 12, 8, 0.88);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+            z-index: 999;
+
+            background:
+                rgba(3, 9, 6, .78);
+
+            backdrop-filter: blur(22px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.055);
         }
 
         .nav {
-            min-height: 78px;
+            height: 78px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 25px;
+
+            gap: 30px;
         }
 
         .brand {
             display: flex;
             align-items: center;
             gap: 12px;
+
             font-size: 22px;
-            font-weight: bold;
-            color: #d8b84c;
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            color: var(--gold);
         }
 
-        .brand-icon {
+        .brand-mark {
             width: 43px;
             height: 43px;
-            border-radius: 13px;
+
             display: grid;
             place-items: center;
-            background: linear-gradient(135deg, #176b4c, #0d3929);
-            border: 1px solid rgba(216, 184, 76, 0.4);
-            box-shadow: 0 0 25px rgba(216, 184, 76, 0.08);
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #176f50,
+                    #08291d
+                );
+
+            border:
+                1px solid rgba(217,184,76,.35);
+
+            box-shadow:
+                0 0 35px rgba(21,150,106,.15);
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
         }
 
         nav a {
-            padding: 9px 13px;
+            padding: 9px 12px;
+
+            color: #bdc8c2;
+
             border-radius: 10px;
-            color: #d8dfda;
-            font-size: 14px;
-            transition: 0.25s;
+
+            font-size: 13px;
+
+            transition: .25s;
         }
 
         nav a:hover,
         nav a.active {
-            background: rgba(31, 110, 78, 0.22);
-            color: #e0bf50;
+            color: var(--gold2);
+
+            background:
+                rgba(21,150,106,.13);
         }
 
-        .login-btn {
-            border: 1px solid rgba(216, 184, 76, 0.4);
-            color: #e0bf50 !important;
+        .login {
+            border:
+                1px solid rgba(217,184,76,.35);
+
+            color: var(--gold2) !important;
         }
 
-        .menu-btn {
+        .menu {
             display: none;
-            background: none;
+
             border: none;
+            background: transparent;
+
             color: white;
-            font-size: 28px;
-            cursor: pointer;
+
+            font-size: 27px;
         }
 
-        /* HERO */
+
+        /* ================= HERO ================= */
 
         .hero {
-            padding: 95px 0 70px;
-            text-align: center;
             position: relative;
+
+            padding:
+                115px 0
+                80px;
+
             overflow: hidden;
         }
 
         .hero::before {
             content: "";
+
             position: absolute;
-            width: 430px;
-            height: 430px;
-            background: rgba(30, 122, 83, 0.13);
-            filter: blur(100px);
+
+            width: 520px;
+            height: 520px;
+
+            right: -170px;
+            top: -200px;
+
             border-radius: 50%;
-            top: -180px;
-            left: 50%;
-            transform: translateX(-50%);
+
+            background:
+                rgba(21,150,106,.12);
+
+            filter: blur(100px);
         }
 
-        .hero-badge {
-            display: inline-block;
-            padding: 7px 17px;
-            border: 1px solid rgba(216, 184, 76, 0.3);
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            left: -150px;
+            bottom: -180px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(217,184,76,.06);
+
+            filter: blur(90px);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns:
+                1.05fr
+                .95fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 9px;
+
+            padding: 7px 13px;
+
+            border:
+                1px solid rgba(217,184,76,.2);
+
             border-radius: 30px;
-            color: #d8b84c;
-            background: rgba(216, 184, 76, 0.06);
-            font-size: 13px;
-            margin-bottom: 20px;
+
+            color: var(--gold2);
+
+            background:
+                rgba(217,184,76,.055);
+
+            font-size: 12px;
+
+            margin-bottom: 22px;
+        }
+
+        .eyebrow span {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+            box-shadow: 0 0 12px var(--green);
         }
 
         .hero h1 {
-            font-size: clamp(36px, 6vw, 68px);
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, #ffffff, #d8b84c);
+            font-size:
+                clamp(40px, 6vw, 72px);
+
+            line-height: 1.12;
+
+            margin-bottom: 23px;
+
+            letter-spacing: -2px;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    #ffffff 20%,
+                    #d9b84c 85%
+                );
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            max-width: 680px;
-            margin: auto;
-            color: #b7c1bb;
-            font-size: 17px;
+        .hero h1 em {
+            font-style: normal;
+            color: var(--gold);
         }
 
-        /* CONTACT CARDS */
+        .hero-description {
+            max-width: 610px;
 
-        .contact-grid {
+            color: #9ba9a2;
+
+            font-size: 16px;
+
+            line-height: 2.1;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 12px 21px;
+
+            border-radius: 13px;
+
+            font-size: 13px;
+
+            transition: .25s;
+        }
+
+        .primary-btn {
+            color: #07100b;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold),
+                    var(--gold2)
+                );
+
+            box-shadow:
+                0 12px 35px rgba(217,184,76,.12);
+        }
+
+        .secondary-btn {
+            color: #d4ddd8;
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            background:
+                rgba(255,255,255,.035);
+        }
+
+        .primary-btn:hover,
+        .secondary-btn:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* HERO VISUAL */
+
+        .hero-visual {
+            position: relative;
+
+            min-height: 390px;
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 70px;
+            place-items: center;
         }
 
-        .contact-card {
+        .orb {
+            width: 285px;
+            height: 285px;
+
+            border-radius: 50%;
+
+            display: grid;
+            place-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    rgba(255,255,255,.13),
+                    transparent 17%
+                ),
+                radial-gradient(
+                    circle,
+                    #145b42,
+                    #07150e 68%
+                );
+
+            border:
+                1px solid rgba(217,184,76,.24);
+
+            box-shadow:
+                0 0 100px rgba(21,150,106,.13),
+                inset 0 0 60px rgba(217,184,76,.05);
+
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .orb-inner {
+            width: 205px;
+            height: 205px;
+
+            border-radius: 50%;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid rgba(217,184,76,.16);
+
+            background:
+                rgba(4,13,9,.48);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .orb-symbol {
+            font-size: 72px;
+
+            color: var(--gold);
+
+            filter:
+                drop-shadow(
+                    0 0 25px
+                    rgba(217,184,76,.22)
+                );
+        }
+
+        .floating-card {
+            position: absolute;
+
+            padding: 13px 17px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius: 15px;
+
+            background:
+                rgba(7,19,13,.82);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.28);
+
+            font-size: 12px;
+        }
+
+        .floating-card strong {
+            display: block;
+
+            color: var(--gold2);
+
+            margin-bottom: 2px;
+        }
+
+        .floating-card span {
+            color: #82918a;
+        }
+
+        .card-one {
+            top: 38px;
+            right: 20px;
+        }
+
+        .card-two {
+            bottom: 45px;
+            left: 0;
+        }
+
+        .card-three {
+            top: 145px;
+            left: -5px;
+        }
+
+        @keyframes float {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 45px 0 95px;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            max-width: 650px;
+
+            margin:
+                0 auto
+                38px;
+        }
+
+        .section-heading small {
+            color: var(--gold);
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+        .section-heading h2 {
+            font-size: 31px;
+
+            margin:
+                7px 0
+                10px;
+        }
+
+        .section-heading p {
+            color: #87958e;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= CONTACT OPTIONS ================= */
+
+        .contact-options {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .option {
+            position: relative;
+
+            padding: 28px;
+
+            min-height: 190px;
+
+            overflow: hidden;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius: 23px;
+
             background:
                 linear-gradient(
                     145deg,
-                    rgba(24, 63, 46, 0.48),
-                    rgba(8, 18, 13, 0.75)
+                    rgba(17,44,31,.65),
+                    rgba(7,16,11,.8)
                 );
-            border: 1px solid rgba(216, 184, 76, 0.15);
-            border-radius: 22px;
-            padding: 30px 24px;
-            text-align: center;
-            transition: 0.3s;
+
+            transition: .3s;
         }
 
-        .contact-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(216, 184, 76, 0.4);
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+        .option::before {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            top: -60px;
+            left: -50px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(21,150,106,.1);
+
+            filter: blur(25px);
         }
 
-        .icon {
-            width: 65px;
-            height: 65px;
-            border-radius: 20px;
-            margin: 0 auto 18px;
+        .option:hover {
+            transform: translateY(-7px);
+
+            border-color:
+                rgba(217,184,76,.3);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.22);
+        }
+
+        .option-icon {
+            width: 52px;
+            height: 52px;
+
             display: grid;
             place-items: center;
-            font-size: 30px;
-            background: rgba(216, 184, 76, 0.08);
-            border: 1px solid rgba(216, 184, 76, 0.18);
+
+            border-radius: 16px;
+
+            background:
+                rgba(217,184,76,.07);
+
+            border:
+                1px solid rgba(217,184,76,.16);
+
+            font-size: 24px;
+
+            margin-bottom: 19px;
         }
 
-        .contact-card h3 {
-            color: #e1bf51;
-            margin-bottom: 10px;
-        }
+        .option h3 {
+            color: #edf2ef;
 
-        .contact-card p {
-            color: #aeb9b2;
-            font-size: 14px;
-        }
+            font-size: 17px;
 
-        .contact-card a {
-            color: #d8b84c;
-        }
-
-        /* MAIN CONTACT */
-
-        .contact-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-            margin-bottom: 80px;
-        }
-
-        .box {
-            background: rgba(10, 23, 16, 0.78);
-            border: 1px solid rgba(216, 184, 76, 0.15);
-            border-radius: 24px;
-            padding: 32px;
-        }
-
-        .box h2 {
-            color: #e1bf51;
-            margin-bottom: 10px;
-            font-size: 25px;
-        }
-
-        .box > p {
-            color: #aeb9b2;
-            margin-bottom: 25px;
-            font-size: 14px;
-        }
-
-        label {
-            display: block;
-            color: #dfe7e2;
             margin-bottom: 7px;
-            font-size: 14px;
         }
 
-        input,
-        textarea,
-        select {
-            width: 100%;
-            border: 1px solid rgba(216, 184, 76, 0.15);
-            background: rgba(3, 10, 7, 0.7);
-            color: white;
-            border-radius: 13px;
-            padding: 13px 15px;
-            margin-bottom: 18px;
-            outline: none;
-            font-family: inherit;
-            font-size: 14px;
+        .option p {
+            color: #84938b;
+
+            font-size: 12px;
+
+            line-height: 1.9;
         }
 
-        input:focus,
-        textarea:focus,
-        select:focus {
-            border-color: rgba(216, 184, 76, 0.6);
+        .option-arrow {
+            position: absolute;
+
+            left: 24px;
+            bottom: 22px;
+
+            color: var(--gold);
+
+            font-size: 17px;
         }
 
-        textarea {
-            min-height: 145px;
-            resize: vertical;
+
+        /* ================= MAIN CONTACT ================= */
+
+        .contact-area {
+            display: grid;
+
+            grid-template-columns:
+                .9fr
+                1.1fr;
+
+            gap: 22px;
+
+            align-items: stretch;
         }
 
-        select option {
-            background: #0b1712;
+        .contact-info,
+        .form-box {
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius: 25px;
+
+            background:
+                rgba(8,20,14,.74);
+
+            backdrop-filter: blur(15px);
         }
 
-        .submit-btn {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 13px;
-            cursor: pointer;
-            font-family: inherit;
-            font-weight: bold;
-            font-size: 15px;
-            color: #07100b;
-            background: linear-gradient(135deg, #d8b84c, #f0d879);
-            transition: 0.25s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(216, 184, 76, 0.16);
-        }
 
         /* INFO */
 
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            padding: 17px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+        .contact-info {
+            padding: 35px;
         }
 
-        .info-item:last-child {
+        .contact-info h2 {
+            font-size: 26px;
+
+            margin-bottom: 9px;
+        }
+
+        .contact-info > p {
+            color: #84928b;
+
+            font-size: 13px;
+
+            margin-bottom: 27px;
+        }
+
+        .info-row {
+            display: flex;
+
+            gap: 14px;
+
+            padding: 17px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.055);
+        }
+
+        .info-row:last-child {
             border-bottom: none;
         }
 
         .info-icon {
-            min-width: 45px;
+            width: 45px;
             height: 45px;
-            border-radius: 13px;
+
+            min-width: 45px;
+
             display: grid;
             place-items: center;
-            background: rgba(31, 110, 78, 0.18);
-            font-size: 21px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(21,150,106,.11);
+
+            border:
+                1px solid rgba(21,150,106,.18);
+
+            font-size: 19px;
         }
 
-        .info-item strong {
+        .info-row strong {
             display: block;
-            color: #e4c45a;
+
+            color: #dce4df;
+
+            font-size: 13px;
+
             margin-bottom: 3px;
         }
 
-        .info-item span {
-            color: #aeb9b2;
+        .info-row span {
+            color: #7f8e86;
+
+            font-size: 11px;
+        }
+
+
+        /* FORM */
+
+        .form-box {
+            padding: 35px;
+        }
+
+        .form-top {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+        }
+
+        .form-top h2 {
+            font-size: 26px;
+        }
+
+        .secure {
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            color: #72c89f;
+
+            background:
+                rgba(21,150,106,.08);
+
+            border:
+                1px solid rgba(21,150,106,.15);
+
+            font-size: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 0 15px;
+        }
+
+        .field {
+            margin-bottom: 17px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+
+            color: #cbd5cf;
+
+            font-size: 12px;
+
+            margin-bottom: 7px;
+        }
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius: 13px;
+
+            padding:
+                13px
+                14px;
+
+            outline: none;
+
+            color: #edf2ef;
+
+            background:
+                rgba(2,9,6,.72);
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            transition: .25s;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #56645d;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color:
+                rgba(217,184,76,.42);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(217,184,76,.045);
+        }
+
+        select option {
+            background: #09140f;
+        }
+
+        textarea {
+            min-height: 135px;
+
+            resize: vertical;
+        }
+
+        .send-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
             font-size: 13px;
+
+            font-weight: 800;
+
+            color: #07100b;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold),
+                    var(--gold2)
+                );
+
+            transition: .25s;
         }
 
-        /* FAQ */
+        .send-btn:hover {
+            transform: translateY(-2px);
 
-        .faq {
-            margin-bottom: 80px;
+            box-shadow:
+                0 15px 35px
+                rgba(217,184,76,.13);
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
 
-        .section-title h2 {
-            font-size: 30px;
-            color: #e3c45b;
-            margin-bottom: 8px;
-        }
-
-        .section-title p {
-            color: #aeb9b2;
-            font-size: 14px;
-        }
+        /* ================= FAQ ================= */
 
         .faq-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 13px;
         }
 
         details {
-            background: rgba(10, 23, 16, 0.75);
-            border: 1px solid rgba(216, 184, 76, 0.12);
-            border-radius: 15px;
-            padding: 17px 20px;
+            padding: 18px 20px;
+
+            border:
+                1px solid rgba(255,255,255,.065);
+
+            border-radius: 16px;
+
+            background:
+                rgba(8,20,14,.65);
+
+            transition: .25s;
+        }
+
+        details[open] {
+            border-color:
+                rgba(217,184,76,.22);
         }
 
         summary {
             cursor: pointer;
-            color: #e5e9e6;
-            font-weight: bold;
+
+            color: #dfe7e2;
+
+            font-size: 13px;
+
+            font-weight: 700;
         }
 
         details p {
-            margin-top: 12px;
-            color: #aeb9b2;
-            font-size: 14px;
+            color: #7f8e86;
+
+            font-size: 12px;
+
+            margin-top: 11px;
+
+            line-height: 2;
         }
 
-        /* FOOTER */
+
+        /* ================= CTA ================= */
+
+        .cta {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 55px 30px;
+
+            text-align: center;
+
+            border-radius: 28px;
+
+            border:
+                1px solid rgba(217,184,76,.16);
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(21,150,106,.18),
+                    transparent 58%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0d3425,
+                    #06100b
+                );
+
+            margin-bottom: 85px;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            color: #8e9b94;
+
+            font-size: 13px;
+
+            margin-bottom: 23px;
+        }
+
+
+        /* ================= FOOTER ================= */
 
         footer {
-            border-top: 1px solid rgba(216, 184, 76, 0.12);
-            padding: 40px 0 25px;
-            background: rgba(2, 7, 5, 0.7);
+            border-top:
+                1px solid rgba(255,255,255,.055);
+
+            padding:
+                45px 0
+                25px;
+
+            background:
+                rgba(2,7,5,.8);
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 35px;
-            margin-bottom: 30px;
+
+            grid-template-columns:
+                2fr
+                1fr
+                1fr;
+
+            gap: 40px;
+
+            margin-bottom: 35px;
         }
 
         .footer-brand {
-            color: #d8b84c;
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            color: var(--gold);
+
+            font-size: 23px;
+
+            font-weight: 900;
+
+            margin-bottom: 8px;
+        }
+
+        footer p,
+        footer a {
+            color: #718078;
+
+            font-size: 12px;
         }
 
         footer p {
-            color: #89958e;
-            font-size: 13px;
-            max-width: 420px;
+            max-width: 410px;
         }
 
         footer h4 {
-            color: #dfe7e2;
-            margin-bottom: 12px;
+            color: #dbe3de;
+
+            font-size: 13px;
+
+            margin-bottom: 13px;
         }
 
         footer a {
             display: block;
-            color: #89958e;
-            font-size: 13px;
+
             margin-bottom: 7px;
-            transition: 0.2s;
+
+            transition: .2s;
         }
 
         footer a:hover {
-            color: #d8b84c;
+            color: var(--gold);
         }
 
         .copyright {
-            border-top: 1px solid rgba(255,255,255,0.05);
             padding-top: 20px;
+
+            border-top:
+                1px solid rgba(255,255,255,.045);
+
             text-align: center;
-            color: #657069;
-            font-size: 12px;
+
+            color: #4e5b54;
+
+            font-size: 10px;
         }
 
-        /* MOBILE */
+
+        /* ================= MOBILE ================= */
 
         @media (max-width: 850px) {
 
+            .nav {
+                height: 70px;
+            }
+
             nav {
                 display: none;
+
                 position: absolute;
-                top: 78px;
+
+                top: 70px;
+
                 right: 4%;
                 left: 4%;
+
+                padding: 10px;
+
                 flex-direction: column;
-                align-items: stretch;
-                padding: 12px;
-                background: rgba(5, 15, 10, 0.98);
-                border: 1px solid rgba(216, 184, 76, 0.15);
-                border-radius: 16px;
+
+                background:
+                    rgba(4,13,9,.98);
+
+                border:
+                    1px solid rgba(217,184,76,.12);
+
+                border-radius: 17px;
             }
 
             nav.show {
@@ -467,20 +1148,83 @@
             }
 
             nav a {
+                width: 100%;
+
                 text-align: center;
-                padding: 12px;
+
+                padding: 11px;
             }
 
-            .menu-btn {
+            .menu {
                 display: block;
             }
 
-            .contact-grid {
+            .hero {
+                padding: 75px 0 45px;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 300px;
+            }
+
+            .orb {
+                width: 230px;
+                height: 230px;
+            }
+
+            .orb-inner {
+                width: 165px;
+                height: 165px;
+            }
+
+            .orb-symbol {
+                font-size: 55px;
+            }
+
+            .card-one {
+                right: 5px;
+            }
+
+            .card-two {
+                left: 5px;
+            }
+
+            .card-three {
+                left: 0;
+                top: 105px;
+            }
+
+            .contact-options {
                 grid-template-columns: 1fr;
             }
 
-            .contact-section {
+            .contact-area {
                 grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .field.full {
+                grid-column: auto;
             }
 
             .faq-grid {
@@ -491,23 +1235,28 @@
                 grid-template-columns: 1fr;
             }
 
-            .hero {
-                padding-top: 70px;
-            }
         }
 
     </style>
+
 </head>
 
+
 <body>
+
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
     <div class="container nav">
 
-        <a href="index.html" class="brand">
+        <a
+            href="index.html"
+            class="brand"
+        >
 
-            <div class="brand-icon">
+            <div class="brand-mark">
                 ✦
             </div>
 
@@ -515,9 +1264,14 @@
 
         </a>
 
-        <button class="menu-btn" onclick="toggleMenu()">
+
+        <button
+            class="menu"
+            onclick="toggleMenu()"
+        >
             ☰
         </button>
+
 
         <nav id="mainNav">
 
@@ -545,11 +1299,17 @@
                 گالری
             </a>
 
-            <a href="contact.html" class="active">
-                تماس با ما
+            <a
+                href="contact.html"
+                class="active"
+            >
+                تماس
             </a>
 
-            <a href="login.html" class="login-btn">
+            <a
+                href="login.html"
+                class="login"
+            >
                 ورود
             </a>
 
@@ -560,77 +1320,215 @@
 </header>
 
 
+
 <main>
 
-    <!-- HERO -->
 
-    <section class="hero">
+<!-- ================= HERO ================= -->
 
-        <div class="container">
+<section class="hero">
 
-            <span class="hero-badge">
+    <div class="container hero-inner">
+
+
+        <div>
+
+            <div class="eyebrow">
+                <span></span>
                 دبیرخانه جشنواره آرتیک
-            </span>
+            </div>
+
 
             <h1>
-                با آرتیک در ارتباط باشید
+                همیشه یک راه برای
+                <em>ارتباط</em>
+                وجود دارد.
             </h1>
 
+
+            <p class="hero-description">
+
+                پرسشی درباره جشنواره دارید؟
+                ایده‌ای برای همکاری؟
+                یا می‌خواهید درباره مسیر ثبت پروژه بیشتر بدانید؟
+
+                تیم آرتیک آماده شنیدن شماست.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#message"
+                    class="primary-btn"
+                >
+                    ارسال پیام
+                </a>
+
+                <a
+                    href="#faq"
+                    class="secondary-btn"
+                >
+                    پرسش‌های متداول
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hero-visual">
+
+
+            <div class="orb">
+
+                <div class="orb-inner">
+
+                    <div class="orb-symbol">
+                        ✦
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card card-one">
+
+                <strong>
+                    پاسخ‌گویی
+                </strong>
+
+                <span>
+                    ارتباط با دبیرخانه
+                </span>
+
+            </div>
+
+
+            <div class="floating-card card-two">
+
+                <strong>
+                    همکاری
+                </strong>
+
+                <span>
+                    ایده‌ها و پیشنهادها
+                </span>
+
+            </div>
+
+
+            <div class="floating-card card-three">
+
+                <strong>
+                    ARTIK
+                </strong>
+
+                <span>
+                    Youth Innovation
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= OPTIONS ================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <small>
+                HOW CAN WE HELP?
+            </small>
+
+            <h2>
+                برای چه چیزی می‌خواهی با ما در ارتباط باشی؟
+            </h2>
+
             <p>
-                پرسش، پیشنهاد، همکاری یا مشکلی در مسیر جشنواره دارید؟
-                دبیرخانه آرتیک آماده دریافت پیام شماست.
+                موضوعت را انتخاب کن تا سریع‌تر به مسیر درست برسی.
             </p>
 
         </div>
 
-    </section>
 
 
-    <!-- CONTACT CARDS -->
+        <div class="contact-options">
 
-    <section class="container">
 
-        <div class="contact-grid">
+            <a
+                href="#message"
+                class="option"
+            >
 
-            <div class="contact-card">
-
-                <div class="icon">
-                    📩
+                <div class="option-icon">
+                    ❓
                 </div>
 
                 <h3>
-                    ارتباط با دبیرخانه
+                    پرسش درباره جشنواره
                 </h3>
 
                 <p>
-                    برای پرسش‌ها و پیگیری‌های مربوط به جشنواره
-                    می‌توانید با دبیرخانه در ارتباط باشید.
+                    قوانین، مراحل، رشته‌ها، زمان‌بندی
+                    و هر چیزی که درباره آرتیک می‌خواهی بدانی.
                 </p>
 
-            </div>
+                <div class="option-arrow">
+                    ←
+                </div>
+
+            </a>
 
 
-            <div class="contact-card">
 
-                <div class="icon">
+            <a
+                href="#message"
+                class="option"
+            >
+
+                <div class="option-icon">
                     🤝
                 </div>
 
                 <h3>
-                    همکاری
+                    همکاری و حمایت
                 </h3>
 
                 <p>
-                    اگر علاقه‌مند به همکاری، آموزش، حمایت یا مشارکت
-                    در برنامه‌های آرتیک هستید، پیام خود را ارسال کنید.
+                    برای همکاری آموزشی، رسانه‌ای،
+                    اجرایی یا حمایت از برنامه‌های آرتیک.
                 </p>
 
-            </div>
+                <div class="option-arrow">
+                    ←
+                </div>
+
+            </a>
 
 
-            <div class="contact-card">
 
-                <div class="icon">
+            <a
+                href="#message"
+                class="option"
+            >
+
+                <div class="option-icon">
                     💡
                 </div>
 
@@ -639,136 +1537,50 @@
                 </h3>
 
                 <p>
-                    ایده‌های شما می‌توانند به بهتر شدن تجربه
-                    نوجوانان در آرتیک کمک کنند.
+                    اگر ایده‌ای برای بهتر شدن جشنواره
+                    یا تجربه نوجوانان داری، با ما در میان بگذار.
                 </p>
 
-            </div>
+                <div class="option-arrow">
+                    ←
+                </div>
+
+            </a>
+
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- MAIN CONTACT -->
 
-    <section class="container contact-section">
+<!-- ================= CONTACT AREA ================= -->
 
+<section
+    class="section"
+    id="message"
+>
 
-        <!-- FORM -->
-
-        <div class="box">
-
-            <h2>
-                ارسال پیام
-            </h2>
-
-            <p>
-                فرم زیر را تکمیل کنید تا پیام شما برای بررسی
-                دبیرخانه آماده شود.
-            </p>
-
-            <form id="contactForm">
-
-                <label for="name">
-                    نام و نام خانوادگی
-                </label>
-
-                <input
-                    id="name"
-                    type="text"
-                    placeholder="مثلاً رها سورانی"
-                    required
-                >
-
-
-                <label for="email">
-                    ایمیل
-                </label>
-
-                <input
-                    id="email"
-                    type="email"
-                    placeholder="example@email.com"
-                    required
-                >
-
-
-                <label for="subject">
-                    موضوع پیام
-                </label>
-
-                <select id="subject" required>
-
-                    <option value="">
-                        انتخاب موضوع
-                    </option>
-
-                    <option>
-                        پرسش درباره جشنواره
-                    </option>
-
-                    <option>
-                        ثبت‌نام و ارسال پروژه
-                    </option>
-
-                    <option>
-                        همکاری
-                    </option>
-
-                    <option>
-                        حمایت از جشنواره
-                    </option>
-
-                    <option>
-                        پیشنهاد و ایده
-                    </option>
-
-                    <option>
-                        سایر
-                    </option>
-
-                </select>
-
-
-                <label for="message">
-                    پیام شما
-                </label>
-
-                <textarea
-                    id="message"
-                    placeholder="پیام خود را بنویسید..."
-                    required
-                ></textarea>
-
-
-                <button
-                    class="submit-btn"
-                    type="submit"
-                >
-                    ارسال پیام
-                </button>
-
-            </form>
-
-        </div>
+    <div class="container contact-area">
 
 
         <!-- INFO -->
 
-        <div class="box">
+        <div class="contact-info">
 
             <h2>
                 راه‌های ارتباطی
             </h2>
 
             <p>
-                اطلاعات رسمی ارتباط با دبیرخانه را می‌توانید
-                در این بخش قرار دهید.
+                اطلاعات رسمی دبیرخانه آرتیک در این بخش قرار می‌گیرد.
             </p>
 
 
-            <div class="info-item">
+
+            <div class="info-row">
 
                 <div class="info-icon">
                     🏛️
@@ -777,11 +1589,11 @@
                 <div>
 
                     <strong>
-                        دبیرخانه جشنواره
+                        دبیرخانه آرتیک
                     </strong>
 
                     <span>
-                        دبیرخانه جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران
+                        جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران
                     </span>
 
                 </div>
@@ -789,7 +1601,8 @@
             </div>
 
 
-            <div class="info-item">
+
+            <div class="info-row">
 
                 <div class="info-icon">
                     📧
@@ -798,11 +1611,11 @@
                 <div>
 
                     <strong>
-                        ایمیل
+                        ایمیل رسمی
                     </strong>
 
                     <span>
-                        ایمیل رسمی دبیرخانه را پس از ایجاد در این قسمت قرار دهید.
+                        ایمیل رسمی دبیرخانه پس از نهایی شدن درج می‌شود.
                     </span>
 
                 </div>
@@ -810,7 +1623,8 @@
             </div>
 
 
-            <div class="info-item">
+
+            <div class="info-row">
 
                 <div class="info-icon">
                     📱
@@ -823,7 +1637,7 @@
                     </strong>
 
                     <span>
-                        لینک شبکه‌های اجتماعی رسمی آرتیک در این قسمت قرار می‌گیرد.
+                        لینک صفحات رسمی آرتیک در این قسمت قرار می‌گیرد.
                     </span>
 
                 </div>
@@ -831,7 +1645,8 @@
             </div>
 
 
-            <div class="info-item">
+
+            <div class="info-row">
 
                 <div class="info-icon">
                     📍
@@ -844,7 +1659,7 @@
                     </strong>
 
                     <span>
-                        اطلاعات محل فعالیت دبیرخانه پس از نهایی شدن در این قسمت درج می‌شود.
+                        اطلاعات محل فعالیت دبیرخانه پس از نهایی شدن اعلام می‌شود.
                     </span>
 
                 </div>
@@ -852,7 +1667,8 @@
             </div>
 
 
-            <div class="info-item">
+
+            <div class="info-row">
 
                 <div class="info-icon">
                     ⏱️
@@ -865,7 +1681,7 @@
                     </strong>
 
                     <span>
-                        پیام‌ها پس از بررسی دبیرخانه پاسخ داده خواهند شد.
+                        پیام‌ها پس از بررسی توسط دبیرخانه پاسخ داده می‌شوند.
                     </span>
 
                 </div>
@@ -874,97 +1690,284 @@
 
         </div>
 
-    </section>
 
 
-    <!-- FAQ -->
+        <!-- FORM -->
 
-    <section class="container faq">
+        <div class="form-box">
 
-        <div class="section-title">
+            <div class="form-top">
+
+                <h2>
+                    پیام خود را بفرست
+                </h2>
+
+                <span class="secure">
+                    ✦ ارتباط مستقیم
+                </span>
+
+            </div>
+
+
+            <form id="contactForm">
+
+
+                <div class="form-grid">
+
+
+                    <div class="field">
+
+                        <label for="name">
+                            نام و نام خانوادگی
+                        </label>
+
+                        <input
+                            id="name"
+                            type="text"
+                            placeholder="نام شما"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="field">
+
+                        <label for="email">
+                            ایمیل
+                        </label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="example@email.com"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="field full">
+
+                        <label for="subject">
+                            موضوع پیام
+                        </label>
+
+                        <select
+                            id="subject"
+                            required
+                        >
+
+                            <option value="">
+                                موضوع را انتخاب کنید
+                            </option>
+
+                            <option>
+                                پرسش درباره جشنواره
+                            </option>
+
+                            <option>
+                                ثبت‌نام و ارسال پروژه
+                            </option>
+
+                            <option>
+                                همکاری
+                            </option>
+
+                            <option>
+                                حمایت از جشنواره
+                            </option>
+
+                            <option>
+                                پیشنهاد و ایده
+                            </option>
+
+                            <option>
+                                سایر
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="field full">
+
+                        <label for="messageText">
+                            پیام شما
+                        </label>
+
+                        <textarea
+                            id="messageText"
+                            placeholder="پیامتان را اینجا بنویسید..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    class="send-btn"
+                    type="submit"
+                >
+                    ارسال پیام به دبیرخانه ←
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FAQ ================= -->
+
+<section
+    class="section"
+    id="faq"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <small>
+                FAQ
+            </small>
 
             <h2>
-                پرسش‌های متداول
+                شاید جواب سؤالت اینجا باشد
             </h2>
 
             <p>
-                پاسخ چند سؤال رایج درباره ارتباط با آرتیک
+                پاسخ چند پرسش پرتکرار درباره ارتباط با آرتیک
             </p>
 
         </div>
 
 
+
         <div class="faq-grid">
 
+
             <details>
 
                 <summary>
-                    چگونه درباره ثبت پروژه سؤال بپرسم؟
+                    چطور درباره ثبت پروژه سؤال بپرسم؟
                 </summary>
 
                 <p>
-                    موضوع «ثبت‌نام و ارسال پروژه» را انتخاب کنید
-                    و سؤال خود را در فرم پیام بنویسید.
+                    در فرم تماس، موضوع «ثبت‌نام و ارسال پروژه»
+                    را انتخاب کن و سؤال یا مشکل خودت را بنویس.
                 </p>
 
             </details>
 
 
+
             <details>
 
                 <summary>
-                    آیا می‌توان برای همکاری با آرتیک پیام داد؟
+                    آیا می‌توانم برای همکاری با آرتیک درخواست بدهم؟
                 </summary>
 
                 <p>
-                    بله. موضوع «همکاری» را انتخاب کنید و
-                    زمینه پیشنهادی خود را توضیح دهید.
+                    بله. موضوع «همکاری» را انتخاب کن و
+                    زمینه همکاری پیشنهادی خودت را توضیح بده.
                 </p>
 
             </details>
 
 
+
             <details>
 
                 <summary>
-                    آیا امکان ارسال پیشنهاد برای جشنواره وجود دارد؟
+                    آیا امکان پیشنهاد ایده برای جشنواره وجود دارد؟
                 </summary>
 
                 <p>
-                    بله. آرتیک می‌تواند پیشنهادها و ایده‌های
-                    مرتبط با فعالیت‌های جشنواره را دریافت کند.
+                    بله. ایده‌های مرتبط با برنامه‌ها،
+                    آموزش‌ها و تجربه شرکت‌کنندگان قابل ارسال هستند.
                 </p>
 
             </details>
 
 
+
             <details>
 
                 <summary>
-                    اگر هنگام ثبت‌نام مشکل داشته باشم چه کنم؟
+                    اگر هنگام ثبت‌نام به مشکل خوردم چه کنم؟
                 </summary>
 
                 <p>
-                    موضوع «ثبت‌نام و ارسال پروژه» را انتخاب کنید
-                    و مشکل را با جزئیات برای دبیرخانه توضیح دهید.
+                    موضوع «ثبت‌نام و ارسال پروژه» را انتخاب کن
+                    و مشکل را با جزئیات توضیح بده تا بررسی شود.
                 </p>
 
             </details>
+
 
         </div>
 
-    </section>
+    </div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section class="container">
+
+    <div class="cta">
+
+        <h2>
+            یک ایده می‌تواند شروع یک مسیر باشد.
+        </h2>
+
+        <p>
+            اگر آماده‌ای، پروژه‌ات را برای آرتیک آماده کن.
+        </p>
+
+        <a
+            href="register.html"
+            class="primary-btn"
+        >
+            شروع ثبت‌نام
+        </a>
+
+    </div>
+
+</section>
+
 
 </main>
 
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
     <div class="container">
 
+
         <div class="footer-grid">
+
 
             <div>
 
@@ -978,6 +1981,7 @@
                 </p>
 
             </div>
+
 
 
             <div>
@@ -1009,6 +2013,7 @@
             </div>
 
 
+
             <div>
 
                 <h4>
@@ -1037,7 +2042,9 @@
 
             </div>
 
+
         </div>
+
 
 
         <div class="copyright">
@@ -1046,9 +2053,11 @@
 
         </div>
 
+
     </div>
 
 </footer>
+
 
 
 <script>
@@ -1065,19 +2074,23 @@
 
     document
         .getElementById("contactForm")
-        .addEventListener("submit", function(event) {
+        .addEventListener(
+            "submit",
+            function(event) {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            alert(
-                "پیام شما آماده ارسال است. سیستم دریافت پیام دبیرخانه هنوز به سرور متصل نشده است."
-            );
+                alert(
+                    "پیام شما ثبت شد. اتصال فرم به سیستم دبیرخانه در مرحله بعد فعال می‌شود."
+                );
 
-            this.reset();
+                this.reset();
 
-        });
+            }
+        );
 
 </script>
+
 
 </body>
 
