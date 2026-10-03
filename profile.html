@@ -1,1 +1,2267 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="ARTIK | پروفایل کاربری"
+  >
+
+  <title>پروفایل من | ARTIK</title>
+
+  <!-- فونت اصلی ARTIK -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+
+  <style>
+
+    :root {
+
+      --bg: #020705;
+      --bg2: #04120d;
+
+      --panel: #071912;
+      --panel2: #0a2118;
+
+      --green: #063d2a;
+      --green-light: #08704d;
+      --emerald: #0ca46f;
+
+      --gold: #d7ad45;
+      --gold-light: #f4d47c;
+      --gold-dark: #927021;
+
+      --white: #ffffff;
+
+      --muted: #aebdb5;
+      --muted2: #72847b;
+
+      --border: rgba(215,173,69,.28);
+      --border-green: rgba(12,164,111,.34);
+
+      --shadow: 0 25px 70px rgba(0,0,0,.45);
+
+      --radius: 20px;
+
+    }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      font-family: "Vazirmatn", sans-serif;
+
+      min-height: 100vh;
+
+      color: var(--white);
+
+      background:
+
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(12,164,111,.12),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 85% 60%,
+          rgba(215,173,69,.07),
+          transparent 28%
+        ),
+
+        linear-gradient(
+          145deg,
+          #020705,
+          #04120d,
+          #020705
+        );
+
+      overflow-x: hidden;
+
+    }
+
+
+    body::before {
+
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      background-image:
+
+        radial-gradient(
+          rgba(255,255,255,.045) 1px,
+          transparent 1px
+        );
+
+      background-size: 28px 28px;
+
+      pointer-events: none;
+
+      z-index: -1;
+
+    }
+
+
+    a {
+
+      color: inherit;
+
+      text-decoration: none;
+
+    }
+
+
+    button,
+    input,
+    select {
+
+      font-family: inherit;
+
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+
+      position: fixed;
+
+      top: 0;
+      right: 0;
+      left: 0;
+
+      height: 78px;
+
+      display: flex;
+
+      align-items: center;
+
+      background:
+
+        linear-gradient(
+          180deg,
+          rgba(2,7,5,.97),
+          rgba(2,7,5,.90)
+        );
+
+      border-bottom: 1px solid var(--border);
+
+      backdrop-filter: blur(18px);
+
+      z-index: 1000;
+
+    }
+
+
+    .nav-container {
+
+      width: min(
+        1200px,
+        calc(100% - 40px)
+      );
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 25px;
+
+    }
+
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      flex-shrink: 0;
+
+    }
+
+
+    .brand-logo {
+
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border: 1px solid var(--gold);
+
+      border-radius: 14px;
+
+      color: var(--gold-light);
+
+      font-size: 23px;
+
+      font-weight: 900;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          var(--green),
+          #020b07
+        );
+
+      box-shadow:
+        0 0 25px rgba(12,164,111,.12);
+
+    }
+
+
+    .brand-text strong {
+
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: 19px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+    }
+
+
+    .brand-text span {
+
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      margin-top: 1px;
+
+    }
+
+
+    nav {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+
+    }
+
+
+    nav a {
+
+      position: relative;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      font-weight: 500;
+
+      transition: .25s ease;
+
+    }
+
+
+    nav a:hover,
+    nav a.active {
+
+      color: var(--gold-light);
+
+    }
+
+
+    nav a.active::after {
+
+      content: "";
+
+      position: absolute;
+
+      right: 0;
+      left: 0;
+
+      bottom: -10px;
+
+      height: 2px;
+
+      background: var(--gold);
+
+      border-radius: 10px;
+
+    }
+
+
+    .login-nav {
+
+      padding: 10px 16px;
+
+      border: 1px solid var(--gold);
+
+      border-radius: 12px;
+
+      color: var(--gold-light) !important;
+
+      font-size: 12px !important;
+
+      font-weight: 700 !important;
+
+    }
+
+
+    .menu-btn {
+
+      display: none;
+
+      width: 43px;
+      height: 43px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      background: var(--panel);
+
+      color: var(--gold-light);
+
+      font-size: 18px;
+
+      cursor: pointer;
+
+    }
+
+
+    /* =========================
+       PAGE
+    ========================= */
+
+    .page {
+
+      width: min(
+        1200px,
+        calc(100% - 40px)
+      );
+
+      margin: auto;
+
+      padding-top: 118px;
+
+      padding-bottom: 70px;
+
+    }
+
+
+    /* =========================
+       PROFILE HERO
+    ========================= */
+
+    .profile-hero {
+
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 280px;
+
+      padding: 35px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 24px;
+
+      background:
+
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(12,164,111,.17),
+          transparent 32%
+        ),
+
+        radial-gradient(
+          circle at 15% 80%,
+          rgba(215,173,69,.08),
+          transparent 30%
+        ),
+
+        linear-gradient(
+          145deg,
+          #0a2118,
+          #04110c
+        );
+
+      box-shadow: var(--shadow);
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 28px;
+
+      margin-bottom: 22px;
+
+    }
+
+
+    .profile-hero::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 350px;
+      height: 350px;
+
+      border: 1px solid rgba(215,173,69,.08);
+
+      border-radius: 50%;
+
+      left: -150px;
+      bottom: -190px;
+
+    }
+
+
+    .profile-avatar {
+
+      position: relative;
+
+      width: 125px;
+      height: 125px;
+
+      flex-shrink: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          var(--green-light),
+          #03100a
+        );
+
+      border: 2px solid var(--gold);
+
+      box-shadow:
+
+        0 0 0 8px rgba(215,173,69,.06),
+
+        0 20px 45px rgba(0,0,0,.35);
+
+      color: var(--gold-light);
+
+      font-size: 46px;
+
+      font-weight: 900;
+
+      z-index: 2;
+
+    }
+
+
+    .online-dot {
+
+      position: absolute;
+
+      width: 19px;
+      height: 19px;
+
+      bottom: 7px;
+      left: 8px;
+
+      border-radius: 50%;
+
+      background: var(--emerald);
+
+      border: 3px solid #071912;
+
+    }
+
+
+    .profile-main {
+
+      position: relative;
+
+      z-index: 2;
+
+      flex: 1;
+
+    }
+
+
+    .profile-label {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 6px 10px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 999px;
+
+      color: var(--gold-light);
+
+      background: rgba(215,173,69,.05);
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .profile-label i {
+
+      color: var(--emerald);
+
+    }
+
+
+    .profile-main h1 {
+
+      font-size: 32px;
+
+      font-weight: 900;
+
+      margin-bottom: 7px;
+
+    }
+
+
+    .profile-main h1 span {
+
+      color: var(--gold-light);
+
+    }
+
+
+    .profile-email {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-bottom: 17px;
+
+    }
+
+
+    .profile-email i {
+
+      color: var(--gold);
+
+      margin-left: 5px;
+
+    }
+
+
+    .profile-badges {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+    }
+
+
+    .badge {
+
+      padding: 7px 11px;
+
+      border-radius: 9px;
+
+      background: rgba(12,164,111,.08);
+
+      border: 1px solid var(--border-green);
+
+      color: #83d9ba;
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+    }
+
+
+    .edit-profile {
+
+      position: relative;
+
+      z-index: 3;
+
+      align-self: flex-start;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 11px 16px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 11px;
+
+      background: rgba(2,7,5,.4);
+
+      color: var(--gold-light);
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition: .25s ease;
+
+    }
+
+
+    .edit-profile:hover {
+
+      background: rgba(215,173,69,.08);
+
+      border-color: var(--gold);
+
+      transform: translateY(-2px);
+
+    }
+
+
+    /* =========================
+       GRID
+    ========================= */
+
+    .content-grid {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1.7fr;
+
+      gap: 22px;
+
+    }
+
+
+    .left-column,
+    .right-column {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 22px;
+
+    }
+
+
+    /* =========================
+       PANEL
+    ========================= */
+
+    .panel {
+
+      padding: 25px;
+
+      border: 1px solid var(--border-green);
+
+      border-radius: var(--radius);
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(10,33,24,.94),
+          rgba(7,25,18,.94)
+        );
+
+      box-shadow:
+
+        0 18px 45px rgba(0,0,0,.20);
+
+    }
+
+
+    .panel-title {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 22px;
+
+    }
+
+
+    .panel-title h2 {
+
+      font-size: 17px;
+
+      font-weight: 900;
+
+    }
+
+
+    .panel-title h2 span {
+
+      color: var(--gold-light);
+
+    }
+
+
+    .panel-title a {
+
+      color: var(--gold-light);
+
+      font-size: 10px;
+
+    }
+
+
+    /* =========================
+       PERSONAL INFO
+    ========================= */
+
+    .info-list {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 14px;
+
+    }
+
+
+    .info-item {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding-bottom: 14px;
+
+      border-bottom: 1px solid rgba(255,255,255,.055);
+
+    }
+
+
+    .info-item:last-child {
+
+      padding-bottom: 0;
+
+      border-bottom: none;
+
+    }
+
+
+    .info-icon {
+
+      width: 38px;
+      height: 38px;
+
+      flex-shrink: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 11px;
+
+      background: rgba(12,164,111,.07);
+
+      border: 1px solid var(--border-green);
+
+      color: var(--emerald);
+
+      font-size: 13px;
+
+    }
+
+
+    .info-text small {
+
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 9px;
+
+      margin-bottom: 4px;
+
+    }
+
+
+    .info-text strong {
+
+      display: block;
+
+      color: #e8eee9;
+
+      font-size: 11px;
+
+      font-weight: 600;
+
+    }
+
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 10px;
+
+    }
+
+
+    .stat {
+
+      padding: 17px 12px;
+
+      text-align: center;
+
+      border-radius: 14px;
+
+      background: rgba(2,7,5,.45);
+
+      border: 1px solid rgba(255,255,255,.06);
+
+    }
+
+
+    .stat-number {
+
+      color: var(--gold-light);
+
+      font-size: 25px;
+
+      font-weight: 900;
+
+      margin-bottom: 4px;
+
+    }
+
+
+    .stat-label {
+
+      color: var(--muted2);
+
+      font-size: 9px;
+
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 12px;
+
+    }
+
+
+    .project {
+
+      padding: 17px;
+
+      border: 1px solid rgba(255,255,255,.06);
+
+      border-radius: 14px;
+
+      background: rgba(2,7,5,.36);
+
+      transition: .25s ease;
+
+    }
+
+
+    .project:hover {
+
+      border-color: var(--border-green);
+
+      transform: translateY(-2px);
+
+    }
+
+
+    .project-top {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 13px;
+
+      margin-bottom: 11px;
+
+    }
+
+
+    .project-icon {
+
+      width: 43px;
+      height: 43px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 12px;
+
+      color: var(--gold-light);
+
+      background: rgba(215,173,69,.07);
+
+      border: 1px solid var(--border);
+
+      font-size: 15px;
+
+    }
+
+
+    .project-name {
+
+      flex: 1;
+
+    }
+
+
+    .project-name h3 {
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      margin-bottom: 3px;
+
+    }
+
+
+    .project-name span {
+
+      color: var(--muted2);
+
+      font-size: 9px;
+
+    }
+
+
+    .project-status {
+
+      padding: 5px 8px;
+
+      border-radius: 7px;
+
+      font-size: 8px;
+
+      font-weight: 700;
+
+    }
+
+
+    .status-green {
+
+      color: #73d9b6;
+
+      background: rgba(12,164,111,.10);
+
+      border: 1px solid rgba(12,164,111,.20);
+
+    }
+
+
+    .status-gold {
+
+      color: var(--gold-light);
+
+      background: rgba(215,173,69,.08);
+
+      border: 1px solid rgba(215,173,69,.20);
+
+    }
+
+
+    .project-bottom {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      color: var(--muted2);
+
+      font-size: 9px;
+
+    }
+
+
+    .progress {
+
+      width: 100%;
+
+      height: 5px;
+
+      margin-top: 10px;
+
+      background: rgba(255,255,255,.06);
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+    }
+
+
+    .progress-bar {
+
+      height: 100%;
+
+      border-radius: 20px;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          var(--green-light),
+          var(--emerald)
+        );
+
+    }
+
+
+    /* =========================
+       ACHIEVEMENTS
+    ========================= */
+
+    .achievement-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 11px;
+
+    }
+
+
+    .achievement {
+
+      padding: 17px 10px;
+
+      text-align: center;
+
+      border-radius: 14px;
+
+      background: rgba(2,7,5,.4);
+
+      border: 1px solid rgba(255,255,255,.055);
+
+    }
+
+
+    .achievement i {
+
+      color: var(--gold-light);
+
+      font-size: 21px;
+
+      margin-bottom: 9px;
+
+    }
+
+
+    .achievement h3 {
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      margin-bottom: 4px;
+
+    }
+
+
+    .achievement p {
+
+      color: var(--muted2);
+
+      font-size: 8px;
+
+      line-height: 1.7;
+
+    }
+
+
+    /* =========================
+       QUICK LINKS
+    ========================= */
+
+    .quick-links {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 10px;
+
+    }
+
+
+    .quick-link {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 13px;
+
+      border: 1px solid rgba(255,255,255,.06);
+
+      border-radius: 12px;
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      transition: .25s ease;
+
+    }
+
+
+    .quick-link i {
+
+      color: var(--gold);
+
+    }
+
+
+    .quick-link:hover {
+
+      color: var(--gold-light);
+
+      border-color: var(--border);
+
+      background: rgba(215,173,69,.04);
+
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      border-top: 1px solid var(--border);
+
+      padding: 25px 20px;
+
+      text-align: center;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      nav {
+
+        gap: 14px;
+
+      }
+
+
+      nav a {
+
+        font-size: 11px;
+
+      }
+
+
+      .content-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .left-column {
+
+        display: grid;
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+    }
+
+
+    @media (max-width: 760px) {
+
+      header {
+
+        height: 68px;
+
+      }
+
+
+      .nav-container {
+
+        width: min(
+          100% - 28px,
+          1200px
+        );
+
+      }
+
+
+      nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+
+        right: 14px;
+
+        left: 14px;
+
+        padding: 18px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        background:
+          rgba(4,18,13,.98);
+
+        border: 1px solid var(--border);
+
+        border-radius: 16px;
+
+        box-shadow: var(--shadow);
+
+      }
+
+
+      nav.show {
+
+        display: flex;
+
+      }
+
+
+      nav a {
+
+        padding: 10px 4px;
+
+      }
+
+
+      nav a.active::after {
+
+        display: none;
+
+      }
+
+
+      .login-nav {
+
+        text-align: center;
+
+      }
+
+
+      .menu-btn {
+
+        display: block;
+
+      }
+
+
+      .page {
+
+        width: calc(100% - 28px);
+
+        padding-top: 100px;
+
+      }
+
+
+      .profile-hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 30px 22px;
+
+      }
+
+
+      .profile-main {
+
+        width: 100%;
+
+      }
+
+
+      .profile-badges {
+
+        justify-content: center;
+
+      }
+
+
+      .edit-profile {
+
+        align-self: center;
+
+      }
+
+
+      .left-column {
+
+        display: flex;
+
+      }
+
+
+    }
+
+
+    @media (max-width: 500px) {
+
+      .brand-logo {
+
+        width: 43px;
+        height: 43px;
+
+      }
+
+
+      .brand-text span {
+
+        display: none;
+
+      }
+
+
+      .profile-avatar {
+
+        width: 105px;
+        height: 105px;
+
+        font-size: 38px;
+
+      }
+
+
+      .profile-main h1 {
+
+        font-size: 26px;
+
+      }
+
+
+      .panel {
+
+        padding: 20px;
+
+      }
+
+
+      .achievement-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .quick-links {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+    <div class="nav-container">
+
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <div class="brand-logo">
+          A
+        </div>
+
+
+        <div class="brand-text">
+
+          <strong>ARTIK</strong>
+
+          <span>
+            جشنواره ملی نوجوانان ایران
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <nav id="mainNav">
+
+
+        <a href="index.html">
+          صفحه اصلی
+        </a>
+
+
+        <a href="about.html">
+          درباره آرتیک
+        </a>
+
+
+        <a href="events.html">
+          جشنواره
+        </a>
+
+
+        <a href="news.html">
+          اخبار
+        </a>
+
+
+        <a href="articles.html">
+          منابع
+        </a>
+
+
+        <a href="gallery.html">
+          گالری
+        </a>
+
+
+        <a href="videos.html">
+          ویدیوها
+        </a>
+
+
+        <a href="contact.html">
+          تماس با ما
+        </a>
+
+
+        <a
+          href="profile.html"
+          class="login-nav active"
+        >
+          <i class="fa-regular fa-user"></i>
+          پروفایل من
+        </a>
+
+
+      </nav>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="باز کردن منو"
+      >
+
+        <i class="fa-solid fa-bars"></i>
+
+      </button>
+
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
+  <main class="page">
+
+
+    <!-- PROFILE HERO -->
+
+    <section class="profile-hero">
+
+
+      <div class="profile-avatar">
+
+        R
+
+        <span class="online-dot"></span>
+
+      </div>
+
+
+      <div class="profile-main">
+
+
+        <div class="profile-label">
+
+          <i class="fa-solid fa-circle-check"></i>
+
+          حساب کاربری آرتیک
+
+        </div>
+
+
+        <h1>
+          سلام، <span>کاربر آرتیک</span> 👋
+        </h1>
+
+
+        <div class="profile-email">
+
+          <i class="fa-regular fa-envelope"></i>
+
+          ایمیل حساب کاربری
+
+        </div>
+
+
+        <div class="profile-badges">
+
+          <span class="badge">
+            نوجوان آرتیک
+          </span>
+
+          <span class="badge">
+            شرکت‌کننده جشنواره
+          </span>
+
+          <span class="badge">
+            حساب فعال
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+      <button
+        class="edit-profile"
+        id="editProfile"
+      >
+
+        <i class="fa-solid fa-pen"></i>
+
+        ویرایش پروفایل
+
+      </button>
+
+
+    </section>
+
+
+
+    <!-- CONTENT -->
+
+    <section class="content-grid">
+
+
+      <!-- LEFT -->
+
+      <div class="left-column">
+
+
+        <!-- PERSONAL INFO -->
+
+        <div class="panel">
+
+
+          <div class="panel-title">
+
+            <h2>
+              اطلاعات <span>من</span>
+            </h2>
+
+          </div>
+
+
+          <div class="info-list">
+
+
+            <div class="info-item">
+
+              <div class="info-icon">
+
+                <i class="fa-regular fa-user"></i>
+
+              </div>
+
+
+              <div class="info-text">
+
+                <small>
+                  نام و نام خانوادگی
+                </small>
+
+                <strong>
+                  کاربر آرتیک
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <div class="info-icon">
+
+                <i class="fa-solid fa-cake-candles"></i>
+
+              </div>
+
+
+              <div class="info-text">
+
+                <small>
+                  تاریخ تولد
+                </small>
+
+                <strong>
+                  ثبت نشده
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <div class="info-icon">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+              </div>
+
+
+              <div class="info-text">
+
+                <small>
+                  شهر
+                </small>
+
+                <strong>
+                  ثبت نشده
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <div class="info-icon">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+              </div>
+
+
+              <div class="info-text">
+
+                <small>
+                  پایه تحصیلی
+                </small>
+
+                <strong>
+                  ثبت نشده
+                </strong>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- STATS -->
+
+        <div class="panel">
+
+
+          <div class="panel-title">
+
+            <h2>
+              آمار <span>فعالیت</span>
+            </h2>
+
+          </div>
+
+
+          <div class="stats-grid">
+
+
+            <div class="stat">
+
+              <div
+                class="stat-number"
+                id="projectCount"
+              >
+                ۰
+              </div>
+
+              <div class="stat-label">
+                پروژه‌ها
+              </div>
+
+            </div>
+
+
+            <div class="stat">
+
+              <div
+                class="stat-number"
+                id="achievementCount"
+              >
+                ۰
+              </div>
+
+              <div class="stat-label">
+                افتخارات
+              </div>
+
+            </div>
+
+
+            <div class="stat">
+
+              <div class="stat-number">
+                ۰
+              </div>
+
+              <div class="stat-label">
+                رویدادها
+              </div>
+
+            </div>
+
+
+            <div class="stat">
+
+              <div class="stat-number">
+                ۱۴۰۵
+              </div>
+
+              <div class="stat-label">
+                سال عضویت
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+      <!-- RIGHT -->
+
+      <div class="right-column">
+
+
+        <!-- PROJECTS -->
+
+        <div class="panel">
+
+
+          <div class="panel-title">
+
+            <h2>
+              پروژه‌های <span>من</span>
+            </h2>
+
+
+            <a href="submit.html">
+              + ارسال پروژه
+            </a>
+
+          </div>
+
+
+          <div class="projects">
+
+
+            <div class="project">
+
+
+              <div class="project-top">
+
+
+                <div class="project-icon">
+
+                  <i class="fa-solid fa-flask"></i>
+
+                </div>
+
+
+                <div class="project-name">
+
+                  <h3>
+                    هنوز پروژه‌ای ثبت نشده
+                  </h3>
+
+                  <span>
+                    اولین پروژه خودت را ثبت کن
+                  </span>
+
+                </div>
+
+
+                <span class="project-status status-gold">
+                  آماده
+                </span>
+
+
+              </div>
+
+
+              <div class="project-bottom">
+
+                <span>
+                  شروع مسیر جشنواره
+                </span>
+
+                <span>
+                  ۰٪
+                </span>
+
+              </div>
+
+
+              <div class="progress">
+
+                <div
+                  class="progress-bar"
+                  style="width: 0%;"
+                ></div>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- ACHIEVEMENTS -->
+
+        <div class="panel">
+
+
+          <div class="panel-title">
+
+            <h2>
+              افتخارات و <span>دستاوردها</span>
+            </h2>
+
+
+            <a href="#">
+              مشاهده همه
+            </a>
+
+          </div>
+
+
+          <div class="achievement-grid">
+
+
+            <div class="achievement">
+
+              <i class="fa-solid fa-medal"></i>
+
+              <h3>
+                افتخار اول
+              </h3>
+
+              <p>
+                هنوز ثبت نشده
+              </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+              <i class="fa-solid fa-trophy"></i>
+
+              <h3>
+                افتخار دوم
+              </h3>
+
+              <p>
+                هنوز ثبت نشده
+              </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+              <i class="fa-solid fa-star"></i>
+
+              <h3>
+                افتخار سوم
+              </h3>
+
+              <p>
+                هنوز ثبت نشده
+              </p>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="panel">
+
+
+          <div class="panel-title">
+
+            <h2>
+              دسترسی <span>سریع</span>
+            </h2>
+
+          </div>
+
+
+          <div class="quick-links">
+
+
+            <a
+              href="submit.html"
+              class="quick-link"
+            >
+
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+
+              ارسال پروژه
+
+            </a>
+
+
+            <a
+              href="rules.html"
+              class="quick-link"
+            >
+
+              <i class="fa-solid fa-book-open"></i>
+
+              مطالعه شیوه‌نامه
+
+            </a>
+
+
+            <a
+              href="events.html"
+              class="quick-link"
+            >
+
+              <i class="fa-solid fa-calendar-days"></i>
+
+              رویدادهای جشنواره
+
+            </a>
+
+
+            <a
+              href="contact.html"
+              class="quick-link"
+            >
+
+              <i class="fa-regular fa-comments"></i>
+
+              ارتباط با دبیرخانه
+
+            </a>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    © ۱۴۰۵ ARTIK — تمامی حقوق برای جشنواره آرتیک محفوظ است.
+
+  </footer>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const mainNav =
+      document.getElementById("mainNav");
+
+
+    menuBtn.addEventListener(
+      "click",
+      () => {
+
+        mainNav.classList.toggle("show");
+
+        const icon =
+          menuBtn.querySelector("i");
+
+
+        if (
+          mainNav.classList.contains("show")
+        ) {
+
+          icon.classList.remove(
+            "fa-bars"
+          );
+
+          icon.classList.add(
+            "fa-xmark"
+          );
+
+        } else {
+
+          icon.classList.remove(
+            "fa-xmark"
+          );
+
+          icon.classList.add(
+            "fa-bars"
+          );
+
+        }
+
+      }
+    );
+
+
+    document
+      .querySelectorAll("#mainNav a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            mainNav.classList.remove(
+              "show"
+            );
+
+            const icon =
+              menuBtn.querySelector("i");
+
+            icon.classList.remove(
+              "fa-xmark"
+            );
+
+            icon.classList.add(
+              "fa-bars"
+            );
+
+          }
+        );
+
+      });
+
+
+
+    /* =========================
+       EDIT PROFILE
+    ========================= */
+
+    document
+      .getElementById("editProfile")
+      .addEventListener(
+        "click",
+        () => {
+
+          alert(
+            "بخش ویرایش پروفایل در مرحله اتصال حساب کاربری فعال می‌شود."
+          );
+
+        }
+      );
+
+
+  </script>
+
+
+</body>
+
+    </html>
