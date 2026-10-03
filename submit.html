@@ -1,1 +1,2404 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="ثبت پروژه در جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران | ARTIK"
+  >
+
+  <title>ثبت پروژه | ARTIK</title>
+
+  <!-- Vazirmatn -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    :root {
+      --bg: #020705;
+      --bg2: #04120d;
+      --panel: #071912;
+      --panel2: #0a2118;
+
+      --green: #063d2a;
+      --green-light: #08704d;
+      --emerald: #0ca46f;
+
+      --gold: #d7ad45;
+      --gold-light: #f4d47c;
+      --gold-dark: #927021;
+
+      --white: #ffffff;
+      --muted: #aebdb5;
+      --muted2: #72847b;
+
+      --border: rgba(215,173,69,.28);
+      --border-green: rgba(12,164,111,.34);
+
+      --shadow: 0 25px 70px rgba(0,0,0,.45);
+
+      --radius: 20px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+
+      color: var(--white);
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(12,164,111,.14),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(215,173,69,.10),
+          transparent 25%
+        ),
+        linear-gradient(
+          135deg,
+          var(--bg),
+          var(--bg2)
+        );
+
+      overflow-x: hidden;
+    }
+
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 28px 28px;
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      position: fixed;
+
+      top: 0;
+      right: 0;
+      left: 0;
+
+      height: 78px;
+
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(2,7,5,.96),
+          rgba(2,7,5,.88)
+        );
+
+      backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid var(--border);
+
+      z-index: 1000;
+    }
+
+
+    .header-inner {
+      width: min(1200px, calc(100% - 40px));
+
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      flex-shrink: 0;
+    }
+
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid var(--gold);
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--green),
+          #02150e
+        );
+
+      color: var(--gold-light);
+
+      font-size: 22px;
+
+      font-weight: 900;
+    }
+
+
+    .brand-text strong {
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: 19px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+    }
+
+
+    .brand-text span {
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      margin-top: 1px;
+    }
+
+
+    nav {
+      display: flex;
+      align-items: center;
+
+      gap: 24px;
+    }
+
+
+    nav a {
+      position: relative;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      font-weight: 500;
+
+      transition: .25s;
+    }
+
+
+    nav a:hover {
+      color: var(--gold-light);
+    }
+
+
+    nav a.active {
+      color: var(--gold-light);
+    }
+
+
+    nav a.active::after {
+      content: "";
+
+      position: absolute;
+
+      right: 0;
+      left: 0;
+
+      bottom: -10px;
+
+      height: 2px;
+
+      background: var(--gold);
+
+      border-radius: 20px;
+    }
+
+
+    .login-nav {
+      padding: 9px 15px;
+
+      border:
+        1px solid var(--gold);
+
+      border-radius: 10px;
+
+      color: var(--gold-light) !important;
+    }
+
+
+    .menu-btn {
+      display: none;
+
+      width: 42px;
+      height: 42px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 12px;
+
+      background: var(--panel);
+
+      color: var(--gold-light);
+
+      font-size: 20px;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       MAIN
+    ========================== */
+
+    main {
+      padding:
+        135px
+        20px
+        80px;
+    }
+
+
+    .container {
+      width: min(1100px, 100%);
+
+      margin: auto;
+    }
+
+
+    .page-heading {
+      text-align: center;
+
+      margin-bottom: 45px;
+    }
+
+
+    .eyebrow {
+      display: inline-block;
+
+      color: var(--gold-light);
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      padding:
+        7px
+        14px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(215,173,69,.06);
+
+      border-radius: 50px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .page-heading h1 {
+      font-size: 40px;
+
+      line-height: 1.4;
+
+      margin-bottom: 12px;
+    }
+
+
+    .page-heading h1 span {
+      color: var(--gold-light);
+    }
+
+
+    .page-heading p {
+      max-width: 700px;
+
+      margin: auto;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 2;
+    }
+
+
+    /* =========================
+       STEPS
+    ========================== */
+
+    .steps {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 12px;
+
+      margin-bottom: 28px;
+    }
+
+
+    .step {
+      padding: 16px;
+
+      border:
+        1px solid rgba(174,189,181,.12);
+
+      border-radius: 15px;
+
+      background:
+        rgba(255,255,255,.025);
+
+      text-align: center;
+
+      transition: .25s;
+    }
+
+
+    .step.active {
+      border-color: var(--border);
+
+      background:
+        rgba(215,173,69,.05);
+    }
+
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+
+      margin:
+        0
+        auto
+        8px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      color: var(--gold-light);
+
+      font-size: 12px;
+
+      font-weight: 800;
+    }
+
+
+    .step.active .step-number {
+      background: var(--gold);
+
+      color: #06120d;
+    }
+
+
+    .step strong {
+      display: block;
+
+      font-size: 11px;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       FORM PANEL
+    ========================== */
+
+    .form-panel {
+      padding: 35px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(7,25,18,.97),
+          rgba(4,18,13,.97)
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 24px;
+
+      box-shadow: var(--shadow);
+
+      margin-bottom: 25px;
+    }
+
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+
+      gap: 13px;
+
+      margin-bottom: 25px;
+
+      padding-bottom: 20px;
+
+      border-bottom:
+        1px solid rgba(215,173,69,.13);
+    }
+
+
+    .panel-icon {
+      width: 43px;
+      height: 43px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+
+      background:
+        rgba(12,164,111,.10);
+
+      border:
+        1px solid var(--border-green);
+
+      color: var(--emerald);
+
+      font-size: 18px;
+    }
+
+
+    .panel-title h2 {
+      font-size: 19px;
+    }
+
+
+    .panel-title p {
+      color: var(--muted2);
+
+      font-size: 11px;
+
+      margin-top: 3px;
+    }
+
+
+    /* =========================
+       FIELDS
+    ========================== */
+
+    .form-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 20px;
+    }
+
+
+    .field {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 8px;
+    }
+
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+
+    .field label {
+      color: #d8e2dd;
+
+      font-size: 12px;
+
+      font-weight: 600;
+    }
+
+
+    .required {
+      color: var(--gold);
+    }
+
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+
+      border:
+        1px solid rgba(174,189,181,.16);
+
+      border-radius: 12px;
+
+      background:
+        rgba(255,255,255,.025);
+
+      color: var(--white);
+
+      outline: none;
+
+      font-size: 13px;
+
+      transition: .25s;
+    }
+
+
+    input,
+    select {
+      height: 50px;
+
+      padding:
+        0
+        15px;
+    }
+
+
+    textarea {
+      min-height: 135px;
+
+      padding: 15px;
+
+      resize: vertical;
+
+      line-height: 1.9;
+    }
+
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #596a62;
+    }
+
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--gold);
+
+      background:
+        rgba(215,173,69,.035);
+
+      box-shadow:
+        0 0 0 3px rgba(215,173,69,.06);
+    }
+
+
+    select {
+      appearance: none;
+
+      cursor: pointer;
+    }
+
+
+    select option {
+      background: #071912;
+
+      color: white;
+    }
+
+
+    .hint {
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================
+       UPLOAD
+    ========================== */
+
+    .upload-box {
+      border:
+        1px dashed
+        rgba(215,173,69,.35);
+
+      border-radius: 17px;
+
+      padding: 30px;
+
+      text-align: center;
+
+      background:
+        rgba(215,173,69,.025);
+
+      transition: .25s;
+
+      cursor: pointer;
+    }
+
+
+    .upload-box:hover {
+      border-color: var(--gold);
+
+      background:
+        rgba(215,173,69,.05);
+    }
+
+
+    .upload-icon {
+      width: 55px;
+      height: 55px;
+
+      margin:
+        0
+        auto
+        14px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 16px;
+
+      background:
+        rgba(12,164,111,.10);
+
+      border:
+        1px solid var(--border-green);
+
+      color: var(--emerald);
+
+      font-size: 22px;
+    }
+
+
+    .upload-box strong {
+      display: block;
+
+      color: var(--white);
+
+      font-size: 14px;
+
+      margin-bottom: 6px;
+    }
+
+
+    .upload-box span {
+      color: var(--muted2);
+
+      font-size: 11px;
+    }
+
+
+    .upload-box input {
+      display: none;
+    }
+
+
+    .file-name {
+      display: none;
+
+      margin-top: 14px;
+
+      padding: 10px;
+
+      border-radius: 10px;
+
+      background:
+        rgba(12,164,111,.07);
+
+      color: #9be4c7;
+
+      font-size: 11px;
+    }
+
+
+    .file-name.show {
+      display: block;
+    }
+
+
+    /* =========================
+       RULE BOX
+    ========================== */
+
+    .rules-box {
+      margin-top: 25px;
+
+      padding: 18px;
+
+      border:
+        1px solid var(--border-green);
+
+      border-radius: 15px;
+
+      background:
+        rgba(12,164,111,.045);
+    }
+
+
+    .rules-box strong {
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: 13px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .rules-box ul {
+      padding-right: 18px;
+    }
+
+
+    .rules-box li {
+      color: var(--muted);
+
+      font-size: 11px;
+
+      line-height: 2;
+
+      margin-bottom: 3px;
+    }
+
+
+    /* =========================
+       CHECKBOX
+    ========================== */
+
+    .check-row {
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 10px;
+
+      margin-top: 22px;
+    }
+
+
+    .check-row input {
+      width: 16px;
+      height: 16px;
+
+      margin-top: 3px;
+
+      accent-color: var(--gold);
+
+      flex-shrink: 0;
+    }
+
+
+    .check-row label {
+      color: var(--muted);
+
+      font-size: 11px;
+
+      line-height: 1.9;
+    }
+
+
+    .check-row a {
+      color: var(--gold-light);
+
+      font-weight: 600;
+    }
+
+
+    /* =========================
+       BUTTONS
+    ========================== */
+
+    .form-actions {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-top: 28px;
+    }
+
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 50px;
+
+      padding:
+        0
+        24px;
+
+      border-radius: 12px;
+
+      font-family: inherit;
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .25s;
+    }
+
+
+    .btn-primary {
+      border: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          var(--gold-light)
+        );
+
+      color: #07120d;
+
+      box-shadow:
+        0 12px 30px rgba(215,173,69,.13);
+    }
+
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 16px 35px rgba(215,173,69,.20);
+    }
+
+
+    .btn-secondary {
+      border:
+        1px solid rgba(174,189,181,.18);
+
+      background:
+        rgba(255,255,255,.025);
+
+      color: var(--muted);
+    }
+
+
+    .btn-secondary:hover {
+      border-color: var(--border);
+
+      color: var(--gold-light);
+    }
+
+
+    /* =========================
+       STATUS
+    ========================== */
+
+    .status {
+      display: none;
+
+      margin-top: 18px;
+
+      padding: 13px 16px;
+
+      border-radius: 12px;
+
+      font-size: 11px;
+
+      line-height: 1.8;
+    }
+
+
+    .status.show {
+      display: block;
+    }
+
+
+    .status.success {
+      color: #9be4c7;
+
+      background:
+        rgba(12,164,111,.08);
+
+      border:
+        1px solid var(--border-green);
+    }
+
+
+    .status.error {
+      color: #f3b6a9;
+
+      background:
+        rgba(180,60,40,.07);
+
+      border:
+        1px solid rgba(180,60,40,.25);
+    }
+
+
+    /* =========================
+       INFO CARDS
+    ========================== */
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+
+    .info-card {
+      padding: 22px;
+
+      border:
+        1px solid rgba(174,189,181,.12);
+
+      border-radius: 17px;
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+
+    .info-card-icon {
+      font-size: 20px;
+
+      color: var(--gold-light);
+
+      margin-bottom: 12px;
+    }
+
+
+    .info-card h3 {
+      font-size: 13px;
+
+      margin-bottom: 7px;
+    }
+
+
+    .info-card p {
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      line-height: 1.9;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      border-top:
+        1px solid var(--border);
+
+      background:
+        rgba(2,7,5,.72);
+
+      padding:
+        25px 20px;
+    }
+
+
+    .footer-inner {
+      width: min(1200px, 100%);
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    .footer-brand {
+      color: var(--muted2);
+
+      font-size: 11px;
+    }
+
+
+    .footer-brand strong {
+      color: var(--gold-light);
+    }
+
+
+    .footer-links {
+      display: flex;
+
+      gap: 18px;
+
+      color: var(--muted2);
+
+      font-size: 11px;
+    }
+
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1000px) {
+
+      nav {
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 760px) {
+
+      header {
+        height: 68px;
+      }
+
+
+      .header-inner {
+        width: calc(100% - 28px);
+      }
+
+
+      .brand-text span {
+        display: none;
+      }
+
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+      }
+
+
+      nav {
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+
+        right: 14px;
+        left: 14px;
+
+        padding: 18px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 4px;
+
+        background:
+          rgba(4,18,13,.98);
+
+        border:
+          1px solid var(--border);
+
+        border-radius: 18px;
+
+        box-shadow: var(--shadow);
+      }
+
+
+      nav.open {
+        display: flex;
+      }
+
+
+      nav a {
+        padding: 12px;
+
+        border-radius: 9px;
+      }
+
+
+      nav a:hover {
+        background:
+          rgba(255,255,255,.035);
+      }
+
+
+      nav a.active::after {
+        display: none;
+      }
+
+
+      .login-nav {
+        text-align: center;
+
+        margin-top: 5px;
+      }
+
+
+      .menu-btn {
+        display: block;
+      }
+
+
+      main {
+        padding:
+          105px
+          14px
+          60px;
+      }
+
+
+      .page-heading {
+        margin-bottom: 30px;
+      }
+
+
+      .page-heading h1 {
+        font-size: 30px;
+      }
+
+
+      .page-heading p {
+        font-size: 12px;
+      }
+
+
+      .steps {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+
+      .form-panel {
+        padding: 25px 18px;
+
+        border-radius: 19px;
+      }
+
+
+      .form-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+      }
+
+
+      .btn {
+        width: 100%;
+      }
+
+
+      .footer-inner {
+        flex-direction: column;
+
+        text-align: center;
+      }
+
+    }
+
+
+    @media (max-width: 430px) {
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+
+      .page-heading h1 {
+        font-size: 26px;
+      }
+
+
+      .upload-box {
+        padding: 24px 15px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="header-inner">
+
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <div class="brand-logo">
+          A
+        </div>
+
+        <div class="brand-text">
+
+          <strong>
+            ARTIK
+          </strong>
+
+          <span>
+            جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <nav id="mainNav">
+
+        <a href="index.html">
+          صفحه اصلی
+        </a>
+
+        <a href="about.html">
+          درباره آرتیک
+        </a>
+
+        <a
+          href="events.html"
+          class="active"
+        >
+          جشنواره
+        </a>
+
+        <a href="news.html">
+          اخبار
+        </a>
+
+        <a href="articles.html">
+          منابع
+        </a>
+
+        <a href="gallery.html">
+          گالری
+        </a>
+
+        <a href="videos.html">
+          ویدیوها
+        </a>
+
+        <a href="contact.html">
+          تماس با ما
+        </a>
+
+        <a
+          href="login.html"
+          class="login-nav"
+        >
+          ورود
+        </a>
+
+      </nav>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="منو"
+      >
+        ☰
+      </button>
+
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main>
+
+    <div class="container">
+
+
+      <!-- PAGE HEADING -->
+
+      <div class="page-heading">
+
+        <div class="eyebrow">
+          ثبت اثر در جشنواره
+        </div>
+
+        <h1>
+          ثبت <span>پروژه</span>
+        </h1>
+
+        <p>
+          پروژه، ایده یا دستاورد خود را برای بررسی و شرکت
+          در جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران ثبت کنید.
+        </p>
+
+      </div>
+
+
+
+      <!-- STEPS -->
+
+      <div class="steps">
+
+        <div class="step active">
+
+          <div class="step-number">
+            ۱
+          </div>
+
+          <strong>
+            اطلاعات پروژه
+          </strong>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            ۲
+          </div>
+
+          <strong>
+            فایل و مستندات
+          </strong>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            ۳
+          </div>
+
+          <strong>
+            بررسی اطلاعات
+          </strong>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            ۴
+          </div>
+
+          <strong>
+            ثبت نهایی
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FORM -->
+
+      <form id="projectForm">
+
+
+        <!-- PROJECT INFORMATION -->
+
+        <section class="form-panel">
+
+
+          <div class="panel-title">
+
+            <div class="panel-icon">
+              ✦
+            </div>
+
+            <div>
+
+              <h2>
+                اطلاعات پروژه
+              </h2>
+
+              <p>
+                اطلاعات اصلی اثر خود را وارد کنید.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-grid">
+
+
+            <!-- TITLE -->
+
+            <div class="field full">
+
+              <label>
+                عنوان پروژه
+                <span class="required">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="projectTitle"
+                placeholder="عنوان دقیق و کوتاه پروژه را وارد کنید"
+                required
+              >
+
+            </div>
+
+
+            <!-- FIELD -->
+
+            <div class="field">
+
+              <label>
+                حوزه اصلی
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="field"
+                required
+              >
+
+                <option value="">
+                  انتخاب حوزه
+                </option>
+
+                <option>
+                  علوم پایه
+                </option>
+
+                <option>
+                  زیست‌شناسی و زیست‌فناوری
+                </option>
+
+                <option>
+                  شیمی
+                </option>
+
+                <option>
+                  فیزیک
+                </option>
+
+                <option>
+                  ریاضی
+                </option>
+
+                <option>
+                  پزشکی و سلامت
+                </option>
+
+                <option>
+                  فناوری و مهندسی
+                </option>
+
+                <option>
+                  هوش مصنوعی
+                </option>
+
+                <option>
+                  برنامه‌نویسی
+                </option>
+
+                <option>
+                  محیط زیست و انرژی
+                </option>
+
+                <option>
+                  کارآفرینی و کسب‌وکار
+                </option>
+
+                <option>
+                  هنر و طراحی
+                </option>
+
+                <option>
+                  رسانه و تولید محتوا
+                </option>
+
+                <option>
+                  مهارت‌های فردی و اجتماعی
+                </option>
+
+                <option>
+                  سایر
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- LEVEL -->
+
+            <div class="field">
+
+              <label>
+                سطح شرکت
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="level"
+                required
+              >
+
+                <option value="">
+                  انتخاب سطح
+                </option>
+
+                <option>
+                  منطقه‌ای
+                </option>
+
+                <option>
+                  استانی
+                </option>
+
+                <option>
+                  کشوری
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- SUBFIELD -->
+
+            <div class="field">
+
+              <label>
+                زیرحوزه
+              </label>
+
+              <input
+                type="text"
+                id="subfield"
+                placeholder="مثلاً انرژی‌های تجدیدپذیر"
+              >
+
+            </div>
+
+
+            <!-- TYPE -->
+
+            <div class="field">
+
+              <label>
+                نوع اثر
+              </label>
+
+              <select id="projectType">
+
+                <option>
+                  پروژه پژوهشی
+                </option>
+
+                <option>
+                  اختراع / نوآوری
+                </option>
+
+                <option>
+                  محصول
+                </option>
+
+                <option>
+                  ایده
+                </option>
+
+                <option>
+                  کسب‌وکار
+                </option>
+
+                <option>
+                  اثر هنری
+                </option>
+
+                <option>
+                  مهارت
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- ABSTRACT -->
+
+            <div class="field full">
+
+              <label>
+                خلاصه پروژه
+                <span class="required">*</span>
+              </label>
+
+              <textarea
+                id="summary"
+                placeholder="در چند جمله توضیح دهید پروژه شما چیست، چه مسئله‌ای را حل می‌کند و چه نتیجه‌ای دارد..."
+                required
+              ></textarea>
+
+              <div class="hint">
+                پیشنهاد می‌شود خلاصه را کوتاه، دقیق و قابل فهم بنویسید.
+              </div>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="field full">
+
+              <label>
+                توضیحات کامل پروژه
+              </label>
+
+              <textarea
+                id="description"
+                placeholder="روش اجرا، مراحل انجام، نتایج، نوآوری و سایر توضیحات مهم پروژه..."
+              ></textarea>
+
+            </div>
+
+
+          </div>
+
+        </section>
+
+
+
+        <!-- FILES -->
+
+        <section class="form-panel">
+
+
+          <div class="panel-title">
+
+            <div class="panel-icon">
+              ↑
+            </div>
+
+            <div>
+
+              <h2>
+                فایل و مستندات
+              </h2>
+
+              <p>
+                مستندات مرتبط با پروژه را اضافه کنید.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="upload-box"
+            id="uploadBox"
+          >
+
+            <div class="upload-icon">
+              ↑
+            </div>
+
+            <strong>
+              فایل پروژه را انتخاب کنید
+            </strong>
+
+            <span>
+              PDF، Word، PowerPoint یا فایل‌های مرتبط
+            </span>
+
+            <input
+              type="file"
+              id="projectFile"
+              accept=".pdf,.doc,.docx,.ppt,.pptx"
+            >
+
+            <div
+              class="file-name"
+              id="fileName"
+            ></div>
+
+          </div>
+
+
+          <div class="hint" style="margin-top:12px;">
+            در نسخه نهایی سامانه، محدودیت حجم و فرمت فایل مطابق شیوه‌نامه جشنواره اعمال خواهد شد.
+          </div>
+
+
+        </section>
+
+
+
+        <!-- TEAM -->
+
+        <section class="form-panel">
+
+
+          <div class="panel-title">
+
+            <div class="panel-icon">
+              ◈
+            </div>
+
+            <div>
+
+              <h2>
+                اعضای پروژه
+              </h2>
+
+              <p>
+                اطلاعات اعضای تیم را در صورت وجود وارد کنید.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-grid">
+
+
+            <div class="field">
+
+              <label>
+                نام سرگروه
+                <span class="required">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="leader"
+                placeholder="نام و نام خانوادگی"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                تعداد اعضای تیم
+              </label>
+
+              <select id="teamCount">
+
+                <option>
+                  ۱ نفر
+                </option>
+
+                <option>
+                  ۲ نفر
+                </option>
+
+                <option>
+                  ۳ نفر
+                </option>
+
+                <option>
+                  ۴ نفر
+                </option>
+
+                <option>
+                  ۵ نفر
+                </option>
+
+                <option>
+                  ۶ نفر
+                </option>
+
+                <option>
+                  ۷ نفر
+                </option>
+
+                <option>
+                  ۸ نفر
+                </option>
+
+              </select>
+
+              <div class="hint">
+                حداکثر تعداد اعضای تیم طبق شیوه‌نامه جشنواره: ۸ نفر
+              </div>
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+                نام سایر اعضای تیم
+              </label>
+
+              <input
+                type="text"
+                id="teamMembers"
+                placeholder="در صورت تیمی بودن پروژه، نام اعضا را با ویرگول جدا کنید"
+              >
+
+            </div>
+
+
+          </div>
+
+
+        </section>
+
+
+
+        <!-- RULES -->
+
+        <section class="form-panel">
+
+
+          <div class="panel-title">
+
+            <div class="panel-icon">
+              ✓
+            </div>
+
+            <div>
+
+              <h2>
+                تأیید قوانین
+              </h2>
+
+              <p>
+                پیش از ثبت نهایی، موارد زیر را مطالعه کنید.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="rules-box">
+
+            <strong>
+              نکات مهم ثبت پروژه
+            </strong>
+
+            <ul>
+
+              <li>
+                اطلاعات واردشده باید صحیح و متعلق به صاحب اثر باشد.
+              </li>
+
+              <li>
+                پروژه باید در یکی از حوزه‌های اعلام‌شده جشنواره قرار داشته باشد.
+              </li>
+
+              <li>
+                فایل‌های ارسالی باید خوانا و مرتبط با پروژه باشند.
+              </li>
+
+              <li>
+                در صورت تیمی بودن پروژه، اطلاعات همه اعضا باید به‌درستی ثبت شود.
+              </li>
+
+              <li>
+                پس از ثبت، پروژه برای بررسی و داوری ارسال خواهد شد.
+              </li>
+
+              <li>
+                قوانین کامل جشنواره در صفحه قوانین قابل مشاهده است.
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          <div class="check-row">
+
+            <input
+              type="checkbox"
+              id="acceptRules"
+              required
+            >
+
+            <label for="acceptRules">
+
+              قوانین و شیوه‌نامه جشنواره را مطالعه کرده‌ام و صحت اطلاعات
+              ثبت‌شده را تأیید می‌کنم.
+
+              <a href="rules.html">
+                مشاهده قوانین
+              </a>
+
+            </label>
+
+          </div>
+
+
+          <div class="form-actions">
+
+            <a
+              href="dashboard.html"
+              class="btn btn-secondary"
+            >
+              بازگشت به داشبورد
+            </a>
+
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              ثبت پروژه
+            </button>
+
+          </div>
+
+
+          <div
+            class="status"
+            id="status"
+          ></div>
+
+
+        </section>
+
+
+      </form>
+
+
+
+      <!-- INFO -->
+
+      <div class="info-grid">
+
+
+        <div class="info-card">
+
+          <div class="info-card-icon">
+            ◈
+          </div>
+
+          <h3>
+            بررسی تخصصی
+          </h3>
+
+          <p>
+            آثار پس از ثبت، مطابق مراحل و معیارهای داوری جشنواره بررسی می‌شوند.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <div class="info-card-icon">
+            ✦
+          </div>
+
+          <h3>
+            مسیر جشنواره
+          </h3>
+
+          <p>
+            آثار می‌توانند در مسیر منطقه‌ای، استانی و کشوری جشنواره قرار بگیرند.
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <div class="info-card-icon">
+            ★
+          </div>
+
+          <h3>
+            مستندات کامل
+          </h3>
+
+          <p>
+            توضیحات و مستندات دقیق‌تر، بررسی پروژه را برای داوران آسان‌تر می‌کند.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </main>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+
+      <div class="footer-brand">
+
+        <strong>
+          ARTIK
+        </strong>
+
+        · جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="about.html">
+          درباره آرتیک
+        </a>
+
+        <a href="events.html">
+          جشنواره
+        </a>
+
+        <a href="rules.html">
+          قوانین
+        </a>
+
+        <a href="contact.html">
+          تماس
+        </a>
+
+        <a href="login.html">
+          ورود
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const mainNav =
+      document.getElementById("mainNav");
+
+
+    menuBtn.addEventListener("click", () => {
+
+      mainNav.classList.toggle("open");
+
+    });
+
+
+    document
+      .querySelectorAll("#mainNav a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          mainNav.classList.remove("open");
+
+        });
+
+      });
+
+
+
+    /* =========================
+       FILE UPLOAD UI
+    ========================== */
+
+    const uploadBox =
+      document.getElementById("uploadBox");
+
+    const projectFile =
+      document.getElementById("projectFile");
+
+    const fileName =
+      document.getElementById("fileName");
+
+
+    uploadBox.addEventListener(
+      "click",
+      () => {
+
+        projectFile.click();
+
+      }
+    );
+
+
+    projectFile.addEventListener(
+      "change",
+      () => {
+
+        if (projectFile.files.length > 0) {
+
+          const file =
+            projectFile.files[0];
+
+          fileName.textContent =
+            "فایل انتخاب‌شده: " + file.name;
+
+          fileName.classList.add("show");
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================
+       FORM
+    ========================== */
+
+    const projectForm =
+      document.getElementById("projectForm");
+
+    const status =
+      document.getElementById("status");
+
+
+    projectForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+
+        const title =
+          document
+            .getElementById("projectTitle")
+            .value
+            .trim();
+
+
+        const field =
+          document
+            .getElementById("field")
+            .value;
+
+
+        const level =
+          document
+            .getElementById("level")
+            .value;
+
+
+        const summary =
+          document
+            .getElementById("summary")
+            .value
+            .trim();
+
+
+        const leader =
+          document
+            .getElementById("leader")
+            .value
+            .trim();
+
+
+        const accepted =
+          document
+            .getElementById("acceptRules")
+            .checked;
+
+
+        status.className = "status";
+
+
+        if (
+          !title ||
+          !field ||
+          !level ||
+          !summary ||
+          !leader
+        ) {
+
+          status.textContent =
+            "لطفاً همه فیلدهای الزامی را کامل کنید.";
+
+          status.classList.add(
+            "show",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        if (!accepted) {
+
+          status.textContent =
+            "برای ثبت پروژه باید قوانین جشنواره را تأیید کنید.";
+
+          status.classList.add(
+            "show",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        status.textContent =
+          "فرم پروژه آماده است. اتصال ثبت پروژه به حساب کاربری، پایگاه داده و فضای ذخیره‌سازی Supabase در مرحله بعد فعال می‌شود.";
+
+        status.classList.add(
+          "show",
+          "success"
+        );
+
+
+        window.scrollTo({
+          top:
+            status.getBoundingClientRect().top +
+            window.scrollY -
+            130,
+
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+
+  </script>
+
+
+</body>
+
+          </html>
