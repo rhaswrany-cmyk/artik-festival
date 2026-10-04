@@ -23,6 +23,10 @@
     rel="stylesheet"
   >
 
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
   <style>
 
     :root {
@@ -66,6 +70,7 @@
 
     body {
       font-family: "Vazirmatn", sans-serif;
+
       background:
         radial-gradient(
           circle at 10% 10%,
@@ -91,6 +96,7 @@
 
     body::before {
       content: "";
+
       position: fixed;
       inset: 0;
 
@@ -125,6 +131,7 @@
 
     header {
       position: fixed;
+
       top: 0;
       right: 0;
       left: 0;
@@ -151,11 +158,13 @@
 
     .header-inner {
       width: min(1200px, calc(100% - 40px));
+
       margin: auto;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 25px;
     }
 
@@ -163,6 +172,7 @@
     .brand {
       display: flex;
       align-items: center;
+
       gap: 12px;
 
       flex-shrink: 0;
@@ -178,6 +188,7 @@
       justify-content: center;
 
       border: 1px solid var(--gold);
+
       border-radius: 14px;
 
       background:
@@ -215,6 +226,7 @@
       color: var(--muted2);
 
       font-size: 10px;
+
       margin-top: 1px;
     }
 
@@ -222,6 +234,7 @@
     nav {
       display: flex;
       align-items: center;
+
       gap: 24px;
     }
 
@@ -255,6 +268,7 @@
 
       right: 0;
       left: 0;
+
       bottom: -10px;
 
       height: 2px;
@@ -319,9 +333,11 @@
 
     .register-wrapper {
       width: min(1050px, 100%);
+
       margin: auto;
 
       display: grid;
+
       grid-template-columns: .85fr 1.15fr;
 
       background:
@@ -399,6 +415,7 @@
 
     .register-intro h1 {
       font-size: 34px;
+
       line-height: 1.35;
 
       margin-bottom: 14px;
@@ -424,6 +441,7 @@
     .benefits {
       display: flex;
       flex-direction: column;
+
       gap: 15px;
     }
 
@@ -555,13 +573,13 @@
 
       height: 50px;
 
-      padding:
-        0 15px;
+      padding: 0 15px;
 
       background:
         rgba(255,255,255,.025);
 
-      border: 1px solid rgba(174,189,181,.16);
+      border:
+        1px solid rgba(174,189,181,.16);
 
       border-radius: 12px;
 
@@ -703,6 +721,15 @@
     }
 
 
+    .register-button:disabled {
+      opacity: .65;
+
+      cursor: not-allowed;
+
+      transform: none;
+    }
+
+
     .status {
       display: none;
 
@@ -726,6 +753,24 @@
 
     .status.show {
       display: block;
+    }
+
+
+    .status.error {
+      background: rgba(180,50,50,.08);
+
+      border-color: rgba(220,80,80,.30);
+
+      color: #ffb0b0;
+    }
+
+
+    .status.success {
+      background: rgba(12,164,111,.08);
+
+      border-color: var(--border-green);
+
+      color: #9be4c7;
     }
 
 
@@ -788,6 +833,7 @@
 
     .footer-links {
       display: flex;
+
       gap: 18px;
 
       color: var(--muted2);
@@ -821,7 +867,9 @@
 
       .register-intro {
         border-left: 0;
-        border-bottom: 1px solid var(--border);
+
+        border-bottom:
+          1px solid var(--border);
       }
 
     }
@@ -863,6 +911,7 @@
         padding: 18px;
 
         flex-direction: column;
+
         align-items: stretch;
 
         gap: 4px;
@@ -892,7 +941,8 @@
 
 
       nav a:hover {
-        background: rgba(255,255,255,.035);
+        background:
+          rgba(255,255,255,.035);
       }
 
 
@@ -941,6 +991,7 @@
 
       .footer-inner {
         flex-direction: column;
+
         text-align: center;
       }
 
@@ -972,6 +1023,7 @@
 
       .footer-links {
         flex-wrap: wrap;
+
         justify-content: center;
       }
 
@@ -985,9 +1037,7 @@
 <body>
 
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header>
 
@@ -1069,10 +1119,7 @@
   </header>
 
 
-
-  <!-- =========================
-       MAIN
-  ========================== -->
+  <!-- MAIN -->
 
   <main>
 
@@ -1193,7 +1240,6 @@
       </div>
 
 
-
       <!-- RIGHT -->
 
       <div class="register-form-area">
@@ -1218,8 +1264,6 @@
           <div class="form-grid">
 
 
-            <!-- NAME -->
-
             <div class="field">
 
               <label>
@@ -1237,8 +1281,6 @@
 
             </div>
 
-
-            <!-- EMAIL -->
 
             <div class="field">
 
@@ -1258,8 +1300,6 @@
             </div>
 
 
-            <!-- PHONE -->
-
             <div class="field">
 
               <label>
@@ -1276,8 +1316,6 @@
             </div>
 
 
-            <!-- GRADE -->
-
             <div class="field">
 
               <label>
@@ -1292,8 +1330,6 @@
 
             </div>
 
-
-            <!-- PASSWORD -->
 
             <div class="field">
 
@@ -1326,8 +1362,6 @@
 
             </div>
 
-
-            <!-- CONFIRM -->
 
             <div class="field">
 
@@ -1364,8 +1398,6 @@
           </div>
 
 
-          <!-- TERMS -->
-
           <div class="terms">
 
             <input
@@ -1377,9 +1409,11 @@
             <label for="terms">
 
               با ایجاد حساب کاربری، با
+
               <a href="rules.html">
                 قوانین و مقررات ARTIK
               </a>
+
               موافقم.
 
             </label>
@@ -1387,17 +1421,14 @@
           </div>
 
 
-          <!-- BUTTON -->
-
           <button
             type="submit"
             class="register-button"
+            id="registerButton"
           >
             ایجاد حساب کاربری
           </button>
 
-
-          <!-- STATUS -->
 
           <div
             class="status"
@@ -1421,16 +1452,12 @@
 
       </div>
 
-
     </section>
 
   </main>
 
 
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1474,15 +1501,32 @@
   </footer>
 
 
-
   <!-- =========================
        JAVASCRIPT
   ========================== -->
 
   <script>
 
+    /* =====================================
+       SUPABASE CONFIG
+    ===================================== */
 
-    /* Mobile Menu */
+    const SUPABASE_URL =
+      "https://ujhpakuysakmidyodblf.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_ltGxlrdWYnAsOgQoieCGLg_afF769Ns";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+
+
+    /* =====================================
+       MOBILE MENU
+    ===================================== */
 
     const menuBtn =
       document.getElementById("menuBtn");
@@ -1498,9 +1542,6 @@
     });
 
 
-
-    /* Close menu after clicking */
-
     document
       .querySelectorAll("#mainNav a")
       .forEach(link => {
@@ -1514,8 +1555,9 @@
       });
 
 
-
-    /* Password visibility */
+    /* =====================================
+       PASSWORD VISIBILITY
+    ===================================== */
 
     document
       .querySelectorAll(".toggle-password")
@@ -1534,13 +1576,9 @@
 
             input.type = "text";
 
-            button.textContent = "◉";
-
           } else {
 
             input.type = "password";
-
-            button.textContent = "◉";
 
           }
 
@@ -1549,19 +1587,38 @@
       });
 
 
-
-    /* Register form */
-
-    const registerForm =
-      document.getElementById("registerForm");
+    /* =====================================
+       STATUS MESSAGE
+    ===================================== */
 
     const status =
       document.getElementById("status");
 
 
+    function showStatus(message, type = "success") {
+
+      status.textContent = message;
+
+      status.className =
+        "status show " + type;
+
+    }
+
+
+    /* =====================================
+       REGISTER
+    ===================================== */
+
+    const registerForm =
+      document.getElementById("registerForm");
+
+    const registerButton =
+      document.getElementById("registerButton");
+
+
     registerForm.addEventListener(
       "submit",
-      function(event) {
+      async function(event) {
 
         event.preventDefault();
 
@@ -1576,6 +1633,21 @@
         const email =
           document
             .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+        const phone =
+          document
+            .getElementById("phone")
+            .value
+            .trim();
+
+
+        const grade =
+          document
+            .getElementById("grade")
             .value
             .trim();
 
@@ -1598,18 +1670,14 @@
             .checked;
 
 
-        status.classList.add("show");
+        /* Validation */
 
+        if (!fullName || !email || !password || !confirmPassword) {
 
-        if (
-          !fullName ||
-          !email ||
-          !password ||
-          !confirmPassword
-        ) {
-
-          status.textContent =
-            "لطفاً همه فیلدهای الزامی را کامل کنید.";
+          showStatus(
+            "لطفاً همه فیلدهای الزامی را کامل کنید.",
+            "error"
+          );
 
           return;
 
@@ -1618,8 +1686,10 @@
 
         if (password.length < 6) {
 
-          status.textContent =
-            "رمز عبور باید حداقل ۶ کاراکتر داشته باشد.";
+          showStatus(
+            "رمز عبور باید حداقل ۶ کاراکتر داشته باشد.",
+            "error"
+          );
 
           return;
 
@@ -1628,8 +1698,10 @@
 
         if (password !== confirmPassword) {
 
-          status.textContent =
-            "رمز عبور و تکرار آن یکسان نیستند.";
+          showStatus(
+            "رمز عبور و تکرار آن یکسان نیستند.",
+            "error"
+          );
 
           return;
 
@@ -1638,24 +1710,182 @@
 
         if (!terms) {
 
-          status.textContent =
-            "برای ادامه باید قوانین و مقررات ARTIK را بپذیرید.";
+          showStatus(
+            "برای ادامه باید قوانین و مقررات ARTIK را بپذیرید.",
+            "error"
+          );
 
           return;
 
         }
 
 
-        status.textContent =
-          "فرم شما آماده است. اتصال ثبت‌نام به حساب کاربری ARTIK در مرحله اتصال Supabase فعال می‌شود.";
+        /* Loading */
+
+        registerButton.disabled = true;
+
+        registerButton.textContent =
+          "در حال ایجاد حساب...";
+
+
+        try {
+
+          /* ==========================
+             CREATE AUTH ACCOUNT
+          ========================== */
+
+          const {
+            data,
+            error
+          } =
+            await supabaseClient.auth.signUp({
+
+              email: email,
+
+              password: password,
+
+              options: {
+
+                data: {
+                  full_name: fullName
+                }
+
+              }
+
+            });
+
+
+          if (error) {
+
+            throw error;
+
+          }
+
+
+          if (!data.user) {
+
+            throw new Error(
+              "حساب کاربری ایجاد نشد."
+            );
+
+          }
+
+
+          /* ==========================
+             CREATE PROFILE
+          ========================== */
+
+          const {
+            error: profileError
+          } =
+            await supabaseClient
+              .from("profiles")
+              .insert({
+
+                id: data.user.id,
+
+                full_name: fullName,
+
+                phone: phone || null,
+
+                grade: grade || null
+
+              });
+
+
+          if (profileError) {
+
+            console.error(profileError);
+
+            showStatus(
+              "حساب ساخته شد، اما ذخیره اطلاعات پروفایل کامل نشد. لطفاً وارد حساب شوید و بعداً پروفایل را تکمیل کنید.",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          /* ==========================
+             SUCCESS
+          ========================== */
+
+          showStatus(
+            "🎉 حساب ARTIK شما با موفقیت ایجاد شد. در حال انتقال به صفحه ورود...",
+            "success"
+          );
+
+
+          registerButton.textContent =
+            "حساب با موفقیت ساخته شد";
+
+
+          setTimeout(() => {
+
+            window.location.href =
+              "login.html";
+
+          }, 2200);
+
+
+        } catch (error) {
+
+          console.error(error);
+
+
+          let message =
+            "ثبت‌نام انجام نشد. دوباره تلاش کنید.";
+
+
+          if (
+            error.message &&
+            error.message.toLowerCase().includes(
+              "already registered"
+            )
+          ) {
+
+            message =
+              "این ایمیل قبلاً در ARTIK ثبت شده است. وارد حساب خود شوید.";
+
+          } else if (
+            error.message
+          ) {
+
+            message =
+              error.message;
+
+          }
+
+
+          showStatus(
+            message,
+            "error"
+          );
+
+
+        } finally {
+
+          registerButton.disabled = false;
+
+          if (
+            registerButton.textContent ===
+            "در حال ایجاد حساب..."
+          ) {
+
+            registerButton.textContent =
+              "ایجاد حساب کاربری";
+
+          }
+
+        }
 
       }
     );
-
 
   </script>
 
 
 </body>
 
-  </html>
+</html>
