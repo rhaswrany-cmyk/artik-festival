@@ -1,1 +1,2361 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="شیوه‌نامه و قوانین جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران | ARTIK"
+  >
+
+  <meta
+    name="theme-color"
+    content="#020705"
+  >
+
+  <title>شیوه‌نامه و قوانین | ARTIK</title>
+
+  <!-- فونت اصلی ARTIK -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================
+       ROOT
+    ========================= */
+
+    :root {
+      --bg: #020705;
+      --bg2: #04120d;
+      --panel: #071912;
+      --panel2: #0a2118;
+
+      --green: #063d2a;
+      --green-light: #08704d;
+      --emerald: #0ca46f;
+
+      --gold: #d7ad45;
+      --gold-light: #f4d47c;
+      --gold-dark: #927021;
+
+      --white: #ffffff;
+      --muted: #aebdb5;
+      --muted2: #72847b;
+
+      --border: rgba(215, 173, 69, .28);
+      --border-green: rgba(12, 164, 111, .34);
+
+      --shadow: 0 25px 70px rgba(0, 0, 0, .45);
+
+      --radius: 20px;
+    }
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(12, 164, 111, .10),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 85% 25%,
+          rgba(215, 173, 69, .07),
+          transparent 25%
+        ),
+        linear-gradient(
+          180deg,
+          var(--bg),
+          var(--bg2)
+        );
+
+      color: var(--white);
+
+      min-height: 100vh;
+
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        radial-gradient(
+          rgba(215, 173, 69, .10) 1px,
+          transparent 1px
+        );
+
+      background-size: 32px 32px;
+
+      opacity: .16;
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+
+      top: 0;
+      right: 0;
+      left: 0;
+
+      height: 78px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(2, 7, 5, .96),
+          rgba(2, 7, 5, .88)
+        );
+
+      border-bottom:
+        1px solid
+        var(--border);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      z-index: 1000;
+    }
+
+    .nav {
+      max-width: 1250px;
+
+      height: 100%;
+
+      margin: auto;
+
+      padding: 0 24px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+
+    /* =========================
+       BRAND
+    ========================= */
+
+    .brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+
+      border:
+        1px solid
+        var(--gold);
+
+      border-radius: 14px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      color: var(--gold-light);
+
+      font-size: 24px;
+
+      font-weight: 900;
+
+      background:
+        radial-gradient(
+          circle at 30% 25%,
+          rgba(244, 212, 124, .18),
+          transparent 45%
+        ),
+        linear-gradient(
+          145deg,
+          #09261b,
+          #03100b
+        );
+
+      box-shadow:
+        0 0 0 4px rgba(215, 173, 69, .05),
+        0 8px 30px rgba(0, 0, 0, .35);
+    }
+
+    .brand-text {
+      display: flex;
+
+      flex-direction: column;
+
+      line-height: 1.1;
+    }
+
+    .brand-title {
+      color: var(--gold-light);
+
+      font-size: 20px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.5px;
+    }
+
+    .brand-subtitle {
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      margin-top: 4px;
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .nav-links {
+      display: flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+      flex: 1;
+
+      justify-content: center;
+    }
+
+    .nav-links a {
+      position: relative;
+
+      color: var(--muted);
+
+      padding: 10px 11px;
+
+      font-size: 13px;
+
+      font-weight: 500;
+
+      transition:
+        color .25s ease,
+        transform .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.active {
+      color: var(--gold-light);
+
+      font-weight: 700;
+    }
+
+    .nav-links a.active::after {
+      content: "";
+
+      position: absolute;
+
+      right: 11px;
+      left: 11px;
+      bottom: 2px;
+
+      height: 2px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+    }
+
+    .login-nav {
+      border:
+        1px solid
+        rgba(215, 173, 69, .55);
+
+      border-radius: 12px;
+
+      color: var(--gold-light) !important;
+
+      padding: 9px 15px !important;
+
+      background:
+        rgba(215, 173, 69, .05);
+    }
+
+    .login-nav:hover {
+      background:
+        rgba(215, 173, 69, .10);
+    }
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    .menu-btn {
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 12px;
+
+      background:
+        var(--panel);
+
+      color:
+        var(--gold-light);
+
+      font-size: 22px;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      padding-top: 78px;
+    }
+
+    .container {
+      width:
+        min(
+          1100px,
+          calc(100% - 40px)
+        );
+
+      margin: auto;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+
+      padding: 82px 0 55px;
+
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      top: -180px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(12, 164, 111, .12),
+          transparent 68%
+        );
+
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      position: relative;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      padding: 8px 15px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 999px;
+
+      background:
+        rgba(215, 173, 69, .05);
+
+      color:
+        var(--gold-light);
+
+      font-size: 12px;
+
+      font-weight: 600;
+
+      margin-bottom: 20px;
+    }
+
+    .eyebrow span {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background:
+        var(--emerald);
+
+      box-shadow:
+        0 0 12px
+        rgba(12, 164, 111, .8);
+    }
+
+    .hero h1 {
+      position: relative;
+
+      font-size:
+        clamp(
+          34px,
+          6vw,
+          62px
+        );
+
+      line-height: 1.25;
+
+      font-weight: 900;
+
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color:
+        var(--gold-light);
+    }
+
+    .hero p {
+      max-width: 720px;
+
+      margin: auto;
+
+      color:
+        var(--muted);
+
+      font-size: 15px;
+
+      line-height: 2.1;
+    }
+
+
+    /* =========================
+       DOCUMENT BAR
+    ========================= */
+
+    .document-bar {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      padding: 18px 22px;
+
+      margin-bottom: 25px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(215, 173, 69, .07),
+          rgba(7, 25, 18, .8)
+        );
+    }
+
+    .document-info {
+      display: flex;
+
+      align-items: center;
+
+      gap: 13px;
+    }
+
+    .document-icon {
+      width: 44px;
+      height: 44px;
+
+      border-radius: 12px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background:
+        rgba(215, 173, 69, .10);
+
+      border:
+        1px solid
+        rgba(215, 173, 69, .25);
+
+      color:
+        var(--gold-light);
+
+      font-size: 19px;
+    }
+
+    .document-info strong {
+      display: block;
+
+      font-size: 13px;
+
+      margin-bottom: 3px;
+    }
+
+    .document-info small {
+      color:
+        var(--muted2);
+
+      font-size: 11px;
+    }
+
+    .version {
+      color:
+        var(--gold-light);
+
+      font-size: 11px;
+
+      padding: 7px 11px;
+
+      border-radius: 999px;
+
+      border:
+        1px solid
+        var(--border);
+    }
+
+
+    /* =========================
+       LAYOUT
+    ========================= */
+
+    .rules-layout {
+      display: grid;
+
+      grid-template-columns:
+        250px 1fr;
+
+      gap: 22px;
+
+      align-items: start;
+    }
+
+
+    /* =========================
+       SIDE TOC
+    ========================= */
+
+    .toc {
+      position: sticky;
+
+      top: 100px;
+
+      padding: 20px;
+
+      border:
+        1px solid
+        var(--border-green);
+
+      border-radius: var(--radius);
+
+      background:
+        rgba(7, 25, 18, .82);
+
+      box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, .22);
+    }
+
+    .toc-title {
+      color:
+        var(--gold-light);
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      margin-bottom: 13px;
+
+      padding-bottom: 12px;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+    }
+
+    .toc a {
+      display: block;
+
+      color:
+        var(--muted2);
+
+      font-size: 11px;
+
+      line-height: 1.8;
+
+      padding: 9px 10px;
+
+      border-radius: 9px;
+
+      margin-bottom: 3px;
+
+      transition:
+        all .2s ease;
+    }
+
+    .toc a:hover {
+      color:
+        var(--gold-light);
+
+      background:
+        rgba(12, 164, 111, .07);
+    }
+
+
+    /* =========================
+       RULES CONTENT
+    ========================= */
+
+    .rules-content {
+      min-width: 0;
+    }
+
+    .rule-section {
+      scroll-margin-top: 100px;
+
+      padding: 28px;
+
+      margin-bottom: 18px;
+
+      border:
+        1px solid
+        rgba(215, 173, 69, .18);
+
+      border-radius: var(--radius);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(7, 25, 18, .92),
+          rgba(4, 14, 10, .92)
+        );
+
+      box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.18);
+    }
+
+    .rule-heading {
+      display: flex;
+
+      align-items: center;
+
+      gap: 13px;
+
+      margin-bottom: 18px;
+    }
+
+    .rule-number {
+      width: 39px;
+      height: 39px;
+
+      flex-shrink: 0;
+
+      border-radius: 11px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(215,173,69,.18),
+          rgba(215,173,69,.05)
+        );
+
+      border:
+        1px solid
+        rgba(215,173,69,.30);
+
+      color:
+        var(--gold-light);
+
+      font-size: 13px;
+
+      font-weight: 900;
+    }
+
+    .rule-heading h2 {
+      font-size: 19px;
+
+      font-weight: 800;
+    }
+
+    .rule-section p {
+      color:
+        var(--muted);
+
+      font-size: 13px;
+
+      line-height: 2.15;
+
+      margin-bottom: 12px;
+    }
+
+    .rule-section p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================
+       LIST
+    ========================= */
+
+    .rule-list {
+      list-style: none;
+
+      display: grid;
+
+      gap: 9px;
+
+      margin-top: 15px;
+    }
+
+    .rule-list li {
+      position: relative;
+
+      padding:
+        12px 16px 12px 12px;
+
+      border-radius: 11px;
+
+      background:
+        rgba(12, 164, 111, .045);
+
+      border:
+        1px solid
+        rgba(12, 164, 111, .10);
+
+      color:
+        var(--muted);
+
+      font-size: 12px;
+
+      line-height: 2;
+    }
+
+    .rule-list li::before {
+      content: "";
+
+      position: absolute;
+
+      right: 7px;
+
+      top: 18px;
+
+      width: 5px;
+      height: 5px;
+
+      border-radius: 50%;
+
+      background:
+        var(--gold);
+    }
+
+
+    /* =========================
+       HIGHLIGHT BOX
+    ========================= */
+
+    .highlight {
+      margin-top: 18px;
+
+      padding: 18px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(215,173,69,.08),
+          rgba(215,173,69,.025)
+        );
+    }
+
+    .highlight strong {
+      color:
+        var(--gold-light);
+
+      font-size: 12px;
+
+      display: block;
+
+      margin-bottom: 6px;
+    }
+
+    .highlight p {
+      margin: 0;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       STAT GRID
+    ========================= */
+
+    .stat-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 10px;
+
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 18px 12px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        rgba(12,164,111,.15);
+
+      border-radius: 14px;
+
+      background:
+        rgba(12,164,111,.045);
+    }
+
+    .stat strong {
+      display: block;
+
+      color:
+        var(--gold-light);
+
+      font-size: 23px;
+
+      font-weight: 900;
+
+      margin-bottom: 5px;
+    }
+
+    .stat span {
+      color:
+        var(--muted2);
+
+      font-size: 10px;
+    }
+
+
+    /* =========================
+       FINAL NOTICE
+    ========================= */
+
+    .final-notice {
+      padding: 25px;
+
+      margin-top: 25px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: var(--radius);
+
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(12,164,111,.10),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(7,25,18,.95),
+          rgba(4,14,10,.95)
+        );
+
+      text-align: center;
+    }
+
+    .final-notice h3 {
+      color:
+        var(--gold-light);
+
+      font-size: 18px;
+
+      margin-bottom: 8px;
+    }
+
+    .final-notice p {
+      max-width: 650px;
+
+      margin: auto;
+
+      color:
+        var(--muted);
+
+      font-size: 12px;
+
+      line-height: 2;
+    }
+
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      margin:
+        35px 0 80px;
+
+      padding: 42px;
+
+      border:
+        1px solid
+        rgba(215,173,69,.25);
+
+      border-radius: 26px;
+
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(12,164,111,.12),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #071b12,
+          #04100b
+        );
+
+      box-shadow:
+        var(--shadow);
+
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 26px;
+
+      margin-bottom: 10px;
+    }
+
+    .cta h2 span {
+      color:
+        var(--gold-light);
+    }
+
+    .cta p {
+      max-width: 650px;
+
+      margin:
+        0 auto 22px;
+
+      color:
+        var(--muted);
+
+      font-size: 13px;
+
+      line-height: 2;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 13px 22px;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+
+      color:
+        #161006;
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .cta-btn:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 15px 35px
+        rgba(215,173,69,.20);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top:
+        1px solid
+        rgba(215,173,69,.16);
+
+      background:
+        rgba(2,7,5,.75);
+
+      padding:
+        45px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.5fr 1fr 1fr;
+
+      gap: 35px;
+    }
+
+    .footer-brand {
+      max-width: 380px;
+    }
+
+    .footer-brand .brand {
+      margin-bottom: 15px;
+    }
+
+    .footer-brand p {
+      color:
+        var(--muted2);
+
+      font-size: 12px;
+
+      line-height: 2;
+    }
+
+    .footer-col h4 {
+      color:
+        var(--gold-light);
+
+      font-size: 13px;
+
+      margin-bottom: 15px;
+    }
+
+    .footer-col a {
+      display: block;
+
+      color:
+        var(--muted2);
+
+      font-size: 12px;
+
+      margin-bottom: 10px;
+
+      transition:
+        color .2s ease;
+    }
+
+    .footer-col a:hover {
+      color:
+        var(--gold-light);
+    }
+
+    .copyright {
+      border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+      margin-top: 30px;
+
+      padding-top: 20px;
+
+      text-align: center;
+
+      color:
+        var(--muted2);
+
+      font-size: 11px;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        gap: 0;
+      }
+
+      .nav-links a {
+        padding:
+          10px 7px;
+
+        font-size: 12px;
+      }
+
+      .rules-layout {
+        grid-template-columns:
+          210px 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 760px) {
+
+      header {
+        height: 68px;
+      }
+
+      main {
+        padding-top: 68px;
+      }
+
+      .nav {
+        padding:
+          0 16px;
+      }
+
+      .menu-btn {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-links {
+        position: absolute;
+
+        top: 74px;
+
+        right: 16px;
+        left: 16px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 10px;
+
+        border:
+          1px solid
+          var(--border);
+
+        border-radius: 18px;
+
+        background:
+          rgba(4,18,13,.97);
+
+        box-shadow:
+          var(--shadow);
+
+        backdrop-filter:
+          blur(20px);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding:
+          13px 14px;
+
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover {
+        background:
+          rgba(12,164,111,.08);
+      }
+
+      .nav-links a.active::after {
+        display: none;
+      }
+
+      .login-nav {
+        text-align: center;
+
+        margin-top: 4px;
+      }
+
+      .brand-subtitle {
+        display: none;
+      }
+
+      .brand-title {
+        font-size: 18px;
+      }
+
+      .brand-logo {
+        width: 44px;
+        height: 44px;
+      }
+
+      .hero {
+        padding:
+          65px 0 40px;
+      }
+
+      .hero p {
+        font-size: 13px;
+      }
+
+      .document-bar {
+        align-items:
+          flex-start;
+
+        flex-direction:
+          column;
+      }
+
+      .rules-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .toc a {
+        display: inline-block;
+
+        margin-left: 4px;
+      }
+
+      .rule-section {
+        padding: 22px;
+      }
+
+      .stat-grid {
+        grid-template-columns:
+          repeat(3,1fr);
+      }
+
+      .cta {
+        padding:
+          32px 22px;
+
+        margin-bottom:
+          60px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+      }
+
+    }
+
+
+    @media (max-width: 430px) {
+
+      .container {
+        width:
+          min(
+            100% - 28px,
+            1100px
+          );
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .rule-section {
+        padding: 19px;
+      }
+
+      .rule-heading h2 {
+        font-size: 17px;
+      }
+
+      .stat strong {
+        font-size: 19px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+    <nav class="nav">
+
+
+      <a
+        href="index.html"
+        class="brand"
+        aria-label="ARTIK"
+      >
+
+        <div class="brand-logo">
+          A
+        </div>
+
+        <div class="brand-text">
+
+          <div class="brand-title">
+            ARTIK
+          </div>
+
+          <div class="brand-subtitle">
+            جشنواره ملی نوجوانان ایران
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <div
+        class="nav-links"
+        id="navLinks"
+      >
+
+        <a href="index.html">
+          صفحه اصلی
+        </a>
+
+        <a href="about.html">
+          درباره آرتیک
+        </a>
+
+        <a href="events.html">
+          جشنواره
+        </a>
+
+        <a href="news.html">
+          اخبار
+        </a>
+
+        <a href="articles.html">
+          منابع
+        </a>
+
+        <a href="gallery.html">
+          گالری
+        </a>
+
+        <a href="videos.html">
+          ویدیوها
+        </a>
+
+        <a href="contact.html">
+          تماس با ما
+        </a>
+
+        <a
+          href="login.html"
+          class="login-nav"
+        >
+          ورود / ثبت‌نام
+        </a>
+
+      </div>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="باز کردن منو"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
+  <main>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="eyebrow">
+
+          <span></span>
+
+          سند رسمی جشنواره ARTIK
+
+        </div>
+
+        <h1>
+
+          شیوه‌نامه و <span>قوانین</span>
+
+        </h1>
+
+        <p>
+
+          چارچوب اجرایی، شرایط شرکت، مراحل داوری،
+          ضوابط ارسال آثار و مقررات نخستین دوره
+          جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <section>
+
+      <div class="container">
+
+
+        <!-- DOCUMENT BAR -->
+
+        <div class="document-bar">
+
+          <div class="document-info">
+
+            <div class="document-icon">
+              §
+            </div>
+
+            <div>
+
+              <strong>
+                شیوه‌نامه نخستین دوره جشنواره ARTIK
+              </strong>
+
+              <small>
+                سال ۱۴۰۵ · نسخه اجرایی
+              </small>
+
+            </div>
+
+          </div>
+
+          <div class="version">
+            نسخه ۱.۰
+          </div>
+
+        </div>
+
+
+        <!-- RULES LAYOUT -->
+
+        <div class="rules-layout">
+
+
+          <!-- TOC -->
+
+          <aside class="toc">
+
+            <div class="toc-title">
+              فهرست بخش‌ها
+            </div>
+
+            <a href="#general">
+              ۱. کلیات جشنواره
+            </a>
+
+            <a href="#participants">
+              ۲. شرایط شرکت
+            </a>
+
+            <a href="#fields">
+              ۳. حوزه‌های جشنواره
+            </a>
+
+            <a href="#registration">
+              ۴. ثبت‌نام و ارسال
+            </a>
+
+            <a href="#team">
+              ۵. قوانین تیم
+            </a>
+
+            <a href="#judging">
+              ۶. داوری
+            </a>
+
+            <a href="#stages">
+              ۷. مراحل جشنواره
+            </a>
+
+            <a href="#appeal">
+              ۸. اعتراض و بررسی
+            </a>
+
+            <a href="#awards">
+              ۹. تقدیر و جوایز
+            </a>
+
+          </aside>
+
+
+          <!-- RULES -->
+
+          <div class="rules-content">
+
+
+            <!-- 1 -->
+
+            <section
+              class="rule-section"
+              id="general"
+            >
+
+              <div class="rule-heading">
+
+                <div class="rule-number">
+                  ۰۱
+                </div>
+
+                <h2>
+                  کلیات جشنواره
+                </h2>
+
+              </div>
+
+              <p>
+                جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران
+                با عنوان «ARTIK» بستری برای شناسایی، معرفی،
+                رشد و حمایت از استعدادها، ایده‌ها، مهارت‌ها
+                و دستاوردهای نوجوانان ایرانی است.
+              </p>
+
+              <ul class="rule-list">
+
+                <li>
+                  نخستین دوره جشنواره در سال ۱۴۰۵ برگزار می‌شود.
+                </li>
+
+                <li>
+                  مخاطبان جشنواره نوجوانان ۱۲ تا ۱۹ سال هستند.
+                </li>
+
+                <li>
+                  جشنواره در سه سطح منطقه‌ای، استانی و کشوری برگزار می‌شود.
+                </li>
+
+                <li>
+                  هدف جشنواره تنها رقابت نیست؛ بلکه ایجاد مسیر رشد،
+                  یادگیری، ارتباط و دیده‌شدن استعدادهاست.
+                </li>
+
+              </ul>
+
+            </section>
+
+
+            <!-- 2 -->
+
+            <section
+              class="rule-section"
+              id="participants"
+            >
+
+              <div class="rule-heading">
+
+                <div class="rule-number">
+                  ۰۲
+                </div>
+
+                <h2>
+                  شرایط شرکت‌کنندگان
+                </h2>
+
+              </div>
+
+              <p>
+                تمامی نوجوانان واجد شرایط می‌توانند متناسب با
+                حوزه فعالیت خود در جشنواره شرکت کنند.
+              </p>
+
+              <ul class="rule-list">
+
+                <li>
+                  بازه سنی شرکت‌کنندگان ۱۲ تا ۱۹ سال است.
+                </li>
+
+                <li>
+                  هر شرکت‌کننده باید اطلاعات خود را به‌صورت صحیح
+                  و کامل در سامانه جشنواره ثبت کند.
+                </li>
+
+                <li>
+                  اثر یا پروژه ارسال‌شده باید متعلق به شرکت‌کننده
+                  یا تیم ثبت‌شده باشد.
+                </li>
+
+                <li>
+                  ارائه اطلاعات نادرست یا استفاده از آثار دیگران
+                  می‌تواند موجب حذف اثر از فرآیند جشنواره شود.
+                </li>
+
+              </ul>
+
+            </section>
+
+
+            <!-- 3 -->
+
+            <section
+              class="rule-section"
+              id="fields"
+            >
+
+              <div class="rule-heading">
+
+                <div class="rule-number">
+                  ۰۳
+                </div>
+
+                <h2>
+                  حوزه‌های جشنواره
+                </h2>
+
+              </div>
+
+              <p>
+                جشنواره در حوزه‌های علمی، مهارتی، فناوری،
+                نوآوری، هنر و کارآفرینی فعالیت می‌کند.
+                هر حوزه می‌تواند دارای زیرحوزه‌های تخصصی باشد.
+              </p>
+
+              <div class="stat-grid">
+
+                <div class="stat">
+
+                  <strong>
+                    ۲۰
+                  </strong>
+
+                  <span>
+                    حوزه اصلی
+                  </span>
+
+                </div>
+
+                <div class="stat">
+
+                  <strong>
+                    ۵
+                  </strong>
+
+                  <span>
+                    زیرحوزه برای هر حوزه
+                  </span>
+
+                </div>
+
+                <div class="stat">
+
+                  <strong>
+                    ۳
+                  </strong>
+
+                  <span>
+                    سطح جشنواره
+                  </span>
+
+                </div>
+
+              </div>
+
+              <div class="highlight">
+
+                <strong>
+                  نکته مهم
+                </strong>
+
+                <p>
+                  حوزه و زیرحوزه اثر باید با ماهیت واقعی پروژه
+                  مطابقت داشته باشد و انتخاب نادرست ممکن است
+                  باعث ارجاع اثر به بخش مناسب‌تر شود.
+                </p>
+
+              </div>
+
+            </section>
+
+
+            <!-- 4 -->
+
+            <section
+              class="rule-section"
+              id="registration"
+            >
+
+              <div class="rule-heading">
+
+                <div class="rule-number">
+                  ۰۴
+                </div>
+
+                <h2>
+                  ثبت‌نام و ارسال آثار
+                </h2>
+
+              </div>
+
+              <p>
+                فرآیند ثبت اثر در بازه اعلام‌شده توسط دبیرخانه
+                انجام می‌شود و شرکت‌کنندگان موظف‌اند اطلاعات
+                پروژه را با دقت وارد کنند.
+              </p>
+
+              <ul class="rule-list">
+
+                <li>
+                  مرحله ثبت‌نام اولیه ۲۰ روز در نظر گرفته شده است.
+                </li>
+
+                <li>
+                  پس از ثبت‌نام، مرحله تکمیل و بارگذاری آثار
+                  در بازه ۲۰ روزه انجام می‌شود.
+                </li>
+
+                <li>
+                  فایل‌های پروژه باید در قالب‌های اعلام‌شده
+                  و با اطلاعات صحیح ارسال شوند.
+                </li>
+
+                <li>
+                  حجم و مدت فایل‌های ویدیویی باید مطابق ضوابط
+                  اعلام‌شده باشد.
+                </li>
+
+              </ul>
+
+              <div class="highlight">
+
+                <strong>
+                  محدودیت ویدیو
+                </strong>
+
+                <p>
+                  حداکثر مدت ویدیوی معرفی پروژه ۳ دقیقه و
+                  حداکثر حجم آن ۵۰۰ مگابایت است.
+                </p>
+
+              </div>
+
+            </section>
+
+
+            <!-- 5 -->
+
+            <section
+              class="rule-section"
+              id="team"
+            >
+
+              <div class="rule-heading">
+
+                <div class="rule-number">
+                  ۰۵
+                </div>
+
+                <h2>
+                  قوانین تیم‌ها
+                </h2>
+
+              </div>
+
+              <p>
+                شرکت در جشنواره می‌تواند به‌صورت انفرادی یا تیمی
+                انجام شود.
+              </p>
+
+              <ul class="rule-list">
+
+                <li>
+                  هر تیم حداکثر می‌تواند ۸ عضو داشته باشد.
+                </li>
+
+                <li>
+                  یک نفر باید به‌عنوان سرگروه در سامانه معرفی شود.
+                </li>
+
+                <li>
+                  نقش و مشارکت اعضای تیم باید در صورت درخواست
+                  دبیرخانه قابل توضیح باشد.
+                </li>
+
+                <li>
+                  تغییر اعضای تیم پس از پایان مهلت ثبت اثر،
+                  تنها مطابق تصمیم دبیرخانه امکان‌پذیر است.
+                </li>
+
+              </ul>
+
+            </section>
+
+
+            <!-- 6 -->
+
+            <section
+              class="rule-section"
+              id="judging"
+            >
+
+              <div class="rule-heading">
+
+                <div class="rule-number">
+                  ۰۶
+                </div>
+
+                <h2>
+                  داوری آثار
+                </h2>
+
+              </div>
+
+              <p>
+                آثار پس از پایان مهلت ارسال، توسط داوران و
+                کارشناسان حوزه مربوطه بررسی خواهند شد.
+              </p>
+
+              <ul class="rule-list">
+
+                <li>
+                  داوری بر اساس ماهیت و معیارهای تخصصی هر حوزه انجام می‌شود.
+                </li>
+
+                <li>
+                  نوآوری، کیفیت اجرا، قابلیت ارائه، مسئله‌محوری
+                  و میزان تسلط شرکت‌کننده از عوامل قابل بررسی هستند.
+                </li>
+
+                <li>
+                  در صورت نیاز، داور می‌تواند برای دریافت توضیحات
+                  تکمیلی با شرکت‌کننده ارتباط برقرار کند.
+                </li>
+
+                <li>
+                  ارائه حضوری پروژه حداکثر ۲۰ دقیقه خواهد بود.
+                </li>
+
+              </ul>
+
+              <div class="highlight">
+
+                <strong>
+                  ساختار ارائه
+                </strong>
+
+                <p>
+                  ۱۰ دقیقه برای ارائه پروژه و ۱۰ دقیقه برای
+                  پرسش و پاسخ در نظر گرفته می‌شود.
+                </p>
+
+              </div>
+
+            </section>
+
+
+            <!-- 7 -->
+
+            <section
+              class="rule-section"
+              id="stages"
+            >
+
+              <div class="rule-heading">
+
+                <div class="rule-number">
+                  ۰۷
+                </div>
+
+                <h2>
+                  مراحل جشنواره
+                </h2>
+
+              </div>
+
+              <p>
+                جشنواره در سه سطح اصلی برگزار می‌شود و آثار
+                برگزیده هر مرحله به سطح بعدی راه پیدا می‌کنند.
+              </p>
+
+              <ul class="rule-list">
+
+                <li>
+                  سطح منطقه‌ای: بررسی و انتخاب آثار برتر منطقه.
+                </li>
+
+                <li>
+                  سطح استانی: راه‌یابی برگزیدگان منطقه به مرحله استانی.
+                </li>
+
+                <li>
+                  سطح کشوری: حضور برگزیدگان نهایی و رقابت در سطح ملی.
+                </li>
+
+              </ul>
+
+              <div class="highlight">
+
+                <strong>
+                  مسیر راه‌یابی
+                </strong>
+
+                <p>
+                  از هر منطقه یک اثر منتخب به مرحله استانی
+                  راه پیدا می‌کند. از مرحله استانی نیز آثار
+                  برتر برای مرحله کشوری معرفی می‌شوند.
+                </p>
+
+              </div>
+
+            </section>
+
+
+            <!-- 8 -->
+
+            <section
+              class="rule-section"
+              id="appeal"
+            >
+
+              <div class="rule-heading">
+
+                <div class="rule-number">
+                  ۰۸
+                </div>
+
+                <h2>
+                  اعتراض و بررسی مجدد
+                </h2>
+
+              </div>
+
+              <p>
+                شرکت‌کنندگان در صورت وجود ابهام یا اعتراض نسبت
+                به نتیجه می‌توانند درخواست خود را از مسیر رسمی
+                اعلام‌شده توسط دبیرخانه ثبت کنند.
+              </p>
+
+              <div class="highlight">
+
+                <strong>
+                  مهلت اعتراض
+                </strong>
+
+                <p>
+                  درخواست اعتراض باید حداکثر تا ۳ روز پس از
+                  اعلام نتیجه مرحله مربوطه ثبت شود.
+                </p>
+
+              </div>
+
+            </section>
+
+
+            <!-- 9 -->
+
+            <section
+              class="rule-section"
+              id="awards"
+            >
+
+              <div class="rule-heading">
+
+                <div class="rule-number">
+                  ۰۹
+                </div>
+
+                <h2>
+                  تقدیر و جوایز
+                </h2>
+
+              </div>
+
+              <p>
+                هدف اصلی ARTIK ایجاد فرصت رشد و دیده‌شدن
+                استعدادهای نوجوانان است؛ بنابراین تقدیر از
+                برگزیدگان صرفاً به جایزه مالی محدود نمی‌شود.
+              </p>
+
+              <ul class="rule-list">
+
+                <li>
+                  گواهی شرکت و گواهی برگزیدگی.
+                </li>
+
+                <li>
+                  مدال یا نشان افتخار جشنواره برای برگزیدگان.
+                </li>
+
+                <li>
+                  کارت یا نشان هویتی ویژه شرکت‌کنندگان و برگزیدگان.
+                </li>
+
+                <li>
+                  معرفی و نمایش آثار منتخب در بسترهای رسمی ARTIK.
+                </li>
+
+              </ul>
+
+            </section>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- FINAL NOTICE -->
+
+        <div class="final-notice">
+
+          <h3>
+            آینده با استعداد ساخته می‌شود.
+          </h3>
+
+          <p>
+            شرکت در ARTIK یعنی یک قدم جدی برای دیده‌شدن،
+            یادگیری و تبدیل یک استعداد یا ایده به یک مسیر واقعی.
+            پیش از ارسال اثر، تمام قوانین و شرایط را با دقت مطالعه کنید.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="container">
+
+      <div class="cta">
+
+        <h2>
+          آماده‌ای <span>پروژه‌ات</span> را ثبت کنی؟
+        </h2>
+
+        <p>
+          اگر قوانین را مطالعه کرده‌ای و پروژه‌ات آماده است،
+          می‌توانی از همین حالا فرآیند ثبت اثر در ARTIK را آغاز کنی.
+        </p>
+
+        <a
+          href="submit.html"
+          class="cta-btn"
+        >
+          ثبت پروژه
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+          <a
+            href="index.html"
+            class="brand"
+          >
+
+            <div class="brand-logo">
+              A
+            </div>
+
+            <div class="brand-text">
+
+              <div class="brand-title">
+                ARTIK
+              </div>
+
+              <div class="brand-subtitle">
+                جشنواره ملی نوجوانان ایران
+              </div>
+
+            </div>
+
+          </a>
+
+          <p>
+            جایی که آینده، از یک استعداد آغاز می‌شود.
+            جشنواره‌ای برای علم، مهارت، نوآوری و ساختن آینده
+            به دست نوجوانان.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            دسترسی سریع
+          </h4>
+
+          <a href="about.html">
+            درباره آرتیک
+          </a>
+
+          <a href="events.html">
+            جشنواره
+          </a>
+
+          <a href="submit.html">
+            ثبت پروژه
+          </a>
+
+          <a href="dashboard.html">
+            پنل کاربری
+          </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            رسانه ARTIK
+          </h4>
+
+          <a href="news.html">
+            اخبار
+          </a>
+
+          <a href="articles.html">
+            منابع و مقالات
+          </a>
+
+          <a href="gallery.html">
+            گالری
+          </a>
+
+          <a href="videos.html">
+            ویدیوها
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="copyright">
+
+        © ۱۴۰۵ ARTIK — جشنواره ملی علمی، مهارتی و نوآوری نوجوانان ایران
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    menuBtn.addEventListener(
+      "click",
+      function () {
+
+        navLinks.classList.toggle("open");
+
+        const isOpen =
+          navLinks.classList.contains("open");
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+        menuBtn.textContent =
+          isOpen ? "×" : "☰";
+
+      }
+    );
+
+
+    /* بستن منو بعد از انتخاب لینک */
+
+    document.querySelectorAll(
+      ".nav-links a"
+    ).forEach(
+      function (link) {
+
+        link.addEventListener(
+          "click",
+          function () {
+
+            navLinks.classList.remove("open");
+
+            menuBtn.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            menuBtn.textContent =
+              "☰";
+
+          }
+        );
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+  </html>
