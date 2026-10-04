@@ -1,1 +1,3627 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="ARTIK SHOP | بازار هوشمند و خلاق نوجوانان"
+  >
+
+  <title>ARTIK SHOP | فروشگاه</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    :root {
+      --bg: #020705;
+      --bg2: #04120d;
+      --panel: #071912;
+      --panel2: #0a2118;
+
+      --green: #063d2a;
+      --green-light: #08704d;
+      --emerald: #0ca46f;
+
+      --gold: #d7ad45;
+      --gold-light: #f4d47c;
+      --gold-dark: #927021;
+
+      --white: #ffffff;
+      --muted: #aebdb5;
+      --muted2: #72847b;
+
+      --border: rgba(215,173,69,.24);
+      --border-green: rgba(12,164,111,.28);
+
+      --shadow: 0 25px 70px rgba(0,0,0,.45);
+
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(12,164,111,.14), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(215,173,69,.10), transparent 24%),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background-image:
+        radial-gradient(rgba(255,255,255,.25) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      z-index: -1;
+    }
+
+    button,
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      height: 78px;
+
+      display: flex;
+      align-items: center;
+
+      background: rgba(2,7,5,.90);
+      backdrop-filter: blur(22px);
+
+      border-bottom: 1px solid var(--border);
+
+      box-shadow:
+        0 10px 40px rgba(0,0,0,.25);
+    }
+
+    .header-inner {
+      width: min(1450px, 94%);
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      min-width: max-content;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+
+      background:
+        linear-gradient(145deg, #0b2b1d, #04100b);
+
+      color: var(--gold-light);
+
+      font-size: 21px;
+      font-weight: 900;
+
+      box-shadow:
+        0 0 25px rgba(215,173,69,.12);
+    }
+
+    .brand-text strong {
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    .brand-text span {
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+      margin-top: -2px;
+    }
+
+    /* SEARCH */
+
+    .header-search {
+      flex: 1;
+      max-width: 620px;
+
+      position: relative;
+    }
+
+    .header-search input {
+      width: 100%;
+      height: 48px;
+
+      padding: 0 52px 0 18px;
+
+      border: 1px solid var(--border-green);
+      border-radius: 15px;
+
+      outline: none;
+
+      background: rgba(7,25,18,.85);
+      color: white;
+
+      font-size: 13px;
+
+      transition: .25s;
+    }
+
+    .header-search input::placeholder {
+      color: var(--muted2);
+    }
+
+    .header-search input:focus {
+      border-color: var(--emerald);
+
+      box-shadow:
+        0 0 0 4px rgba(12,164,111,.08),
+        0 10px 35px rgba(0,0,0,.2);
+    }
+
+    .search-icon {
+      position: absolute;
+
+      right: 17px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      color: var(--emerald);
+
+      font-size: 17px;
+    }
+
+    /* HEADER ACTIONS */
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .icon-btn {
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid var(--border-green);
+      border-radius: 13px;
+
+      background: rgba(7,25,18,.75);
+
+      color: var(--muted);
+
+      transition: .25s;
+
+      position: relative;
+    }
+
+    .icon-btn:hover {
+      color: var(--gold-light);
+
+      border-color: var(--gold);
+
+      transform: translateY(-2px);
+
+      background: rgba(215,173,69,.08);
+    }
+
+    .cart-count {
+      position: absolute;
+
+      top: -5px;
+      left: -5px;
+
+      min-width: 18px;
+      height: 18px;
+
+      padding: 0 4px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+      color: #111;
+
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      width: min(1450px, 94%);
+      margin: 35px auto 25px;
+
+      min-height: 370px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 30px;
+
+      overflow: hidden;
+
+      position: relative;
+
+      background:
+        radial-gradient(circle at 80% 20%, rgba(12,164,111,.28), transparent 30%),
+        radial-gradient(circle at 15% 80%, rgba(215,173,69,.14), transparent 28%),
+        linear-gradient(125deg, #06140e, #09261a 48%, #04100b);
+
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+      width: 420px;
+      height: 420px;
+
+      left: -130px;
+      bottom: -250px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(215,173,69,.15);
+      box-shadow:
+        0 0 0 50px rgba(215,173,69,.025),
+        0 0 0 100px rgba(215,173,69,.02);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      padding: 60px;
+
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 13px;
+
+      border: 1px solid rgba(215,173,69,.28);
+      border-radius: 999px;
+
+      background: rgba(215,173,69,.07);
+
+      color: var(--gold-light);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      margin-bottom: 20px;
+    }
+
+    .eyebrow i {
+      color: var(--emerald);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 66px);
+
+      line-height: 1.15;
+
+      margin-bottom: 18px;
+
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+
+      text-shadow:
+        0 0 35px rgba(215,173,69,.15);
+    }
+
+    .hero p {
+      color: var(--muted);
+
+      font-size: 15px;
+      line-height: 2;
+
+      max-width: 620px;
+
+      margin-bottom: 27px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 48px;
+
+      padding: 0 21px;
+
+      border-radius: 14px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      transition: .25s;
+    }
+
+    .primary-btn {
+      border: 1px solid var(--gold);
+
+      background:
+        linear-gradient(135deg, var(--gold-light), var(--gold));
+
+      color: #15110a;
+
+      box-shadow:
+        0 10px 35px rgba(215,173,69,.15);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 15px 40px rgba(215,173,69,.24);
+    }
+
+    .secondary-btn {
+      border: 1px solid var(--border-green);
+
+      background: rgba(255,255,255,.03);
+
+      color: var(--white);
+    }
+
+    .secondary-btn:hover {
+      border-color: var(--emerald);
+
+      background: rgba(12,164,111,.08);
+
+      transform: translateY(-3px);
+    }
+
+    /* HERO DECOR */
+
+    .hero-orbit {
+      position: absolute;
+
+      width: 430px;
+      height: 430px;
+
+      left: 58%;
+      top: -30px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(12,164,111,.22);
+
+      transform: rotate(-20deg);
+    }
+
+    .hero-orbit::before,
+    .hero-orbit::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 45px;
+
+      border: 1px solid rgba(215,173,69,.16);
+
+      border-radius: 50%;
+    }
+
+    .hero-orbit::after {
+      inset: 100px;
+
+      border-color: rgba(12,164,111,.18);
+    }
+
+    .hero-badge {
+      position: absolute;
+
+      left: 67%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      width: 145px;
+      height: 145px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 40px;
+
+      background:
+        linear-gradient(145deg, rgba(12,164,111,.24), rgba(215,173,69,.08));
+
+      border: 1px solid rgba(215,173,69,.3);
+
+      box-shadow:
+        0 30px 70px rgba(0,0,0,.3),
+        inset 0 0 35px rgba(12,164,111,.08);
+
+      transform-origin: center;
+
+      animation: floating 5s ease-in-out infinite;
+    }
+
+    .hero-badge i {
+      font-size: 53px;
+
+      color: var(--gold-light);
+
+      filter:
+        drop-shadow(0 0 18px rgba(215,173,69,.22));
+    }
+
+    @keyframes floating {
+      0%,100% {
+        transform: translate(-50%, -50%) translateY(0);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) translateY(-12px);
+      }
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .container {
+      width: min(1450px, 94%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 35px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+
+      gap: 20px;
+
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      font-size: 25px;
+    }
+
+    .section-heading p {
+      color: var(--muted2);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .view-all {
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .categories {
+      display: grid;
+
+      grid-template-columns:
+        repeat(8, minmax(110px, 1fr));
+
+      gap: 12px;
+    }
+
+    .category {
+      min-height: 125px;
+
+      padding: 17px 10px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      gap: 11px;
+
+      border: 1px solid var(--border-green);
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(10,33,24,.92),
+          rgba(4,13,9,.9)
+        );
+
+      transition: .25s;
+    }
+
+    .category:hover {
+      transform: translateY(-6px);
+
+      border-color: rgba(215,173,69,.45);
+
+      box-shadow:
+        0 18px 40px rgba(0,0,0,.3);
+    }
+
+    .category-icon {
+      width: 53px;
+      height: 53px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 16px;
+
+      color: var(--gold-light);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(12,164,111,.18),
+          rgba(215,173,69,.08)
+        );
+
+      border: 1px solid rgba(12,164,111,.2);
+
+      font-size: 20px;
+    }
+
+    .category span {
+      color: var(--muted);
+
+      font-size: 11px;
+      font-weight: 700;
+
+      text-align: center;
+    }
+
+    /* =========================
+       FEATURED STRIP
+    ========================= */
+
+    .feature-strip {
+      margin-top: 10px;
+
+      display: grid;
+
+      grid-template-columns: 1.2fr .8fr;
+
+      gap: 15px;
+    }
+
+    .feature-box {
+      min-height: 185px;
+
+      border-radius: 22px;
+
+      border: 1px solid var(--border);
+
+      overflow: hidden;
+
+      position: relative;
+
+      padding: 28px;
+
+      background:
+        radial-gradient(circle at 85% 20%, rgba(12,164,111,.18), transparent 30%),
+        linear-gradient(145deg, #071b12, #04100b);
+    }
+
+    .feature-box.gold {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(215,173,69,.18), transparent 30%),
+        linear-gradient(145deg, #1b1608, #090b07);
+    }
+
+    .feature-box h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .feature-box p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+      max-width: 500px;
+    }
+
+    .feature-box .mini-btn {
+      display: inline-flex;
+
+      margin-top: 17px;
+
+      padding: 9px 13px;
+
+      border-radius: 10px;
+
+      border: 1px solid var(--border-green);
+
+      font-size: 10px;
+      font-weight: 700;
+
+      color: var(--gold-light);
+    }
+
+    .feature-icon {
+      position: absolute;
+
+      left: 30px;
+      bottom: 20px;
+
+      font-size: 85px;
+
+      color: rgba(12,164,111,.08);
+    }
+
+    /* =========================
+       SHOP AREA
+    ========================= */
+
+    .shop-layout {
+      display: grid;
+
+      grid-template-columns: 245px 1fr;
+
+      gap: 22px;
+
+      align-items: start;
+    }
+
+    /* FILTER */
+
+    .filters {
+      position: sticky;
+      top: 100px;
+
+      border: 1px solid var(--border-green);
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(7,25,18,.95),
+          rgba(4,13,9,.96)
+        );
+
+      padding: 19px;
+
+      box-shadow: 0 20px 50px rgba(0,0,0,.2);
+    }
+
+    .filter-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding-bottom: 15px;
+
+      border-bottom: 1px solid rgba(255,255,255,.06);
+
+      margin-bottom: 16px;
+    }
+
+    .filter-title strong {
+      font-size: 14px;
+    }
+
+    .clear-filter {
+      background: none;
+      border: 0;
+
+      color: var(--gold-light);
+
+      font-size: 10px;
+    }
+
+    .filter-group {
+      margin-bottom: 22px;
+    }
+
+    .filter-group h4 {
+      font-size: 12px;
+      margin-bottom: 11px;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      margin: 9px 0;
+
+      cursor: pointer;
+    }
+
+    .check input {
+      accent-color: var(--emerald);
+    }
+
+    .price-inputs {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 7px;
+    }
+
+    .price-inputs input {
+      width: 100%;
+
+      height: 38px;
+
+      padding: 0 9px;
+
+      background: rgba(255,255,255,.03);
+
+      border: 1px solid rgba(255,255,255,.07);
+
+      border-radius: 10px;
+
+      color: white;
+
+      outline: none;
+
+      font-size: 10px;
+    }
+
+    .price-inputs input:focus {
+      border-color: var(--emerald);
+    }
+
+    /* PRODUCTS */
+
+    .shop-main {
+      min-width: 0;
+    }
+
+    .shop-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      padding: 14px 17px;
+
+      border: 1px solid rgba(255,255,255,.07);
+
+      border-radius: 15px;
+
+      background: rgba(7,25,18,.68);
+
+      margin-bottom: 17px;
+    }
+
+    .result-count {
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    .result-count strong {
+      color: var(--gold-light);
+    }
+
+    .sort-select {
+      height: 38px;
+
+      padding: 0 12px;
+
+      background: #071912;
+
+      color: var(--muted);
+
+      border: 1px solid var(--border-green);
+
+      border-radius: 10px;
+
+      outline: none;
+
+      font-size: 10px;
+    }
+
+    .products {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+      gap: 15px;
+    }
+
+    /* PRODUCT CARD */
+
+    .product-card {
+      position: relative;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(255,255,255,.07);
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(9,29,20,.96),
+          rgba(4,12,8,.96)
+        );
+
+      transition:
+        transform .3s,
+        border-color .3s,
+        box-shadow .3s;
+
+      animation: cardIn .5s ease both;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+
+      border-color: rgba(215,173,69,.32);
+
+      box-shadow:
+        0 25px 55px rgba(0,0,0,.35);
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .product-image {
+      height: 215px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(12,164,111,.15),
+          transparent 55%
+        ),
+        #06120d;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform .5s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.07);
+    }
+
+    .product-badge {
+      position: absolute;
+
+      top: 12px;
+      right: 12px;
+
+      padding: 6px 9px;
+
+      border-radius: 8px;
+
+      background: var(--gold);
+
+      color: #171107;
+
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .product-badge.green {
+      background: var(--emerald);
+      color: white;
+    }
+
+    .heart {
+      position: absolute;
+
+      top: 11px;
+      left: 11px;
+
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+
+      border: 1px solid rgba(255,255,255,.12);
+
+      background: rgba(2,7,5,.68);
+
+      color: white;
+
+      transition: .2s;
+    }
+
+    .heart:hover,
+    .heart.active {
+      color: #ff8298;
+      border-color: rgba(255,130,152,.35);
+    }
+
+    .product-info {
+      padding: 16px;
+    }
+
+    .product-category {
+      color: var(--emerald);
+
+      font-size: 9px;
+      font-weight: 800;
+
+      margin-bottom: 6px;
+    }
+
+    .product-title {
+      font-size: 13px;
+
+      line-height: 1.7;
+
+      min-height: 44px;
+
+      margin-bottom: 7px;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      color: var(--gold-light);
+
+      font-size: 10px;
+
+      margin-bottom: 11px;
+    }
+
+    .rating span {
+      color: var(--muted2);
+    }
+
+    .product-price {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 2px;
+
+      margin-bottom: 12px;
+    }
+
+    .old-price {
+      color: var(--muted2);
+
+      text-decoration: line-through;
+
+      font-size: 9px;
+    }
+
+    .current-price {
+      color: var(--gold-light);
+
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .current-price small {
+      font-size: 9px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .add-cart {
+      width: 100%;
+
+      height: 40px;
+
+      border: 1px solid rgba(12,164,111,.35);
+
+      border-radius: 11px;
+
+      background: rgba(12,164,111,.08);
+
+      color: var(--white);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      transition: .25s;
+    }
+
+    .add-cart:hover {
+      background: var(--emerald);
+
+      border-color: var(--emerald);
+
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       EMPTY / SEARCH
+    ========================= */
+
+    .no-result {
+      display: none;
+
+      text-align: center;
+
+      padding: 70px 20px;
+
+      border: 1px dashed var(--border-green);
+
+      border-radius: 20px;
+
+      color: var(--muted);
+    }
+
+    .no-result i {
+      font-size: 40px;
+
+      color: var(--gold);
+
+      margin-bottom: 15px;
+    }
+
+    /* =========================
+       CART DRAWER
+    ========================= */
+
+    .overlay {
+      position: fixed;
+
+      inset: 0;
+
+      background: rgba(0,0,0,.66);
+
+      backdrop-filter: blur(5px);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: .3s;
+
+      z-index: 1999;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: min(420px, 92vw);
+      height: 100vh;
+
+      background:
+        linear-gradient(
+          145deg,
+          #071912,
+          #020705
+        );
+
+      border-right: 1px solid var(--border);
+
+      z-index: 2000;
+
+      transform: translateX(-105%);
+
+      transition: .4s cubic-bezier(.2,.8,.2,1);
+
+      display: flex;
+      flex-direction: column;
+
+      box-shadow: 30px 0 80px rgba(0,0,0,.45);
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .cart-head {
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 20px;
+
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .cart-head h3 {
+      font-size: 17px;
+    }
+
+    .close-cart {
+      width: 38px;
+      height: 38px;
+
+      border-radius: 11px;
+
+      border: 1px solid var(--border-green);
+
+      background: transparent;
+
+      color: var(--muted);
+    }
+
+    .cart-items {
+      flex: 1;
+
+      overflow-y: auto;
+
+      padding: 18px;
+    }
+
+    .empty-cart {
+      min-height: 300px;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      color: var(--muted2);
+    }
+
+    .empty-cart i {
+      font-size: 45px;
+
+      color: var(--gold-dark);
+
+      margin-bottom: 14px;
+    }
+
+    .empty-cart strong {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 5px;
+    }
+
+    .empty-cart span {
+      font-size: 10px;
+    }
+
+    .cart-item {
+      display: flex;
+
+      gap: 12px;
+
+      padding: 12px 0;
+
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .cart-item img {
+      width: 67px;
+      height: 67px;
+
+      object-fit: cover;
+
+      border-radius: 12px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-info strong {
+      display: block;
+
+      font-size: 11px;
+
+      line-height: 1.6;
+
+      margin-bottom: 6px;
+    }
+
+    .cart-item-info span {
+      color: var(--gold-light);
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .remove-item {
+      background: none;
+      border: 0;
+
+      color: var(--muted2);
+
+      align-self: center;
+    }
+
+    .remove-item:hover {
+      color: #ff7187;
+    }
+
+    .cart-bottom {
+      padding: 18px;
+
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 13px;
+
+      font-size: 12px;
+    }
+
+    .cart-total strong {
+      color: var(--gold-light);
+
+      font-size: 17px;
+    }
+
+    .checkout {
+      width: 100%;
+
+      height: 47px;
+
+      border: 0;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+
+      color: #171107;
+
+      font-weight: 900;
+
+      font-size: 12px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 60px;
+
+      border-top: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(7,25,18,.45),
+          rgba(2,7,5,.9)
+        );
+    }
+
+    .footer-inner {
+      width: min(1450px, 94%);
+      margin: auto;
+
+      padding: 45px 0 25px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+      gap: 35px;
+    }
+
+    .footer-brand p {
+      color: var(--muted2);
+
+      font-size: 11px;
+
+      line-height: 2;
+
+      max-width: 340px;
+
+      margin-top: 12px;
+    }
+
+    footer h4 {
+      color: var(--gold-light);
+
+      font-size: 12px;
+
+      margin-bottom: 14px;
+    }
+
+    footer a {
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+
+      margin: 9px 0;
+
+      transition: .2s;
+    }
+
+    footer a:hover {
+      color: var(--gold-light);
+
+      transform: translateX(-3px);
+    }
+
+    .copyright {
+      width: min(1450px, 94%);
+      margin: auto;
+
+      padding: 18px 0;
+
+      border-top: 1px solid rgba(255,255,255,.05);
+
+      color: var(--muted2);
+
+      text-align: center;
+
+      font-size: 9px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 1150px) {
+
+      .categories {
+        grid-template-columns:
+          repeat(4, 1fr);
+      }
+
+      .products {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+      .shop-layout {
+        grid-template-columns: 210px 1fr;
+      }
+
+    }
+
+    @media (max-width: 900px) {
+
+      header {
+        height: 70px;
+      }
+
+      .header-inner {
+        gap: 10px;
+      }
+
+      .brand-text {
+        display: none;
+      }
+
+      .header-search {
+        max-width: none;
+      }
+
+      .hero-content {
+        padding: 45px 35px;
+      }
+
+      .hero-orbit {
+        opacity: .35;
+
+        left: 55%;
+      }
+
+      .feature-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .shop-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .filters {
+        position: static;
+      }
+
+      .products {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .header-actions .icon-btn:first-child {
+        display: none;
+      }
+
+      .header-search input {
+        height: 43px;
+      }
+
+      .hero {
+        margin-top: 18px;
+
+        min-height: 420px;
+
+        border-radius: 23px;
+      }
+
+      .hero-content {
+        padding: 34px 22px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 12px;
+      }
+
+      .hero-orbit {
+        width: 280px;
+        height: 280px;
+
+        left: 30%;
+        top: 210px;
+      }
+
+      .hero-badge {
+        width: 95px;
+        height: 95px;
+
+        left: 50%;
+        top: 75%;
+      }
+
+      .hero-badge i {
+        font-size: 34px;
+      }
+
+      .categories {
+        grid-template-columns:
+          repeat(4, 1fr);
+
+        gap: 8px;
+      }
+
+      .category {
+        min-height: 105px;
+      }
+
+      .category-icon {
+        width: 43px;
+        height: 43px;
+      }
+
+      .category span {
+        font-size: 9px;
+      }
+
+      .shop-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .sort-select {
+        width: 100%;
+      }
+
+      .products {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap: 10px;
+      }
+
+      .product-image {
+        height: 155px;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+
+      .product-title {
+        font-size: 11px;
+      }
+
+      .current-price {
+        font-size: 13px;
+      }
+
+      .add-cart {
+        height: 37px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+      }
+
+    }
+
+    @media (max-width: 430px) {
+
+      .brand-logo {
+        width: 40px;
+        height: 40px;
+      }
+
+      .header-search {
+        display: none;
+      }
+
+      .header-inner {
+        justify-content: space-between;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
+      }
+
+      .categories {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .products {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+
+        <div class="brand-logo">
+          A
+        </div>
+
+        <div class="brand-text">
+          <strong>ARTIK</strong>
+          <span>MARKETPLACE</span>
+        </div>
+
+      </a>
+
+      <div class="header-search">
+
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="چی می‌خوای پیدا کنی؟"
+          autocomplete="off"
+        >
+
+      </div>
+
+      <div class="header-actions">
+
+        <button
+          class="icon-btn"
+          title="علاقه‌مندی‌ها"
+        >
+          <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <button
+          class="icon-btn"
+          id="cartButton"
+          title="سبد خرید"
+        >
+
+          <i class="fa-solid fa-bag-shopping"></i>
+
+          <span
+            class="cart-count"
+            id="cartCount"
+          >
+            0
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+
+          <i class="fa-solid fa-sparkles"></i>
+
+          بازار نسل آینده ARTIK
+
+        </div>
+
+        <h1>
+          چیزی بیشتر از
+          <span>یک فروشگاه.</span>
+        </h1>
+
+        <p>
+          جایی برای کشف محصولات، ایده‌ها، ساخته‌ها و خدمات خلاقانه.
+          در ARTIK فقط خرید نمی‌کنی؛
+          استعدادها و سازنده‌های نسل آینده را پیدا می‌کنی.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="#products"
+            class="primary-btn"
+          >
+            <i class="fa-solid fa-compass"></i>
+            کشف محصولات
+          </a>
+
+          <a
+            href="#categories"
+            class="secondary-btn"
+          >
+            <i class="fa-solid fa-layer-group"></i>
+            مشاهده دسته‌بندی‌ها
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-orbit"></div>
+
+      <div class="hero-badge">
+        <i class="fa-solid fa-bag-shopping"></i>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================== -->
+
+    <section
+      class="section"
+      id="categories"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <h2>
+              دسته‌بندی‌ها
+            </h2>
+
+            <p>
+              دنیای ARTIK را از هر زاویه‌ای کشف کن.
+            </p>
+
+          </div>
+
+          <a
+            href="#products"
+            class="view-all"
+          >
+            مشاهده همه
+            ←
+          </a>
+
+        </div>
+
+
+        <div class="categories">
+
+          <a href="#products" class="category">
+            <div class="category-icon">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+            <span>علم و آزمایش</span>
+          </a>
+
+          <a href="#products" class="category">
+            <div class="category-icon">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <span>تکنولوژی</span>
+          </a>
+
+          <a href="#products" class="category">
+            <div class="category-icon">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <span>هنر و طراحی</span>
+          </a>
+
+          <a href="#products" class="category">
+            <div class="category-icon">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <span>کتاب و آموزش</span>
+          </a>
+
+          <a href="#products" class="category">
+            <div class="category-icon">
+              <i class="fa-solid fa-gamepad"></i>
+            </div>
+            <span>بازی و سرگرمی</span>
+          </a>
+
+          <a href="#products" class="category">
+            <div class="category-icon">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <span>دست‌سازه‌ها</span>
+          </a>
+
+          <a href="#products" class="category">
+            <div class="category-icon">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <span>خدمات</span>
+          </a>
+
+          <a href="#products" class="category">
+            <div class="category-icon">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <span>ایده‌های نو</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURED
+    ========================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="feature-strip">
+
+          <div class="feature-box">
+
+            <h3>
+              ساخته‌شده توسط نسل آینده 🚀
+            </h3>
+
+            <p>
+              محصولات و پروژه‌هایی که توسط نوجوانان خلاق،
+              سازندگان مستقل و تیم‌های نوآور ساخته شده‌اند.
+            </p>
+
+            <a
+              href="#products"
+              class="mini-btn"
+            >
+              کشف سازندگان
+            </a>
+
+            <i class="fa-solid fa-rocket feature-icon"></i>
+
+          </div>
+
+
+          <div class="feature-box gold">
+
+            <h3>
+              پیشنهادهای ویژه ✦
+            </h3>
+
+            <p>
+              مجموعه‌ای از محصولات منتخب با پیشنهادهای محدود.
+            </p>
+
+            <a
+              href="#products"
+              class="mini-btn"
+            >
+              مشاهده پیشنهادها
+            </a>
+
+            <i class="fa-solid fa-crown feature-icon"></i>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
+    <section
+      class="section"
+      id="products"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <h2>
+              کشف بازار ARTIK
+            </h2>
+
+            <p>
+              محصول موردنظرت را پیدا کن.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="shop-layout">
+
+
+          <!-- FILTERS -->
+
+          <aside class="filters">
+
+            <div class="filter-title">
+
+              <strong>
+                فیلترها
+              </strong>
+
+              <button
+                class="clear-filter"
+                onclick="clearFilters()"
+              >
+                پاک کردن
+              </button>
+
+            </div>
+
+
+            <div class="filter-group">
+
+              <h4>
+                دسته‌بندی
+              </h4>
+
+              <label class="check">
+                <input
+                  type="checkbox"
+                  value="science"
+                  class="category-filter"
+                >
+                علم و آزمایش
+              </label>
+
+              <label class="check">
+                <input
+                  type="checkbox"
+                  value="tech"
+                  class="category-filter"
+                >
+                تکنولوژی
+              </label>
+
+              <label class="check">
+                <input
+                  type="checkbox"
+                  value="art"
+                  class="category-filter"
+                >
+                هنر و طراحی
+              </label>
+
+              <label class="check">
+                <input
+                  type="checkbox"
+                  value="education"
+                  class="category-filter"
+                >
+                آموزش
+              </label>
+
+              <label class="check">
+                <input
+                  type="checkbox"
+                  value="handmade"
+                  class="category-filter"
+                >
+                دست‌سازه
+              </label>
+
+            </div>
+
+
+            <div class="filter-group">
+
+              <h4>
+                محدوده قیمت
+              </h4>
+
+              <div class="price-inputs">
+
+                <input
+                  type="number"
+                  id="minPrice"
+                  placeholder="از"
+                >
+
+                <input
+                  type="number"
+                  id="maxPrice"
+                  placeholder="تا"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="filter-group">
+
+              <h4>
+                ویژگی‌ها
+              </h4>
+
+              <label class="check">
+                <input
+                  type="checkbox"
+                  id="discountFilter"
+                >
+                فقط تخفیف‌دارها
+              </label>
+
+              <label class="check">
+                <input
+                  type="checkbox"
+                  id="availableFilter"
+                >
+                فقط موجودها
+              </label>
+
+            </div>
+
+          </aside>
+
+
+          <!-- MAIN -->
+
+          <div class="shop-main">
+
+            <div class="shop-toolbar">
+
+              <div
+                class="result-count"
+                id="resultCount"
+              >
+                نمایش
+                <strong>۸</strong>
+                محصول
+              </div>
+
+              <select
+                class="sort-select"
+                id="sortSelect"
+              >
+
+                <option value="default">
+                  مرتب‌سازی پیش‌فرض
+                </option>
+
+                <option value="cheap">
+                  ارزان‌ترین
+                </option>
+
+                <option value="expensive">
+                  گران‌ترین
+                </option>
+
+                <option value="rating">
+                  محبوب‌ترین
+                </option>
+
+                <option value="new">
+                  جدیدترین
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div
+              class="products"
+              id="productsGrid"
+            >
+
+
+              <!-- PRODUCT 1 -->
+
+              <article
+                class="product-card"
+                data-category="science"
+                data-price="185000"
+                data-rating="4.9"
+                data-new="5"
+              >
+
+                <div class="product-image">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80"
+                    alt="کیت آزمایش علمی"
+                  >
+
+                  <span class="product-badge green">
+                    جدید
+                  </span>
+
+                  <button
+                    class="heart"
+                    onclick="toggleHeart(this)"
+                  >
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+
+                </div>
+
+                <div class="product-info">
+
+                  <div class="product-category">
+                    علم و آزمایش
+                  </div>
+
+                  <div class="product-title">
+                    کیت آزمایشگاه علمی نوجوانان
+                  </div>
+
+                  <div class="rating">
+                    ★ ۴.۹
+                    <span>
+                      (۲۸)
+                    </span>
+                  </div>
+
+                  <div class="product-price">
+
+                    <span class="old-price">
+                      ۲۲۰,۰۰۰ تومان
+                    </span>
+
+                    <span class="current-price">
+                      ۱۸۵,۰۰۰
+                      <small>تومان</small>
+                    </span>
+
+                  </div>
+
+                  <button
+                    class="add-cart"
+                    onclick="addToCart(
+                      'کیت آزمایشگاه علمی نوجوانان',
+                      185000,
+                      'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=300&q=80'
+                    )"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i>
+                    افزودن به سبد
+                  </button>
+
+                </div>
+
+              </article>
+
+
+              <!-- PRODUCT 2 -->
+
+              <article
+                class="product-card"
+                data-category="tech"
+                data-price="490000"
+                data-rating="4.8"
+                data-new="4"
+              >
+
+                <div class="product-image">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                    alt="کیت الکترونیک"
+                  >
+
+                  <span class="product-badge">
+                    ۱۵٪ تخفیف
+                  </span>
+
+                  <button
+                    class="heart"
+                    onclick="toggleHeart(this)"
+                  >
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+
+                </div>
+
+                <div class="product-info">
+
+                  <div class="product-category">
+                    تکنولوژی
+                  </div>
+
+                  <div class="product-title">
+                    کیت الکترونیک و ساخت ربات
+                  </div>
+
+                  <div class="rating">
+                    ★ ۴.۸
+                    <span>
+                      (۴۶)
+                    </span>
+                  </div>
+
+                  <div class="product-price">
+
+                    <span class="old-price">
+                      ۵۷۵,۰۰۰ تومان
+                    </span>
+
+                    <span class="current-price">
+                      ۴۹۰,۰۰۰
+                      <small>تومان</small>
+                    </span>
+
+                  </div>
+
+                  <button
+                    class="add-cart"
+                    onclick="addToCart(
+                      'کیت الکترونیک و ساخت ربات',
+                      490000,
+                      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80'
+                    )"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i>
+                    افزودن به سبد
+                  </button>
+
+                </div>
+
+              </article>
+
+
+              <!-- PRODUCT 3 -->
+
+              <article
+                class="product-card"
+                data-category="art"
+                data-price="275000"
+                data-rating="4.7"
+                data-new="3"
+              >
+
+                <div class="product-image">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80"
+                    alt="بسته طراحی"
+                  >
+
+                  <span class="product-badge green">
+                    منتخب ARTIK
+                  </span>
+
+                  <button
+                    class="heart"
+                    onclick="toggleHeart(this)"
+                  >
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+
+                </div>
+
+                <div class="product-info">
+
+                  <div class="product-category">
+                    هنر و طراحی
+                  </div>
+
+                  <div class="product-title">
+                    جعبه حرفه‌ای طراحی و تصویرسازی
+                  </div>
+
+                  <div class="rating">
+                    ★ ۴.۷
+                    <span>
+                      (۱۹)
+                    </span>
+                  </div>
+
+                  <div class="product-price">
+
+                    <span class="current-price">
+                      ۲۷۵,۰۰۰
+                      <small>تومان</small>
+                    </span>
+
+                  </div>
+
+                  <button
+                    class="add-cart"
+                    onclick="addToCart(
+                      'جعبه حرفه‌ای طراحی و تصویرسازی',
+                      275000,
+                      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=300&q=80'
+                    )"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i>
+                    افزودن به سبد
+                  </button>
+
+                </div>
+
+              </article>
+
+
+              <!-- PRODUCT 4 -->
+
+              <article
+                class="product-card"
+                data-category="education"
+                data-price="320000"
+                data-rating="4.9"
+                data-new="6"
+              >
+
+                <div class="product-image">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80"
+                    alt="بسته آموزشی"
+                  >
+
+                  <span class="product-badge">
+                    پرفروش
+                  </span>
+
+                  <button
+                    class="heart"
+                    onclick="toggleHeart(this)"
+                  >
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+
+                </div>
+
+                <div class="product-info">
+
+                  <div class="product-category">
+                    کتاب و آموزش
+                  </div>
+
+                  <div class="product-title">
+                    بسته یادگیری خلاق و مهارت‌های آینده
+                  </div>
+
+                  <div class="rating">
+                    ★ ۴.۹
+                    <span>
+                      (۷۳)
+                    </span>
+                  </div>
+
+                  <div class="product-price">
+
+                    <span class="old-price">
+                      ۳۷۰,۰۰۰ تومان
+                    </span>
+
+                    <span class="current-price">
+                      ۳۲۰,۰۰۰
+                      <small>تومان</small>
+                    </span>
+
+                  </div>
+
+                  <button
+                    class="add-cart"
+                    onclick="addToCart(
+                      'بسته یادگیری خلاق و مهارت‌های آینده',
+                      320000,
+                      'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=300&q=80'
+                    )"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i>
+                    افزودن به سبد
+                  </button>
+
+                </div>
+
+              </article>
+
+
+              <!-- PRODUCT 5 -->
+
+              <article
+                class="product-card"
+                data-category="handmade"
+                data-price="160000"
+                data-rating="4.6"
+                data-new="2"
+              >
+
+                <div class="product-image">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=800&q=80"
+                    alt="دست‌سازه"
+                  >
+
+                  <button
+                    class="heart"
+                    onclick="toggleHeart(this)"
+                  >
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+
+                </div>
+
+                <div class="product-info">
+
+                  <div class="product-category">
+                    دست‌سازه
+                  </div>
+
+                  <div class="product-title">
+                    دفتر دست‌ساز هنری ARTIK
+                  </div>
+
+                  <div class="rating">
+                    ★ ۴.۶
+                    <span>
+                      (۱۴)
+                    </span>
+                  </div>
+
+                  <div class="product-price">
+
+                    <span class="current-price">
+                      ۱۶۰,۰۰۰
+                      <small>تومان</small>
+                    </span>
+
+                  </div>
+
+                  <button
+                    class="add-cart"
+                    onclick="addToCart(
+                      'دفتر دست‌ساز هنری ARTIK',
+                      160000,
+                      'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=300&q=80'
+                    )"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i>
+                    افزودن به سبد
+                  </button>
+
+                </div>
+
+              </article>
+
+
+              <!-- PRODUCT 6 -->
+
+              <article
+                class="product-card"
+                data-category="tech"
+                data-price="690000"
+                data-rating="4.9"
+                data-new="7"
+              >
+
+                <div class="product-image">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+                    alt="محصول تکنولوژی"
+                  >
+
+                  <span class="product-badge green">
+                    ویژه
+                  </span>
+
+                  <button
+                    class="heart"
+                    onclick="toggleHeart(this)"
+                  >
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+
+                </div>
+
+                <div class="product-info">
+
+                  <div class="product-category">
+                    تکنولوژی
+                  </div>
+
+                  <div class="product-title">
+                    ست ابزار ساخت و ایده‌پردازی دیجیتال
+                  </div>
+
+                  <div class="rating">
+                    ★ ۴.۹
+                    <span>
+                      (۳۱)
+                    </span>
+                  </div>
+
+                  <div class="product-price">
+
+                    <span class="current-price">
+                      ۶۹۰,۰۰۰
+                      <small>تومان</small>
+                    </span>
+
+                  </div>
+
+                  <button
+                    class="add-cart"
+                    onclick="addToCart(
+                      'ست ابزار ساخت و ایده‌پردازی دیجیتال',
+                      690000,
+                      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=300&q=80'
+                    )"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i>
+                    افزودن به سبد
+                  </button>
+
+                </div>
+
+              </article>
+
+
+              <!-- PRODUCT 7 -->
+
+              <article
+                class="product-card"
+                data-category="science"
+                data-price="230000"
+                data-rating="4.8"
+                data-new="8"
+              >
+
+                <div class="product-image">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=80"
+                    alt="میکروسکوپ آموزشی"
+                  >
+
+                  <span class="product-badge">
+                    جدید
+                  </span>
+
+                  <button
+                    class="heart"
+                    onclick="toggleHeart(this)"
+                  >
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+
+                </div>
+
+                <div class="product-info">
+
+                  <div class="product-category">
+                    علم و آزمایش
+                  </div>
+
+                  <div class="product-title">
+                    مجموعه مشاهده و میکروسکوپی آموزشی
+                  </div>
+
+                  <div class="rating">
+                    ★ ۴.۸
+                    <span>
+                      (۲۲)
+                    </span>
+                  </div>
+
+                  <div class="product-price">
+
+                    <span class="current-price">
+                      ۲۳۰,۰۰۰
+                      <small>تومان</small>
+                    </span>
+
+                  </div>
+
+                  <button
+                    class="add-cart"
+                    onclick="addToCart(
+                      'مجموعه مشاهده و میکروسکوپی آموزشی',
+                      230000,
+                      'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=300&q=80'
+                    )"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i>
+                    افزودن به سبد
+                  </button>
+
+                </div>
+
+              </article>
+
+
+              <!-- PRODUCT 8 -->
+
+              <article
+                class="product-card"
+                data-category="education"
+                data-price="145000"
+                data-rating="4.5"
+                data-new="1"
+              >
+
+                <div class="product-image">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=800&q=80"
+                    alt="کتاب"
+                  >
+
+                  <span class="product-badge">
+                    ۱۰٪ تخفیف
+                  </span>
+
+                  <button
+                    class="heart"
+                    onclick="toggleHeart(this)"
+                  >
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+
+                </div>
+
+                <div class="product-info">
+
+                  <div class="product-category">
+                    کتاب و آموزش
+                  </div>
+
+                  <div class="product-title">
+                    دفتر برنامه‌ریزی و ایده‌پردازی نوجوانان
+                  </div>
+
+                  <div class="rating">
+                    ★ ۴.۵
+                    <span>
+                      (۳۸)
+                    </span>
+                  </div>
+
+                  <div class="product-price">
+
+                    <span class="old-price">
+                      ۱۶۰,۰۰۰ تومان
+                    </span>
+
+                    <span class="current-price">
+                      ۱۴۵,۰۰۰
+                      <small>تومان</small>
+                    </span>
+
+                  </div>
+
+                  <button
+                    class="add-cart"
+                    onclick="addToCart(
+                      'دفتر برنامه‌ریزی و ایده‌پردازی نوجوانان',
+                      145000,
+                      'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=300&q=80'
+                    )"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i>
+                    افزودن به سبد
+                  </button>
+
+                </div>
+
+              </article>
+
+
+            </div>
+
+
+            <div
+              class="no-result"
+              id="noResult"
+            >
+
+              <i class="fa-solid fa-box-open"></i>
+
+              <h3>
+                محصولی پیدا نشد
+              </h3>
+
+              <p>
+                فیلترها یا عبارت جستجو را تغییر بده.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       CART
+  ========================== -->
+
+  <div
+    class="overlay"
+    id="overlay"
+  ></div>
+
+
+  <aside
+    class="cart-drawer"
+    id="cartDrawer"
+  >
+
+    <div class="cart-head">
+
+      <h3>
+        <i class="fa-solid fa-bag-shopping"></i>
+        سبد خرید
+      </h3>
+
+      <button
+        class="close-cart"
+        id="closeCart"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    >
+
+      <div class="empty-cart">
+
+        <i class="fa-solid fa-bag-shopping"></i>
+
+        <strong>
+          سبد خریدت خالیه
+        </strong>
+
+        <span>
+          محصولات موردنظرت را به سبد اضافه کن.
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="cart-bottom">
+
+      <div class="cart-total">
+
+        <span>
+          مجموع
+        </span>
+
+        <strong id="cartTotal">
+          ۰ تومان
+        </strong>
+
+      </div>
+
+      <button
+        class="checkout"
+        onclick="checkout()"
+      >
+        ادامه و بررسی سفارش
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <div class="brand">
+
+          <div class="brand-logo">
+            A
+          </div>
+
+          <div class="brand-text">
+            <strong>ARTIK</strong>
+            <span>MARKETPLACE</span>
+          </div>
+
+        </div>
+
+        <p>
+          ARTIK SHOP؛ بازار خلاقیت، مهارت و ایده‌های
+          نسل آینده.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          خرید
+        </h4>
+
+        <a href="#categories">
+          دسته‌بندی‌ها
+        </a>
+
+        <a href="#products">
+          محصولات
+        </a>
+
+        <a href="#products">
+          پیشنهادهای ویژه
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          ARTIK
+        </h4>
+
+        <a href="index.html">
+          صفحه اصلی
+        </a>
+
+        <a href="about.html">
+          درباره ARTIK
+        </a>
+
+        <a href="contact.html">
+          ارتباط با ما
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h4>
+          دسترسی سریع
+        </h4>
+
+        <a href="gallery.html">
+          گالری
+        </a>
+
+        <a href="stories.html">
+          استوری‌ها
+        </a>
+
+        <a href="login.html">
+          ورود / ثبت‌نام
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © ۱۴۰۵ ARTIK — تمامی حقوق محفوظ است.
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /* =========================
+       CART
+    ========================== */
+
+    let cart = [];
+
+    const cartButton =
+      document.getElementById("cartButton");
+
+    const cartDrawer =
+      document.getElementById("cartDrawer");
+
+    const closeCart =
+      document.getElementById("closeCart");
+
+    const overlay =
+      document.getElementById("overlay");
+
+    const cartItems =
+      document.getElementById("cartItems");
+
+    const cartCount =
+      document.getElementById("cartCount");
+
+    const cartTotal =
+      document.getElementById("cartTotal");
+
+
+    function openCart() {
+
+      cartDrawer.classList.add("active");
+
+      overlay.classList.add("active");
+
+    }
+
+
+    function closeCartDrawer() {
+
+      cartDrawer.classList.remove("active");
+
+      overlay.classList.remove("active");
+
+    }
+
+
+    cartButton.addEventListener(
+      "click",
+      openCart
+    );
+
+
+    closeCart.addEventListener(
+      "click",
+      closeCartDrawer
+    );
+
+
+    overlay.addEventListener(
+      "click",
+      closeCartDrawer
+    );
+
+
+    function addToCart(
+      name,
+      price,
+      image
+    ) {
+
+      const existing =
+        cart.find(
+          item => item.name === name
+        );
+
+      if (existing) {
+
+        existing.quantity++;
+
+      } else {
+
+        cart.push({
+          name: name,
+          price: price,
+          image: image,
+          quantity: 1
+        });
+
+      }
+
+      renderCart();
+
+      openCart();
+
+    }
+
+
+    function removeFromCart(index) {
+
+      cart.splice(index, 1);
+
+      renderCart();
+
+    }
+
+
+    function renderCart() {
+
+      let totalItems = 0;
+      let totalPrice = 0;
+
+      cart.forEach(item => {
+
+        totalItems += item.quantity;
+
+        totalPrice +=
+          item.price * item.quantity;
+
+      });
+
+
+      cartCount.textContent =
+        totalItems;
+
+
+      cartTotal.textContent =
+        totalPrice.toLocaleString("fa-IR")
+        + " تومان";
+
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+          <div class="empty-cart">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <strong>
+              سبد خریدت خالیه
+            </strong>
+
+            <span>
+              محصولات موردنظرت را به سبد اضافه کن.
+            </span>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      cartItems.innerHTML =
+        cart.map((item, index) => `
+
+          <div class="cart-item">
+
+            <img
+              src="${item.image}"
+              alt="${item.name}"
+            >
+
+            <div class="cart-item-info">
+
+              <strong>
+                ${item.name}
+              </strong>
+
+              <span>
+                ${(item.price * item.quantity)
+                  .toLocaleString("fa-IR")}
+                تومان
+              </span>
+
+            </div>
+
+            <button
+              class="remove-item"
+              onclick="removeFromCart(${index})"
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+
+          </div>
+
+        `).join("");
+
+    }
+
+
+    function checkout() {
+
+      if (cart.length === 0) {
+
+        alert(
+          "سبد خرید شما هنوز خالی است."
+        );
+
+        return;
+
+      }
+
+      alert(
+        "این بخش در نسخه آزمایشی ARTIK فعال است و در مرحله بعد به سیستم سفارش واقعی متصل می‌شود."
+      );
+
+    }
+
+
+    /* =========================
+       FAVORITES
+    ========================== */
+
+    function toggleHeart(button) {
+
+      button.classList.toggle("active");
+
+      const icon =
+        button.querySelector("i");
+
+      if (
+        button.classList.contains("active")
+      ) {
+
+        icon.classList.remove(
+          "fa-regular"
+        );
+
+        icon.classList.add(
+          "fa-solid"
+        );
+
+      } else {
+
+        icon.classList.remove(
+          "fa-solid"
+        );
+
+        icon.classList.add(
+          "fa-regular"
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       SEARCH + FILTER
+    ========================== */
+
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
+
+    const categoryFilters =
+      document.querySelectorAll(
+        ".category-filter"
+      );
+
+    const minPrice =
+      document.getElementById(
+        "minPrice"
+      );
+
+    const maxPrice =
+      document.getElementById(
+        "maxPrice"
+      );
+
+    const discountFilter =
+      document.getElementById(
+        "discountFilter"
+      );
+
+    const availableFilter =
+      document.getElementById(
+        "availableFilter"
+      );
+
+    const sortSelect =
+      document.getElementById(
+        "sortSelect"
+      );
+
+    const productsGrid =
+      document.getElementById(
+        "productsGrid"
+      );
+
+    const noResult =
+      document.getElementById(
+        "noResult"
+      );
+
+    const resultCount =
+      document.getElementById(
+        "resultCount"
+      );
+
+
+    function filterProducts() {
+
+      const search =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+
+      const selectedCategories =
+        [...categoryFilters]
+          .filter(
+            checkbox => checkbox.checked
+          )
+          .map(
+            checkbox => checkbox.value
+          );
+
+
+      const min =
+        Number(minPrice.value) || 0;
+
+
+      const max =
+        Number(maxPrice.value) || Infinity;
+
+
+      const products =
+        [...document.querySelectorAll(
+          ".product-card"
+        )];
+
+
+      let visible = [];
+
+
+      products.forEach(product => {
+
+        const category =
+          product.dataset.category;
+
+        const price =
+          Number(product.dataset.price);
+
+        const title =
+          product
+            .querySelector(".product-title")
+            .textContent
+            .toLowerCase();
+
+
+        const categoryMatch =
+          selectedCategories.length === 0 ||
+          selectedCategories.includes(category);
+
+
+        const priceMatch =
+          price >= min &&
+          price <= max;
+
+
+        const searchMatch =
+          !search ||
+          title.includes(search);
+
+
+        let discountMatch = true;
+
+        if (discountFilter.checked) {
+
+          discountMatch =
+            product.querySelector(
+              ".old-price"
+            ) !== null;
+
+        }
+
+
+        let availableMatch = true;
+
+        if (availableFilter.checked) {
+
+          availableMatch = true;
+
+        }
+
+
+        const show =
+          categoryMatch &&
+          priceMatch &&
+          searchMatch &&
+          discountMatch &&
+          availableMatch;
+
+
+        product.style.display =
+          show ? "" : "none";
+
+
+        if (show) {
+
+          visible.push(product);
+
+        }
+
+      });
+
+
+      noResult.style.display =
+        visible.length === 0
+          ? "block"
+          : "none";
+
+
+      resultCount.innerHTML =
+        `نمایش <strong>${visible.length.toLocaleString("fa-IR")}</strong> محصول`;
+
+    }
+
+
+    searchInput.addEventListener(
+      "input",
+      filterProducts
+    );
+
+
+    categoryFilters.forEach(
+      checkbox => {
+
+        checkbox.addEventListener(
+          "change",
+          filterProducts
+        );
+
+      }
+    );
+
+
+    minPrice.addEventListener(
+      "input",
+      filterProducts
+    );
+
+
+    maxPrice.addEventListener(
+      "input",
+      filterProducts
+    );
+
+
+    discountFilter.addEventListener(
+      "change",
+      filterProducts
+    );
+
+
+    availableFilter.addEventListener(
+      "change",
+      filterProducts
+    );
+
+
+    /* =========================
+       SORT
+    ========================== */
+
+    sortSelect.addEventListener(
+      "change",
+      function() {
+
+        const products =
+          [...document.querySelectorAll(
+            ".product-card"
+          )];
+
+
+        if (
+          this.value === "cheap"
+        ) {
+
+          products.sort(
+            (a,b) =>
+              Number(a.dataset.price) -
+              Number(b.dataset.price)
+          );
+
+        }
+
+
+        if (
+          this.value === "expensive"
+        ) {
+
+          products.sort(
+            (a,b) =>
+              Number(b.dataset.price) -
+              Number(a.dataset.price)
+          );
+
+        }
+
+
+        if (
+          this.value === "rating"
+        ) {
+
+          products.sort(
+            (a,b) =>
+              Number(b.dataset.rating) -
+              Number(a.dataset.rating)
+          );
+
+        }
+
+
+        if (
+          this.value === "new"
+        ) {
+
+          products.sort(
+            (a,b) =>
+              Number(b.dataset.new) -
+              Number(a.dataset.new)
+          );
+
+        }
+
+
+        products.forEach(
+          product =>
+            productsGrid.appendChild(product)
+        );
+
+
+        filterProducts();
+
+      }
+    );
+
+
+    /* =========================
+       CLEAR FILTERS
+    ========================== */
+
+    function clearFilters() {
+
+      categoryFilters.forEach(
+        checkbox =>
+          checkbox.checked = false
+      );
+
+      minPrice.value = "";
+
+      maxPrice.value = "";
+
+      discountFilter.checked = false;
+
+      availableFilter.checked = false;
+
+      searchInput.value = "";
+
+      sortSelect.value = "default";
+
+      filterProducts();
+
+    }
+
+
+    /* =========================
+       ESC TO CLOSE CART
+    ========================== */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeCartDrawer();
+
+        }
+
+      }
+    );
+
+
+    renderCart();
+
+  </script>
+
+</body>
+
+  </html>
