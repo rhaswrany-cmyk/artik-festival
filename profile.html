@@ -12,12 +12,12 @@
 
   <meta
     name="description"
-    content="ARTIK | پروفایل کاربری"
+    content="ARTIK | پروفایل کاربری شرکت‌کنندگان"
   >
 
   <title>پروفایل من | ARTIK</title>
 
-  <!-- فونت اصلی ARTIK -->
+  <!-- Vazirmatn -->
   <link
     href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet"
@@ -28,6 +28,9 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
   <style>
@@ -134,11 +137,8 @@
 
 
     a {
-
       color: inherit;
-
       text-decoration: none;
-
     }
 
 
@@ -396,6 +396,74 @@
 
 
     /* =========================
+       LOADING
+    ========================= */
+
+    #loadingScreen {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 5000;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: #020705;
+
+    }
+
+
+    .loader-box {
+
+      text-align: center;
+
+    }
+
+
+    .loader {
+
+      width: 45px;
+      height: 45px;
+
+      border: 3px solid rgba(215,173,69,.18);
+
+      border-top-color: var(--gold);
+
+      border-right-color: var(--emerald);
+
+      border-radius: 50%;
+
+      animation: spin 1s linear infinite;
+
+      margin: 0 auto 18px;
+
+    }
+
+
+    @keyframes spin {
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+
+    .loader-box p {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+    }
+
+
+    /* =========================
        PROFILE HERO
     ========================= */
 
@@ -446,25 +514,6 @@
     }
 
 
-    .profile-hero::before {
-
-      content: "";
-
-      position: absolute;
-
-      width: 350px;
-      height: 350px;
-
-      border: 1px solid rgba(215,173,69,.08);
-
-      border-radius: 50%;
-
-      left: -150px;
-      bottom: -190px;
-
-    }
-
-
     .profile-avatar {
 
       position: relative;
@@ -504,8 +553,6 @@
 
       font-weight: 900;
 
-      z-index: 2;
-
     }
 
 
@@ -529,10 +576,6 @@
 
 
     .profile-main {
-
-      position: relative;
-
-      z-index: 2;
 
       flex: 1;
 
@@ -642,10 +685,6 @@
 
 
     .edit-profile {
-
-      position: relative;
-
-      z-index: 3;
 
       align-self: flex-start;
 
@@ -782,7 +821,7 @@
 
 
     /* =========================
-       PERSONAL INFO
+       INFO
     ========================= */
 
     .info-list {
@@ -791,7 +830,7 @@
 
       flex-direction: column;
 
-      gap: 14px;
+      gap: 13px;
 
     }
 
@@ -804,7 +843,7 @@
 
       gap: 12px;
 
-      padding-bottom: 14px;
+      padding-bottom: 13px;
 
       border-bottom: 1px solid rgba(255,255,255,.055);
 
@@ -868,6 +907,8 @@
       font-size: 11px;
 
       font-weight: 600;
+
+      word-break: break-word;
 
     }
 
@@ -949,17 +990,6 @@
       border-radius: 14px;
 
       background: rgba(2,7,5,.36);
-
-      transition: .25s ease;
-
-    }
-
-
-    .project:hover {
-
-      border-color: var(--border-green);
-
-      transform: translateY(-2px);
 
     }
 
@@ -1063,6 +1093,17 @@
     }
 
 
+    .status-red {
+
+      color: #f09a9a;
+
+      background: rgba(220,70,70,.08);
+
+      border: 1px solid rgba(220,70,70,.18);
+
+    }
+
+
     .project-bottom {
 
       display: flex;
@@ -1078,100 +1119,308 @@
     }
 
 
-    .progress {
+    /* =========================
+       FORM MODAL
+    ========================= */
 
-      width: 100%;
+    .modal {
 
-      height: 5px;
+      position: fixed;
 
-      margin-top: 10px;
+      inset: 0;
 
-      background: rgba(255,255,255,.06);
+      z-index: 3000;
 
-      border-radius: 20px;
+      display: none;
 
-      overflow: hidden;
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 20px;
+
+      background: rgba(0,0,0,.72);
+
+      backdrop-filter: blur(10px);
 
     }
 
 
-    .progress-bar {
+    .modal.show {
 
-      height: 100%;
+      display: flex;
 
-      border-radius: 20px;
+    }
+
+
+    .modal-box {
+
+      width: min(850px, 100%);
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      padding: 28px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 24px;
 
       background:
 
         linear-gradient(
-          90deg,
-          var(--green-light),
-          var(--emerald)
+          145deg,
+          #0a2118,
+          #04110c
+        );
+
+      box-shadow: var(--shadow);
+
+    }
+
+
+    .modal-head {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .modal-head h2 {
+
+      font-size: 21px;
+
+      font-weight: 900;
+
+    }
+
+
+    .modal-head h2 span {
+
+      color: var(--gold-light);
+
+    }
+
+
+    .close-modal {
+
+      width: 40px;
+      height: 40px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 11px;
+
+      background: rgba(2,7,5,.5);
+
+      color: var(--gold-light);
+
+      cursor: pointer;
+
+    }
+
+
+    .form-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 15px;
+
+    }
+
+
+    .form-group {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 7px;
+
+    }
+
+
+    .form-group.full {
+
+      grid-column: 1 / -1;
+
+    }
+
+
+    .form-group label {
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+    }
+
+
+    .required {
+
+      color: #e5a4a4;
+
+    }
+
+
+    .form-group input,
+    .form-group select {
+
+      width: 100%;
+
+      height: 47px;
+
+      padding: 0 13px;
+
+      border: 1px solid rgba(255,255,255,.09);
+
+      border-radius: 11px;
+
+      outline: none;
+
+      color: var(--white);
+
+      background: rgba(2,7,5,.55);
+
+      transition: .2s ease;
+
+    }
+
+
+    .form-group input:focus,
+    .form-group select:focus {
+
+      border-color: var(--emerald);
+
+      box-shadow:
+        0 0 0 3px rgba(12,164,111,.08);
+
+    }
+
+
+    .form-group input::placeholder {
+
+      color: #5f7168;
+
+    }
+
+
+    .form-group select option {
+
+      color: #111;
+
+      background: #fff;
+
+    }
+
+
+    .security-note {
+
+      grid-column: 1 / -1;
+
+      padding: 13px 15px;
+
+      border: 1px solid rgba(215,173,69,.18);
+
+      border-radius: 12px;
+
+      color: var(--muted);
+
+      background: rgba(215,173,69,.035);
+
+      font-size: 9px;
+
+      line-height: 2;
+
+    }
+
+
+    .security-note i {
+
+      color: var(--gold);
+
+      margin-left: 5px;
+
+    }
+
+
+    .form-actions {
+
+      display: flex;
+
+      justify-content: flex-start;
+
+      gap: 10px;
+
+      margin-top: 22px;
+
+    }
+
+
+    .save-btn,
+    .cancel-btn {
+
+      height: 45px;
+
+      padding: 0 20px;
+
+      border-radius: 11px;
+
+      cursor: pointer;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+    }
+
+
+    .save-btn {
+
+      border: 1px solid var(--gold);
+
+      color: #111;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
         );
 
     }
 
 
-    /* =========================
-       ACHIEVEMENTS
-    ========================= */
+    .cancel-btn {
 
-    .achievement-grid {
+      border: 1px solid rgba(255,255,255,.10);
 
-      display: grid;
+      color: var(--muted);
 
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 11px;
+      background: rgba(255,255,255,.03);
 
     }
 
 
-    .achievement {
+    .save-btn:disabled {
 
-      padding: 17px 10px;
+      opacity: .6;
 
-      text-align: center;
-
-      border-radius: 14px;
-
-      background: rgba(2,7,5,.4);
-
-      border: 1px solid rgba(255,255,255,.055);
-
-    }
-
-
-    .achievement i {
-
-      color: var(--gold-light);
-
-      font-size: 21px;
-
-      margin-bottom: 9px;
-
-    }
-
-
-    .achievement h3 {
-
-      font-size: 10px;
-
-      font-weight: 800;
-
-      margin-bottom: 4px;
-
-    }
-
-
-    .achievement p {
-
-      color: var(--muted2);
-
-      font-size: 8px;
-
-      line-height: 1.7;
+      cursor: wait;
 
     }
 
@@ -1234,6 +1483,93 @@
 
 
     /* =========================
+       EMPTY
+    ========================= */
+
+    .empty {
+
+      text-align: center;
+
+      padding: 28px 15px;
+
+      color: var(--muted2);
+
+      font-size: 10px;
+
+    }
+
+
+    .empty i {
+
+      display: block;
+
+      color: var(--gold-dark);
+
+      font-size: 30px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    .toast {
+
+      position: fixed;
+
+      left: 20px;
+
+      bottom: 20px;
+
+      z-index: 6000;
+
+      max-width: 360px;
+
+      padding: 13px 17px;
+
+      border: 1px solid var(--border-green);
+
+      border-radius: 12px;
+
+      color: #dcebe5;
+
+      background: #071912;
+
+      box-shadow: var(--shadow);
+
+      font-size: 10px;
+
+      opacity: 0;
+
+      transform: translateY(15px);
+
+      pointer-events: none;
+
+      transition: .3s ease;
+
+    }
+
+
+    .toast.show {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+
+    .toast.error {
+
+      border-color: rgba(220,70,70,.35);
+
+    }
+
+
+    /* =========================
        FOOTER
     ========================= */
 
@@ -1259,33 +1595,20 @@
     @media (max-width: 1000px) {
 
       nav {
-
         gap: 14px;
-
       }
-
 
       nav a {
-
         font-size: 11px;
-
       }
-
 
       .content-grid {
-
         grid-template-columns: 1fr;
-
       }
 
-
       .left-column {
-
         display: grid;
-
-        grid-template-columns:
-          1fr 1fr;
-
+        grid-template-columns: 1fr 1fr;
       }
 
     }
@@ -1294,21 +1617,12 @@
     @media (max-width: 760px) {
 
       header {
-
         height: 68px;
-
       }
-
 
       .nav-container {
-
-        width: min(
-          100% - 28px,
-          1200px
-        );
-
+        width: min(100% - 28px, 1200px);
       }
-
 
       nav {
 
@@ -1319,7 +1633,6 @@
         top: 68px;
 
         right: 14px;
-
         left: 14px;
 
         padding: 18px;
@@ -1328,8 +1641,7 @@
 
         align-items: stretch;
 
-        background:
-          rgba(4,18,13,.98);
+        background: rgba(4,18,13,.98);
 
         border: 1px solid var(--border);
 
@@ -1341,37 +1653,27 @@
 
 
       nav.show {
-
         display: flex;
-
       }
 
 
       nav a {
-
         padding: 10px 4px;
-
       }
 
 
       nav a.active::after {
-
         display: none;
-
       }
 
 
       .login-nav {
-
         text-align: center;
-
       }
 
 
       .menu-btn {
-
         display: block;
-
       }
 
 
@@ -1396,32 +1698,38 @@
 
 
       .profile-main {
-
         width: 100%;
-
       }
 
 
       .profile-badges {
-
         justify-content: center;
-
       }
 
 
       .edit-profile {
-
         align-self: center;
-
       }
 
 
       .left-column {
-
         display: flex;
-
       }
 
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+
+      .security-note {
+        grid-column: auto;
+      }
 
     }
 
@@ -1437,9 +1745,7 @@
 
 
       .brand-text span {
-
         display: none;
-
       }
 
 
@@ -1454,32 +1760,23 @@
 
 
       .profile-main h1 {
-
         font-size: 26px;
-
       }
 
 
       .panel {
-
         padding: 20px;
-
-      }
-
-
-      .achievement-grid {
-
-        grid-template-columns: 1fr;
-
       }
 
 
       .quick-links {
-
         grid-template-columns: 1fr;
-
       }
 
+
+      .modal-box {
+        padding: 20px;
+      }
 
     }
 
@@ -1489,6 +1786,25 @@
 
 
 <body>
+
+
+  <!-- =========================
+       LOADING
+  ========================= -->
+
+  <div id="loadingScreen">
+
+    <div class="loader-box">
+
+      <div class="loader"></div>
+
+      <p>
+        در حال بارگذاری پروفایل آرتیک...
+      </p>
+
+    </div>
+
+  </div>
 
 
   <!-- =========================
@@ -1525,46 +1841,37 @@
 
       <nav id="mainNav">
 
-
         <a href="index.html">
           صفحه اصلی
         </a>
-
 
         <a href="about.html">
           درباره آرتیک
         </a>
 
-
         <a href="events.html">
           جشنواره
         </a>
-
 
         <a href="news.html">
           اخبار
         </a>
 
-
         <a href="articles.html">
           منابع
         </a>
-
 
         <a href="gallery.html">
           گالری
         </a>
 
-
         <a href="videos.html">
           ویدیوها
         </a>
 
-
         <a href="contact.html">
           تماس با ما
         </a>
-
 
         <a
           href="profile.html"
@@ -1573,7 +1880,6 @@
           <i class="fa-regular fa-user"></i>
           پروفایل من
         </a>
-
 
       </nav>
 
@@ -1594,7 +1900,6 @@
   </header>
 
 
-
   <!-- =========================
        MAIN
   ========================= -->
@@ -1607,7 +1912,10 @@
     <section class="profile-hero">
 
 
-      <div class="profile-avatar">
+      <div
+        class="profile-avatar"
+        id="profileAvatar"
+      >
 
         R
 
@@ -1629,7 +1937,13 @@
 
 
         <h1>
-          سلام، <span>کاربر آرتیک</span> 👋
+
+          سلام،
+          <span id="heroName">
+            کاربر آرتیک
+          </span>
+          👋
+
         </h1>
 
 
@@ -1637,7 +1951,9 @@
 
           <i class="fa-regular fa-envelope"></i>
 
-          ایمیل حساب کاربری
+          <span id="heroEmail">
+            در حال بارگذاری...
+          </span>
 
         </div>
 
@@ -1652,8 +1968,11 @@
             شرکت‌کننده جشنواره
           </span>
 
-          <span class="badge">
-            حساب فعال
+          <span
+            class="badge"
+            id="profileStatusBadge"
+          >
+            اطلاعات ناقص
           </span>
 
         </div>
@@ -1675,7 +1994,6 @@
 
 
     </section>
-
 
 
     <!-- CONTENT -->
@@ -1713,15 +2031,37 @@
 
               </div>
 
-
               <div class="info-text">
 
                 <small>
                   نام و نام خانوادگی
                 </small>
 
-                <strong>
-                  کاربر آرتیک
+                <strong id="infoFullName">
+                  ثبت نشده
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <div class="info-icon">
+
+                <i class="fa-solid fa-user-tie"></i>
+
+              </div>
+
+              <div class="info-text">
+
+                <small>
+                  نام پدر
+                </small>
+
+                <strong id="infoFather">
+                  ثبت نشده
                 </strong>
 
               </div>
@@ -1737,14 +2077,59 @@
 
               </div>
 
-
               <div class="info-text">
 
                 <small>
                   تاریخ تولد
                 </small>
 
-                <strong>
+                <strong id="infoBirth">
+                  ثبت نشده
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <div class="info-icon">
+
+                <i class="fa-solid fa-id-card"></i>
+
+              </div>
+
+              <div class="info-text">
+
+                <small>
+                  کد ملی
+                </small>
+
+                <strong id="infoNationalId">
+                  ثبت نشده
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <div class="info-icon">
+
+                <i class="fa-solid fa-phone"></i>
+
+              </div>
+
+              <div class="info-text">
+
+                <small>
+                  شماره موبایل
+                </small>
+
+                <strong id="infoPhone">
                   ثبت نشده
                 </strong>
 
@@ -1761,14 +2146,36 @@
 
               </div>
 
+              <div class="info-text">
+
+                <small>
+                  محل سکونت
+                </small>
+
+                <strong id="infoLocation">
+                  ثبت نشده
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+              <div class="info-icon">
+
+                <i class="fa-solid fa-school"></i>
+
+              </div>
 
               <div class="info-text">
 
                 <small>
-                  شهر
+                  مدرسه
                 </small>
 
-                <strong>
+                <strong id="infoSchool">
                   ثبت نشده
                 </strong>
 
@@ -1785,14 +2192,13 @@
 
               </div>
 
-
               <div class="info-text">
 
                 <small>
                   پایه تحصیلی
                 </small>
 
-                <strong>
+                <strong id="infoGrade">
                   ثبت نشده
                 </strong>
 
@@ -1805,7 +2211,6 @@
 
 
         </div>
-
 
 
         <!-- STATS -->
@@ -1859,7 +2264,10 @@
 
             <div class="stat">
 
-              <div class="stat-number">
+              <div
+                class="stat-number"
+                id="eventCount"
+              >
                 ۰
               </div>
 
@@ -1872,7 +2280,10 @@
 
             <div class="stat">
 
-              <div class="stat-number">
+              <div
+                class="stat-number"
+                id="membershipYear"
+              >
                 ۱۴۰۵
               </div>
 
@@ -1889,9 +2300,7 @@
         </div>
 
 
-
       </div>
-
 
 
       <!-- RIGHT -->
@@ -1918,148 +2327,23 @@
           </div>
 
 
-          <div class="projects">
+          <div
+            class="projects"
+            id="projectsContainer"
+          >
 
+            <div class="empty">
 
-            <div class="project">
+              <i class="fa-solid fa-spinner fa-spin"></i>
 
-
-              <div class="project-top">
-
-
-                <div class="project-icon">
-
-                  <i class="fa-solid fa-flask"></i>
-
-                </div>
-
-
-                <div class="project-name">
-
-                  <h3>
-                    هنوز پروژه‌ای ثبت نشده
-                  </h3>
-
-                  <span>
-                    اولین پروژه خودت را ثبت کن
-                  </span>
-
-                </div>
-
-
-                <span class="project-status status-gold">
-                  آماده
-                </span>
-
-
-              </div>
-
-
-              <div class="project-bottom">
-
-                <span>
-                  شروع مسیر جشنواره
-                </span>
-
-                <span>
-                  ۰٪
-                </span>
-
-              </div>
-
-
-              <div class="progress">
-
-                <div
-                  class="progress-bar"
-                  style="width: 0%;"
-                ></div>
-
-              </div>
-
+              در حال دریافت پروژه‌ها...
 
             </div>
-
 
           </div>
 
 
         </div>
-
-
-
-        <!-- ACHIEVEMENTS -->
-
-        <div class="panel">
-
-
-          <div class="panel-title">
-
-            <h2>
-              افتخارات و <span>دستاوردها</span>
-            </h2>
-
-
-            <a href="#">
-              مشاهده همه
-            </a>
-
-          </div>
-
-
-          <div class="achievement-grid">
-
-
-            <div class="achievement">
-
-              <i class="fa-solid fa-medal"></i>
-
-              <h3>
-                افتخار اول
-              </h3>
-
-              <p>
-                هنوز ثبت نشده
-              </p>
-
-            </div>
-
-
-            <div class="achievement">
-
-              <i class="fa-solid fa-trophy"></i>
-
-              <h3>
-                افتخار دوم
-              </h3>
-
-              <p>
-                هنوز ثبت نشده
-              </p>
-
-            </div>
-
-
-            <div class="achievement">
-
-              <i class="fa-solid fa-star"></i>
-
-              <h3>
-                افتخار سوم
-              </h3>
-
-              <p>
-                هنوز ثبت نشده
-              </p>
-
-            </div>
-
-
-          </div>
-
-
-        </div>
-
 
 
         <!-- QUICK LINKS -->
@@ -2142,17 +2426,368 @@
   </main>
 
 
-
   <!-- =========================
-       FOOTER
+       EDIT MODAL
   ========================= -->
+
+  <div
+    class="modal"
+    id="profileModal"
+  >
+
+
+    <div class="modal-box">
+
+
+      <div class="modal-head">
+
+        <h2>
+          تکمیل <span>اطلاعات من</span>
+        </h2>
+
+
+        <button
+          class="close-modal"
+          id="closeModal"
+          type="button"
+        >
+
+          <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+      </div>
+
+
+      <form id="profileForm">
+
+
+        <div class="form-grid">
+
+
+          <div class="form-group">
+
+            <label>
+              نام و نام خانوادگی
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="fullName"
+              placeholder="مثلاً رها سورانی"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              نام پدر
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="fatherName"
+              placeholder="نام پدر"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              تاریخ تولد
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="date"
+              id="birthDate"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              کد ملی
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="nationalId"
+              inputmode="numeric"
+              maxlength="10"
+              placeholder="۱۰ رقم"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              شماره موبایل
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              inputmode="tel"
+              placeholder="مثلاً 09123456789"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              جنسیت
+            </label>
+
+            <select id="gender">
+
+              <option value="">
+                انتخاب کنید
+              </option>
+
+              <option value="دختر">
+                دختر
+              </option>
+
+              <option value="پسر">
+                پسر
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              استان
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="province"
+              placeholder="استان"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              شهر
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="city"
+              placeholder="شهر"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              روستا / محله
+            </label>
+
+            <input
+              type="text"
+              id="village"
+              placeholder="در صورت وجود"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              منطقه / ناحیه
+            </label>
+
+            <input
+              type="text"
+              id="district"
+              placeholder="مثلاً منطقه ۱۷"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              منطقه آموزش‌وپرورش
+            </label>
+
+            <input
+              type="text"
+              id="educationDistrict"
+              placeholder="منطقه آموزش‌وپرورش"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              نام مدرسه
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="school"
+              placeholder="نام مدرسه"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              پایه تحصیلی
+              <span class="required">*</span>
+            </label>
+
+            <select
+              id="grade"
+              required
+            >
+
+              <option value="">
+                انتخاب پایه
+              </option>
+
+              <option value="هفتم">
+                هفتم
+              </option>
+
+              <option value="هشتم">
+                هشتم
+              </option>
+
+              <option value="نهم">
+                نهم
+              </option>
+
+              <option value="دهم">
+                دهم
+              </option>
+
+              <option value="یازدهم">
+                یازدهم
+              </option>
+
+              <option value="دوازدهم">
+                دوازدهم
+              </option>
+
+              <option value="دانش‌آموز خارج از این پایه‌ها">
+                سایر
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="security-note">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            اطلاعات هویتی برای ثبت رسمی شرکت‌کننده استفاده می‌شود و
+            در صفحه عمومی نمایش داده نخواهد شد.
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-actions">
+
+
+          <button
+            type="submit"
+            class="save-btn"
+            id="saveProfile"
+          >
+
+            <i class="fa-solid fa-check"></i>
+
+            ذخیره اطلاعات
+
+          </button>
+
+
+          <button
+            type="button"
+            class="cancel-btn"
+            id="cancelModal"
+          >
+
+            انصراف
+
+          </button>
+
+
+        </div>
+
+
+      </form>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+  <!-- FOOTER -->
 
   <footer>
 
     © ۱۴۰۵ ARTIK — تمامی حقوق برای جشنواره آرتیک محفوظ است.
 
   </footer>
-
 
 
   <!-- =========================
@@ -2163,28 +2798,1130 @@
 
 
     /* =========================
+       SUPABASE
+    ========================= */
+
+    const SUPABASE_URL =
+      "https://ujhpakuysakmidyodblf.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_ltGxlrdWYnAsOgQoieCGLg_afF769Ns";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const loadingScreen =
+      document.getElementById("loadingScreen");
+
+    const profileModal =
+      document.getElementById("profileModal");
+
+    const profileForm =
+      document.getElementById("profileForm");
+
+    const toast =
+      document.getElementById("toast");
+
+
+    let currentUser = null;
+
+    let currentProfile = null;
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    function showToast(message, error = false) {
+
+      toast.textContent = message;
+
+      toast.classList.toggle(
+        "error",
+        error
+      );
+
+      toast.classList.add("show");
+
+      setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 3500);
+
+    }
+
+
+    /* =========================
+       PERSIAN NUMBER
+    ========================= */
+
+    function toPersianNumber(value) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+        return "۰";
+      }
+
+      return String(value)
+        .replace(/\d/g, d =>
+          "۰۱۲۳۴۵۶۷۸۹"[d]
+        );
+
+    }
+
+
+    /* =========================
+       DATE
+    ========================= */
+
+    function formatDate(dateString) {
+
+      if (!dateString) {
+        return "ثبت نشده";
+      }
+
+      try {
+
+        return new Intl.DateTimeFormat(
+          "fa-IR-u-ca-persian",
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          }
+        ).format(
+          new Date(
+            dateString + "T00:00:00"
+          )
+        );
+
+      } catch {
+
+        return dateString;
+
+      }
+
+    }
+
+
+    /* =========================
+       MASK NATIONAL ID
+    ========================= */
+
+    function maskNationalId(id) {
+
+      if (!id) {
+        return "ثبت نشده";
+      }
+
+      const value =
+        String(id).trim();
+
+      if (value.length < 4) {
+        return "••••";
+      }
+
+      return "••••••" +
+        value.slice(-4);
+
+    }
+
+
+    /* =========================
+       INITIAL
+    ========================= */
+
+    async function initializeProfile() {
+
+      try {
+
+        const {
+          data: sessionData,
+          error: sessionError
+        } =
+          await supabaseClient.auth.getSession();
+
+
+        if (sessionError) {
+          throw sessionError;
+        }
+
+
+        const session =
+          sessionData.session;
+
+
+        if (!session) {
+
+          window.location.href =
+            "login.html";
+
+          return;
+
+        }
+
+
+        currentUser =
+          session.user;
+
+
+        await loadProfile();
+
+        await loadProjects();
+
+
+        loadingScreen.style.display =
+          "none";
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        loadingScreen.style.display =
+          "none";
+
+        showToast(
+          "خطا در بارگذاری اطلاعات حساب.",
+          true
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       LOAD PROFILE
+    ========================= */
+
+    async function loadProfile() {
+
+      const {
+        data,
+        error
+      } =
+        await supabaseClient
+
+          .from("profiles")
+
+          .select("*")
+
+          .eq(
+            "id",
+            currentUser.id
+          )
+
+          .maybeSingle();
+
+
+      if (error) {
+        throw error;
+      }
+
+
+      currentProfile =
+        data || {};
+
+
+      const metadata =
+        currentUser.user_metadata || {};
+
+
+      const fullName =
+        currentProfile.full_name ||
+        metadata.full_name ||
+        "کاربر آرتیک";
+
+
+      document.getElementById(
+        "heroName"
+      ).textContent = fullName;
+
+
+      document.getElementById(
+        "heroEmail"
+      ).textContent =
+        currentUser.email ||
+        "ایمیل ثبت نشده";
+
+
+      document.getElementById(
+        "profileAvatar"
+      ).childNodes[0].textContent =
+        getInitial(fullName);
+
+
+      document.getElementById(
+        "infoFullName"
+      ).textContent =
+        fullName;
+
+
+      document.getElementById(
+        "infoFather"
+      ).textContent =
+        currentProfile.father_name ||
+        "ثبت نشده";
+
+
+      document.getElementById(
+        "infoBirth"
+      ).textContent =
+        formatDate(
+          currentProfile.birth_date
+        );
+
+
+      document.getElementById(
+        "infoNationalId"
+      ).textContent =
+        maskNationalId(
+          currentProfile.national_id
+        );
+
+
+      document.getElementById(
+        "infoPhone"
+      ).textContent =
+        currentProfile.phone ||
+        "ثبت نشده";
+
+
+      const locationParts = [
+
+        currentProfile.province,
+
+        currentProfile.city,
+
+        currentProfile.village
+
+      ].filter(Boolean);
+
+
+      document.getElementById(
+        "infoLocation"
+      ).textContent =
+        locationParts.length
+          ? locationParts.join("، ")
+          : "ثبت نشده";
+
+
+      document.getElementById(
+        "infoSchool"
+      ).textContent =
+        currentProfile.school ||
+        "ثبت نشده";
+
+
+      document.getElementById(
+        "infoGrade"
+      ).textContent =
+        currentProfile.grade ||
+        "ثبت نشده";
+
+
+      const complete =
+        isProfileComplete(
+          currentProfile
+        );
+
+
+      const badge =
+        document.getElementById(
+          "profileStatusBadge"
+        );
+
+
+      if (complete) {
+
+        badge.textContent =
+          "اطلاعات تکمیل است";
+
+      } else {
+
+        badge.textContent =
+          "تکمیل اطلاعات";
+
+      }
+
+
+      fillForm();
+
+    }
+
+
+    /* =========================
+       PROFILE COMPLETENESS
+    ========================= */
+
+    function isProfileComplete(profile) {
+
+      const requiredFields = [
+
+        "full_name",
+        "father_name",
+        "birth_date",
+        "national_id",
+        "phone",
+        "province",
+        "city",
+        "school",
+        "grade"
+
+      ];
+
+
+      return requiredFields.every(
+        field =>
+          profile[field] &&
+          String(profile[field]).trim() !== ""
+      );
+
+    }
+
+
+    /* =========================
+       INITIAL
+    ========================= */
+
+    function getInitial(name) {
+
+      if (!name) {
+        return "A";
+      }
+
+      return name.trim().charAt(0);
+
+    }
+
+
+    /* =========================
+       FILL FORM
+    ========================= */
+
+    function fillForm() {
+
+      document.getElementById(
+        "fullName"
+      ).value =
+        currentProfile.full_name ||
+        currentUser.user_metadata?.full_name ||
+        "";
+
+
+      document.getElementById(
+        "fatherName"
+      ).value =
+        currentProfile.father_name ||
+        "";
+
+
+      document.getElementById(
+        "birthDate"
+      ).value =
+        currentProfile.birth_date ||
+        "";
+
+
+      document.getElementById(
+        "nationalId"
+      ).value =
+        currentProfile.national_id ||
+        "";
+
+
+      document.getElementById(
+        "phone"
+      ).value =
+        currentProfile.phone ||
+        "";
+
+
+      document.getElementById(
+        "gender"
+      ).value =
+        currentProfile.gender ||
+        "";
+
+
+      document.getElementById(
+        "province"
+      ).value =
+        currentProfile.province ||
+        "";
+
+
+      document.getElementById(
+        "city"
+      ).value =
+        currentProfile.city ||
+        "";
+
+
+      document.getElementById(
+        "village"
+      ).value =
+        currentProfile.village ||
+        "";
+
+
+      document.getElementById(
+        "district"
+      ).value =
+        currentProfile.district ||
+        "";
+
+
+      document.getElementById(
+        "educationDistrict"
+      ).value =
+        currentProfile.education_district ||
+        "";
+
+
+      document.getElementById(
+        "school"
+      ).value =
+        currentProfile.school ||
+        "";
+
+
+      document.getElementById(
+        "grade"
+      ).value =
+        currentProfile.grade ||
+        "";
+
+    }
+
+
+    /* =========================
+       LOAD PROJECTS
+    ========================= */
+
+    async function loadProjects() {
+
+      const {
+        data,
+        error
+      } =
+        await supabaseClient
+
+          .from("projects")
+
+          .select(
+            "id, title, category, status, tracking_code, created_at"
+          )
+
+          .eq(
+            "user_id",
+            currentUser.id
+          )
+
+          .order(
+            "created_at",
+            {
+              ascending: false
+            }
+          );
+
+
+      if (error) {
+        throw error;
+      }
+
+
+      const projects =
+        data || [];
+
+
+      document.getElementById(
+        "projectCount"
+      ).textContent =
+        toPersianNumber(
+          projects.length
+        );
+
+
+      renderProjects(projects);
+
+    }
+
+
+    /* =========================
+       PROJECTS UI
+    ========================= */
+
+    function renderProjects(projects) {
+
+      const container =
+        document.getElementById(
+          "projectsContainer"
+        );
+
+
+      if (!projects.length) {
+
+        container.innerHTML = `
+
+          <div class="empty">
+
+            <i class="fa-solid fa-flask"></i>
+
+            <div>
+              هنوز پروژه‌ای ثبت نکرده‌ای.
+            </div>
+
+            <div style="margin-top:6px;">
+              اولین پروژه خودت را در جشنواره ثبت کن.
+            </div>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      container.innerHTML =
+        projects.map(project => {
+
+          const status =
+            getStatusInfo(
+              project.status
+            );
+
+
+          const date =
+            formatDate(
+              project.created_at
+                ? project.created_at.slice(0,10)
+                : null
+            );
+
+
+          return `
+
+            <div class="project">
+
+              <div class="project-top">
+
+                <div class="project-icon">
+
+                  <i class="fa-solid fa-flask"></i>
+
+                </div>
+
+
+                <div class="project-name">
+
+                  <h3>
+                    ${escapeHtml(
+                      project.title ||
+                      "پروژه بدون عنوان"
+                    )}
+                  </h3>
+
+                  <span>
+
+                    ${
+                      project.category
+                        ? escapeHtml(
+                            project.category
+                          )
+                        : "حوزه پروژه ثبت نشده"
+                    }
+
+                    ${
+                      project.tracking_code
+                        ? " · کد " +
+                          escapeHtml(
+                            project.tracking_code
+                          )
+                        : ""
+                    }
+
+                  </span>
+
+                </div>
+
+
+                <span
+                  class="project-status ${status.className}"
+                >
+                  ${status.label}
+                </span>
+
+              </div>
+
+
+              <div class="project-bottom">
+
+                <span>
+                  ${date}
+                </span>
+
+                <span>
+                  ARTIK
+                </span>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }).join("");
+
+    }
+
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    function getStatusInfo(status) {
+
+      const statuses = {
+
+        draft: {
+          label: "پیش‌نویس",
+          className: "status-gold"
+        },
+
+        submitted: {
+          label: "ثبت شده",
+          className: "status-green"
+        },
+
+        under_review: {
+          label: "در حال داوری",
+          className: "status-gold"
+        },
+
+        approved: {
+          label: "تأیید شده",
+          className: "status-green"
+        },
+
+        rejected: {
+          label: "رد شده",
+          className: "status-red"
+        },
+
+        finalist: {
+          label: "راه‌یافته",
+          className: "status-green"
+        }
+
+      };
+
+
+      return statuses[status] || {
+
+        label: "نامشخص",
+
+        className: "status-gold"
+
+      };
+
+    }
+
+
+    /* =========================
+       ESCAPE HTML
+    ========================= */
+
+    function escapeHtml(value) {
+
+      return String(value)
+
+        .replaceAll("&", "&amp;")
+
+        .replaceAll("<", "&lt;")
+
+        .replaceAll(">", "&gt;")
+
+        .replaceAll('"', "&quot;")
+
+        .replaceAll("'", "&#039;");
+
+    }
+
+
+    /* =========================
+       OPEN MODAL
+    ========================= */
+
+    function openModal() {
+
+      fillForm();
+
+      profileModal.classList.add(
+        "show"
+      );
+
+    }
+
+
+    /* =========================
+       CLOSE MODAL
+    ========================= */
+
+    function closeModal() {
+
+      profileModal.classList.remove(
+        "show"
+      );
+
+    }
+
+
+    /* =========================
+       SAVE PROFILE
+    ========================= */
+
+    profileForm.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        const saveButton =
+          document.getElementById(
+            "saveProfile"
+          );
+
+
+        const fullName =
+          document.getElementById(
+            "fullName"
+          ).value.trim();
+
+
+        const fatherName =
+          document.getElementById(
+            "fatherName"
+          ).value.trim();
+
+
+        const birthDate =
+          document.getElementById(
+            "birthDate"
+          ).value;
+
+
+        const nationalId =
+          document.getElementById(
+            "nationalId"
+          ).value.trim();
+
+
+        const phone =
+          document.getElementById(
+            "phone"
+          ).value.trim();
+
+
+        const gender =
+          document.getElementById(
+            "gender"
+          ).value;
+
+
+        const province =
+          document.getElementById(
+            "province"
+          ).value.trim();
+
+
+        const city =
+          document.getElementById(
+            "city"
+          ).value.trim();
+
+
+        const village =
+          document.getElementById(
+            "village"
+          ).value.trim();
+
+
+        const district =
+          document.getElementById(
+            "district"
+          ).value.trim();
+
+
+        const educationDistrict =
+          document.getElementById(
+            "educationDistrict"
+          ).value.trim();
+
+
+        const school =
+          document.getElementById(
+            "school"
+          ).value.trim();
+
+
+        const grade =
+          document.getElementById(
+            "grade"
+          ).value;
+
+
+        /* VALIDATION */
+
+        if (
+          !/^\d{10}$/.test(
+            nationalId
+          )
+        ) {
+
+          showToast(
+            "کد ملی باید دقیقاً ۱۰ رقم باشد.",
+            true
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !/^09\d{9}$/.test(
+            phone
+              .replace(/\s/g, "")
+          )
+        ) {
+
+          showToast(
+            "شماره موبایل را به شکل 09123456789 وارد کن.",
+            true
+          );
+
+          return;
+
+        }
+
+
+        saveButton.disabled = true;
+
+        saveButton.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin"></i> در حال ذخیره...';
+
+
+        try {
+
+          const {
+            data: sessionData
+          } =
+            await supabaseClient.auth.getSession();
+
+
+          if (!sessionData.session) {
+
+            window.location.href =
+              "login.html";
+
+            return;
+
+          }
+
+
+          const profileData = {
+
+            id: currentUser.id,
+
+            full_name: fullName,
+
+            father_name: fatherName,
+
+            birth_date: birthDate,
+
+            national_id: nationalId,
+
+            phone: phone,
+
+            gender:
+              gender || null,
+
+            province: province,
+
+            city: city,
+
+            village:
+              village || null,
+
+            district:
+              district || null,
+
+            education_district:
+              educationDistrict || null,
+
+            school: school,
+
+            grade: grade,
+
+            profile_completed: true,
+
+            updated_at:
+              new Date().toISOString()
+
+          };
+
+
+          const {
+            error
+          } =
+            await supabaseClient
+
+              .from("profiles")
+
+              .upsert(
+                profileData,
+                {
+                  onConflict: "id"
+                }
+              );
+
+
+          if (error) {
+            throw error;
+          }
+
+
+          currentProfile =
+            profileData;
+
+
+          await loadProfile();
+
+
+          closeModal();
+
+
+          showToast(
+            "اطلاعات پروفایل با موفقیت ذخیره شد."
+          );
+
+
+        } catch (error) {
+
+          console.error(error);
+
+          showToast(
+            "ذخیره اطلاعات انجام نشد: " +
+            (error.message ||
+              "خطای نامشخص"),
+            true
+          );
+
+        } finally {
+
+          saveButton.disabled = false;
+
+          saveButton.innerHTML =
+            '<i class="fa-solid fa-check"></i> ذخیره اطلاعات';
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       EVENTS
+    ========================= */
+
+    document
+      .getElementById("editProfile")
+      .addEventListener(
+        "click",
+        openModal
+      );
+
+
+    document
+      .getElementById("closeModal")
+      .addEventListener(
+        "click",
+        closeModal
+      );
+
+
+    document
+      .getElementById("cancelModal")
+      .addEventListener(
+        "click",
+        closeModal
+      );
+
+
+    profileModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === profileModal
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    /* =========================
        MOBILE MENU
     ========================= */
 
     const menuBtn =
-      document.getElementById("menuBtn");
+      document.getElementById(
+        "menuBtn"
+      );
 
     const mainNav =
-      document.getElementById("mainNav");
+      document.getElementById(
+        "mainNav"
+      );
 
 
     menuBtn.addEventListener(
       "click",
       () => {
 
-        mainNav.classList.toggle("show");
+        mainNav.classList.toggle(
+          "show"
+        );
+
 
         const icon =
           menuBtn.querySelector("i");
 
 
         if (
-          mainNav.classList.contains("show")
+          mainNav.classList.contains(
+            "show"
+          )
         ) {
 
           icon.classList.remove(
@@ -2223,12 +3960,15 @@
               "show"
             );
 
+
             const icon =
               menuBtn.querySelector("i");
+
 
             icon.classList.remove(
               "fa-xmark"
             );
+
 
             icon.classList.add(
               "fa-bars"
@@ -2240,28 +3980,15 @@
       });
 
 
-
     /* =========================
-       EDIT PROFILE
+       START
     ========================= */
 
-    document
-      .getElementById("editProfile")
-      .addEventListener(
-        "click",
-        () => {
-
-          alert(
-            "بخش ویرایش پروفایل در مرحله اتصال حساب کاربری فعال می‌شود."
-          );
-
-        }
-      );
-
+    initializeProfile();
 
   </script>
 
 
 </body>
 
-    </html>
+                </html>
