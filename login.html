@@ -29,6 +29,10 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
 
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
   <style>
 
     :root {
@@ -561,6 +565,7 @@
     .form-header .mini-title {
       display: inline-flex;
       align-items: center;
+
       gap: 8px;
 
       color: var(--gold-light);
@@ -617,7 +622,7 @@
     }
 
 
-    .input-wrapper i {
+    .input-wrapper > i {
       position: absolute;
 
       right: 15px;
@@ -644,7 +649,7 @@
         0
         45px
         0
-        15px;
+        50px;
 
       border: 1px solid var(--border-green);
 
@@ -676,7 +681,7 @@
     }
 
 
-    .input-wrapper input:focus + i {
+    .input-wrapper input:focus ~ i {
       color: var(--gold-light);
     }
 
@@ -790,8 +795,12 @@
     }
 
 
-    .login-button:active {
-      transform: translateY(0);
+    .login-button:disabled {
+      opacity: .65;
+
+      cursor: not-allowed;
+
+      transform: none;
     }
 
 
@@ -887,6 +896,17 @@
       border: 1px solid var(--border-green);
 
       color: #7de1bd;
+    }
+
+
+    .status.info {
+      display: block;
+
+      background: rgba(215,173,69,.07);
+
+      border: 1px solid var(--border);
+
+      color: var(--gold-light);
     }
 
 
@@ -1031,11 +1051,6 @@
 
 
     @media (max-width: 430px) {
-
-      .container {
-        width: calc(100% - 28px);
-      }
-
 
       .brand-logo {
         width: 43px;
@@ -1443,6 +1458,22 @@
 
   <script>
 
+    /* =========================
+       SUPABASE
+    ========================= */
+
+    const SUPABASE_URL =
+      "https://ujhpakuysakmidyodblf.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_ltGxlrdWYnAsOgQoieCGLg_afF769Ns";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+
 
     /* =========================
        MOBILE MENU
@@ -1539,56 +1570,162 @@
 
 
     /* =========================
-       FORM
+       STATUS
     ========================= */
-
-    const loginForm =
-      document.getElementById("loginForm");
 
     const statusBox =
       document.getElementById("status");
 
 
-    loginForm.addEventListener("submit", (event) => {
+    function showStatus(message, type) {
+
+      statusBox.className = "status";
+
+      statusBox.textContent = message;
+
+      statusBox.classList.add(type);
+
+    }
+
+
+    /* =========================
+       LOGIN
+    ========================= */
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const loginButton =
+      document.getElementById("loginButton");
+
+
+    loginForm.addEventListener("submit", async (event) => {
 
       event.preventDefault();
 
 
       const email =
-        document.getElementById("email").value.trim();
+        document
+          .getElementById("email")
+          .value
+          .trim()
+          .toLowerCase();
 
       const password =
-        document.getElementById("password").value;
-
-
-      statusBox.className = "status";
+        document
+          .getElementById("password")
+          .value;
 
 
       if (!email || !password) {
 
-        statusBox.textContent =
-          "لطفاً ایمیل و رمز عبور را وارد کنید.";
-
-        statusBox.classList.add("error");
+        showStatus(
+          "لطفاً ایمیل و رمز عبور را وارد کنید.",
+          "error"
+        );
 
         return;
 
       }
 
 
-      /*
-        اتصال واقعی به Supabase
-        در مرحله بعد انجام می‌شود.
+      loginButton.disabled = true;
 
-        فعلاً برای جلوگیری از خطای ورود،
-        فقط ظاهر و فرم صفحه آماده شده است.
-      */
+      loginButton.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> در حال ورود...';
 
 
-      statusBox.textContent =
-        "فرم ورود آماده است. اتصال حساب‌های کاربران به Supabase در مرحله اتصال سیستم ورود فعال می‌شود.";
+      showStatus(
+        "در حال بررسی اطلاعات حساب...",
+        "info"
+      );
 
-      statusBox.classList.add("success");
+
+      try {
+
+        const { data, error } =
+          await supabaseClient.auth.signInWithPassword({
+            email: email,
+            password: password
+          });
+
+
+        if (error) {
+          throw error;
+        }
+
+
+        if (!data || !data.user) {
+
+          throw new Error(
+            "ورود انجام نشد. لطفاً دوباره تلاش کنید."
+          );
+
+        }
+
+
+        showStatus(
+          "ورود با موفقیت انجام شد. در حال انتقال به پنل...",
+          "success"
+        );
+
+
+        setTimeout(() => {
+
+          window.location.href =
+            "dashboard.html";
+
+        }, 900);
+
+
+      } catch (error) {
+
+        console.error("LOGIN ERROR:", error);
+
+
+        let message =
+          "ورود انجام نشد. لطفاً اطلاعات را بررسی کنید.";
+
+
+        if (
+          error.message &&
+          error.message.toLowerCase().includes("email not confirmed")
+        ) {
+
+          message =
+            "ایمیل حساب شما هنوز تأیید نشده است. ابتدا ایمیل تأیید Supabase را تأیید کنید.";
+
+        } else if (
+          error.message &&
+          (
+            error.message.toLowerCase().includes("invalid login credentials") ||
+            error.message.toLowerCase().includes("invalid credentials")
+          )
+        ) {
+
+          message =
+            "ایمیل یا رمز عبور اشتباه است.";
+
+        } else if (error.message) {
+
+          message =
+            "خطا در ورود: " + error.message;
+
+        }
+
+
+        showStatus(
+          message,
+          "error"
+        );
+
+
+        loginButton.disabled = false;
+
+        loginButton.innerHTML =
+          '<i class="fa-solid fa-arrow-right-to-bracket"></i> ورود به حساب';
+
+      }
 
     });
 
@@ -1599,19 +1736,124 @@
 
     document
       .getElementById("forgotPassword")
-      .addEventListener("click", (event) => {
+      .addEventListener("click", async (event) => {
 
         event.preventDefault();
 
 
-        statusBox.className = "status";
+        const email =
+          document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
 
-        statusBox.textContent =
-          "بخش بازیابی رمز عبور در مرحله اتصال سیستم حساب کاربری فعال می‌شود.";
 
-        statusBox.classList.add("success");
+        if (!email) {
+
+          showStatus(
+            "ابتدا ایمیل خود را وارد کنید.",
+            "error"
+          );
+
+          document
+            .getElementById("email")
+            .focus();
+
+          return;
+
+        }
+
+
+        try {
+
+          const { error } =
+            await supabaseClient.auth.resetPasswordForEmail(
+              email,
+              {
+                redirectTo:
+                  window.location.origin +
+                  window.location.pathname
+              }
+            );
+
+
+          if (error) {
+            throw error;
+          }
+
+
+          showStatus(
+            "اگر این ایمیل در ARTIK ثبت شده باشد، لینک بازیابی رمز برای آن ارسال می‌شود.",
+            "success"
+          );
+
+
+        } catch (error) {
+
+          console.error(
+            "PASSWORD RESET ERROR:",
+            error
+          );
+
+
+          showStatus(
+            "ارسال لینک بازیابی انجام نشد: " +
+            (error.message || "خطای ناشناخته"),
+            "error"
+          );
+
+        }
 
       });
+
+
+    /* =========================
+       CHECK EXISTING SESSION
+    ========================= */
+
+    async function checkExistingSession() {
+
+      try {
+
+        const { data } =
+          await supabaseClient.auth.getSession();
+
+
+        if (
+          data &&
+          data.session &&
+          data.session.user
+        ) {
+
+          showStatus(
+            "شما قبلاً وارد حساب خود شده‌اید. در حال انتقال...",
+            "success"
+          );
+
+
+          setTimeout(() => {
+
+            window.location.href =
+              "dashboard.html";
+
+          }, 700);
+
+        }
+
+      } catch (error) {
+
+        console.error(
+          "SESSION CHECK ERROR:",
+          error
+        );
+
+      }
+
+    }
+
+
+    checkExistingSession();
 
 
   </script>
@@ -1619,4 +1861,4 @@
 
 </body>
 
-</html>
+              </html>
