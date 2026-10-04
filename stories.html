@@ -1,1 +1,3458 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="ARTIK STORIES | کشف، ساخت و اشتراک ایده‌های نسل آینده"
+  >
+
+  <title>ARTIK STORIES | کشف کن</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    :root {
+      --bg: #020705;
+      --bg2: #04120d;
+      --panel: #071912;
+      --panel2: #0a2118;
+
+      --green: #063d2a;
+      --green-light: #08704d;
+      --emerald: #0ca46f;
+
+      --gold: #d7ad45;
+      --gold-light: #f4d47c;
+      --gold-dark: #927021;
+
+      --white: #ffffff;
+      --muted: #aebdb5;
+      --muted2: #72847b;
+
+      --border: rgba(215,173,69,.25);
+      --border-green: rgba(12,164,111,.30);
+
+      --shadow: 0 25px 70px rgba(0,0,0,.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+
+      color: white;
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(12,164,111,.14),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(215,173,69,.09),
+          transparent 25%
+        ),
+        linear-gradient(
+          135deg,
+          var(--bg),
+          var(--bg2)
+        );
+
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      opacity: .13;
+
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.28) 1px,
+          transparent 1px
+        );
+
+      background-size: 35px 35px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 90%
+        );
+
+      z-index: -1;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      height: 76px;
+
+      background:
+        rgba(2,7,5,.88);
+
+      backdrop-filter: blur(22px);
+
+      border-bottom:
+        1px solid var(--border);
+
+      box-shadow:
+        0 10px 45px rgba(0,0,0,.28);
+    }
+
+    .header-inner {
+      width: min(1450px, 94%);
+
+      height: 100%;
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+
+      min-width: max-content;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 14px;
+
+      border:
+        1px solid var(--gold);
+
+      background:
+        linear-gradient(
+          145deg,
+          #0b2b1d,
+          #04100b
+        );
+
+      color: var(--gold-light);
+
+      font-size: 21px;
+
+      font-weight: 900;
+
+      box-shadow:
+        0 0 30px rgba(215,173,69,.11);
+    }
+
+    .brand-text strong {
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: 19px;
+
+      letter-spacing: 2px;
+    }
+
+    .brand-text span {
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 9px;
+
+      margin-top: -2px;
+    }
+
+    /* NAV */
+
+    .top-nav {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+    }
+
+    .top-nav a {
+      padding: 9px 12px;
+
+      border-radius: 10px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      transition: .2s;
+    }
+
+    .top-nav a:hover,
+    .top-nav a.active {
+      color: var(--gold-light);
+
+      background:
+        rgba(215,173,69,.07);
+    }
+
+    .header-actions {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+    }
+
+    .header-icon {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 13px;
+
+      border:
+        1px solid var(--border-green);
+
+      background:
+        rgba(7,25,18,.75);
+
+      color: var(--muted);
+
+      transition: .25s;
+    }
+
+    .header-icon:hover {
+      color: var(--gold-light);
+
+      border-color: var(--gold);
+
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       PAGE
+    ========================= */
+
+    .page {
+      width: min(1450px, 94%);
+
+      margin: auto;
+
+      padding-bottom: 80px;
+    }
+
+    /* =========================
+       DISCOVERY HERO
+    ========================= */
+
+    .discovery {
+      padding: 34px 0 20px;
+    }
+
+    .discovery-top {
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      margin-bottom: 20px;
+    }
+
+    .discovery-title h1 {
+      font-size: clamp(30px, 4vw, 52px);
+
+      line-height: 1.2;
+
+      letter-spacing: -1.5px;
+    }
+
+    .discovery-title h1 span {
+      color: var(--gold-light);
+    }
+
+    .discovery-title p {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-top: 9px;
+
+      line-height: 1.9;
+    }
+
+    .create-btn {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      min-height: 45px;
+
+      padding: 0 17px;
+
+      border-radius: 13px;
+
+      border:
+        1px solid var(--gold);
+
+      color: #171107;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      transition: .25s;
+    }
+
+    .create-btn:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 15px 35px rgba(215,173,69,.18);
+    }
+
+    /* =========================
+       STORIES ROW
+    ========================= */
+
+    .stories-panel {
+      padding: 16px;
+
+      border:
+        1px solid var(--border-green);
+
+      border-radius: 23px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(7,25,18,.93),
+          rgba(3,11,8,.95)
+        );
+
+      box-shadow:
+        var(--shadow);
+    }
+
+    .stories-row {
+      display: flex;
+
+      gap: 15px;
+
+      overflow-x: auto;
+
+      scrollbar-width: none;
+
+      padding: 2px 2px 4px;
+    }
+
+    .stories-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .story-person {
+      min-width: 76px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 7px;
+
+      cursor: pointer;
+    }
+
+    .story-ring {
+      width: 66px;
+      height: 66px;
+
+      padding: 3px;
+
+      border-radius: 50%;
+
+      background:
+        conic-gradient(
+          var(--gold),
+          var(--emerald),
+          var(--gold-light),
+          var(--gold)
+        );
+
+      transition: .25s;
+    }
+
+    .story-person:hover .story-ring {
+      transform: scale(1.08);
+
+      box-shadow:
+        0 0 25px rgba(12,164,111,.18);
+    }
+
+    .story-ring-inner {
+      width: 100%;
+      height: 100%;
+
+      border-radius: 50%;
+
+      padding: 2px;
+
+      background: #03100a;
+    }
+
+    .story-ring img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+    }
+
+    .story-name {
+      width: 76px;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
+    .story-person.add .story-ring {
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          var(--emerald)
+        );
+
+      display: grid;
+
+      place-items: center;
+    }
+
+    .story-person.add .story-ring-inner {
+      display: grid;
+
+      place-items: center;
+
+      background: #06150e;
+    }
+
+    .story-person.add i {
+      color: var(--gold-light);
+
+      font-size: 21px;
+    }
+
+    /* =========================
+       MODE SWITCH
+    ========================= */
+
+    .mode-bar {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-top: 27px;
+
+      margin-bottom: 15px;
+    }
+
+    .modes {
+      display: flex;
+
+      gap: 5px;
+
+      padding: 5px;
+
+      border:
+        1px solid rgba(255,255,255,.06);
+
+      border-radius: 13px;
+
+      background:
+        rgba(7,25,18,.75);
+    }
+
+    .mode-btn {
+      border: 0;
+
+      background: transparent;
+
+      color: var(--muted2);
+
+      border-radius: 9px;
+
+      padding: 8px 13px;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      transition: .2s;
+    }
+
+    .mode-btn.active {
+      background:
+        rgba(215,173,69,.10);
+
+      color: var(--gold-light);
+    }
+
+    .explore-label {
+      color: var(--muted2);
+
+      font-size: 10px;
+    }
+
+    /* =========================
+       MAIN CONTENT
+    ========================= */
+
+    .content-layout {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        310px;
+
+      gap: 20px;
+
+      align-items: start;
+    }
+
+    /* =========================
+       DISCOVER FEED
+    ========================= */
+
+    .feed {
+      min-width: 0;
+    }
+
+    .feed-grid {
+      columns: 3 220px;
+
+      column-gap: 15px;
+    }
+
+    .post {
+      break-inside: avoid;
+
+      margin-bottom: 15px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 20px;
+
+      border:
+        1px solid rgba(255,255,255,.07);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(9,29,20,.95),
+          rgba(4,12,8,.98)
+        );
+
+      box-shadow:
+        0 15px 40px rgba(0,0,0,.22);
+
+      transition:
+        transform .3s,
+        border-color .3s;
+    }
+
+    .post:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(215,173,69,.28);
+    }
+
+    .post-media {
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .post-media img {
+      width: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      transition:
+        transform .5s;
+    }
+
+    .post:hover .post-media img {
+      transform: scale(1.035);
+    }
+
+    .post.tall .post-media img {
+      aspect-ratio: 4 / 5;
+
+      object-fit: cover;
+    }
+
+    .post.medium .post-media img {
+      aspect-ratio: 1 / 1;
+
+      object-fit: cover;
+    }
+
+    .post.short .post-media img {
+      aspect-ratio: 4 / 3;
+
+      object-fit: cover;
+    }
+
+    .video-mark {
+      position: absolute;
+
+      top: 11px;
+
+      left: 11px;
+
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 10px;
+
+      background:
+        rgba(2,7,5,.72);
+
+      backdrop-filter: blur(8px);
+
+      color: white;
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      font-size: 11px;
+    }
+
+    .save-btn {
+      position: absolute;
+
+      top: 11px;
+
+      right: 11px;
+
+      width: 35px;
+      height: 35px;
+
+      display: grid;
+
+      place-items: center;
+
+      border: 0;
+
+      border-radius: 10px;
+
+      background:
+        rgba(2,7,5,.72);
+
+      backdrop-filter: blur(8px);
+
+      color: white;
+
+      transition: .2s;
+    }
+
+    .save-btn.active {
+      color: var(--gold-light);
+    }
+
+    .post-gradient {
+      position: absolute;
+
+      inset: auto 0 0;
+
+      height: 45%;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(0,0,0,.65)
+        );
+
+      pointer-events: none;
+    }
+
+    .post-info {
+      padding: 13px 14px 15px;
+    }
+
+    .post-author {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-bottom: 10px;
+    }
+
+    .author-avatar {
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      border:
+        1px solid rgba(215,173,69,.45);
+    }
+
+    .author-info {
+      flex: 1;
+    }
+
+    .author-info strong {
+      display: block;
+
+      font-size: 10px;
+    }
+
+    .author-info span {
+      color: var(--muted2);
+
+      font-size: 8px;
+    }
+
+    .follow {
+      border: 0;
+
+      background: transparent;
+
+      color: var(--emerald);
+
+      font-size: 9px;
+
+      font-weight: 800;
+    }
+
+    .post-title {
+      font-size: 12px;
+
+      line-height: 1.8;
+
+      margin-bottom: 6px;
+    }
+
+    .post-description {
+      color: var(--muted);
+
+      font-size: 9px;
+
+      line-height: 1.8;
+    }
+
+    .post-bottom {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-top: 12px;
+    }
+
+    .post-actions {
+      display: flex;
+
+      gap: 5px;
+    }
+
+    .post-action {
+      height: 31px;
+
+      padding: 0 8px;
+
+      border-radius: 9px;
+
+      border:
+        1px solid rgba(255,255,255,.06);
+
+      background:
+        rgba(255,255,255,.025);
+
+      color: var(--muted);
+
+      font-size: 9px;
+
+      transition: .2s;
+    }
+
+    .post-action:hover {
+      color: var(--gold-light);
+
+      border-color:
+        rgba(215,173,69,.25);
+    }
+
+    .post-tag {
+      color: var(--emerald);
+
+      font-size: 8px;
+    }
+
+    /* =========================
+       RIGHT SIDE
+    ========================= */
+
+    .side {
+      position: sticky;
+
+      top: 98px;
+    }
+
+    .side-card {
+      padding: 17px;
+
+      margin-bottom: 15px;
+
+      border:
+        1px solid rgba(255,255,255,.07);
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(7,25,18,.94),
+          rgba(4,12,8,.97)
+        );
+    }
+
+    .side-title {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 15px;
+    }
+
+    .side-title strong {
+      font-size: 12px;
+    }
+
+    .side-title a {
+      color: var(--gold-light);
+
+      font-size: 9px;
+    }
+
+    /* TRENDING */
+
+    .trend {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 10px 0;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.05);
+    }
+
+    .trend:last-child {
+      border-bottom: 0;
+    }
+
+    .trend-number {
+      width: 25px;
+
+      color: var(--gold-dark);
+
+      font-size: 13px;
+
+      font-weight: 900;
+    }
+
+    .trend-icon {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 10px;
+
+      object-fit: cover;
+    }
+
+    .trend-info {
+      flex: 1;
+    }
+
+    .trend-info strong {
+      display: block;
+
+      font-size: 9px;
+
+      line-height: 1.6;
+    }
+
+    .trend-info span {
+      color: var(--muted2);
+
+      font-size: 8px;
+    }
+
+    /* CREATOR */
+
+    .creator {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 10px 0;
+    }
+
+    .creator-avatar {
+      width: 43px;
+      height: 43px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      border:
+        1px solid var(--border);
+    }
+
+    .creator-info {
+      flex: 1;
+    }
+
+    .creator-info strong {
+      display: block;
+
+      font-size: 10px;
+    }
+
+    .creator-info span {
+      display: block;
+
+      color: var(--muted2);
+
+      font-size: 8px;
+
+      margin-top: 2px;
+    }
+
+    .follow-small {
+      padding: 7px 9px;
+
+      border-radius: 8px;
+
+      border:
+        1px solid var(--border-green);
+
+      background:
+        rgba(12,164,111,.07);
+
+      color: var(--emerald);
+
+      font-size: 8px;
+
+      font-weight: 800;
+    }
+
+    /* =========================
+       FULLSCREEN STORY
+    ========================= */
+
+    .story-viewer {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 3000;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background:
+        rgba(0,0,0,.88);
+
+      backdrop-filter: blur(18px);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition: .3s;
+    }
+
+    .story-viewer.active {
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+    .story-shell {
+      width: min(430px, 94vw);
+
+      height: min(760px, 91vh);
+
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 25px;
+
+      border:
+        1px solid rgba(215,173,69,.30);
+
+      background:
+        #030b07;
+
+      box-shadow:
+        0 30px 100px rgba(0,0,0,.6);
+    }
+
+    .story-progress {
+      position: absolute;
+
+      top: 12px;
+
+      right: 12px;
+      left: 12px;
+
+      display: flex;
+
+      gap: 4px;
+
+      z-index: 5;
+    }
+
+    .progress-line {
+      height: 3px;
+
+      flex: 1;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.28);
+
+      overflow: hidden;
+    }
+
+    .progress-line.active::after {
+      content: "";
+
+      display: block;
+
+      width: 100%;
+
+      height: 100%;
+
+      background: white;
+
+      animation:
+        progress 5s linear forwards;
+    }
+
+    @keyframes progress {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    .story-image {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .story-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.45),
+          transparent 25%,
+          transparent 55%,
+          rgba(0,0,0,.72)
+        );
+    }
+
+    .story-top {
+      position: absolute;
+
+      top: 30px;
+
+      right: 17px;
+      left: 17px;
+
+      z-index: 5;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+    }
+
+    .story-avatar {
+      width: 36px;
+      height: 36px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      border:
+        1px solid white;
+    }
+
+    .story-user {
+      flex: 1;
+    }
+
+    .story-user strong {
+      display: block;
+
+      font-size: 10px;
+    }
+
+    .story-user span {
+      font-size: 8px;
+
+      color: rgba(255,255,255,.72);
+    }
+
+    .story-close {
+      width: 37px;
+      height: 37px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 11px;
+
+      border:
+        1px solid rgba(255,255,255,.18);
+
+      background:
+        rgba(0,0,0,.25);
+
+      color: white;
+    }
+
+    .story-content {
+      position: absolute;
+
+      right: 20px;
+      left: 20px;
+      bottom: 25px;
+
+      z-index: 5;
+    }
+
+    .story-content h3 {
+      font-size: 21px;
+
+      line-height: 1.5;
+
+      margin-bottom: 7px;
+    }
+
+    .story-content p {
+      color: rgba(255,255,255,.82);
+
+      font-size: 10px;
+
+      line-height: 1.9;
+    }
+
+    .story-reactions {
+      display: flex;
+
+      gap: 7px;
+
+      margin-top: 16px;
+    }
+
+    .reaction {
+      height: 39px;
+
+      padding: 0 13px;
+
+      border-radius: 12px;
+
+      border:
+        1px solid rgba(255,255,255,.15);
+
+      background:
+        rgba(0,0,0,.24);
+
+      color: white;
+
+      font-size: 11px;
+    }
+
+    .story-nav {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 4;
+
+      display: flex;
+    }
+
+    .story-nav button {
+      flex: 1;
+
+      border: 0;
+
+      background: transparent;
+    }
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    .toast {
+      position: fixed;
+
+      bottom: 25px;
+
+      right: 50%;
+
+      transform:
+        translate(50%, 30px);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      z-index: 5000;
+
+      padding: 12px 17px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 12px;
+
+      background:
+        rgba(7,25,18,.95);
+
+      color: var(--gold-light);
+
+      font-size: 10px;
+
+      box-shadow:
+        var(--shadow);
+
+      transition: .3s;
+    }
+
+    .toast.show {
+      opacity: 1;
+
+      transform:
+        translate(50%, 0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1050px) {
+
+      .top-nav {
+        display: none;
+      }
+
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .side {
+        position: static;
+
+        display: grid;
+
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 15px;
+      }
+
+      .side-card {
+        margin-bottom: 0;
+      }
+
+    }
+
+    @media (max-width: 760px) {
+
+      header {
+        height: 68px;
+      }
+
+      .brand-text {
+        display: none;
+      }
+
+      .discovery-top {
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+
+      .create-btn {
+        width: 100%;
+      }
+
+      .feed-grid {
+        columns: 2 150px;
+
+        column-gap: 10px;
+      }
+
+      .post {
+        margin-bottom: 10px;
+      }
+
+      .side {
+        grid-template-columns: 1fr;
+      }
+
+      .story-shell {
+        width: 100vw;
+
+        height: 100vh;
+
+        border-radius: 0;
+
+        border: 0;
+      }
+
+    }
+
+    @media (max-width: 450px) {
+
+      .page {
+        width: 94%;
+      }
+
+      .brand-logo {
+        width: 40px;
+        height: 40px;
+      }
+
+      .header-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .discovery {
+        padding-top: 25px;
+      }
+
+      .discovery-title h1 {
+        font-size: 31px;
+      }
+
+      .feed-grid {
+        columns: 2 135px;
+      }
+
+      .post-info {
+        padding: 10px;
+      }
+
+      .post-title {
+        font-size: 10px;
+      }
+
+      .post-description {
+        font-size: 8px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <div class="brand-logo">
+          A
+        </div>
+
+        <div class="brand-text">
+          <strong>ARTIK</strong>
+          <span>STORIES</span>
+        </div>
+
+      </a>
+
+
+      <nav class="top-nav">
+
+        <a href="index.html">
+          خانه
+        </a>
+
+        <a href="videos.html">
+          ویدئو
+        </a>
+
+        <a
+          href="stories.html"
+          class="active"
+        >
+          استوری
+        </a>
+
+        <a href="gallery.html">
+          گالری
+        </a>
+
+        <a href="shop.html">
+          فروشگاه
+        </a>
+
+      </nav>
+
+
+      <div class="header-actions">
+
+        <button
+          class="header-icon"
+          onclick="showToast('جستجوی ARTIK به‌زودی فعال می‌شود')"
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button
+          class="header-icon"
+          onclick="showToast('اعلان جدیدی وجود ندارد')"
+        >
+          <i class="fa-regular fa-bell"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="page">
+
+
+    <!-- =========================
+         DISCOVERY
+    ========================== -->
+
+    <section class="discovery">
+
+      <div class="discovery-top">
+
+        <div class="discovery-title">
+
+          <h1>
+            کشف کن.
+            <span>بساز.</span>
+            الهام بگیر.
+          </h1>
+
+          <p>
+            استوری‌ها، ایده‌ها، پروژه‌ها و لحظه‌های
+            نسل آینده ARTIK را کشف کن.
+          </p>
+
+        </div>
+
+
+        <button
+          class="create-btn"
+          onclick="showToast('ساخت استوری در نسخه بعدی فعال می‌شود')"
+        >
+
+          <i class="fa-solid fa-plus"></i>
+
+          ساخت استوری
+
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           STORIES
+      ========================== -->
+
+      <div class="stories-panel">
+
+        <div class="stories-row">
+
+
+          <div
+            class="story-person add"
+            onclick="showToast('ساخت استوری به‌زودی')"
+          >
+
+            <div class="story-ring">
+
+              <div class="story-ring-inner">
+
+                <i class="fa-solid fa-plus"></i>
+
+              </div>
+
+            </div>
+
+            <span class="story-name">
+              استوری من
+            </span>
+
+          </div>
+
+
+          <div
+            class="story-person"
+            onclick="openStory(0)"
+          >
+
+            <div class="story-ring">
+
+              <div class="story-ring-inner">
+
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                >
+
+              </div>
+
+            </div>
+
+            <span class="story-name">
+              آوا
+            </span>
+
+          </div>
+
+
+          <div
+            class="story-person"
+            onclick="openStory(1)"
+          >
+
+            <div class="story-ring">
+
+              <div class="story-ring-inner">
+
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                >
+
+              </div>
+
+            </div>
+
+            <span class="story-name">
+              آرین
+            </span>
+
+          </div>
+
+
+          <div
+            class="story-person"
+            onclick="openStory(2)"
+          >
+
+            <div class="story-ring">
+
+              <div class="story-ring-inner">
+
+                <img
+                  src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                >
+
+              </div>
+
+            </div>
+
+            <span class="story-name">
+              سارا
+            </span>
+
+          </div>
+
+
+          <div
+            class="story-person"
+            onclick="openStory(3)"
+          >
+
+            <div class="story-ring">
+
+              <div class="story-ring-inner">
+
+                <img
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                >
+
+              </div>
+
+            </div>
+
+            <span class="story-name">
+              پارسا
+            </span>
+
+          </div>
+
+
+          <div
+            class="story-person"
+            onclick="openStory(4)"
+          >
+
+            <div class="story-ring">
+
+              <div class="story-ring-inner">
+
+                <img
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                >
+
+              </div>
+
+            </div>
+
+            <span class="story-name">
+              نیکا
+            </span>
+
+          </div>
+
+
+          <div
+            class="story-person"
+            onclick="openStory(5)"
+          >
+
+            <div class="story-ring">
+
+              <div class="story-ring-inner">
+
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                >
+
+              </div>
+
+            </div>
+
+            <span class="story-name">
+              رایان
+            </span>
+
+          </div>
+
+
+          <div
+            class="story-person"
+            onclick="openStory(6)"
+          >
+
+            <div class="story-ring">
+
+              <div class="story-ring-inner">
+
+                <img
+                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80"
+                  alt=""
+                >
+
+              </div>
+
+            </div>
+
+            <span class="story-name">
+              یلدا
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           MODE BAR
+      ========================== -->
+
+      <div class="mode-bar">
+
+        <div class="modes">
+
+          <button
+            class="mode-btn active"
+            onclick="switchMode(this, 'discover')"
+          >
+            <i class="fa-solid fa-compass"></i>
+            کشف
+          </button>
+
+          <button
+            class="mode-btn"
+            onclick="switchMode(this, 'video')"
+          >
+            <i class="fa-solid fa-play"></i>
+            ویدئو
+          </button>
+
+          <button
+            class="mode-btn"
+            onclick="switchMode(this, 'ideas')"
+          >
+            <i class="fa-regular fa-lightbulb"></i>
+            ایده‌ها
+          </button>
+
+        </div>
+
+        <span class="explore-label">
+          منتخب ARTIK
+        </span>
+
+      </div>
+
+
+      <!-- =========================
+           CONTENT
+      ========================== -->
+
+      <div class="content-layout">
+
+
+        <!-- FEED -->
+
+        <section class="feed">
+
+          <div class="feed-grid" id="feedGrid">
+
+
+            <!-- POST 1 -->
+
+            <article class="post tall">
+
+              <div class="post-media">
+
+                <img
+                  src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=85"
+                  alt="آزمایش علمی"
+                >
+
+                <button
+                  class="save-btn"
+                  onclick="toggleSave(this)"
+                >
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+              </div>
+
+
+              <div class="post-info">
+
+                <div class="post-author">
+
+                  <img
+                    class="author-avatar"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+                    alt=""
+                  >
+
+                  <div class="author-info">
+
+                    <strong>
+                      آوا | Science Lab
+                    </strong>
+
+                    <span>
+                      ۲ ساعت پیش
+                    </span>
+
+                  </div>
+
+                  <button class="follow">
+                    دنبال کن
+                  </button>
+
+                </div>
+
+
+                <h3 class="post-title">
+                  امروز یک آزمایش جدید انجام دادم! 🧪
+                </h3>
+
+                <p class="post-description">
+                  وقتی یک سؤال ساده تبدیل به یک پروژه واقعی می‌شود...
+                </p>
+
+
+                <div class="post-bottom">
+
+                  <div class="post-actions">
+
+                    <button
+                      class="post-action"
+                      onclick="likePost(this)"
+                    >
+                      ♡ ۲۴
+                    </button>
+
+                    <button
+                      class="post-action"
+                      onclick="showToast('بخش دیدگاه‌ها به‌زودی فعال می‌شود')"
+                    >
+                      <i class="fa-regular fa-comment"></i>
+                      ۸
+                    </button>
+
+                  </div>
+
+                  <span class="post-tag">
+                    #علم
+                  </span>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- POST 2 -->
+
+            <article class="post medium">
+
+              <div class="post-media">
+
+                <img
+                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=85"
+                  alt="طراحی"
+                >
+
+                <button
+                  class="save-btn"
+                  onclick="toggleSave(this)"
+                >
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+              </div>
+
+
+              <div class="post-info">
+
+                <div class="post-author">
+
+                  <img
+                    class="author-avatar"
+                    src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80"
+                    alt=""
+                  >
+
+                  <div class="author-info">
+
+                    <strong>
+                      سارا | Art
+                    </strong>
+
+                    <span>
+                      ۴ ساعت پیش
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <h3 class="post-title">
+                  وقتی ایده‌ات را روی کاغذ می‌آوری 🎨
+                </h3>
+
+                <div class="post-bottom">
+
+                  <div class="post-actions">
+
+                    <button
+                      class="post-action"
+                      onclick="likePost(this)"
+                    >
+                      ♡ ۵۶
+                    </button>
+
+                    <button
+                      class="post-action"
+                      onclick="showToast('دیدگاه‌ها به‌زودی فعال می‌شوند')"
+                    >
+                      <i class="fa-regular fa-comment"></i>
+                      ۱۲
+                    </button>
+
+                  </div>
+
+                  <span class="post-tag">
+                    #هنر
+                  </span>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- POST 3 -->
+
+            <article class="post tall">
+
+              <div class="post-media">
+
+                <img
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=85"
+                  alt="تکنولوژی"
+                >
+
+                <div class="video-mark">
+
+                  <i class="fa-solid fa-play"></i>
+
+                </div>
+
+                <button
+                  class="save-btn"
+                  onclick="toggleSave(this)"
+                >
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+              </div>
+
+
+              <div class="post-info">
+
+                <div class="post-author">
+
+                  <img
+                    class="author-avatar"
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+                    alt=""
+                  >
+
+                  <div class="author-info">
+
+                    <strong>
+                      آرین | Tech
+                    </strong>
+
+                    <span>
+                      ۵ ساعت پیش
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <h3 class="post-title">
+                  ساخت اولین مدار کوچک من ⚡
+                </h3>
+
+                <p class="post-description">
+                  از یک ایده ساده تا یک نمونه واقعی.
+                </p>
+
+                <div class="post-bottom">
+
+                  <div class="post-actions">
+
+                    <button
+                      class="post-action"
+                      onclick="likePost(this)"
+                    >
+                      ♡ ۸۱
+                    </button>
+
+                    <button
+                      class="post-action"
+                      onclick="showToast('دیدگاه‌ها به‌زودی فعال می‌شوند')"
+                    >
+                      <i class="fa-regular fa-comment"></i>
+                      ۲۱
+                    </button>
+
+                  </div>
+
+                  <span class="post-tag">
+                    #تکنولوژی
+                  </span>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- POST 4 -->
+
+            <article class="post short">
+
+              <div class="post-media">
+
+                <img
+                  src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=85"
+                  alt="کتاب"
+                >
+
+                <button
+                  class="save-btn"
+                  onclick="toggleSave(this)"
+                >
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+              </div>
+
+
+              <div class="post-info">
+
+                <div class="post-author">
+
+                  <img
+                    class="author-avatar"
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
+                    alt=""
+                  >
+
+                  <div class="author-info">
+
+                    <strong>
+                      پارسا | Books
+                    </strong>
+
+                    <span>
+                      امروز
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <h3 class="post-title">
+                  ۳ کتابی که مسیر فکرم را عوض کردند 📚
+                </h3>
+
+                <div class="post-bottom">
+
+                  <div class="post-actions">
+
+                    <button
+                      class="post-action"
+                      onclick="likePost(this)"
+                    >
+                      ♡ ۴۲
+                    </button>
+
+                  </div>
+
+                  <span class="post-tag">
+                    #کتاب
+                  </span>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- POST 5 -->
+
+            <article class="post tall">
+
+              <div class="post-media">
+
+                <img
+                  src="https://images.unsplash.com/photo-1524255684952-d7185b509571?auto=format&fit=crop&w=800&q=85"
+                  alt="ایده"
+                >
+
+                <button
+                  class="save-btn"
+                  onclick="toggleSave(this)"
+                >
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+              </div>
+
+
+              <div class="post-info">
+
+                <div class="post-author">
+
+                  <img
+                    class="author-avatar"
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                    alt=""
+                  >
+
+                  <div class="author-info">
+
+                    <strong>
+                      نیکا | Ideas
+                    </strong>
+
+                    <span>
+                      امروز
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <h3 class="post-title">
+                  اگر قرار بود یک اپ برای نوجوان‌ها بسازم...
+                </h3>
+
+                <p class="post-description">
+                  این ایده از یک مشکل واقعی شروع شد.
+                </p>
+
+                <div class="post-bottom">
+
+                  <div class="post-actions">
+
+                    <button
+                      class="post-action"
+                      onclick="likePost(this)"
+                    >
+                      ♡ ۶۷
+                    </button>
+
+                    <button
+                      class="post-action"
+                      onclick="showToast('دیدگاه‌ها به‌زودی فعال می‌شوند')"
+                    >
+                      <i class="fa-regular fa-comment"></i>
+                      ۱۵
+                    </button>
+
+                  </div>
+
+                  <span class="post-tag">
+                    #ایده
+                  </span>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- POST 6 -->
+
+            <article class="post medium">
+
+              <div class="post-media">
+
+                <img
+                  src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=85"
+                  alt="موسیقی"
+                >
+
+                <div class="video-mark">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+
+                <button
+                  class="save-btn"
+                  onclick="toggleSave(this)"
+                >
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+              </div>
+
+
+              <div class="post-info">
+
+                <div class="post-author">
+
+                  <img
+                    class="author-avatar"
+                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+                    alt=""
+                  >
+
+                  <div class="author-info">
+
+                    <strong>
+                      یلدا | Music
+                    </strong>
+
+                    <span>
+                      دیروز
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <h3 class="post-title">
+                  یک دقیقه موسیقی برای حال خوب 🎵
+                </h3>
+
+                <div class="post-bottom">
+
+                  <div class="post-actions">
+
+                    <button
+                      class="post-action"
+                      onclick="likePost(this)"
+                    >
+                      ♡ ۹۳
+                    </button>
+
+                    <button
+                      class="post-action"
+                      onclick="showToast('دیدگاه‌ها به‌زودی فعال می‌شوند')"
+                    >
+                      <i class="fa-regular fa-comment"></i>
+                      ۲۷
+                    </button>
+
+                  </div>
+
+                  <span class="post-tag">
+                    #موسیقی
+                  </span>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- POST 7 -->
+
+            <article class="post short">
+
+              <div class="post-media">
+
+                <img
+                  src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=85"
+                  alt="گیم"
+                >
+
+                <button
+                  class="save-btn"
+                  onclick="toggleSave(this)"
+                >
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+              </div>
+
+
+              <div class="post-info">
+
+                <div class="post-author">
+
+                  <img
+                    class="author-avatar"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                    alt=""
+                  >
+
+                  <div class="author-info">
+
+                    <strong>
+                      رایان | Game
+                    </strong>
+
+                    <span>
+                      دیروز
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <h3 class="post-title">
+                  ایده یک بازی که خودم طراحی کردم 🎮
+                </h3>
+
+                <div class="post-bottom">
+
+                  <div class="post-actions">
+
+                    <button
+                      class="post-action"
+                      onclick="likePost(this)"
+                    >
+                      ♡ ۳۵
+                    </button>
+
+                  </div>
+
+                  <span class="post-tag">
+                    #بازی
+                  </span>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- POST 8 -->
+
+            <article class="post tall">
+
+              <div class="post-media">
+
+                <img
+                  src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=85"
+                  alt="رویداد"
+                >
+
+                <button
+                  class="save-btn"
+                  onclick="toggleSave(this)"
+                >
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+
+              </div>
+
+
+              <div class="post-info">
+
+                <div class="post-author">
+
+                  <img
+                    class="author-avatar"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+                    alt=""
+                  >
+
+                  <div class="author-info">
+
+                    <strong>
+                      ARTIK EVENT
+                    </strong>
+
+                    <span>
+                      ۲ روز پیش
+                    </span>
+
+                  </div>
+
+                </div>
+
+                <h3 class="post-title">
+                  لحظه‌هایی از یک روز پر از ایده ✦
+                </h3>
+
+                <p class="post-description">
+                  جایی که استعدادها با هم ملاقات می‌کنند.
+                </p>
+
+                <div class="post-bottom">
+
+                  <div class="post-actions">
+
+                    <button
+                      class="post-action"
+                      onclick="likePost(this)"
+                    >
+                      ♡ ۱۲۸
+                    </button>
+
+                    <button
+                      class="post-action"
+                      onclick="showToast('دیدگاه‌ها به‌زودی فعال می‌شوند')"
+                    >
+                      <i class="fa-regular fa-comment"></i>
+                      ۳۲
+                    </button>
+
+                  </div>
+
+                  <span class="post-tag">
+                    #ARTIK
+                  </span>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+          </div>
+
+        </section>
+
+
+        <!-- SIDE -->
+
+        <aside class="side">
+
+
+          <!-- TRENDING -->
+
+          <div class="side-card">
+
+            <div class="side-title">
+
+              <strong>
+                🔥 موضوعات داغ
+              </strong>
+
+              <a href="#">
+                همه
+              </a>
+
+            </div>
+
+
+            <div class="trend">
+
+              <div class="trend-number">
+                01
+              </div>
+
+              <img
+                class="trend-icon"
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=200&q=80"
+                alt=""
+              >
+
+              <div class="trend-info">
+
+                <strong>
+                  پروژه‌های تکنولوژی
+                </strong>
+
+                <span>
+                  ۲.۴K کشف
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="trend">
+
+              <div class="trend-number">
+                02
+              </div>
+
+              <img
+                class="trend-icon"
+                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=200&q=80"
+                alt=""
+              >
+
+              <div class="trend-info">
+
+                <strong>
+                  آزمایش‌های علمی
+                </strong>
+
+                <span>
+                  ۱.۸K کشف
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="trend">
+
+              <div class="trend-number">
+                03
+              </div>
+
+              <img
+                class="trend-icon"
+                src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=200&q=80"
+                alt=""
+              >
+
+              <div class="trend-info">
+
+                <strong>
+                  طراحی و هنر
+                </strong>
+
+                <span>
+                  ۱.۲K کشف
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="trend">
+
+              <div class="trend-number">
+                04
+              </div>
+
+              <img
+                class="trend-icon"
+                src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=200&q=80"
+                alt=""
+              >
+
+              <div class="trend-info">
+
+                <strong>
+                  کتاب و یادگیری
+                </strong>
+
+                <span>
+                  ۹۸۰ کشف
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- CREATORS -->
+
+          <div class="side-card">
+
+            <div class="side-title">
+
+              <strong>
+                ✦ سازندگان پیشنهادی
+              </strong>
+
+              <a href="#">
+                بیشتر
+              </a>
+
+            </div>
+
+
+            <div class="creator">
+
+              <img
+                class="creator-avatar"
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+                alt=""
+              >
+
+              <div class="creator-info">
+
+                <strong>
+                  Ava Science
+                </strong>
+
+                <span>
+                  علم و آزمایش
+                </span>
+
+              </div>
+
+              <button class="follow-small">
+                دنبال کن
+              </button>
+
+            </div>
+
+
+            <div class="creator">
+
+              <img
+                class="creator-avatar"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
+                alt=""
+              >
+
+              <div class="creator-info">
+
+                <strong>
+                  Arian Tech
+                </strong>
+
+                <span>
+                  تکنولوژی
+                </span>
+
+              </div>
+
+              <button class="follow-small">
+                دنبال کن
+              </button>
+
+            </div>
+
+
+            <div class="creator">
+
+              <img
+                class="creator-avatar"
+                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=150&q=80"
+                alt=""
+              >
+
+              <div class="creator-info">
+
+                <strong>
+                  Sara Art
+                </strong>
+
+                <span>
+                  هنر و طراحی
+                </span>
+
+              </div>
+
+              <button class="follow-small">
+                دنبال کن
+              </button>
+
+            </div>
+
+
+            <div class="creator">
+
+              <img
+                class="creator-avatar"
+                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80"
+                alt=""
+              >
+
+              <div class="creator-info">
+
+                <strong>
+                  Yalda Music
+                </strong>
+
+                <span>
+                  موسیقی
+                </span>
+
+              </div>
+
+              <button class="follow-small">
+                دنبال کن
+              </button>
+
+            </div>
+
+          </div>
+
+
+        </aside>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       STORY VIEWER
+  ========================== -->
+
+  <div
+    class="story-viewer"
+    id="storyViewer"
+  >
+
+    <div class="story-shell">
+
+
+      <div
+        class="story-progress"
+        id="storyProgress"
+      ></div>
+
+
+      <img
+        class="story-image"
+        id="storyImage"
+        src=""
+        alt=""
+      >
+
+
+      <div class="story-overlay"></div>
+
+
+      <div class="story-top">
+
+        <img
+          class="story-avatar"
+          id="storyAvatar"
+          src=""
+          alt=""
+        >
+
+        <div class="story-user">
+
+          <strong id="storyUser">
+            ARTIK
+          </strong>
+
+          <span id="storyTime">
+            اکنون
+          </span>
+
+        </div>
+
+        <button
+          class="story-close"
+          onclick="closeStory()"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+      </div>
+
+
+      <div class="story-content">
+
+        <h3 id="storyTitle">
+          یک داستان جدید
+        </h3>
+
+        <p id="storyDescription">
+          کشف کن، یاد بگیر و ایده بگیر.
+        </p>
+
+
+        <div class="story-reactions">
+
+          <button
+            class="reaction"
+            onclick="storyReact('🔥')"
+          >
+            🔥
+          </button>
+
+          <button
+            class="reaction"
+            onclick="storyReact('💡')"
+          >
+            💡
+          </button>
+
+          <button
+            class="reaction"
+            onclick="storyReact('❤️')"
+          >
+            ❤️
+          </button>
+
+          <button
+            class="reaction"
+            onclick="storyReact('👏')"
+          >
+            👏
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="story-nav">
+
+        <button
+          onclick="previousStory()"
+          aria-label="قبلی"
+        ></button>
+
+        <button
+          onclick="nextStory()"
+          aria-label="بعدی"
+        ></button>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       TOAST
+  ========================== -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+  <script>
+
+    /* =========================
+       STORIES DATA
+    ========================== */
+
+    const stories = [
+
+      {
+        user: "آوا | Science Lab",
+        time: "۲ ساعت پیش",
+        avatar:
+          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+        image:
+          "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=90",
+        title:
+          "امروز یک آزمایش جدید انجام دادم 🧪",
+        description:
+          "گاهی یک سؤال کوچک می‌تواند شروع یک پروژه بزرگ باشد."
+      },
+
+      {
+        user: "آرین | Tech",
+        time: "۵ ساعت پیش",
+        avatar:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+        image:
+          "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=90",
+        title:
+          "از یک مدار کوچک شروع کردم ⚡",
+        description:
+          "اولین نمونه همیشه کامل نیست؛ مهم این است که ساخته شود."
+      },
+
+      {
+        user: "سارا | Art",
+        time: "۴ ساعت پیش",
+        avatar:
+          "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&q=80",
+        image:
+          "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1000&q=90",
+        title:
+          "ایده‌ها روی کاغذ متولد می‌شوند 🎨",
+        description:
+          "امروز طرحی را شروع کردم که مدت‌ها در ذهنم بود."
+      },
+
+      {
+        user: "پارسا | Books",
+        time: "امروز",
+        avatar:
+          "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80",
+        image:
+          "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1000&q=90",
+        title:
+          "یک کتاب جدید، یک دنیای جدید 📚",
+        description:
+          "این هفته قرار است هر روز کمی بیشتر یاد بگیرم."
+      },
+
+      {
+        user: "نیکا | Ideas",
+        time: "امروز",
+        avatar:
+          "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+        image:
+          "https://images.unsplash.com/photo-1524255684952-d7185b509571?auto=format&fit=crop&w=1000&q=90",
+        title:
+          "اگر یک مشکل واقعی داری، یک ایده داری 💡",
+        description:
+          "ایده خوب از مشاهده یک نیاز واقعی شروع می‌شود."
+      },
+
+      {
+        user: "رایان | Game",
+        time: "دیروز",
+        avatar:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+        image:
+          "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=90",
+        title:
+          "یک بازی جدید در ذهنم ساخته شد 🎮",
+        description:
+          "حالا وقتشه ایده را تبدیل به نمونه اولیه کنم."
+      },
+
+      {
+        user: "یلدا | Music",
+        time: "دیروز",
+        avatar:
+          "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80",
+        image:
+          "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1000&q=90",
+        title:
+          "یک دقیقه موسیقی برای حال خوب 🎵",
+        description:
+          "گاهی چند نت کافی است تا یک ایده شکل بگیرد."
+      }
+
+    ];
+
+
+    let currentStory = 0;
+
+
+    const storyViewer =
+      document.getElementById(
+        "storyViewer"
+      );
+
+    const storyImage =
+      document.getElementById(
+        "storyImage"
+      );
+
+    const storyAvatar =
+      document.getElementById(
+        "storyAvatar"
+      );
+
+    const storyUser =
+      document.getElementById(
+        "storyUser"
+      );
+
+    const storyTime =
+      document.getElementById(
+        "storyTime"
+      );
+
+    const storyTitle =
+      document.getElementById(
+        "storyTitle"
+      );
+
+    const storyDescription =
+      document.getElementById(
+        "storyDescription"
+      );
+
+    const storyProgress =
+      document.getElementById(
+        "storyProgress"
+      );
+
+
+    function renderStory() {
+
+      const story =
+        stories[currentStory];
+
+
+      storyImage.src =
+        story.image;
+
+      storyAvatar.src =
+        story.avatar;
+
+      storyUser.textContent =
+        story.user;
+
+      storyTime.textContent =
+        story.time;
+
+      storyTitle.textContent =
+        story.title;
+
+      storyDescription.textContent =
+        story.description;
+
+
+      storyProgress.innerHTML =
+        stories.map(
+          (_, index) => `
+            <div
+              class="progress-line ${
+                index === currentStory
+                  ? "active"
+                  : ""
+              }"
+            ></div>
+          `
+        ).join("");
+
+    }
+
+
+    function openStory(index) {
+
+      currentStory = index;
+
+      renderStory();
+
+      storyViewer.classList.add(
+        "active"
+      );
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    function closeStory() {
+
+      storyViewer.classList.remove(
+        "active"
+      );
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    function nextStory() {
+
+      currentStory++;
+
+      if (
+        currentStory >= stories.length
+      ) {
+
+        currentStory = 0;
+
+      }
+
+      renderStory();
+
+    }
+
+
+    function previousStory() {
+
+      currentStory--;
+
+      if (currentStory < 0) {
+
+        currentStory =
+          stories.length - 1;
+
+      }
+
+      renderStory();
+
+    }
+
+
+    function storyReact(reaction) {
+
+      showToast(
+        "واکنش " +
+        reaction +
+        " ثبت شد ✦"
+      );
+
+    }
+
+
+    /* =========================
+       SAVE
+    ========================== */
+
+    function toggleSave(button) {
+
+      button.classList.toggle(
+        "active"
+      );
+
+      const icon =
+        button.querySelector("i");
+
+
+      if (
+        button.classList.contains("active")
+      ) {
+
+        icon.classList.remove(
+          "fa-regular"
+        );
+
+        icon.classList.add(
+          "fa-solid"
+        );
+
+        showToast(
+          "به مجموعه ذخیره‌شده‌ها اضافه شد"
+        );
+
+      } else {
+
+        icon.classList.remove(
+          "fa-solid"
+        );
+
+        icon.classList.add(
+          "fa-regular"
+        );
+
+        showToast(
+          "از ذخیره‌شده‌ها حذف شد"
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       LIKE
+    ========================== */
+
+    function likePost(button) {
+
+      const text =
+        button.textContent.trim();
+
+      const match =
+        text.match(
+          /(\d+)/
+        );
+
+
+      if (match) {
+
+        const number =
+          Number(match[1]) + 1;
+
+        button.innerHTML =
+          "♥ " +
+          number;
+
+      }
+
+      button.style.color =
+        "#f4d47c";
+
+    }
+
+
+    /* =========================
+       MODE
+    ========================== */
+
+    function switchMode(
+      button,
+      mode
+    ) {
+
+      document
+        .querySelectorAll(".mode-btn")
+        .forEach(
+          item =>
+            item.classList.remove(
+              "active"
+            )
+        );
+
+
+      button.classList.add(
+        "active"
+      );
+
+
+      if (mode === "video") {
+
+        showToast(
+          "حالت ویدئو در نسخه بعدی با فید تمام‌صفحه فعال می‌شود"
+        );
+
+      }
+
+
+      if (mode === "ideas") {
+
+        showToast(
+          "حالت ایده‌ها به‌زودی فعال می‌شود"
+        );
+
+      }
+
+
+      if (mode === "discover") {
+
+        showToast(
+          "حالت کشف فعال است ✦"
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       TOAST
+    ========================== */
+
+    let toastTimer;
+
+
+    function showToast(message) {
+
+      const toast =
+        document.getElementById(
+          "toast"
+        );
+
+
+      toast.textContent =
+        message;
+
+
+      toast.classList.add(
+        "show"
+      );
+
+
+      clearTimeout(
+        toastTimer
+      );
+
+
+      toastTimer =
+        setTimeout(
+          () => {
+
+            toast.classList.remove(
+              "show"
+            );
+
+          },
+          2200
+        );
+
+    }
+
+
+    /* =========================
+       KEYBOARD
+    ========================== */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          !storyViewer.classList.contains(
+            "active"
+          )
+        ) {
+          return;
+        }
+
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeStory();
+
+        }
+
+
+        if (
+          event.key === "ArrowRight"
+        ) {
+
+          nextStory();
+
+        }
+
+
+        if (
+          event.key === "ArrowLeft"
+        ) {
+
+          previousStory();
+
+        }
+
+      }
+    );
+
+
+  </script>
+
+</body>
+
+  </html>
